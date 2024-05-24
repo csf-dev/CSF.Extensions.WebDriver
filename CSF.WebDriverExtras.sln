@@ -1,9 +1,9 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.WebDriverExtras", "CSF.WebDriverExtras\CSF.WebDriverExtras.csproj", "{C99466AD-CA21-4C12-9E05-6730CDC3C031}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Extensions.WebDriver", "CSF.Extensions.WebDriver\CSF.Extensions.WebDriver.csproj", "{95B8B085-52E4-4EC2-8408-5FC92EB1CC02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.WebDriverExtras.Tests", "CSF.WebDriverExtras.Tests\CSF.WebDriverExtras.Tests.csproj", "{9A92340A-F3AA-445B-955D-DCF68B3580AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSF.Extensions.WebDriver.Tests", "CSF.Extensions.WebDriver.Tests\CSF.Extensions.WebDriver.Tests.csproj", "{0D470EFB-462C-4251-8C63-52A7BBC0DF50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,14 +11,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C99466AD-CA21-4C12-9E05-6730CDC3C031}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C99466AD-CA21-4C12-9E05-6730CDC3C031}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C99466AD-CA21-4C12-9E05-6730CDC3C031}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C99466AD-CA21-4C12-9E05-6730CDC3C031}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9A92340A-F3AA-445B-955D-DCF68B3580AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A92340A-F3AA-445B-955D-DCF68B3580AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A92340A-F3AA-445B-955D-DCF68B3580AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A92340A-F3AA-445B-955D-DCF68B3580AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95B8B085-52E4-4EC2-8408-5FC92EB1CC02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95B8B085-52E4-4EC2-8408-5FC92EB1CC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95B8B085-52E4-4EC2-8408-5FC92EB1CC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95B8B085-52E4-4EC2-8408-5FC92EB1CC02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D470EFB-462C-4251-8C63-52A7BBC0DF50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D470EFB-462C-4251-8C63-52A7BBC0DF50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D470EFB-462C-4251-8C63-52A7BBC0DF50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D470EFB-462C-4251-8C63-52A7BBC0DF50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
