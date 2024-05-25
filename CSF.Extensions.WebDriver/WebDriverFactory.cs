@@ -1,13 +1,16 @@
-using OpenQA.Selenium.Chrome;
-using Microsoft.Extensions.Configuration;
+using System;
+using CSF.Extensions.WebDriver.Factories;
+using Microsoft.Extensions.Options;
 
 namespace CSF.Extensions.WebDriver
 {
     public class WebDriverFactory
     {
-        public WebDriverFactory()
+        readonly IOptions<WebDriverCreationConfigureOptions> options;
+
+        public WebDriverFactory(IOptions<WebDriverCreationConfigureOptions> options)
         {
-            var driver = new ChromeDriver(new ChromeOptions { });
+            this.options = options ?? throw new ArgumentNullException(nameof(options));
         }
     }
 }
