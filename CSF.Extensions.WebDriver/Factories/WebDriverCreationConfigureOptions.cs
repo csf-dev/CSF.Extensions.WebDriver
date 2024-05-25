@@ -2,15 +2,28 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
 namespace CSF.Extensions.WebDriver.Factories
 {
-    public class WebDriverCreationConfigureOptions : IConfigureOptions<WebDriverCreationOptionsCollection>
+    /// <summary>
+    /// A service which configures an <see cref="IOptions{TOptions}"/> of <see cref="WebDriverCreationOptionsCollection"/> within
+    /// dependency injection.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// By design, the <see cref="Configure(WebDriverCreationOptionsCollection)"/> method of this class will avoid throwing exceptions.
+    /// Instead, if the configuration is unsuitable or not valid then this class will log an error and omit the troublesome driver configuration.
+    /// </para>
+    /// </remarks>
+    public sealed class WebDriverCreationConfigureOptions : IConfigureOptions<WebDriverCreationOptionsCollection>
     {
         readonly IConfiguration configuration;
+        readonly Action<WebDriverCreationOptionsCollection> configureOptions;
+        readonly ILogger<WebDriverCreationConfigureOptions> logger;
         readonly IGetsWebDriverWithDeterministicOptionsTypes deterministicWebDriverTypesScanner;
         readonly object
             webDriverAndDeterministicOptionsTypesSyncRoot = new object(),
@@ -42,25 +55,38 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <inheritdoc/>
         public void Configure(WebDriverCreationOptionsCollection options)
         {
-            var configurationSection = configuration.GetSection("WebDriverFactory");
-            BindOptions(options, configurationSection);
+            if(configuration is null)
+            {
+                logger.LogWarning("Configuration for {TypeName} is null; the WebDriver creation options will be left unconfigured. " +
+                                  "Reminder: By default the configuration path is '{Path}'.",
+                                  nameof(WebDriverCreationOptionsCollection),
+                                  ServiceCollectionExtensions.DefaultConfigPath);
+                return;
+            }
+
+            options.SelectedConfiguration = configuration.GetValue<string>(nameof(WebDriverCreationOptionsCollection.SelectedConfiguration));
+
+            var driverConfigsSection = configuration.GetSection(nameof(WebDriverCreationOptionsCollection.DriverConfigurations));
+            if(driverConfigsSection != null) options.DriverConfigurations = GetDriverConfigurations(driverConfigsSection);
+
+            configureOptions?.Invoke(options);
         }
 
-    
-        void BindOptions(WebDriverCreationOptionsCollection options, IConfiguration config)
+        static Action<object> GetConfigChangeCallback(WebDriverCreationOptionsCollection options)
         {
-            options.SelectedConfiguration = config.GetValue<string>(nameof(WebDriverCreationOptionsCollection.SelectedConfiguration));
-
-            var driverConfigsSection = config.GetSection(nameof(WebDriverCreationOptionsCollection.DriverConfigurations));
-            if(driverConfigsSection != null) options.DriverConfigurations = GetDriverConfigurations(driverConfigsSection);
+            return conf =>
+            {
+                var config = (IConfiguration) conf;
+                options.SelectedConfiguration = config.GetValue<string>(nameof(WebDriverCreationOptionsCollection.SelectedConfiguration));
+            };
         }
 
         IDictionary<string, WebDriverCreationOptions> GetDriverConfigurations(IConfigurationSection configuration)
-            => configuration.GetChildren().Select(c => new { c.Key, Value = GetDriverConfiguration(c) }).ToDictionary(k => k.Key, v => v.Value);
+            => configuration.GetChildren().Select(c => new { c.Key, Value = GetDriverConfiguration(c) }).Where(x => x.Value != null).ToDictionary(k => k.Key, v => v.Value);
 
         WebDriverCreationOptions GetDriverConfiguration(IConfigurationSection configuration)
         {
-            var output = new WebDriverCreationOptions
+            var creationOptions = new WebDriverCreationOptions
             {
                 DriverType = configuration.GetValue<string>(nameof(WebDriverCreationOptions.DriverType)),
                 OptionsType = configuration.GetValue<string>(nameof(WebDriverCreationOptions.OptionsType)),
@@ -68,18 +94,64 @@ namespace CSF.Extensions.WebDriver.Factories
                 DriverFactoryType = configuration.GetValue<string>(nameof(WebDriverCreationOptions.DriverFactoryType)),
             };
 
-            var driverType = GetDriverType(output.DriverType);
-            if (driverType is null)
-                throw new ArgumentException($"No implementation of {nameof(IWebDriver)} can be found matching the configured value '{output.DriverType}'.\n" +
-                                            "Reminder: If the driver type is not one which is shipped with Selenium then you must specify the assembly-qualified type name.",
-                                            nameof(configuration));
-            
-            
-            var driversRootSection = configuration.GetSection(nameof(WebDriverCreationOptionsCollection.DriverConfigurations));
-            if (driversRootSection is null) return new WebDriverCreationOptions();
-            var driverSections = driversRootSection.GetChildren();
+            if(creationOptions.DriverType is null)
+            {
+                logger.LogError("{ParamName} is mandatory for all driver configurations; the configuration '{ConfigKey}' will be omitted.",
+                                nameof(WebDriverCreationOptions.DriverType),
+                                configuration.Key);
+                return null;
+            }
 
-            throw new NotImplementedException();
+            var driverType = GetDriverType(creationOptions.DriverType);
+            if (driverType is null)
+            {
+                logger.LogError("No implementation of {WebDriverInterface} was found for the type name '{DriverType}'. The driver configuration '{ConfigKey}' will be omitted. " +
+                                "Reminder: If the driver type is not one which is shipped with Selenium then you must specify an assembly-qualified type name.",
+                                nameof(IWebDriver),
+                                creationOptions.DriverType,
+                                configuration.Key);
+                return null;
+            }
+
+            try
+            {
+                var optionsType = GetOptionsType(creationOptions.OptionsType, driverType);
+                if(optionsType is null)
+                {
+                    logger.LogError("{OptionsTypeProp} may only be omitted when the {DriverTypeProp} is a local {WebDriverIface} implementation which implies a deterministic " +
+                                    "options type in its constructor. For {DriverType} this is not the case. The driver configuration '{ConfigKey}' will be omitted.",
+                                    nameof(WebDriverCreationOptions.OptionsType),
+                                    nameof(WebDriverCreationOptions.DriverType),
+                                    nameof(IWebDriver),
+                                    driverType.FullName,
+                                    configuration.Key);
+                    return null;
+                }
+
+                try
+                {
+                    creationOptions.Options = GetOptions(optionsType, configuration);
+                }
+                catch(Exception e)
+                {
+                    logger.LogError(e,
+                                    "An unexpected error occurred creating or binding to the {OptionsClass} type {OptionsType}. The driver configuration '{ConfigKey}' will be omitted.",
+                                    nameof(DriverOptions),
+                                    optionsType.FullName,
+                                    configuration.Key);
+                    return null;
+                }
+                
+            }
+            catch(TypeLoadException e)
+            {
+                logger.LogError(e,
+                                "An unexpected error occurred loading the options type; the driver configuration '{ConfigKey}' will be omitted.",
+                                configuration.Key);
+                return null;
+            }
+
+            return creationOptions;
         }
 
         /// <summary>
@@ -125,7 +197,6 @@ namespace CSF.Extensions.WebDriver.Factories
 
         Type GetDriverType(string driverTypeName)
         {
-            if(driverTypeName is null) throw new ArgumentNullException(nameof(driverTypeName), $"{nameof(WebDriverCreationOptions.DriverType)} is a mandatory parameter; it must not be null.");
             var driverType = GetSupportedShorthandWebDriverTypes().FirstOrDefault(x => x.Name == driverTypeName) ?? Type.GetType(driverTypeName);
             return typeof(IWebDriver).IsAssignableFrom(driverType) ? driverType : null;
         }
@@ -147,19 +218,18 @@ namespace CSF.Extensions.WebDriver.Factories
                 }
                 catch(Exception e)
                 {
-                    throw new ArgumentException($"The type specified in {nameof(WebDriverCreationOptions.OptionsType)}: '{optionsTypeName}' could not be loaded.",
-                                                nameof(optionsTypeName),
-                                                e);
+                    throw new TypeLoadException($"The type specified in {nameof(WebDriverCreationOptions.OptionsType)}: '{optionsTypeName}' could not be loaded.", e);
                 }
             }
 
-            if (!deterministicOptionsTypes.TryGetValue(driverType, out var typePair))
-                throw new ArgumentException($"{nameof(WebDriverCreationOptions.OptionsType)} may only be omitted when the {nameof(WebDriverCreationOptions.DriverType)} " +
-                                            $"indicates a local {nameof(IWebDriver)} implementation which implies a deterministic options type in its constructor.  " +
-                                            $"For {driverType.FullName}, this is not the case.",
-                                            nameof(optionsTypeName));
+            return deterministicOptionsTypes.TryGetValue(driverType, out var typePair) ? typePair.OptionsType : null;
+        }
 
-            return typePair.OptionsType;
+        static DriverOptions GetOptions(Type optionsType, IConfigurationSection config)
+        {
+            var options = (DriverOptions) Activator.CreateInstance(optionsType);
+            config.Bind(nameof(WebDriverCreationOptions.Options), options);
+            return options;
         }
 
         /// <summary>
@@ -169,10 +239,14 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <param name="configuration">The app configuration.</param>
         /// <exception cref="ArgumentNullException">If either parameter is <see langword="null" />.</exception>
         public WebDriverCreationConfigureOptions(IGetsWebDriverWithDeterministicOptionsTypes deterministicWebDriverTypesScanner,
-                                                 IConfiguration configuration)
+                                                 IConfiguration configuration,
+                                                 Action<WebDriverCreationOptionsCollection> configureOptions,
+                                                 ILogger<WebDriverCreationConfigureOptions> logger)
         {
             this.deterministicWebDriverTypesScanner = deterministicWebDriverTypesScanner ?? throw new ArgumentNullException(nameof(deterministicWebDriverTypesScanner));
-            this.configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+            this.configuration = configuration;
+            this.configureOptions = configureOptions;
+            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
     }
 }

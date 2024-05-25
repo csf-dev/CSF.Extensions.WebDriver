@@ -3,7 +3,7 @@ using OpenQA.Selenium.Remote;
 
 namespace CSF.Extensions.WebDriver.Factories;
 
-[TestFixture]
+[TestFixture, Parallelizable]
 public class SeleniumDriverAndOptionsScannerTests
 {
     [Test,AutoMoqData]
