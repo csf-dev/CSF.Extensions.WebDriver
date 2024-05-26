@@ -4,6 +4,7 @@ using Microsoft.Extensions.Options;
 using Moq;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Safari;
 
 namespace CSF.Extensions.WebDriver.Factories;
@@ -12,13 +13,9 @@ namespace CSF.Extensions.WebDriver.Factories;
 public class WebDriverCreationConfigureOptionsTests
 {
     [Test,AutoMoqData]
-    public async Task ConfigureShouldBeAbleToSetupLocalChromeDriverWithSimpleOptionsFromJsonConfiguration(IGetsWebDriverWithDeterministicOptionsTypes typesScanner)
+    public async Task ConfigureShouldBeAbleToSetupLocalChromeDriverWithSimpleOptionsFromJsonConfiguration([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
     {
-        Mock.Get(typesScanner)
-            .Setup(x => x.GetWebDriverAndDeterministicOptionsTypes())
-            .Returns([new(typeof(ChromeDriver), typeof(ChromeOptions))]);
-
-        var options = await GetOptionsAsync(typesScanner,
+        var options = await GetOptionsAsync(typeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": {
@@ -51,16 +48,12 @@ public class WebDriverCreationConfigureOptionsTests
     }
 
     [Test,AutoMoqData]
-    public async Task ConfigureShouldBeAbleToApplyAConfigurationCallbackAfterConfiguringFromJson(IGetsWebDriverWithDeterministicOptionsTypes typesScanner)
+    public async Task ConfigureShouldBeAbleToApplyAConfigurationCallbackAfterConfiguringFromJson([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
     {
         // Note that if the test ConfigureShouldBeAbleToSetupLocalChromeDriverWithSimpleOptionsFromJsonConfiguration is failing, then
         // this one is expected to fail anyway.  You should really fix that other one first before attempting to fix this one.
 
-        Mock.Get(typesScanner)
-            .Setup(x => x.GetWebDriverAndDeterministicOptionsTypes())
-            .Returns([new(typeof(ChromeDriver), typeof(ChromeOptions))]);
-
-        var options = await GetOptionsAsync(typesScanner,
+        var options = await GetOptionsAsync(typeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": {
@@ -86,13 +79,9 @@ public class WebDriverCreationConfigureOptionsTests
     }
 
     [Test,AutoMoqData]
-    public async Task ConfigureShouldBeAbleToSetupTwoLocalDriversWithSimpleOptionsFromJsonConfiguration(IGetsWebDriverWithDeterministicOptionsTypes typesScanner)
+    public async Task ConfigureShouldBeAbleToSetupTwoLocalDriversWithSimpleOptionsFromJsonConfiguration([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
     {
-        Mock.Get(typesScanner)
-            .Setup(x => x.GetWebDriverAndDeterministicOptionsTypes())
-            .Returns([new(typeof(ChromeDriver), typeof(ChromeOptions)), new(typeof(FirefoxDriver), typeof(FirefoxOptions))]);
-
-        var options = await GetOptionsAsync(typesScanner,
+        var options = await GetOptionsAsync(typeProvider,
 @"{
     ""DriverConfigurations"": {
         ""SampleChrome"": {
@@ -130,13 +119,9 @@ public class WebDriverCreationConfigureOptionsTests
     }
 
     [Test,AutoMoqData]
-    public async Task ConfigureShouldBeAbleToSetupLocalChromeDriverWithNoOptionsFromJsonConfiguration(IGetsWebDriverWithDeterministicOptionsTypes typesScanner)
+    public async Task ConfigureShouldBeAbleToSetupLocalChromeDriverWithNoOptionsFromJsonConfiguration([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
     {
-        Mock.Get(typesScanner)
-            .Setup(x => x.GetWebDriverAndDeterministicOptionsTypes())
-            .Returns([new(typeof(ChromeDriver), typeof(ChromeOptions))]);
-
-        var options = await GetOptionsAsync(typesScanner,
+        var options = await GetOptionsAsync(typeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": { ""DriverType"": ""ChromeDriver"" }
@@ -157,13 +142,9 @@ public class WebDriverCreationConfigureOptionsTests
     }
 
     [Test,AutoMoqData]
-    public async Task ConfigureShouldBeAbleToGetSelectedConfigWhenThereIsOnlyOnePresent(IGetsWebDriverWithDeterministicOptionsTypes typesScanner)
+    public async Task ConfigureShouldBeAbleToGetSelectedConfigWhenThereIsOnlyOnePresent([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
     {
-        Mock.Get(typesScanner)
-            .Setup(x => x.GetWebDriverAndDeterministicOptionsTypes())
-            .Returns([new(typeof(ChromeDriver), typeof(ChromeOptions))]);
-
-        var options = await GetOptionsAsync(typesScanner,
+        var options = await GetOptionsAsync(typeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": { ""DriverType"": ""ChromeDriver"" }
@@ -174,13 +155,9 @@ public class WebDriverCreationConfigureOptionsTests
     }
     
     [Test,AutoMoqData]
-    public async Task ConfigureShouldBeAbleToGetSelectedConfigWhenASelectedConfigIsNamed(IGetsWebDriverWithDeterministicOptionsTypes typesScanner)
+    public async Task ConfigureShouldBeAbleToGetSelectedConfigWhenASelectedConfigIsNamed([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
     {
-        Mock.Get(typesScanner)
-            .Setup(x => x.GetWebDriverAndDeterministicOptionsTypes())
-            .Returns([new(typeof(ChromeDriver), typeof(ChromeOptions)), new(typeof(FirefoxDriver), typeof(FirefoxOptions))]);
-
-        var options = await GetOptionsAsync(typesScanner,
+        var options = await GetOptionsAsync(typeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": { ""DriverType"": ""ChromeDriver"" },
@@ -193,13 +170,9 @@ public class WebDriverCreationConfigureOptionsTests
     }
     
     [Test,AutoMoqData]
-    public async Task ConfigureShouldProvideNullSelectedConfigWhenThereAreTwoConfigsAndNoExplicitSelection(IGetsWebDriverWithDeterministicOptionsTypes typesScanner)
+    public async Task ConfigureShouldProvideNullSelectedConfigWhenThereAreTwoConfigsAndNoExplicitSelection([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
     {
-        Mock.Get(typesScanner)
-            .Setup(x => x.GetWebDriverAndDeterministicOptionsTypes())
-            .Returns([new(typeof(ChromeDriver), typeof(ChromeOptions)), new(typeof(FirefoxDriver), typeof(FirefoxOptions))]);
-
-        var options = await GetOptionsAsync(typesScanner,
+        var options = await GetOptionsAsync(typeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": { ""DriverType"": ""ChromeDriver"" },
@@ -211,13 +184,9 @@ public class WebDriverCreationConfigureOptionsTests
     }
 
     [Test,AutoMoqData]
-    public async Task ConfigureShouldNotThrowForANonsenseDriverType(IGetsWebDriverWithDeterministicOptionsTypes typesScanner)
+    public async Task ConfigureShouldNotThrowForANonsenseDriverType([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
     {
-        Mock.Get(typesScanner)
-            .Setup(x => x.GetWebDriverAndDeterministicOptionsTypes())
-            .Returns([new(typeof(ChromeDriver), typeof(ChromeOptions))]);
-
-        var options = await GetOptionsAsync(typesScanner,
+        var options = await GetOptionsAsync(typeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": { ""DriverType"": ""NonexistentDriver"" }
@@ -228,13 +197,9 @@ public class WebDriverCreationConfigureOptionsTests
     }
 
     [Test,AutoMoqData]
-    public async Task ConfigureShouldNotThrowForARemoteDriverWithoutOptionsType(IGetsWebDriverWithDeterministicOptionsTypes typesScanner)
+    public async Task ConfigureShouldNotThrowForARemoteDriverWithoutOptionsType([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
     {
-        Mock.Get(typesScanner)
-            .Setup(x => x.GetWebDriverAndDeterministicOptionsTypes())
-            .Returns([new(typeof(ChromeDriver), typeof(ChromeOptions))]);
-
-        var options = await GetOptionsAsync(typesScanner,
+        var options = await GetOptionsAsync(typeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": { ""DriverType"": ""RemoteWebDriver"" }
@@ -245,18 +210,19 @@ public class WebDriverCreationConfigureOptionsTests
     }
 
     [Test,AutoMoqData]
-    public async Task ConfigureShouldBeAbleToSetupRemoteDriverWithSimpleOptionsFromJsonConfiguration(IGetsWebDriverWithDeterministicOptionsTypes typesScanner)
+    public async Task ConfigureShouldBeAbleToSetupRemoteDriverWithSimpleOptionsFromJsonConfiguration([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider,
+                                                                                                     [TestLogger] ILogger<WebDriverCreationConfigureOptions> logger)
     {
-        Mock.Get(typesScanner)
-            .Setup(x => x.GetWebDriverAndDeterministicOptionsTypes())
-            .Returns([new(typeof(SafariDriver), typeof(SafariOptions))]);
+        Mock.Get(typeProvider)
+            .Setup(x => x.GetWebDriverOptionsType(typeof(RemoteWebDriver), "SafariOptions"))
+            .Returns(typeof(SafariOptions));
 
-        var options = await GetOptionsAsync(typesScanner,
+        var options = await GetOptionsAsync(typeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": { ""DriverType"": ""RemoteWebDriver"", ""OptionsType"": ""SafariOptions"" }
     }
-}");
+}", logger: logger);
 
         Assert.That(options.DriverConfigurations, Is.Not.Empty);
     }
@@ -284,18 +250,18 @@ public class WebDriverCreationConfigureOptionsTests
     /// Creates and exercises <see cref="WebDriverCreationConfigureOptions"/> in order to create a new
     /// <see cref="WebDriverCreationOptionsCollection"/> from a specified JSON config.
     /// </summary>
-    /// <param name="typesScanner">The type scanner dependency of sut</param>
+    /// <param name="typeProvider">The type provider for web driver and options types</param>
     /// <param name="json">The JSON config from which to create the options</param>
     /// <param name="configureCallback">An optional configuration callback</param>
     /// <returns>A task exposing the webdriver creation options collection, configured by the SUT</returns>
-    static async Task<WebDriverCreationOptionsCollection> GetOptionsAsync(IGetsWebDriverWithDeterministicOptionsTypes typesScanner,
+    static async Task<WebDriverCreationOptionsCollection> GetOptionsAsync(IGetsWebDriverAndOptionsTypes typeProvider,
                                                                           string json,
                                                                           Action<WebDriverCreationOptionsCollection>? configureCallback = null,
                                                                           ILogger<WebDriverCreationConfigureOptions>? logger = null)
     {
         var options = new WebDriverCreationOptionsCollection();
         var config = await GetConfigurationAsync(json);
-        var sut = new WebDriverCreationConfigureOptions(typesScanner, config, configureCallback, logger ?? Mock.Of<ILogger<WebDriverCreationConfigureOptions>>());
+        var sut = new WebDriverCreationConfigureOptions(typeProvider, config, configureCallback, logger ?? Mock.Of<ILogger<WebDriverCreationConfigureOptions>>());
         sut.Configure(options);
         return options;
     }

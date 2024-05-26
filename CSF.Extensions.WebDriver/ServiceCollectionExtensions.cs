@@ -44,9 +44,8 @@ namespace OpenQA.Selenium
                                                              string configPath = DefaultConfigPath,
                                                              Action<WebDriverCreationOptionsCollection> configureOptions = null)
         {
-            services.AddTransient<IGetsWebDriverWithDeterministicOptionsTypes, SeleniumDriverAndOptionsScanner>();
+            AddSupportingServices(services);
             services.AddTransient(GetOptionsConfigService(configPath, configureOptions));
-            services.AddOptions<WebDriverCreationOptionsCollection>();
 
             return services;
         }
@@ -81,11 +80,17 @@ namespace OpenQA.Selenium
                                                              IConfigurationSection configSection,
                                                              Action<WebDriverCreationOptionsCollection> configureOptions = null)
         {
-            services.AddTransient<IGetsWebDriverWithDeterministicOptionsTypes, SeleniumDriverAndOptionsScanner>();
+            AddSupportingServices(services);
             services.AddTransient(GetOptionsConfigService(configSection, configureOptions));
-            services.AddOptions<WebDriverCreationOptionsCollection>();
             
             return services;
+        }
+
+        static void AddSupportingServices(IServiceCollection services)
+        {
+            services.AddTransient<IGetsWebDriverWithDeterministicOptionsTypes, SeleniumDriverAndOptionsScanner>();
+            services.AddSingleton<IGetsWebDriverAndOptionsTypes, WebDriverTypesProvider>();
+            services.AddOptions<WebDriverCreationOptionsCollection>();
         }
 
         static Func<IServiceProvider, IConfigureOptions<WebDriverCreationOptionsCollection>> GetOptionsConfigService(string configPath,
