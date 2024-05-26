@@ -88,8 +88,12 @@ namespace OpenQA.Selenium
 
         static void AddSupportingServices(IServiceCollection services)
         {
-            services.AddTransient<IGetsWebDriverWithDeterministicOptionsTypes, SeleniumDriverAndOptionsScanner>();
             services.AddSingleton<IGetsWebDriverAndOptionsTypes, WebDriverTypesProvider>();
+
+            services.AddTransient<IGetsWebDriverWithDeterministicOptionsTypes, SeleniumDriverAndOptionsScanner>();
+            services.AddTransient<ICreatesWebDriverFromOptions, WebDriverFromOptionsFactory>();
+            services.AddTransient<RemoteWebDriverFromOptionsFactory>();
+
             services.AddOptions<WebDriverCreationOptionsCollection>();
         }
 

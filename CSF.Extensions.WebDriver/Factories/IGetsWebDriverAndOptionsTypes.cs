@@ -24,6 +24,7 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <returns>A WebDriver type.</returns>
         /// <exception cref="ArgumentException">If <paramref name="driverType"/> is <see langword="null" /> or whitespace,
         /// or if it corresponds to a type which does not implement <see cref="IWebDriver"/>.</exception>
+        /// <exception cref="TypeLoadException">If the type specified by <paramref name="typeName"/> cannot be loaded.</exception>
         Type GetWebDriverType(string typeName);
 
         /// <summary>
@@ -56,5 +57,15 @@ namespace CSF.Extensions.WebDriver.Factories
         /// a type which implies a driver options type.</exception>
         /// <exception cref="TypeLoadException">If the type specified by <paramref name="typeName"/> cannot be loaded.</exception>
         Type GetWebDriverOptionsType(Type driverType, string typeName = null);
+
+        /// <summary>
+        /// Gets the Type for an implementation of <see cref="ICreatesWebDriverFromOptions"/>, for when a third-party factory is to be used.
+        /// </summary>
+        /// <param name="typeName">The assembly qualified name of the factory type.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException">If <paramref name="typeName"/> is <see langword="null" /> or whitespace,
+        /// or if it corresponds to a type which does not implement <see cref="ICreatesWebDriverFromOptions"/>.</exception>
+        /// <exception cref="TypeLoadException">If the type specified by <paramref name="typeName"/> cannot be loaded.</exception>
+        Type GetWebDriverFactoryType(string typeName);
     }
 }

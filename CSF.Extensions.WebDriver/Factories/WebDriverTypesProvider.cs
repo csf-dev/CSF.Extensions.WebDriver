@@ -77,6 +77,14 @@ namespace CSF.Extensions.WebDriver.Factories
             return GetSupportedShorthandWebDriverTypes().FirstOrDefault(x => x.Name == typeName) ?? LoadType<IWebDriver>(typeName);
         }
 
+        /// <inheritdoc/>
+        public Type GetWebDriverFactoryType(string typeName)
+        {
+            if (string.IsNullOrWhiteSpace(typeName)) throw new ArgumentException($"'{nameof(typeName)}' cannot be null or whitespace.", nameof(typeName));
+
+            return LoadType<ICreatesWebDriverFromOptions>(typeName);
+        }
+
         static Type LoadType<TBase>(string typeName) where TBase : class
         {
             Type result;

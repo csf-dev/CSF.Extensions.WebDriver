@@ -29,24 +29,25 @@ namespace CSF.Extensions.WebDriver.Factories
         /// type to use as well as any relevant options for that WebDriver.
         /// </para>
         /// </remarks>
-        /// <param name="configuration">An object indicating which WebDriver implementation to use and how the WebDriver should be configured.</param>
+        /// <param name="options">An object indicating which WebDriver implementation to use and how the WebDriver should be configured.</param>
         /// <returns>A WebDriver instance</returns>
-        /// <exception cref="ArgumentNullException">If <paramref name="configuration"/> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentNullException">If <paramref name="options"/> is <see langword="null" />.</exception>
         /// <exception cref="ArgumentException">
         /// If any of:
         /// <list type="bullet">
-        /// <item><description>The <see cref="WebDriverCreationOptions.DriverType"/> of the <paramref name="configuration"/> is <see langword="null" /> or empty</description></item>
-        /// <item><description>The <see cref="WebDriverCreationOptions.Options"/> of the <paramref name="configuration"/> is <see langword="null" /></description></item>
-        /// <item><description>The <see cref="WebDriverCreationOptions.DriverType"/> of the <paramref name="configuration"/> is set to <c>RemoteWebDriver</c>
-        /// or to a type that is not shipped with Selenium and the <see cref="WebDriverCreationOptions.OptionsType"/> is <see langword="null" /> or empty</description></item>
-        /// <item><description>The <see cref="WebDriverCreationOptions.DriverType"/> of the <paramref name="configuration"/> is set to <c>RemoteWebDriver</c>
-        /// but <see cref="WebDriverCreationOptions.GridUrl"/> is <see langword="null" /> or empty</description></item>.
+        /// <item><description>The <see cref="WebDriverCreationOptions.DriverType"/> of the <paramref name="options"/> is <see langword="null" /> or empty</description></item>
+        /// <item><description>The <see cref="WebDriverCreationOptions.Options"/> of the <paramref name="options"/> is <see langword="null" /></description></item>
+        /// <item><description>The <see cref="WebDriverCreationOptions.DriverType"/> of the <paramref name="options"/> is set to an implementation of
+        /// <see cref="IWebDriver"/> which does not expose a public constructor which takes a single parameter of type <see cref="DriverOptions"/> (or a more
+        /// derived type).  Such WebDriver implementations will require a custom factory, indicated by <see cref="WebDriverCreationOptions.DriverFactoryType"/></description></item>.
+        /// <item><description>The <see cref="WebDriverCreationOptions.DriverFactoryType"/> of the <paramref name="options"/> is not null, but the implementation of
+        /// <see cref="ICreatesWebDriverFromOptions"/> indicated by that type did not return an <see cref="IWebDriver"/> instance</description></item>
         /// </list>
         /// </exception>
         /// <exception cref="TypeLoadException">
-        /// Either <see cref="WebDriverCreationOptions.DriverType"/> or <see cref="WebDriverCreationOptions.OptionsType"/> of the
-        /// <paramref name="configuration"/> are non-null/non-empty but no type can be found matching the specifed values.
+        /// Either <see cref="WebDriverCreationOptions.DriverType"/> or <see cref="WebDriverCreationOptions.DriverFactoryType"/> of the
+        /// <paramref name="options"/> are non-null/non-empty but no type can be found matching the specifed values.
         /// </exception>
-        IWebDriver GetWebDriver(WebDriverCreationOptions configuration);
+        IWebDriver GetWebDriver(WebDriverCreationOptions options);
     }
 }

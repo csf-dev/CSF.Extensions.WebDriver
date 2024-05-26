@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using OpenQA.Selenium;
 
 namespace CSF.Extensions.WebDriver.Factories
@@ -18,15 +20,22 @@ namespace CSF.Extensions.WebDriver.Factories
                         && typeof(IWebDriver).IsAssignableFrom(type)
                         && !type.IsAbstract
                         && type != typeof(OpenQA.Selenium.Remote.RemoteWebDriver)
-                    from constructor in type.GetConstructors()
-                    let ctorParams = constructor.GetParameters()
-                    where ctorParams.Length == 1
-                    let optionsParam = ctorParams.Single()
-                    where
-                        typeof(DriverOptions).IsAssignableFrom(optionsParam.ParameterType)
-                        && !optionsParam.ParameterType.IsAbstract
-                    select new WebDriverAndOptionsTypePair(type, optionsParam.ParameterType))
+                    from constructor in type.GetConstructors().Where(OptionsConstructorPredicate)
+                    where !constructor.GetParameters().Single().ParameterType.IsAbstract
+                    select new WebDriverAndOptionsTypePair(type, constructor.GetParameters().Single().ParameterType))
                 .ToArray();
+        }
+
+        /// <summary>
+        /// Gets a predicate function which matches a constructor that has only one parameter and that parameter
+        /// derives from <see cref="DriverOptions"/>.
+        /// </summary>
+        internal static Func<ConstructorInfo,bool> OptionsConstructorPredicate
+        {
+            get {
+                return constructor => constructor.GetParameters().Length == 1
+                                   && typeof(DriverOptions).IsAssignableFrom(constructor.GetParameters().Single().ParameterType);
+            }
         }
    }
 }

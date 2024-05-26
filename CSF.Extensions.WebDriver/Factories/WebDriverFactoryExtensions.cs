@@ -39,8 +39,6 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <item><description>The <see cref="WebDriverCreationOptions.Options"/> of the selected <see cref="WebDriverCreationOptionsCollection.DriverConfigurations"/> is <see langword="null" /></description></item>
         /// <item><description>The <see cref="WebDriverCreationOptions.DriverType"/> of the selected <see cref="WebDriverCreationOptionsCollection.DriverConfigurations"/> is set to <c>RemoteWebDriver</c>
         /// or to a type that is not shipped with Selenium but the <see cref="WebDriverCreationOptions.OptionsType"/> is <see langword="null" /> or empty</description></item>
-        /// <item><description>The <see cref="WebDriverCreationOptions.DriverType"/> of the selected <see cref="WebDriverCreationOptionsCollection.DriverConfigurations"/> is set to <c>RemoteWebDriver</c>
-        /// but <see cref="WebDriverCreationOptions.GridUrl"/> is <see langword="null" /> or empty</description></item>.
         /// </list>
         /// </exception>
         /// <exception cref="TypeLoadException">
@@ -88,8 +86,6 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <item><description>The <see cref="WebDriverCreationOptions.Options"/> of the selected <see cref="WebDriverCreationOptionsCollection.DriverConfigurations"/> is <see langword="null" /></description></item>
         /// <item><description>The <see cref="WebDriverCreationOptions.DriverType"/> of the selected <see cref="WebDriverCreationOptionsCollection.DriverConfigurations"/> is set to <c>RemoteWebDriver</c>
         /// or to a type that is not shipped with Selenium but the <see cref="WebDriverCreationOptions.OptionsType"/> is <see langword="null" /> or empty</description></item>
-        /// <item><description>The <see cref="WebDriverCreationOptions.DriverType"/> of the selected <see cref="WebDriverCreationOptionsCollection.DriverConfigurations"/> is set to <c>RemoteWebDriver</c>
-        /// but <see cref="WebDriverCreationOptions.GridUrl"/> is <see langword="null" /> or empty</description></item>.
         /// </list>
         /// </exception>
         /// <exception cref="TypeLoadException">

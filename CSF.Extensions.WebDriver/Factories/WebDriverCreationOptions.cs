@@ -10,7 +10,7 @@ namespace CSF.Extensions.WebDriver.Factories
     /// <para>
     /// For most local WebDriver scenarios, the only mandatory properties for this object are <see cref="DriverType"/>
     /// and <see cref="Options"/>.
-    /// For remote WebDrivers, the <see cref="OptionsType"/> and <see cref="GridUrl"/> properties are also mandatory.
+    /// For remote WebDrivers, the <see cref="OptionsType"/> property is mandatory and the <see cref="GridUrl"/> property is recommended.
     /// </para>
     /// </remarks>
     public class WebDriverCreationOptions
@@ -83,6 +83,11 @@ namespace CSF.Extensions.WebDriver.Factories
         /// The value of this property is unused and irrelevant if <see cref="DriverType"/> is not set to
         /// <c>RemoteWebDriver</c>.
         /// </para>
+        /// <para>
+        /// When using a remote web driver, it is usually required to set this property value. The only time a value is not
+        /// required is if your Selenium Grid configuration is occupying the default URL, which is unlikely in a production
+        /// configuration.
+        /// </para>
         /// </remarks>
         public string GridUrl { get; set; }
 
@@ -115,12 +120,19 @@ namespace CSF.Extensions.WebDriver.Factories
         /// </para>
         /// <para>
         /// If <see cref="DriverType"/> is set to a third-party WebDriver implementation which does not follow the pattern above,
-        /// such as one which has a non-public constructor or which has a different constructor parameter signature, this library
+        /// such as one which has a different constructor parameter signature, this library
         /// requires some help in instantiating the WebDriver.
-        /// In that cases (only), this property should be set to the assembly-qualified type name of a type which implements
-        /// <see cref="ICreatesWebDriverFromOptions"/>.  That type must be provided by the developer using this library and is responsible
-        /// for constructing the WebDriver instance from configuration and returning it.
+        /// In that case (only), this property should be set to the assembly-qualified type name of a type which implements
+        /// <see cref="ICreatesWebDriverFromOptions"/>.  That type must be provided by the developer using this library.  The factory
+        /// is responsible for constructing the WebDriver instance from options and returning it.
         /// </para>
+        /// <para>
+        /// When using a factory of this kind, the factory class which implements <see cref="ICreatesWebDriverFromOptions"/> must either:
+        /// </para>
+        /// <list type="bullet">
+        /// <item><description>Be available through dependency injection; add it to your service collection</description></item>
+        /// <item><description>Have a public parameterless constructor, such that it may be created via <see cref="Activator.CreateInstance(Type)"/></description></item>
+        /// </list>
         /// </remarks>
         /// <seealso cref="DriverType"/>
         /// <seealso cref="ICreatesWebDriverFromOptions"/>
