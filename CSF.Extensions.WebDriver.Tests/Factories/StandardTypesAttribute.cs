@@ -40,5 +40,6 @@ public class StandardTypesCustomization : ICustomization
             mock.Setup(x => x.GetWebDriverOptionsType(typeof(SafariDriver), null)).Returns(typeof(SafariOptions));
             return mock.Object;
         }));
+        fixture.Freeze<IGetsWebDriverAndOptionsTypes>();
     }
 }

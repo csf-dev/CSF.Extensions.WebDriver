@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 
@@ -13,11 +14,14 @@ namespace CSF.Extensions.WebDriver.Factories
     {
         readonly IGetsWebDriverAndOptionsTypes typeProvider;
         readonly IServiceProvider services;
+        readonly ILogger<WebDriverFromOptionsFactory> logger;
 
         /// <inheritdoc/>
         public IWebDriver GetWebDriver(WebDriverCreationOptions options)
         {
             if (options is null) throw new ArgumentNullException(nameof(options));
+
+            logger.LogDebug("Creating a web driver of type {DriverType} using options type {OptionsType}", options.DriverType, options.Options.GetType());
 
             if (!string.IsNullOrEmpty(options.DriverFactoryType))
                 return GetWebDriverFromThirdPartyFactory(options);
@@ -32,7 +36,9 @@ namespace CSF.Extensions.WebDriver.Factories
                                             $"{nameof(WebDriverCreationOptions)}.{nameof(WebDriverCreationOptions.DriverFactoryType)}.",
                                             nameof(options));
 
-            return (IWebDriver) Activator.CreateInstance(driverType, options.Options);
+            var driver = (IWebDriver) Activator.CreateInstance(driverType, options.Options);
+            logger.LogDebug("Driver created via reflection: {Driver}", driver);
+            return driver;
         }
 
         IWebDriver GetRemoteWebDriver(WebDriverCreationOptions options)
@@ -40,9 +46,12 @@ namespace CSF.Extensions.WebDriver.Factories
 
         IWebDriver GetWebDriverFromThirdPartyFactory(WebDriverCreationOptions options)
         {
+            logger.LogDebug("Using factory type {FactoryType} specified in the configuration", options.DriverFactoryType);
             var factoryType = typeProvider.GetWebDriverFactoryType(options.DriverFactoryType);
             var factory = GetThirdPartyFactory(factoryType);
-            return factory.GetWebDriver(options);
+            var driver = factory.GetWebDriver(options);
+            logger.LogInformation("Driver created via third-party factory: {Driver}", driver);
+            return driver;
         }
 
         ICreatesWebDriverFromOptions GetThirdPartyFactory(Type factoryType)
@@ -66,11 +75,15 @@ namespace CSF.Extensions.WebDriver.Factories
         /// </summary>
         /// <param name="typeProvider">A type provider</param>
         /// <param name="services">DI services</param>
+        /// <param name="logger">A logger</param>
         /// <exception cref="ArgumentNullException">If any parameter is <see langword="null" />.</exception>
-        public WebDriverFromOptionsFactory(IGetsWebDriverAndOptionsTypes typeProvider, IServiceProvider services)
+        public WebDriverFromOptionsFactory(IGetsWebDriverAndOptionsTypes typeProvider,
+                                           IServiceProvider services,
+                                           ILogger<WebDriverFromOptionsFactory> logger)
         {
             this.typeProvider = typeProvider ?? throw new ArgumentNullException(nameof(typeProvider));
             this.services = services ?? throw new ArgumentNullException(nameof(services));
+            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace OpenQA.Selenium
+namespace CSF.Extensions.WebDriver
 {
     /// <summary>
     /// Extension methods for <see cref="IServiceCollection"/> to add web driver factory options, created from configuration.
@@ -44,7 +44,7 @@ namespace OpenQA.Selenium
                                                              string configPath = DefaultConfigPath,
                                                              Action<WebDriverCreationOptionsCollection> configureOptions = null)
         {
-            AddSupportingServices(services);
+            AddCommonServices(services);
             services.AddTransient(GetOptionsConfigService(configPath, configureOptions));
 
             return services;
@@ -80,19 +80,20 @@ namespace OpenQA.Selenium
                                                              IConfigurationSection configSection,
                                                              Action<WebDriverCreationOptionsCollection> configureOptions = null)
         {
-            AddSupportingServices(services);
+            AddCommonServices(services);
             services.AddTransient(GetOptionsConfigService(configSection, configureOptions));
             
             return services;
         }
 
-        static void AddSupportingServices(IServiceCollection services)
+        static void AddCommonServices(IServiceCollection services)
         {
             services.AddSingleton<IGetsWebDriverAndOptionsTypes, WebDriverTypesProvider>();
 
             services.AddTransient<IGetsWebDriverWithDeterministicOptionsTypes, SeleniumDriverAndOptionsScanner>();
             services.AddTransient<ICreatesWebDriverFromOptions, WebDriverFromOptionsFactory>();
             services.AddTransient<RemoteWebDriverFromOptionsFactory>();
+            services.AddTransient<IGetsWebDriver, WebDriverFactory>();
 
             services.AddOptions<WebDriverCreationOptionsCollection>();
         }
@@ -116,7 +117,5 @@ namespace OpenQA.Selenium
             };
         }
     }
-
-
 }
 
