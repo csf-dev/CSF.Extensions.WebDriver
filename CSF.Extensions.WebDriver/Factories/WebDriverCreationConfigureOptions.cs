@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using OpenQA.Selenium;
@@ -22,7 +23,6 @@ namespace CSF.Extensions.WebDriver.Factories
     {
         readonly IGetsWebDriverAndOptionsTypes typeProvider;
         readonly IConfiguration configuration;
-        readonly Action<WebDriverCreationOptionsCollection> configureOptions;
         readonly ILogger<WebDriverCreationConfigureOptions> logger;
 
         /// <inheritdoc/>
@@ -41,8 +41,6 @@ namespace CSF.Extensions.WebDriver.Factories
 
             var driverConfigsSection = configuration.GetSection(nameof(WebDriverCreationOptionsCollection.DriverConfigurations));
             if(driverConfigsSection != null) options.DriverConfigurations = GetDriverConfigurations(driverConfigsSection);
-
-            configureOptions?.Invoke(options);
         }
 
         static Action<object> GetConfigChangeCallback(WebDriverCreationOptionsCollection options)
@@ -143,12 +141,10 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <exception cref="ArgumentNullException">If either parameter is <see langword="null" />.</exception>
         public WebDriverCreationConfigureOptions(IGetsWebDriverAndOptionsTypes typeProvider,
                                                  IConfiguration configuration,
-                                                 Action<WebDriverCreationOptionsCollection> configureOptions,
                                                  ILogger<WebDriverCreationConfigureOptions> logger)
         {
             this.typeProvider = typeProvider ?? throw new ArgumentNullException(nameof(typeProvider));
             this.configuration = configuration;
-            this.configureOptions = configureOptions;
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
     }

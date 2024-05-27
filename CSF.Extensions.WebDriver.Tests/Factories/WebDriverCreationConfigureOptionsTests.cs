@@ -47,36 +47,6 @@ public class WebDriverCreationConfigureOptionsTests
         });
     }
 
-    [Test,AutoMoqData]
-    public async Task ConfigureShouldBeAbleToApplyAConfigurationCallbackAfterConfiguringFromJson([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
-    {
-        // Note that if the test ConfigureShouldBeAbleToSetupLocalChromeDriverWithSimpleOptionsFromJsonConfiguration is failing, then
-        // this one is expected to fail anyway.  You should really fix that other one first before attempting to fix this one.
-
-        var options = await GetOptionsAsync(typeProvider,
-@"{
-    ""DriverConfigurations"": {
-        ""Test"": {
-            ""DriverType"": ""ChromeDriver"",
-            ""Options"": {
-                ""BinaryLocation"": ""C:\\SomePath\\Chrome\\GoogleChrome.exe""
-            }
-        }
-    }
-}",
-            c => ((ChromeOptions)c.DriverConfigurations["Test"].Options).BinaryLocation = @"C:\SomewhereElse\GoogleChrome.exe");
-
-        var hasDriverConfig = options.DriverConfigurations.TryGetValue("Test", out var driverConfig);
-        if(!hasDriverConfig)
-        {
-            Assert.Fail("The driver configuration should be present; is ConfigureShouldBeAbleToSetupLocalChromeDriverWithSimpleOptionsFromJsonConfiguration failing?  If so, fix that first!");
-            return;
-        }
-#pragma warning disable NUnit2022 // Missing property required for constraint: Really, we are using the subclass ChromeOptions, which does have that property
-        Assert.That(driverConfig?.Options,
-                    Has.Property(nameof(ChromeOptions.BinaryLocation)).EqualTo(@"C:\SomewhereElse\GoogleChrome.exe"));
-#pragma warning restore NUnit2022 // Missing property required for constraint
-    }
 
     [Test,AutoMoqData]
     public async Task ConfigureShouldBeAbleToSetupTwoLocalDriversWithSimpleOptionsFromJsonConfiguration([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
@@ -252,16 +222,14 @@ public class WebDriverCreationConfigureOptionsTests
     /// </summary>
     /// <param name="typeProvider">The type provider for web driver and options types</param>
     /// <param name="json">The JSON config from which to create the options</param>
-    /// <param name="configureCallback">An optional configuration callback</param>
     /// <returns>A task exposing the webdriver creation options collection, configured by the SUT</returns>
     static async Task<WebDriverCreationOptionsCollection> GetOptionsAsync(IGetsWebDriverAndOptionsTypes typeProvider,
                                                                           string json,
-                                                                          Action<WebDriverCreationOptionsCollection>? configureCallback = null,
                                                                           ILogger<WebDriverCreationConfigureOptions>? logger = null)
     {
         var options = new WebDriverCreationOptionsCollection();
         var config = await GetConfigurationAsync(json);
-        var sut = new WebDriverCreationConfigureOptions(typeProvider, config, configureCallback, logger ?? Mock.Of<ILogger<WebDriverCreationConfigureOptions>>());
+        var sut = new WebDriverCreationConfigureOptions(typeProvider, config, logger ?? Mock.Of<ILogger<WebDriverCreationConfigureOptions>>());
         sut.Configure(options);
         return options;
     }
