@@ -2,7 +2,7 @@ image: Visual Studio 2022
 version: '{branch}-{build}'
 init:
 - cmd: git config --global core.autocrlf true
-before_build:
-build:
-  project: CSF.WebDriverExtras.sln
-  verbosity: normal
+build_script:
+    - dotnet build
+test_script:
+    - dotnet test
