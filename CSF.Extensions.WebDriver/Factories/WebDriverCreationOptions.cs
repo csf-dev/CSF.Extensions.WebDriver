@@ -137,5 +137,22 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <seealso cref="DriverType"/>
         /// <seealso cref="ICreatesWebDriverFromOptions"/>
         public string DriverFactoryType { get; set; }
+
+        /// <summary>
+        /// Gets a value which indicates whether or not the created WebDriver should be enriched with browser identification functionality.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// If this property is set to <see langword="true"/> (which is the default if left unset) then the implementation of
+        /// <see cref="IWebDriver"/> returned by a factory which uses this object as a parameter will be enriched and will implement
+        /// <see cref="Identification.IHasBrowserId"/> in addition to its usual interfaces.
+        /// </para>
+        /// <para>
+        /// This functionality, if enabled, will mean that the WebDriver returned by the factory will be a proxy object and not the
+        /// original WebDriver implementation.
+        /// For more information on proxies created by this library and their implications, see <see cref="IGetsProxyWebDriver"/>.
+        /// </para>
+        /// </remarks>
+        public bool AddBrowserIdentification { get; set; } = true;
     }
 }
