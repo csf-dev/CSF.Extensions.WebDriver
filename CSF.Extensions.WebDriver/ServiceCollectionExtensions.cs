@@ -1,5 +1,8 @@
 using System;
+using Castle.DynamicProxy;
 using CSF.Extensions.WebDriver.Factories;
+using CSF.Extensions.WebDriver.Identification;
+using CSF.Extensions.WebDriver.Proxies;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -131,10 +134,15 @@ namespace CSF.Extensions.WebDriver
         public static IServiceCollection AddWebDriverFactoryWithoutOptionsPattern(this IServiceCollection services)
         {
             services.AddSingleton<IGetsWebDriverAndOptionsTypes, WebDriverTypesProvider>();
+            services.AddSingleton<IProxyGenerator, ProxyGenerator>();
 
             services.AddTransient<IGetsWebDriverWithDeterministicOptionsTypes, SeleniumDriverAndOptionsScanner>();
             services.AddTransient<ICreatesWebDriverFromOptions, WebDriverFromOptionsFactory>();
             services.AddTransient<RemoteWebDriverFromOptionsFactory>();
+            services.AddTransient<IGetsBrowserIdFromWebDriver, BrowserIdFactory>();
+            services.AddTransient<IGetsProxyWebDriver, WebDriverProxyFactory>();
+            services.AddTransient<IdentificationAugmenter>();
+            services.AddTransient<UnproxyingAugmenter>();
 
             return services;
         }

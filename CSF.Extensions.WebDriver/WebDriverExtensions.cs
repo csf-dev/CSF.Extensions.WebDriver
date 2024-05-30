@@ -17,10 +17,14 @@ namespace CSF.Extensions.WebDriver
         /// If the WebDriver is not a proxy then this method returns the <paramref name="webDriver"/> directly.
         /// This way, whether the input parameter was a proxy or not, the output is an unproxied WebDriver.
         /// </para>
+        /// <para>
+        /// For more information about this library's proxying functionality, see <see cref="IGetsProxyWebDriver"/>.
+        /// </para>
         /// </remarks>
         /// <param name="webDriver">A WebDriver which may or may not be a proxy.</param>
         /// <returns>An 'unproxied' WebDriver</returns>
         /// <seealso cref="IHasUnproxiedWebDriver"/>
+        /// <seealso cref="IGetsProxyWebDriver"/>
         public static IWebDriver Unproxy(this IWebDriver webDriver)
             => webDriver is IHasUnproxiedWebDriver proxy ? proxy.UnproxiedWebDriver : webDriver;
     }
