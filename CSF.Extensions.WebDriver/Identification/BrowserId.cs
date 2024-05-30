@@ -4,7 +4,7 @@ using OpenQA.Selenium;
 namespace CSF.Extensions.WebDriver.Identification
 {
     /// <summary>
-    /// A model which represents a browser and its version.
+    /// A model which represents a combination of browser, OS platform and the browser version.
     /// </summary>
     public sealed class BrowserId : IEquatable<BrowserId>
     {
