@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CSF.Extensions.WebDriver.Quirks
 {
@@ -18,5 +19,7 @@ namespace CSF.Extensions.WebDriver.Quirks
             get => quirks;
             set => quirks = value ?? throw new ArgumentNullException(nameof(value));
         }
+
+        internal QuirksData DeepCopy() => new QuirksData { Quirks = Quirks.ToDictionary(k => k.Key, v => v.Value.DeepCopy()) };
     }
 }

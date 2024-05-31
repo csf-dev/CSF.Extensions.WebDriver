@@ -15,10 +15,11 @@ namespace CSF.Extensions.WebDriver.Proxies
         public void AugmentContext(WebDriverProxyCreationContext context)
         {
             if (context is null) throw new ArgumentNullException(nameof(context));
-            if (!context.CreationOptions.AddIdentification) return;
+            if (!context.CreationOptions.AddIdentification && !context.CreationOptions.AddQuirks) return;
 
             context.Interfaces.Add(typeof(IHasBrowserId));
             var browserId = browserIdFactory.GetBrowserId(context.WebDriver, context.CreationOptions.DriverOptions);
+            context.BrowserId = browserId;
             var interceptor = new IdentificationInterceptor(browserId);
             context.Interceptors.Add(interceptor);
         }

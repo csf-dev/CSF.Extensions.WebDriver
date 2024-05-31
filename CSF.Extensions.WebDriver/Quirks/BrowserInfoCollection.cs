@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CSF.Extensions.WebDriver.Quirks
 {
@@ -18,5 +19,7 @@ namespace CSF.Extensions.WebDriver.Quirks
             get => affectedBrowsers;
             set => affectedBrowsers = value ?? throw new ArgumentNullException(nameof(value));
         }
+
+        internal BrowserInfoCollection DeepCopy() => new BrowserInfoCollection { AffectedBrowsers = new HashSet<BrowserInfo>(AffectedBrowsers.Select(x => x.DeepCopy())) };
     }
 }

@@ -17,6 +17,7 @@ namespace CSF.Extensions.WebDriver.Proxies
         static readonly Type[] augmenterTypes = {
             typeof(UnproxyingAugmenter),
             typeof(IdentificationAugmenter),
+            typeof(QuirksAugmenter),
         };
 
         readonly IServiceProvider services;

@@ -3,6 +3,7 @@ using Castle.DynamicProxy;
 using CSF.Extensions.WebDriver.Factories;
 using CSF.Extensions.WebDriver.Identification;
 using CSF.Extensions.WebDriver.Proxies;
+using CSF.Extensions.WebDriver.Quirks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -14,7 +15,9 @@ namespace CSF.Extensions.WebDriver
     /// </summary>
     public static class ServiceCollectionExtensions
     {
-        internal const string DefaultConfigPath = "WebDriverFactory";
+        internal const string
+            FactoryConfigPath = "WebDriverFactory",
+            QuirksConfigPath  = "WebDriverQuirks";
 
         /// <summary>
         /// Adds/registers the web driver factory and related services for applications which make use of the Options &amp; Configuration
@@ -52,7 +55,7 @@ namespace CSF.Extensions.WebDriver
         /// <param name="configureOptions">An optional method body which may inspect or alter the options after it has been bound from the configuration.</param>
         /// <returns>The service collection, so that calls may be chained.</returns>
         public static IServiceCollection AddWebDriverFactory(this IServiceCollection services,
-                                                             string configPath = DefaultConfigPath,
+                                                             string configPath = FactoryConfigPath,
                                                              Action<WebDriverCreationOptionsCollection> configureOptions = null)
         {
             AddWebDriverFactoryWithoutOptionsPattern(services);
@@ -144,6 +147,26 @@ namespace CSF.Extensions.WebDriver
             services.AddTransient<IGetsProxyWebDriver, WebDriverProxyFactory>();
             services.AddTransient<IdentificationAugmenter>();
             services.AddTransient<UnproxyingAugmenter>();
+
+            return services;
+        }
+
+        public static IServiceCollection AddQuirksServices(this IServiceCollection services, QuirksData quirksData = null, bool useOptions = true)
+        {
+            if (quirksData is null && !useOptions)
+                throw new ArgumentException("Either some non-null quirks data must be specified or the options pattern must be activated. If neither are activated then this would lead to always-empty/useless WebDriver quirks data, which is not a supported use of this functionality.");
+
+            services.AddTransient<IGetsQuirksForBrowserId, ApplicableQuirksProvider>();
+            services.AddTransient<QuirksAugmenter>();
+            services.AddTransient<QuirksInterceptor>();
+            if (useOptions)
+                services.AddOptions<QuirksData>().BindConfiguration(QuirksConfigPath);
+            
+            services.AddSingleton<IGetsQuirksData>(s =>
+            {
+                if (!useOptions) return new QuirksDataProvider(quirksData);
+                return ActivatorUtilities.CreateInstance<QuirksDataProvider>(s, new[] { quirksData ?? new QuirksData() });
+            });
 
             return services;
         }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using OpenQA.Selenium;
 
 namespace CSF.Extensions.WebDriver.Quirks
@@ -40,6 +41,16 @@ namespace CSF.Extensions.WebDriver.Quirks
     /// </remarks>
     public interface IHasQuirks
     {
+        /// <summary>
+        /// Gets a collection of the names of all of the quirks which affect the current object.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Prefer using <see cref="HasQuirk(string)"/> instead of this property.
+        /// </para>
+        /// </remarks>
+        IReadOnlyCollection<string> AllQuirks { get; }
+
         /// <summary>
         /// Gets a value indicating whether or not the current object is affected by the specified named quirk.
         /// </summary>

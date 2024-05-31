@@ -17,7 +17,7 @@ public class WebDriverProxyFactoryTests
     public void GetProxyWebDriverShouldApplyEachAugmentation([ProxyFactory] WebDriverProxyFactory sut, IWebDriver webDriver, IAugmentsProxyContext augmenter)
     {
         sut.GetProxyWebDriver(webDriver, new ProxyCreationOptions());
-        Mock.Get(augmenter).Verify(x => x.AugmentContext(It.IsAny<WebDriverProxyCreationContext>()), Times.AtLeast(2));
+        Mock.Get(augmenter).Verify(x => x.AugmentContext(It.IsAny<WebDriverProxyCreationContext>()), Times.AtLeast(3));
     }
 
 

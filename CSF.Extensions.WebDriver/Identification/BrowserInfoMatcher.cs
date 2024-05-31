@@ -25,8 +25,8 @@ namespace CSF.Extensions.WebDriver.Identification
             var minVersion = GetVersionOrNull(browserInfo.MinVersion);
             var maxVersion = GetVersionOrNull(browserInfo.MaxVersion);
 
-            return (minVersion == null || browserId.Version <= minVersion)
-                && (maxVersion == null || browserId.Version >= maxVersion);
+            return (minVersion == null || browserId.Version >= minVersion)
+                && (maxVersion == null || browserId.Version <= maxVersion);
         }
 
         static BrowserVersion GetVersionOrNull(string version)

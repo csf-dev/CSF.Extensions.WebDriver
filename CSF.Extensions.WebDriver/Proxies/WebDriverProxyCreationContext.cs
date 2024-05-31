@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Castle.DynamicProxy;
+using CSF.Extensions.WebDriver.Identification;
 using OpenQA.Selenium;
 
 namespace CSF.Extensions.WebDriver.Proxies
@@ -27,6 +28,11 @@ namespace CSF.Extensions.WebDriver.Proxies
         /// Gets the WebDriver object from which a proxy will be created.
         /// </summary>
         public IWebDriver WebDriver { get; }
+
+        /// <summary>
+        /// Gets or sets the identity information for the browser.
+        /// </summary>
+        public BrowserId BrowserId { get; set; }
 
         /// <summary>
         /// Gets the driver options from which the WebDriver was originally created.

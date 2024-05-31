@@ -33,7 +33,7 @@ namespace CSF.Extensions.WebDriver.Factories
                 logger.LogWarning("Configuration for {TypeName} is null; the WebDriver creation options will be left unconfigured. " +
                                   "Reminder: By default the configuration path is '{Path}'.",
                                   nameof(WebDriverCreationOptionsCollection),
-                                  ServiceCollectionExtensions.DefaultConfigPath);
+                                  ServiceCollectionExtensions.FactoryConfigPath);
                 return;
             }
 

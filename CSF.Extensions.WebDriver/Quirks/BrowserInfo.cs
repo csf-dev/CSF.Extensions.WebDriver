@@ -53,5 +53,7 @@ namespace CSF.Extensions.WebDriver.Quirks
         /// </para>
         /// </remarks>
         public string MaxVersion { get; set; }
+
+        internal BrowserInfo DeepCopy() => new BrowserInfo { Name = Name, Platform = Platform, MinVersion = MinVersion, MaxVersion = MaxVersion };
     }
 }
