@@ -47,16 +47,6 @@ namespace CSF.Extensions.WebDriver.Proxies
                 return;
             }
 
-            if(invocation.Method == typeof(IHasQuirks).GetMethod(nameof(IHasQuirks.HasQuirk)))
-            {
-                var quirkName = (string) invocation.Arguments.Single();
-                if (string.IsNullOrEmpty(quirkName))
-                    throw new ArgumentException("The quirk name must not be null or an empty string", "quirkName");
-
-                invocation.ReturnValue = quirksForBrowser.Contains(quirkName);
-                return;
-            }
-
             invocation.Proceed();
         }
 

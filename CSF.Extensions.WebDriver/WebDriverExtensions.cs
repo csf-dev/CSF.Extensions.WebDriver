@@ -1,4 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using CSF.Extensions.WebDriver.Identification;
 using CSF.Extensions.WebDriver.Proxies;
+using CSF.Extensions.WebDriver.Quirks;
 using OpenQA.Selenium;
 
 namespace CSF.Extensions.WebDriver
@@ -27,5 +32,47 @@ namespace CSF.Extensions.WebDriver
         /// <seealso cref="IGetsProxyWebDriver"/>
         public static IWebDriver Unproxy(this IWebDriver webDriver)
             => webDriver is IHasUnproxiedWebDriver proxy ? proxy.UnproxiedWebDriver : webDriver;
+
+        public static BrowserId GetBrowserId(this IWebDriver webDriver)
+            => webDriver is IHasBrowserId browserId ? browserId.BrowserId : null;
+
+        public static IReadOnlyCollection<string> GetQuirks(this IWebDriver webDriver)
+            => webDriver is IHasQuirks quirks ? quirks.AllQuirks : Array.Empty<string>();
+
+        /// <summary>
+        /// Gets a value indicating whether or not the current object is affected by the specified named quirk.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// For more information on what quirks are, see the documentation for <see cref="IHasQuirks"/>.
+        /// </para>
+        /// </remarks>
+        /// <param name="webDriver">A WebDriver</param>
+        /// <param name="quirkName">The name of a quirk</param>
+        /// <returns><see langword="true" /> if the WebDriver is affected by the specified quirk; <see langword="false" /> otherwise.</returns>
+        public static bool HasQuirk(this IWebDriver webDriver, string quirkName)
+        {
+            if (webDriver is null) throw new ArgumentNullException(nameof(webDriver));
+            if (string.IsNullOrEmpty(quirkName))
+                throw new ArgumentException("The quirk name must not be null or an empty string", "quirkName");
+
+            return webDriver.GetQuirks().Contains(quirkName);
+        }
+
+        /// <summary>
+        /// Gets the first of an ordered collection of quirks which affects the specified WebDriver.
+        /// </summary>
+        /// <param name="webDriver">A WebDriver</param>
+        /// <param name="orderedQuirks">The name of a quirk</param>
+        /// <returns>The first item from <paramref name="orderedQuirks"/> which is applicable to the WebDriver, or a
+        /// <see langword="null" /> reference if none of the quirks are applicable.</returns>
+        public static string GetFirstApplicableQuirk(this IWebDriver webDriver, params string[] orderedQuirks)
+        {
+            if (webDriver is null) throw new ArgumentNullException(nameof(webDriver));
+            if (orderedQuirks is null || orderedQuirks.Any(string.IsNullOrEmpty))
+                throw new ArgumentException("The collection of quirks must not be null or contain any null or empty-string values.", nameof(orderedQuirks));
+
+            return orderedQuirks.FirstOrDefault(x => webDriver.HasQuirk(x));
+        }
     }
 }

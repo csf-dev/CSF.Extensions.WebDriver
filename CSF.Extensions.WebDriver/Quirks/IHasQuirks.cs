@@ -50,15 +50,5 @@ namespace CSF.Extensions.WebDriver.Quirks
         /// </para>
         /// </remarks>
         IReadOnlyCollection<string> AllQuirks { get; }
-
-        /// <summary>
-        /// Gets a value indicating whether or not the current object is affected by the specified named quirk.
-        /// </summary>
-        /// <para>
-        /// For more information on what quirks are, see the documentation for <see cref="IHasQuirks"/>.
-        /// </para>
-        /// <param name="quirkName">The name of a quirk</param>
-        /// <returns><see langword="true" /> if the object is affected by the specified quirk; <see langword="false" /> otherwise.</returns>
-        bool HasQuirk(string quirkName);
     }
 }

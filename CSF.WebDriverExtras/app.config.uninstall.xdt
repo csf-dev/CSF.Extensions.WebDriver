@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-  <configSections>
-    <section name="WebDriverFactory" xdt:Locator="Match(name)" xdt:Transform="Remove" />
-  </configSections>
-  <WebDriverFactory xdt:Transform="Remove" />
-</configuration>
