@@ -148,9 +148,9 @@ namespace CSF.Extensions.WebDriver.Identification
         /// </para>
         /// </remarks>
         /// <param name="version">A browser version string received from a WebDriver</param>
-        /// <param name="requestedVersion">A browser version string which was 'requested' by inclusion in the WebDriver's creation options.</param>
+        /// <param name="requestedVersion">An optional browser version string which was 'requested' by inclusion in the WebDriver's creation options.</param>
         /// <returns>An implementation of <see cref="BrowserVersion"/></returns>
-        public static BrowserVersion Create(string version, string requestedVersion)
+        public static BrowserVersion Create(string version, string requestedVersion = null)
         {
             if (SemanticBrowserVersion.TryParse(version, out var semVersion)) return semVersion;
             if (DottedNumericBrowserVersion.TryParse(version, out var numericVersion)) return numericVersion;

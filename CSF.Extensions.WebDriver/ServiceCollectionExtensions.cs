@@ -140,6 +140,7 @@ namespace CSF.Extensions.WebDriver
             services.AddTransient<ICreatesWebDriverFromOptions, WebDriverFromOptionsFactory>();
             services.AddTransient<RemoteWebDriverFromOptionsFactory>();
             services.AddTransient<IGetsBrowserIdFromWebDriver, BrowserIdFactory>();
+            services.AddTransient<IGetsBrowserInfoMatch, BrowserInfoMatcher>();
             services.AddTransient<IGetsProxyWebDriver, WebDriverProxyFactory>();
             services.AddTransient<IdentificationAugmenter>();
             services.AddTransient<UnproxyingAugmenter>();

@@ -16,6 +16,7 @@ namespace CSF.Extensions.WebDriver.Identification
         /// <param name="browserInfo">A browser info object</param>
         /// <returns><see langword="true" /> if the browser ID matches the browser info; <see langword="false" /> if not.</returns>
         /// <exception cref="ArgumentNullException">If any parameter is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException">If <paramref name="browserInfo"/> has a <see langword="null" /> or empty <see cref="BrowserInfo.Name"/>.</exception>
         bool Matches(BrowserId browserId, BrowserInfo browserInfo);
     }
 }
