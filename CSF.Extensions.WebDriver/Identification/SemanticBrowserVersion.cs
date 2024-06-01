@@ -49,7 +49,7 @@ namespace CSF.Extensions.WebDriver.Identification
         /// Initialises a new instance of <see cref="SemanticBrowserVersion"/>
         /// </summary>
         /// <param name="version">The semantic version.</param>
-        /// <param name="isPresumed">Whether or not this is a presumed version; see <see cref="IsPresumedVersion"/>.</param>
+        /// <param name="isPresumed">Whether or not this is a presumed version; see <see cref="BrowserVersion.IsPresumedVersion"/>.</param>
         /// <exception cref="ArgumentNullException">If <paramref name="version"/> is <see langword="null" />.</exception>
         public SemanticBrowserVersion(SemVersion version, bool isPresumed = false) : base(isPresumed)
         {
@@ -73,6 +73,23 @@ namespace CSF.Extensions.WebDriver.Identification
 
             result = null;
             return false;
+        }
+
+        /// <summary>
+        /// Creates a <see cref="SemanticBrowserVersion"/> from a string, raising an exception if the string is not a valid version.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Consider using <see cref="TryParse(string, out SemanticBrowserVersion, bool)"/> if you are not certain that the version string is valid.
+        /// </para>
+        /// </remarks>
+        /// <param name="version">The version string</param>
+        /// <param name="isPresumed">Whether or not this is a presumed version; see <see cref="BrowserVersion.IsPresumedVersion"/></param>
+        /// <returns>A semantic browser version.</returns>
+        /// <exception cref="FormatException">If the <paramref name="version"/> is not a valid semantic version.</exception>
+        public static SemanticBrowserVersion Parse(string version, bool isPresumed = false)
+        {
+            return TryParse(version, out var result, isPresumed) ? result : throw new FormatException($"The version must be a valid semantic version; consider using {nameof(TryParse)} if you are not certain that the format is correct.");
         }
     }
 }

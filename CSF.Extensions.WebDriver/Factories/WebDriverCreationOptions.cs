@@ -1,4 +1,5 @@
 using System;
+using CSF.Extensions.WebDriver.Proxies;
 using OpenQA.Selenium;
 
 namespace CSF.Extensions.WebDriver.Factories

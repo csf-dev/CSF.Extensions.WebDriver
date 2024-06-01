@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using OpenQA.Selenium;
 
 namespace CSF.Extensions.WebDriver.Factories
 {

@@ -24,6 +24,11 @@ namespace CSF.Extensions.WebDriver.Proxies
             context.Interceptors.Add(interceptor);
         }
 
+        /// <summary>
+        /// Initialises a new instance of <see cref="IdentificationAugmenter"/>.
+        /// </summary>
+        /// <param name="browserIdFactory">The browser identity factory.</param>
+        /// <exception cref="ArgumentNullException">If <paramref name="browserIdFactory"/> is <see langword="null" />.</exception>
         public IdentificationAugmenter(IGetsBrowserIdFromWebDriver browserIdFactory)
         {
             this.browserIdFactory = browserIdFactory ?? throw new ArgumentNullException(nameof(browserIdFactory));

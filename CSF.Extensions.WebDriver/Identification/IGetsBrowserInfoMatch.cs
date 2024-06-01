@@ -1,3 +1,4 @@
+using System;
 using CSF.Extensions.WebDriver.Quirks;
 
 namespace CSF.Extensions.WebDriver.Identification

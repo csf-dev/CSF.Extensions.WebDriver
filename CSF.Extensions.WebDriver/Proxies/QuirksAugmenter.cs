@@ -25,6 +25,11 @@ namespace CSF.Extensions.WebDriver.Proxies
             context.Interceptors.Add(ActivatorUtilities.CreateInstance<QuirksInterceptor>(services, new [] {context.BrowserId}));
         }
 
+        /// <summary>
+        /// Initialises a new instance of <see cref="QuirksAugmenter"/>.
+        /// </summary>
+        /// <param name="services">The DI services provider.</param>
+        /// <exception cref="ArgumentNullException">If <paramref name="services"/> is <see langword="null" />.</exception>
         public QuirksAugmenter(IServiceProvider services)
         {
             this.services = services ?? throw new ArgumentNullException(nameof(services));

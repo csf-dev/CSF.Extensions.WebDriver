@@ -151,6 +151,41 @@ namespace CSF.Extensions.WebDriver
             return services;
         }
 
+        /// <summary>
+        /// Adds services to depenency injection which support the 'browser quirks' infrastructure.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// Either <paramref name="quirksData"/> must not be <see langword="null" /> or <paramref name="useOptions"/> must be
+        /// <see langword="true" /> or else an exception will be raised from this method.
+        /// </para>
+        /// <para>
+        /// If you wish to make use of the browser-quirks functionality provided by this library then this method is used to
+        /// set that functionality up within dependency injection.  This method permits the usage of up to two sources of information
+        /// for the <see cref="QuirksData"/> which shall be used to indicate which browsers/versions are affected by which quirks:
+        /// </para>
+        /// <list type="bullet">
+        /// <item><description>A static source of data, provided via <paramref name="quirksData"/></description></item>
+        /// <item><description>Data coming from the Microsoft Options Pattern, if <paramref name="useOptions"/> is set to
+        /// <see langword="true" /> (this is the default value)</description></item>
+        /// </list>
+        /// <para>
+        /// The purpose of using two sources of data for the quirks is described in more depth in the remarks to
+        /// <see cref="QuirksDataProvider"/> but in short it allows library authors to provide some static quirks data which may be
+        /// supplemented and/or overridden (in part or completely) by user-specified options.
+        /// </para>
+        /// <para>
+        /// If you wish to use <see cref="ProxyCreationOptions.AddQuirks"/> then this method must be used in order to add the required
+        /// services to DI.
+        /// </para>
+        /// </remarks>
+        /// <param name="services">The service collection to which the services should be added.</param>
+        /// <param name="quirksData">An optional source of static quirks data.</param>
+        /// <param name="useOptions">Whether or not to use quirks information from the Microsoft Options Pattern as a source of data,
+        /// to either provide all of the quirks, or to supplement/shadow the data in <paramref name="quirksData"/>.</param>
+        /// <seealso cref="QuirksDataProvider"/>
+        /// <seealso cref="IHasQuirks"/>
+        /// <exception cref="ArgumentException">If both <paramref name="quirksData"/> is <see langword="null" /> and <paramref name="useOptions"/> is <see langword="false" />.</exception>
         public static IServiceCollection AddQuirksServices(this IServiceCollection services, QuirksData quirksData = null, bool useOptions = true)
         {
             if (quirksData is null && !useOptions)
@@ -165,7 +200,7 @@ namespace CSF.Extensions.WebDriver
             services.AddSingleton<IGetsQuirksData>(s =>
             {
                 if (!useOptions) return new QuirksDataProvider(quirksData);
-                return ActivatorUtilities.CreateInstance<QuirksDataProvider>(s, new[] { quirksData ?? new QuirksData() });
+                return ActivatorUtilities.CreateInstance<QuirksDataProvider>(s, new[] { quirksData ?? QuirksData.Empty });
             });
 
             return services;

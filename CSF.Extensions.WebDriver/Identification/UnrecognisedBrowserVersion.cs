@@ -48,7 +48,7 @@ namespace CSF.Extensions.WebDriver.Identification
         /// Initialises a new instance of <see cref="UnrecognisedBrowserVersion"/>.
         /// </summary>
         /// <param name="version">The version string</param>
-        /// <param name="isPresumed">Whether or not this is a presumed version; see <see cref="IsPresumedVersion"/>.</param>
+        /// <param name="isPresumed">Whether or not this is a presumed version; see <see cref="BrowserVersion.IsPresumedVersion"/>.</param>
         /// <exception cref="ArgumentException">If <paramref name="version"/> is <see langword="null" /> or an empty string.</exception>
         public UnrecognisedBrowserVersion(string version, bool isPresumed = false) : base(isPresumed)
         {

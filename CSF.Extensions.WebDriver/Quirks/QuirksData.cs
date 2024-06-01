@@ -21,5 +21,10 @@ namespace CSF.Extensions.WebDriver.Quirks
         }
 
         internal QuirksData DeepCopy() => new QuirksData { Quirks = Quirks.ToDictionary(k => k.Key, v => v.Value.DeepCopy()) };
+
+        /// <summary>
+        /// Gets an empty instance of <see cref="QuirksData"/>.
+        /// </summary>
+        public static QuirksData Empty => new QuirksData();
     }
 }

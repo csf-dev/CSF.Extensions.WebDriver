@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using OpenQA.Selenium;
 
 namespace CSF.Extensions.WebDriver.Factories
@@ -14,7 +15,7 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <remarks>
         /// <para>
         /// For WebDriver implementations which are shipped with Selenium, all that is required is the
-        /// short name, corresponding to <see cref="Type.Name"/>.
+        /// short name, corresponding to <see cref="MemberInfo.Name"/>.
         /// For WebDriver implementations that are not part of the <c>Selenium.WebDriver</c> NuGet package,
         /// this should be an assembly-qualified type name, such that the type could be located with
         /// <see cref="Type.GetType(string)"/>.
@@ -22,7 +23,7 @@ namespace CSF.Extensions.WebDriver.Factories
         /// </remarks>
         /// <param name="typeName">The name of the type.</param>
         /// <returns>A WebDriver type.</returns>
-        /// <exception cref="ArgumentException">If <paramref name="driverType"/> is <see langword="null" /> or whitespace,
+        /// <exception cref="ArgumentException">If <paramref name="typeName"/> is <see langword="null" /> or whitespace,
         /// or if it corresponds to a type which does not implement <see cref="IWebDriver"/>.</exception>
         /// <exception cref="TypeLoadException">If the type specified by <paramref name="typeName"/> cannot be loaded.</exception>
         Type GetWebDriverType(string typeName);
@@ -43,7 +44,7 @@ namespace CSF.Extensions.WebDriver.Factories
         /// </para>
         /// <para>
         /// Additionally, for all concrete <see cref="DriverOptions"/> implementations which are shipped with Selenium, when
-        /// <paramref name="typeName"/> is specified it needs only be a short type name, equivalent to <see cref="Type.Name"/>.
+        /// <paramref name="typeName"/> is specified it needs only be a short type name, equivalent to <see cref="MemberInfo.Name"/>.
         /// For third-party driver options implementations, this must be an assembly-qualified name, such that the type may
         /// be found using <see cref="Type.GetType(string)"/>.
         /// </para>

@@ -38,7 +38,7 @@ public class WebDriverProxyFactoryIntegrationTests
         var proxy = sut.GetProxyWebDriver(webDriver.Object, new ProxyCreationOptions { AddIdentification = true });
         var expectedId = new BrowserId("FooBrowser", "BarPlatform", new SemanticBrowserVersion(SemVersion.Parse("4.5.6", SemVersionStyles.Strict)));
 
-        Assert.That(() => ((IHasBrowserId)proxy).BrowserId, Is.EqualTo(expectedId));
+        Assert.That(() => proxy.GetBrowserId(), Is.EqualTo(expectedId));
     }
 
     [Test,AutoMoqData]
@@ -72,8 +72,8 @@ public class WebDriverProxyFactoryIntegrationTests
 
         Assert.Multiple(() =>
         {
-            Assert.That(() => ((IHasQuirks)proxy).HasQuirk("SampleQuirk"), Is.True, "Browser has SampleQuirk");
-            Assert.That(() => ((IHasQuirks)proxy).HasQuirk("OtherQuirk"), Is.False, "Browser does not have OtherQuirk");
+            Assert.That(() => proxy.HasQuirk("SampleQuirk"), Is.True, "Browser has SampleQuirk");
+            Assert.That(() => proxy.HasQuirk("OtherQuirk"), Is.False, "Browser does not have OtherQuirk");
         });
     }
 

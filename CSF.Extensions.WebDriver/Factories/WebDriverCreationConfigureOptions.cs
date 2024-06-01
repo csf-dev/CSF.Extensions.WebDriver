@@ -138,6 +138,7 @@ namespace CSF.Extensions.WebDriver.Factories
         /// </summary>
         /// <param name="typeProvider">A type-loading utility class.</param>
         /// <param name="configuration">The app configuration.</param>
+        /// <param name="logger">A logging implementation.</param>
         /// <exception cref="ArgumentNullException">If either parameter is <see langword="null" />.</exception>
         public WebDriverCreationConfigureOptions(IGetsWebDriverAndOptionsTypes typeProvider,
                                                  IConfiguration configuration,

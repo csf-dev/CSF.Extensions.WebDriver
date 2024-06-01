@@ -71,7 +71,7 @@ namespace CSF.Extensions.WebDriver.Identification
         /// Initialises a new instance of <see cref="DottedNumericBrowserVersion"/>
         /// </summary>
         /// <param name="versionComponents">The version components.</param>
-        /// <param name="isPresumed">Whether or not this is a presumed version; see <see cref="IsPresumedVersion"/>.</param>
+        /// <param name="isPresumed">Whether or not this is a presumed version; see <see cref="BrowserVersion.IsPresumedVersion"/>.</param>
         /// <exception cref="ArgumentNullException">If <paramref name="versionComponents"/> is <see langword="null" />.</exception>
         /// <exception cref="ArgumentException">If <paramref name="versionComponents"/> has a count of zero.</exception>
         public DottedNumericBrowserVersion(IList<int> versionComponents, bool isPresumed = false) : base(isPresumed)

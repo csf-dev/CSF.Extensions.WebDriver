@@ -17,7 +17,7 @@ namespace CSF.Extensions.WebDriver.Quirks
     /// This 'quirks' mechanism provides a way in which consumers of WebDrivers may gracefully deal with that, with
     /// minimal compromise to their design.  A quirk is a named boolean flag, such as (a fictitious quirk) <c>CannotDisplayYellow</c>.
     /// Consumers of the WebDriver may use this interface to determine whether or not the WebDriver is affected by this quirk
-    /// or not, by using the <see cref="HasQuirk(string)"/> function.
+    /// or not, by using the <see cref="WebDriverExtensions.HasQuirk(IWebDriver, string)"/> function.
     /// If the WebDriver is known to be affected by the quirk then that method will return <see langword="true" />, or if it is
     /// not affected then the method will return <see langword="false" />.
     /// The consumer may then take whatever course of action is required in order to work-around that quirk, if the result was
@@ -46,7 +46,7 @@ namespace CSF.Extensions.WebDriver.Quirks
         /// </summary>
         /// <remarks>
         /// <para>
-        /// Prefer using <see cref="HasQuirk(string)"/> instead of this property.
+        /// Prefer using <see cref="WebDriverExtensions.HasQuirk(IWebDriver, string)"/> instead of this property.
         /// </para>
         /// </remarks>
         IReadOnlyCollection<string> AllQuirks { get; }
