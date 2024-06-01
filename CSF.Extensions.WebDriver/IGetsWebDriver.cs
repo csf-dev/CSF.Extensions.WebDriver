@@ -20,6 +20,13 @@ namespace CSF.Extensions.WebDriver
         /// <summary>
         /// Gets an <see cref="IWebDriver"/> using the driver configuration indicated by the <see cref="WebDriverCreationOptionsCollection.SelectedConfiguration"/>.
         /// </summary>
+        /// <remarks>
+        /// <para>
+        /// The <paramref name="supplementaryConfiguration"/> can be useful for customising the WebDriver options in a manner specific to a single WebDriver.
+        /// For example some remote WebDriver providers offer a facility to 'tag' the WebDriver with a current test/scenario name. This is done by adding
+        /// additional options to the DriverOptions, specific to that scenario.
+        /// </para>
+        /// </remarks>
         /// <param name="supplementaryConfiguration">An optional action which further-configures the WebDriver options before the driver is created.</param>
         /// <returns>A WebDriver</returns>
         IWebDriver GetDefaultWebDriver(Action<DriverOptions> supplementaryConfiguration = null);
@@ -31,6 +38,11 @@ namespace CSF.Extensions.WebDriver
         /// <para>
         /// The <paramref name="configurationName"/> must correspond to a key within the <see cref="WebDriverCreationOptionsCollection.DriverConfigurations"/>
         /// collection.
+        /// </para>
+        /// <para>
+        /// The <paramref name="supplementaryConfiguration"/> can be useful for customising the WebDriver options in a manner specific to a single WebDriver.
+        /// For example some remote WebDriver providers offer a facility to 'tag' the WebDriver with a current test/scenario name. This is done by adding
+        /// additional options to the DriverOptions, specific to that scenario.
         /// </para>
         /// </remarks>
         /// <param name="configurationName">The driver configuration name.</param>
