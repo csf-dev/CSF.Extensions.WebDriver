@@ -111,7 +111,7 @@ namespace CSF.Extensions.WebDriver.Factories
 
             try
             {
-                creationOptions.Options = GetOptions(optionsType, configuration);
+                creationOptions.OptionsFactory = GetOptions(optionsType, configuration);
             }
             catch(Exception e)
             {
@@ -126,11 +126,14 @@ namespace CSF.Extensions.WebDriver.Factories
             return creationOptions;
         }
 
-        static DriverOptions GetOptions(Type optionsType, IConfigurationSection config)
+        static Func<DriverOptions> GetOptions(Type optionsType, IConfigurationSection config)
         {
-            var options = (DriverOptions) Activator.CreateInstance(optionsType);
-            config.Bind(nameof(WebDriverCreationOptions.Options), options);
-            return options;
+            return () =>
+            {
+                var options = (DriverOptions)Activator.CreateInstance(optionsType);
+                config.Bind("Options", options);
+                return options;
+            };
         }
 
         /// <summary>

@@ -15,10 +15,12 @@ namespace CSF.Extensions.WebDriver
         readonly ICreatesWebDriverFromOptions factory;
 
         /// <inheritdoc/>
-        public IWebDriver GetDefaultWebDriver() => factory.GetWebDriver(options.Value);
+        public IWebDriver GetDefaultWebDriver(Action<DriverOptions> supplementaryConfiguration = null)
+            => factory.GetWebDriver(options.Value, supplementaryConfiguration);
 
         /// <inheritdoc/>
-        public IWebDriver GetWebDriver(string configurationName) => factory.GetWebDriver(options.Value, configurationName);
+        public IWebDriver GetWebDriver(string configurationName, Action<DriverOptions> supplementaryConfiguration = null)
+            => factory.GetWebDriver(options.Value, configurationName, supplementaryConfiguration);
 
         /// <summary>
         /// Initialises a new instance of <see cref="WebDriverFactory"/>.

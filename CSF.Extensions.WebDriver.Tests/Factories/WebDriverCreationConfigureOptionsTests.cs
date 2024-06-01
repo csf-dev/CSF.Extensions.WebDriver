@@ -38,9 +38,9 @@ public class WebDriverCreationConfigureOptionsTests
                 return;
             }
             Assert.That(driverConfig?.DriverType, Is.EqualTo("ChromeDriver"), "Driver config should have correct driver type name");
-            Assert.That(driverConfig?.Options, Is.InstanceOf<ChromeOptions>(), "Driver config should use correct options type");
+            Assert.That(driverConfig?.OptionsFactory(), Is.InstanceOf<ChromeOptions>(), "Driver config should use correct options type");
 #pragma warning disable NUnit2022 // Missing property required for constraint: Really, we are using the subclass ChromeOptions, which does have that property
-            Assert.That(driverConfig?.Options,
+            Assert.That(driverConfig?.OptionsFactory(),
                         Has.Property(nameof(ChromeOptions.BinaryLocation)).EqualTo(@"C:\SomePath\Chrome\GoogleChrome.exe"),
                         "Driver config has options with correct binary location");
 #pragma warning restore NUnit2022 // Missing property required for constraint
@@ -81,7 +81,7 @@ public class WebDriverCreationConfigureOptionsTests
                 return;
             }
 #pragma warning disable NUnit2022 // Missing property required for constraint: Really, we are using the subclass FirefoxOptions, which does have that property
-            Assert.That(driverConfig?.Options,
+            Assert.That(driverConfig?.OptionsFactory(),
                         Has.Property(nameof(FirefoxOptions.EnableDevToolsProtocol)).True,
                         "Driver config has options with correct dev tools protocol setting");
 #pragma warning restore NUnit2022 // Missing property required for constraint
@@ -106,8 +106,8 @@ public class WebDriverCreationConfigureOptionsTests
                 Assert.Fail("The driver configuration should be present");
                 return;
             }
-            Assert.That(driverConfig?.Options, Is.InstanceOf<ChromeOptions>(), "Driver config should use correct options type");
-            Assert.That(driverConfig?.Options, Is.Not.Null, "Driver config should not be null");
+            Assert.That(driverConfig?.OptionsFactory(), Is.InstanceOf<ChromeOptions>(), "Driver config should use correct options type");
+            Assert.That(driverConfig?.OptionsFactory(), Is.Not.Null, "Driver config should not be null");
         });
     }
 

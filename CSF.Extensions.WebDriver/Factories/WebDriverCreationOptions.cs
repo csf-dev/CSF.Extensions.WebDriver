@@ -1,5 +1,6 @@
 using System;
 using CSF.Extensions.WebDriver.Proxies;
+using Microsoft.Extensions.Configuration;
 using OpenQA.Selenium;
 
 namespace CSF.Extensions.WebDriver.Factories
@@ -10,7 +11,7 @@ namespace CSF.Extensions.WebDriver.Factories
     /// <remarks>
     /// <para>
     /// For most local WebDriver scenarios, the only mandatory properties for this object are <see cref="DriverType"/>
-    /// and <see cref="Options"/>.
+    /// and <see cref="OptionsFactory"/>.
     /// For remote WebDrivers, the <see cref="OptionsType"/> property is mandatory and the <see cref="GridUrl"/> property is recommended.
     /// </para>
     /// </remarks>
@@ -93,19 +94,29 @@ namespace CSF.Extensions.WebDriver.Factories
         public string GridUrl { get; set; }
 
         /// <summary>
-        /// Gets or sets the WebDriver options object which should be provided to the WebDriver implementation.
+        /// Gets or sets a factory object which can create instances of WebDriver options, to be provided to the WebDriver implementation.
         /// </summary>
         /// <remarks>
         /// <para>
-        /// This must be an object of an appropriate type to match the implementation of <see cref="IWebDriver"/> that is selected,
-        /// via <see cref="DriverType"/>.
+        /// The return value of this function must be an object of an appropriate type to match the implementation of <see cref="IWebDriver"/>
+        /// that is selected, via <see cref="DriverType"/>.
         /// When deserializing this value from configuration (such as an <c>appsettings.json</c> file), the <see cref="OptionsType"/>
         /// will be used to select the appropriate polymorphic type to which the configuration should be bound.
         /// For local WebDriver implementations which are shipped with Selenium, the options type need not be specified explicitly;
         /// it will be inferred from the chosen driver type.
         /// </para>
+        /// <para>
+        /// This option is provided as a factory, rather than an instance of <see cref="DriverOptions"/> because it will create options
+        /// instances for - potentially - many usages throughout the application/test lifetime. It is a poor design choice to use a single
+        /// options instance for every one of the WebDriver instances which will be used. In some cases, this would cause functional issues,
+        /// such as where additional per-scenario capabilities need to be injected into each options instance.
+        /// </para>
+        /// <para>
+        /// Please note that when using Microsoft.Extensions.Configuration to bind an instance of this type, this factory function is bound
+        /// from an <see cref="IConfiguration"/> key named <c>Options</c> and not OptionsFactory as its member name might suggest.
+        /// </para>
         /// </remarks>
-        public DriverOptions Options { get; set; }
+        public Func<DriverOptions> OptionsFactory { get; set; }
 
         /// <summary>
         /// Unneeded except in unusual circumstances, gets or sets the name of a type which is used to construct the WebDriver instance.

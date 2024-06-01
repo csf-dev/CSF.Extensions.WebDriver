@@ -17,18 +17,18 @@ namespace CSF.Extensions.WebDriver.Factories
         readonly ILogger<WebDriverFromOptionsFactory> logger;
 
         /// <inheritdoc/>
-        public IWebDriver GetWebDriver(WebDriverCreationOptions options)
+        public IWebDriver GetWebDriver(WebDriverCreationOptions options, Action<DriverOptions> supplementaryConfiguration = null)
         {
             if (options is null) throw new ArgumentNullException(nameof(options));
 
-            logger.LogDebug("Creating a web driver of type {DriverType} using options type {OptionsType}", options.DriverType, options.Options.GetType());
+            logger.LogDebug("Creating a web driver of type {DriverType} using options type {OptionsType}", options.DriverType, options.OptionsFactory.GetType());
 
             if (!string.IsNullOrEmpty(options.DriverFactoryType))
-                return GetWebDriverFromThirdPartyFactory(options);
+                return GetWebDriverFromThirdPartyFactory(options, supplementaryConfiguration);
 
             var driverType = typeProvider.GetWebDriverType(options.DriverType);
             if (driverType == typeof(RemoteWebDriver))
-                return GetRemoteWebDriver(options);
+                return GetRemoteWebDriver(options, supplementaryConfiguration);
 
             if (!driverType.GetConstructors().Any(SeleniumDriverAndOptionsScanner.OptionsConstructorPredicate))
                 throw new ArgumentException($"The WebDriver type {driverType.FullName} does not offer a public constructor which takes a single parameter " +
@@ -36,20 +36,22 @@ namespace CSF.Extensions.WebDriver.Factories
                                             $"{nameof(WebDriverCreationOptions)}.{nameof(WebDriverCreationOptions.DriverFactoryType)}.",
                                             nameof(options));
 
-            var driver = (IWebDriver) Activator.CreateInstance(driverType, options.Options);
+            var driverOptions = options.OptionsFactory();
+            supplementaryConfiguration?.Invoke(driverOptions);
+            var driver = (IWebDriver) Activator.CreateInstance(driverType, driverOptions);
             logger.LogDebug("Driver created via reflection: {Driver}", driver);
             return driver;
         }
 
-        IWebDriver GetRemoteWebDriver(WebDriverCreationOptions options)
-            => services.GetRequiredService<RemoteWebDriverFromOptionsFactory>().GetWebDriver(options);
+        IWebDriver GetRemoteWebDriver(WebDriverCreationOptions options, Action<DriverOptions> supplementaryConfiguration)
+            => services.GetRequiredService<RemoteWebDriverFromOptionsFactory>().GetWebDriver(options, supplementaryConfiguration);
 
-        IWebDriver GetWebDriverFromThirdPartyFactory(WebDriverCreationOptions options)
+        IWebDriver GetWebDriverFromThirdPartyFactory(WebDriverCreationOptions options, Action<DriverOptions> supplementaryConfiguration)
         {
             logger.LogDebug("Using factory type {FactoryType} specified in the configuration", options.DriverFactoryType);
             var factoryType = typeProvider.GetWebDriverFactoryType(options.DriverFactoryType);
             var factory = GetThirdPartyFactory(factoryType);
-            var driver = factory.GetWebDriver(options);
+            var driver = factory.GetWebDriver(options, supplementaryConfiguration);
             logger.LogInformation("Driver created via third-party factory: {Driver}", driver);
             return driver;
         }

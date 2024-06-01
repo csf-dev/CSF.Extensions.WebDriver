@@ -30,13 +30,14 @@ namespace CSF.Extensions.WebDriver.Factories
         /// </para>
         /// </remarks>
         /// <param name="options">An object indicating which WebDriver implementation to use and how the WebDriver should be configured.</param>
+        /// <param name="supplementaryConfiguration">An optional action which further-configures the WebDriver options before the driver is created.</param>
         /// <returns>A WebDriver instance</returns>
         /// <exception cref="ArgumentNullException">If <paramref name="options"/> is <see langword="null" />.</exception>
         /// <exception cref="ArgumentException">
         /// If any of:
         /// <list type="bullet">
         /// <item><description>The <see cref="WebDriverCreationOptions.DriverType"/> of the <paramref name="options"/> is <see langword="null" /> or empty</description></item>
-        /// <item><description>The <see cref="WebDriverCreationOptions.Options"/> of the <paramref name="options"/> is <see langword="null" /></description></item>
+        /// <item><description>The <see cref="WebDriverCreationOptions.OptionsFactory"/> of the <paramref name="options"/> is <see langword="null" /></description></item>
         /// <item><description>The <see cref="WebDriverCreationOptions.DriverType"/> of the <paramref name="options"/> is set to an implementation of
         /// <see cref="IWebDriver"/> which does not expose a public constructor which takes a single parameter of type <see cref="DriverOptions"/> (or a more
         /// derived type).  Such WebDriver implementations will require a custom factory, indicated by <see cref="WebDriverCreationOptions.DriverFactoryType"/></description></item>.
@@ -48,6 +49,6 @@ namespace CSF.Extensions.WebDriver.Factories
         /// Either <see cref="WebDriverCreationOptions.DriverType"/> or <see cref="WebDriverCreationOptions.DriverFactoryType"/> of the
         /// <paramref name="options"/> are non-null/non-empty but no type can be found matching the specifed values.
         /// </exception>
-        IWebDriver GetWebDriver(WebDriverCreationOptions options);
+        IWebDriver GetWebDriver(WebDriverCreationOptions options, Action<DriverOptions> supplementaryConfiguration = null);
     }
 }

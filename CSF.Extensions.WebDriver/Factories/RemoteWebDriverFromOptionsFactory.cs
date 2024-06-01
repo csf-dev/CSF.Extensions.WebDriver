@@ -13,19 +13,22 @@ namespace CSF.Extensions.WebDriver.Factories
         readonly ILogger<RemoteWebDriverFromOptionsFactory> logger;
 
         /// <inheritdoc/>
-        public IWebDriver GetWebDriver(WebDriverCreationOptions options)
+        public IWebDriver GetWebDriver(WebDriverCreationOptions options, Action<DriverOptions> supplementaryConfiguration = null)
         {
             if (options is null) throw new ArgumentNullException(nameof(options));
-            
+
+            var driverOptions = options.OptionsFactory();
+            supplementaryConfiguration?.Invoke(driverOptions);
+
             if(string.IsNullOrWhiteSpace(options.GridUrl))
             {
-                var driver = new RemoteWebDriver(options.Options);
+                var driver = new RemoteWebDriver(driverOptions);
                 logger.LogInformation("Driver created for {RemoteDriver}: {Driver}", nameof(RemoteWebDriver), driver);
                 return driver;
             }
             else
             {
-                var driver = new RemoteWebDriver(new Uri(options.GridUrl), options.Options);
+                var driver = new RemoteWebDriver(new Uri(options.GridUrl), driverOptions);
                 logger.LogInformation("Driver created for {RemoteDriver}: {Driver}, Remote URL: {GridUrl}", nameof(RemoteWebDriver), driver, options.GridUrl);
                 return driver;
             }

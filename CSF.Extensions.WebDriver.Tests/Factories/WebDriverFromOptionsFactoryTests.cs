@@ -17,7 +17,7 @@ public class WebDriverFromOptionsFactoryTests
         var options = new WebDriverCreationOptions
         {
             DriverType = nameof(ChromeDriver),
-            Options = new ChromeOptions(),
+            OptionsFactory = () => new ChromeOptions(),
         };
 
         try
@@ -41,7 +41,7 @@ public class WebDriverFromOptionsFactoryTests
         var options = new WebDriverCreationOptions
         {
             DriverType = nameof(RemoteWebDriver),
-            Options = new ChromeOptions(),
+            OptionsFactory = () => new ChromeOptions(),
             GridUrl = "nonsense://127.0.0.1:1/nonexistent/path",
         };
         Mock.Get(services).Setup(x => x.GetService(typeof(RemoteWebDriverFromOptionsFactory))).Returns(remoteFactory);
@@ -67,7 +67,7 @@ public class WebDriverFromOptionsFactoryTests
         var options = new WebDriverCreationOptions
         {
             DriverType = nameof(RemoteWebDriver),
-            Options = new ChromeOptions(),
+            OptionsFactory = () => new ChromeOptions(),
             GridUrl = "nonsense://127.0.0.1:1/nonexistent/path",
             DriverFactoryType = typeof(FakeWebDriverFactory).AssemblyQualifiedName,
         };
@@ -88,7 +88,7 @@ public class WebDriverFromOptionsFactoryTests
         var options = new WebDriverCreationOptions
         {
             DriverType = nameof(RemoteWebDriver),
-            Options = new ChromeOptions(),
+            OptionsFactory = () => new ChromeOptions(),
             GridUrl = "nonsense://127.0.0.1:1/nonexistent/path",
             DriverFactoryType = typeof(FakeWebDriverFactory).AssemblyQualifiedName,
         };
@@ -107,7 +107,7 @@ public class WebDriverFromOptionsFactoryTests
         var options = new WebDriverCreationOptions
         {
             DriverType = nameof(RemoteWebDriver),
-            Options = new ChromeOptions(),
+            OptionsFactory = () => new ChromeOptions(),
             GridUrl = "nonsense://127.0.0.1:1/nonexistent/path",
             DriverFactoryType = typeof(FakeWebDriverFactory).AssemblyQualifiedName,
         };
@@ -118,8 +118,87 @@ public class WebDriverFromOptionsFactoryTests
         Assert.That(driver, Is.Not.Null);
     }
 
+    [Test,AutoMoqData]
+    public void GetWebDriverShouldCustomiseDriverOptionsWithCallbackWhenItIsSpecifiedWithALocalFactory([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider,
+                                                                                                       WebDriverFromOptionsFactory sut)
+    {
+        var driverOptions = new ChromeOptions();
+        var options = new WebDriverCreationOptions
+        {
+            DriverType = nameof(ChromeDriver),
+            OptionsFactory = () => driverOptions,
+        };
+
+        try
+        {
+            using var driver = sut.GetWebDriver(options, o => o.AddAdditionalOption("Foo", "Bar"));
+        }
+        catch (Exception e) when (e is TargetInvocationException { InnerException: DriverServiceNotFoundException } or DriverServiceNotFoundException)
+        {
+            // Intentionally ignore this exception; we know it's going to fail but I care only about how the options were manipulated in this test.
+        }
+                
+        Assert.That(driverOptions.ToCapabilities()["Foo"], Is.EqualTo("Bar"));
+    }
+
+    [Test,AutoMoqData]
+    public void GetWebDriverShouldCustomiseDriverOptionsWithCallbackWhenItIsSpecifiedWithARemoteFactory([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider,
+                                                                                                        [Frozen] IServiceProvider services,
+                                                                                                        WebDriverFromOptionsFactory sut,
+                                                                                                        RemoteWebDriverFromOptionsFactory remoteFactory)
+    {
+        var driverOptions = new ChromeOptions();
+        var options = new WebDriverCreationOptions
+        {
+            DriverType = nameof(RemoteWebDriver),
+            OptionsFactory = () => driverOptions,
+            GridUrl = "nonsense://127.0.0.1:1/nonexistent/path",
+        };
+        Mock.Get(services).Setup(x => x.GetService(typeof(RemoteWebDriverFromOptionsFactory))).Returns(remoteFactory);
+
+        try
+        {
+            using var driver = sut.GetWebDriver(options, o => o.AddAdditionalOption("Foo", "Bar"));
+        }
+        catch (NotSupportedException)
+        {
+            // Intentionally ignore this exception; we know it's going to fail but I care only about how the options were manipulated in this test.
+        }
+        
+        Assert.That(driverOptions.ToCapabilities()["Foo"], Is.EqualTo("Bar"));
+    }
+
+    [Test,AutoMoqData]
+    public void GetWebDriverShouldCustomiseDriverOptionsWithCallbackWhenItIsSpecifiedWithACustomDriverFactory([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider,
+                                                                                                              [Frozen] IServiceProvider services,
+                                                                                                              WebDriverFromOptionsFactory sut,
+                                                                                                              RemoteWebDriverFromOptionsFactory remoteFactory)
+    {
+        var driverOptions = new ChromeOptions();
+        var options = new WebDriverCreationOptions
+        {
+            DriverType = nameof(RemoteWebDriver),
+            OptionsFactory = () => driverOptions,
+            GridUrl = "nonsense://127.0.0.1:1/nonexistent/path",
+            DriverFactoryType = typeof(FakeWebDriverFactory).AssemblyQualifiedName,
+        };
+        Mock.Get(services).Setup(x => x.GetService(typeof(FakeWebDriverFactory))).Returns(() => new FakeWebDriverFactory());
+        Mock.Get(services).Setup(x => x.GetService(typeof(RemoteWebDriverFromOptionsFactory))).Returns(remoteFactory);
+        Mock.Get(typeProvider).Setup(x => x.GetWebDriverFactoryType(typeof(FakeWebDriverFactory).AssemblyQualifiedName)).Returns(typeof(FakeWebDriverFactory));
+
+        // This test should never throw because the fake factory should never execute any of Selenium's real logic
+        using var driver = sut.GetWebDriver(options, o => o.AddAdditionalOption("Foo", "Bar"));
+
+        Assert.That(driverOptions.ToCapabilities()["Foo"], Is.EqualTo("Bar"));
+    }
+
     public class FakeWebDriverFactory : ICreatesWebDriverFromOptions
     {
-        public IWebDriver GetWebDriver(WebDriverCreationOptions options) => Mock.Of<IWebDriver>();
+        public IWebDriver GetWebDriver(WebDriverCreationOptions options, Action<DriverOptions>? supplementaryConfiguration = null)
+        {
+            var driverOptions = options.OptionsFactory();
+            supplementaryConfiguration?.Invoke(driverOptions);
+            return Mock.Of<IWebDriver>();
+        }
     }
 }
