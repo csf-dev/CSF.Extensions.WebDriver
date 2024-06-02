@@ -1,4 +1,3 @@
-using Moq;
 using OpenQA.Selenium;
 
 namespace CSF.Extensions.WebDriver.Proxies;

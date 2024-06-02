@@ -22,7 +22,4 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		version = 1.0.4
-	EndGlobalSection
 EndGlobal

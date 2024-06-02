@@ -2,10 +2,19 @@
 _layout: landing
 ---
 
-# This is the **HOMEPAGE**
+# CSF.Extensions.WebDriver
 
-Refer to [Markdown](http://daringfireball.net/projects/markdown/) for how to write markdown files.
+This project offers some support functionality for **[Selenium WebDriver]**.
+This is broadly organised into three features:
 
-## Quick Start Notes:
+* A [universal WebDriver factory] intended to help keep WebDriver configuration and construction out of your application/tests
+* A mechanism to [reliably identify WebDriver instances] and their version information, after they are created
+* A mechanism to ['mark WebDrivers up' with information about their quirks] which affect that browser/WebDriver/version combination
 
-1. Add images to the *images* folder if the file is referencing an image.
+To get going straight away, read [the **quick start** documentation].
+
+[Selenium WebDriver]: https://www.selenium.dev/documentation/webdriver/
+[universal WebDriver factory]: Docs/UniversalFactory.md
+[reliably identify WebDriver instances]: Docs/DriverIdentification.md
+['mark WebDrivers up' with information about their quirks]: Docs/Quirks.md
+[the **quick start** documentation]: Docs/QuickStart.md

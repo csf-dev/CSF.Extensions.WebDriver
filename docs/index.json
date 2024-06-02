@@ -379,19 +379,29 @@
     "title": "Namespace CSF.Extensions.WebDriver | CSF.Extensions.WebDriver",
     "keywords": "Namespace CSF.Extensions.WebDriver Classes ServiceCollectionExtensions Extension methods for IServiceCollection to add web driver factory options, created from configuration. WebDriverExtensions Extension methods for OpenQA.Selenium.IWebDriver. WebDriverFactory A 'universal web driver factory' which uses the options pattern to inject a WebDriverCreationOptionsCollection and forward that information to a. ICreatesWebDriverFromOptions. Interfaces IGetsWebDriver An object which can get an OpenQA.Selenium.IWebDriver from the options available in the application."
   },
-  "docs/getting-started.html": {
-    "href": "docs/getting-started.html",
-    "title": "Getting Started | CSF.Extensions.WebDriver",
-    "keywords": "Getting Started"
+  "docs/DriverIdentification.html": {
+    "href": "docs/DriverIdentification.html",
+    "title": "| CSF.Extensions.WebDriver",
+    "keywords": ""
   },
-  "docs/introduction.html": {
-    "href": "docs/introduction.html",
-    "title": "Introduction | CSF.Extensions.WebDriver",
-    "keywords": "Introduction"
+  "docs/QuickStart.html": {
+    "href": "docs/QuickStart.html",
+    "title": "| CSF.Extensions.WebDriver",
+    "keywords": ""
+  },
+  "docs/Quirks.html": {
+    "href": "docs/Quirks.html",
+    "title": "| CSF.Extensions.WebDriver",
+    "keywords": ""
+  },
+  "docs/UniversalFactory.html": {
+    "href": "docs/UniversalFactory.html",
+    "title": "| CSF.Extensions.WebDriver",
+    "keywords": ""
   },
   "index.html": {
     "href": "index.html",
-    "title": "This is the HOMEPAGE | CSF.Extensions.WebDriver",
-    "keywords": "This is the HOMEPAGE Refer to Markdown for how to write markdown files. Quick Start Notes: Add images to the images folder if the file is referencing an image."
+    "title": "CSF.Extensions.WebDriver | CSF.Extensions.WebDriver",
+    "keywords": "CSF.Extensions.WebDriver This project offers some support functionality for Selenium WebDriver. This is broadly organised into three features: A universal WebDriver factory intended to help keep WebDriver configuration and construction out of your application/tests A mechanism to reliably identify WebDriver instances and their version information, after they are created A mechanism to 'mark WebDrivers up' with information about their quirks which affect that browser/WebDriver/version combination To get going straight away, read the quick start documentation."
   }
 }

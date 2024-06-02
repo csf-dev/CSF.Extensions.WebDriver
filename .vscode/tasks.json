@@ -20,6 +20,24 @@
 			"args": ["test"],
 			"problemMatcher": [],
 			"label": "dotnet: test"
+		},
+		{
+			"group": {
+				"kind": "build"
+			},
+			"command": "docfx",
+			"args": ["build", "CSF.Extensions.WebDriver.Docs/docfx.json"],
+			"problemMatcher": [],
+			"label": "docfx: build"
+		},
+		{
+			"group": {
+				"kind": "build"
+			},
+			"command": "docfx",
+			"args": ["build", "CSF.Extensions.WebDriver.Docs/docfx.json", "--serve"],
+			"problemMatcher": [],
+			"label": "docfx: serve"
 		}
 	]
 }

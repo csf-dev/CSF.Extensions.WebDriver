@@ -1,6 +1,4 @@
-using AutoFixture.NUnit3;
 using CSF.Extensions.WebDriver.Identification;
-using Moq;
 
 namespace CSF.Extensions.WebDriver.Quirks;
 

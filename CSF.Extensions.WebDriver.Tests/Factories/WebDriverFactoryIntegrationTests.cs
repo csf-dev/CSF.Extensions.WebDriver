@@ -1,6 +1,5 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Moq;
 using OpenQA.Selenium;
 
 namespace CSF.Extensions.WebDriver.Factories;

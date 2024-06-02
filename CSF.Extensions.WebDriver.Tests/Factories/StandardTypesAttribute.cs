@@ -1,7 +1,5 @@
 using System.Reflection;
 using AutoFixture;
-using AutoFixture.NUnit3;
-using Moq;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Remote;

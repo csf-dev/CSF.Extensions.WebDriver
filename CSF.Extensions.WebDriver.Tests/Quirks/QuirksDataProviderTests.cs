@@ -1,5 +1,4 @@
 using Microsoft.Extensions.Options;
-using Moq;
 
 namespace CSF.Extensions.WebDriver.Quirks;
 

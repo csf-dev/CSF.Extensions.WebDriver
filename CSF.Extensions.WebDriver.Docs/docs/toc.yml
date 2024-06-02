@@ -1,4 +1,8 @@
-- name: Introduction
-  href: introduction.md
-- name: Getting Started
-  href: getting-started.md
+- name: Quick start
+  href: QuickStart.md
+- name: Universal factory
+  href: UniversalFactory.md
+- name: Driver identification
+  href: DriverIdentification.md
+- name: Quirks
+  href: Quirks.md

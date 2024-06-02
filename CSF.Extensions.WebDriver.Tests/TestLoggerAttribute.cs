@@ -1,8 +1,6 @@
 using System.Reflection;
 using AutoFixture;
-using AutoFixture.NUnit3;
 using Microsoft.Extensions.Logging;
-using Moq;
 
 namespace CSF.Extensions.WebDriver;
 

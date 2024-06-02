@@ -1,6 +1,4 @@
 using System.Collections.ObjectModel;
-using AutoFixture.NUnit3;
-using Moq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;

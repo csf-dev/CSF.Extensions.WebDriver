@@ -1,7 +1,6 @@
 using CSF.Extensions.WebDriver.Identification;
 using CSF.Extensions.WebDriver.Quirks;
 using Microsoft.Extensions.DependencyInjection;
-using Moq;
 using OpenQA.Selenium;
 using Semver;
 

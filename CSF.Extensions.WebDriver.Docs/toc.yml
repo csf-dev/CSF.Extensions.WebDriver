@@ -1,4 +1,6 @@
 - name: Docs
   href: docs/
+- name: Quick start
+  href: docs/QuickStart.md
 - name: API
   href: api/
