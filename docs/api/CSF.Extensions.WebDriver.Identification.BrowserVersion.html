@@ -1,0 +1,775 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class BrowserVersion | CSF.Extensions.WebDriver </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BrowserVersion | CSF.Extensions.WebDriver ">
+      
+      <meta name="description" content="Base class for a model which describes a WebDriver browser version.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/WebDriverExtras/new/feature/41-version2/apiSpec/new?filename=CSF_Extensions_WebDriver_Identification_BrowserVersion.md&amp;value=---%0Auid%3A%20CSF.Extensions.WebDriver.Identification.BrowserVersion%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Extensions.WebDriver">
+            CSF.Extensions.WebDriver
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion">
+
+
+
+  <h1 id="CSF_Extensions_WebDriver_Identification_BrowserVersion" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion" class="text-break">
+Class BrowserVersion  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Identification/BrowserVersion.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Extensions.html">Extensions</a>.<a class="xref" href="CSF.Extensions.WebDriver.html">WebDriver</a>.<a class="xref" href="CSF.Extensions.WebDriver.Identification.html">Identification</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Extensions.WebDriver.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Base class for a model which describes a WebDriver browser version.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class BrowserVersion : IEquatable&lt;BrowserVersion&gt;, IComparable&lt;BrowserVersion&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">BrowserVersion</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a>&gt;</div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.html">DottedNumericBrowserVersion</a></div>
+      <div><a class="xref" href="CSF.Extensions.WebDriver.Identification.MissingBrowserVersion.html">MissingBrowserVersion</a></div>
+      <div><a class="xref" href="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.html">SemanticBrowserVersion</a></div>
+      <div><a class="xref" href="CSF.Extensions.WebDriver.Identification.UnrecognisedBrowserVersion.html">UnrecognisedBrowserVersion</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="CSF_Extensions_WebDriver_Identification_BrowserVersion__ctor_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.#ctor*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Identification_BrowserVersion__ctor_System_Boolean_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.#ctor(System.Boolean)">
+  BrowserVersion(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Identification/BrowserVersion.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected BrowserVersion(bool isPresumed = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>isPresumed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not this is a presumed version; see <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html#CSF_Extensions_WebDriver_Identification_BrowserVersion_IsPresumedVersion">IsPresumedVersion</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="CSF_Extensions_WebDriver_Identification_BrowserVersion_IsPresumedVersion_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.IsPresumedVersion*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Identification_BrowserVersion_IsPresumedVersion" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.IsPresumedVersion">
+  IsPresumedVersion
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Identification/BrowserVersion.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the current instance represents a presumed version or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsPresumedVersion { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Identification_BrowserVersion_IsPresumedVersion_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+When this property is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, this indicates that we are not sure that the version reported by
+the current <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a> is accurate. This can be the case when the WebDriver implementation does
+not report-back its version correctly.
+</p>
+<p>
+A presumed version is created by using the information from the original WebDriver request (based upon the options used
+to create the driver).  It means "We asked for version X, so we presume that it is version X".  Of course, across the
+many scenarios possible, this might not always be correct.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Extensions_WebDriver_Identification_BrowserVersion_PresumedSuffix_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.PresumedSuffix*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Identification_BrowserVersion_PresumedSuffix" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.PresumedSuffix">
+  PresumedSuffix
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Identification/BrowserVersion.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a suffix for derived types' versions which indicates whether or not <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html#CSF_Extensions_WebDriver_Identification_BrowserVersion_IsPresumedVersion">IsPresumedVersion</a>
+is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string PresumedSuffix { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Extensions_WebDriver_Identification_BrowserVersion_CompareTo_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.CompareTo*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Identification_BrowserVersion_CompareTo_CSF_Extensions_WebDriver_Identification_BrowserVersion_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.CompareTo(CSF.Extensions.WebDriver.Identification.BrowserVersion)">
+  CompareTo(BrowserVersion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Identification/BrowserVersion.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int CompareTo(BrowserVersion other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Extensions_WebDriver_Identification_BrowserVersion_Create_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.Create*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Identification_BrowserVersion_Create_System_String_System_String_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.Create(System.String,System.String)">
+  Create(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Identification/BrowserVersion.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a> from the specified version received from a WebDriver and the version which was
+requested via the driver options.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BrowserVersion Create(string version, string requestedVersion = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>version</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A browser version string received from a WebDriver</p>
+</dd>
+    <dt><code>requestedVersion</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>An optional browser version string which was 'requested' by inclusion in the WebDriver's creation options.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a></dt>
+    <dd><p>An implementation of <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Identification_BrowserVersion_Create_System_String_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method attempts to find the 'best' implementation of <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a> available.
+It will try <a class="xref" href="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.html">SemanticBrowserVersion</a> and then <a class="xref" href="CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.html">DottedNumericBrowserVersion</a> for both the
+<code class="paramref">version</code> and then <code class="paramref">requestedVersion</code> before it attempts <a class="xref" href="CSF.Extensions.WebDriver.Identification.UnrecognisedBrowserVersion.html">UnrecognisedBrowserVersion</a>
+with either.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Extensions_WebDriver_Identification_BrowserVersion_Equals_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.Equals*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Identification_BrowserVersion_Equals_CSF_Extensions_WebDriver_Identification_BrowserVersion_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.Equals(CSF.Extensions.WebDriver.Identification.BrowserVersion)">
+  Equals(BrowserVersion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Identification/BrowserVersion.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool Equals(BrowserVersion other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Extensions_WebDriver_Identification_BrowserVersion_Equals_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.Equals*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Identification_BrowserVersion_Equals_System_Object_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.Equals(System.Object)">
+  Equals(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Identification/BrowserVersion.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Extensions_WebDriver_Identification_BrowserVersion_GetHashCode_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.GetHashCode*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Identification_BrowserVersion_GetHashCode" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Identification/BrowserVersion.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override abstract int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="CSF_Extensions_WebDriver_Identification_BrowserVersion_op_Equality_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.op_Equality*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Identification_BrowserVersion_op_Equality_CSF_Extensions_WebDriver_Identification_BrowserVersion_System_Object_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.op_Equality(CSF.Extensions.WebDriver.Identification.BrowserVersion,System.Object)">
+  operator ==(BrowserVersion, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Identification/BrowserVersion.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the browser version is equal to the specified object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(BrowserVersion version, object other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>version</code> <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a></dt>
+    <dd><p>A browser version</p>
+</dd>
+    <dt><code>other</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Another object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the version is equal to the object; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if not.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Extensions_WebDriver_Identification_BrowserVersion_op_GreaterThan_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.op_GreaterThan*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Identification_BrowserVersion_op_GreaterThan_CSF_Extensions_WebDriver_Identification_BrowserVersion_CSF_Extensions_WebDriver_Identification_BrowserVersion_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.op_GreaterThan(CSF.Extensions.WebDriver.Identification.BrowserVersion,CSF.Extensions.WebDriver.Identification.BrowserVersion)">
+  operator &gt;(BrowserVersion, BrowserVersion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Identification/BrowserVersion.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not one browser version is greater than the other.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;(BrowserVersion first, BrowserVersion second)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>first</code> <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a></dt>
+    <dd><p>A browser version</p>
+</dd>
+    <dt><code>second</code> <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a></dt>
+    <dd><p>A browser version</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <code class="paramref">first</code> version is greater than the <code class="paramref">second</code>; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Identification_BrowserVersion_op_GreaterThan_CSF_Extensions_WebDriver_Identification_BrowserVersion_CSF_Extensions_WebDriver_Identification_BrowserVersion__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If either parameter is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> then this operator will return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Extensions_WebDriver_Identification_BrowserVersion_op_GreaterThanOrEqual_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.op_GreaterThanOrEqual*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Identification_BrowserVersion_op_GreaterThanOrEqual_CSF_Extensions_WebDriver_Identification_BrowserVersion_CSF_Extensions_WebDriver_Identification_BrowserVersion_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.op_GreaterThanOrEqual(CSF.Extensions.WebDriver.Identification.BrowserVersion,CSF.Extensions.WebDriver.Identification.BrowserVersion)">
+  operator &gt;=(BrowserVersion, BrowserVersion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Identification/BrowserVersion.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not one browser version is greater than or equal to the other.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;=(BrowserVersion first, BrowserVersion second)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>first</code> <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a></dt>
+    <dd><p>A browser version</p>
+</dd>
+    <dt><code>second</code> <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a></dt>
+    <dd><p>A browser version</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <code class="paramref">first</code> version is greater than or equal to the <code class="paramref">second</code>; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Identification_BrowserVersion_op_GreaterThanOrEqual_CSF_Extensions_WebDriver_Identification_BrowserVersion_CSF_Extensions_WebDriver_Identification_BrowserVersion__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If either parameter is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> then this operator will return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Extensions_WebDriver_Identification_BrowserVersion_op_Inequality_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.op_Inequality*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Identification_BrowserVersion_op_Inequality_CSF_Extensions_WebDriver_Identification_BrowserVersion_System_Object_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.op_Inequality(CSF.Extensions.WebDriver.Identification.BrowserVersion,System.Object)">
+  operator !=(BrowserVersion, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Identification/BrowserVersion.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the browser version is not equal to the specified object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(BrowserVersion version, object other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>version</code> <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a></dt>
+    <dd><p>A browser version</p>
+</dd>
+    <dt><code>other</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Another object</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the version is not equal to the object; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if it is.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CSF_Extensions_WebDriver_Identification_BrowserVersion_op_LessThan_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.op_LessThan*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Identification_BrowserVersion_op_LessThan_CSF_Extensions_WebDriver_Identification_BrowserVersion_CSF_Extensions_WebDriver_Identification_BrowserVersion_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.op_LessThan(CSF.Extensions.WebDriver.Identification.BrowserVersion,CSF.Extensions.WebDriver.Identification.BrowserVersion)">
+  operator &lt;(BrowserVersion, BrowserVersion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Identification/BrowserVersion.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not one browser version is less than the other.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;(BrowserVersion first, BrowserVersion second)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>first</code> <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a></dt>
+    <dd><p>A browser version</p>
+</dd>
+    <dt><code>second</code> <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a></dt>
+    <dd><p>A browser version</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <code class="paramref">first</code> version is less than the <code class="paramref">second</code>; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Identification_BrowserVersion_op_LessThan_CSF_Extensions_WebDriver_Identification_BrowserVersion_CSF_Extensions_WebDriver_Identification_BrowserVersion__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If either parameter is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> then this operator will return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Extensions_WebDriver_Identification_BrowserVersion_op_LessThanOrEqual_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.op_LessThanOrEqual*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Identification_BrowserVersion_op_LessThanOrEqual_CSF_Extensions_WebDriver_Identification_BrowserVersion_CSF_Extensions_WebDriver_Identification_BrowserVersion_" data-uid="CSF.Extensions.WebDriver.Identification.BrowserVersion.op_LessThanOrEqual(CSF.Extensions.WebDriver.Identification.BrowserVersion,CSF.Extensions.WebDriver.Identification.BrowserVersion)">
+  operator &lt;=(BrowserVersion, BrowserVersion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Identification/BrowserVersion.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not one browser version is less than or equal to the other.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;=(BrowserVersion first, BrowserVersion second)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>first</code> <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a></dt>
+    <dd><p>A browser version</p>
+</dd>
+    <dt><code>second</code> <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html">BrowserVersion</a></dt>
+    <dd><p>A browser version</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <code class="paramref">first</code> version is less than or equal to the <code class="paramref">second</code>; <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Identification_BrowserVersion_op_LessThanOrEqual_CSF_Extensions_WebDriver_Identification_BrowserVersion_CSF_Extensions_WebDriver_Identification_BrowserVersion__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If either parameter is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> then this operator will return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Identification/BrowserVersion.cs/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

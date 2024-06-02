@@ -1,0 +1,509 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class WebDriverCreationOptions | CSF.Extensions.WebDriver </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class WebDriverCreationOptions | CSF.Extensions.WebDriver ">
+      
+      <meta name="description" content="Describes the implementation and options for the creation of a web driver.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/WebDriverExtras/new/feature/41-version2/apiSpec/new?filename=CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions.md&amp;value=---%0Auid%3A%20CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Extensions.WebDriver">
+            CSF.Extensions.WebDriver
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions">
+
+
+
+  <h1 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions" class="text-break">
+Class WebDriverCreationOptions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Extensions.html">Extensions</a>.<a class="xref" href="CSF.Extensions.WebDriver.html">WebDriver</a>.<a class="xref" href="CSF.Extensions.WebDriver.Factories.html">Factories</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Extensions.WebDriver.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Describes the implementation and options for the creation of a web driver.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class WebDriverCreationOptions</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">WebDriverCreationOptions</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+For most local WebDriver scenarios, the only mandatory properties for this object are <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType">DriverType</a>
+and <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsFactory">OptionsFactory</a>.
+For remote WebDrivers, the <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsType">OptionsType</a> property is mandatory and the <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_GridUrl">GridUrl</a> property is recommended.
+</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_AddBrowserIdentification_" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.AddBrowserIdentification*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_AddBrowserIdentification" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.AddBrowserIdentification">
+  AddBrowserIdentification
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value which indicates whether or not the created WebDriver should be enriched with browser identification functionality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AddBrowserIdentification { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_AddBrowserIdentification_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If this property is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> (which is the default if left unset) then the implementation of
+<span class="xref">OpenQA.Selenium.IWebDriver</span> returned by a factory which uses this object as a parameter will be enriched and will implement
+<a class="xref" href="CSF.Extensions.WebDriver.Identification.IHasBrowserId.html">IHasBrowserId</a> in addition to its usual interfaces.
+</p>
+<p>
+This functionality, if enabled, will mean that the WebDriver returned by the factory will be a proxy object and not the
+original WebDriver implementation.
+For more information on proxies created by this library and their implications, see <a class="xref" href="CSF.Extensions.WebDriver.Proxies.IGetsProxyWebDriver.html">IGetsProxyWebDriver</a>.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverFactoryType_" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.DriverFactoryType*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverFactoryType" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.DriverFactoryType">
+  DriverFactoryType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unneeded except in unusual circumstances, gets or sets the name of a type which is used to construct the WebDriver instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DriverFactoryType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverFactoryType_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This property is unneeded and should be set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> in almost all circumstances.
+For all WebDriver implementations bundled with Selenium and most expected third party implementations, this library can
+automatically instantiate them without additional logic.
+This library can correctly instantiate all WebDrivers that are included with the <code>Selenium.WebDriver</code> NuGet package.
+This library can also automatically instantiate any third-party WebDriver implementation so long as it has a public
+constructor which takes a single parameter, which is of a type that derives from <span class="xref">OpenQA.Selenium.DriverOptions</span>.
+</p>
+<p>
+If <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType">DriverType</a> is set to a third-party WebDriver implementation which does not follow the pattern above,
+such as one which has a different constructor parameter signature, this library
+requires some help in instantiating the WebDriver.
+In that case (only), this property should be set to the assembly-qualified type name of a type which implements
+<a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html">ICreatesWebDriverFromOptions</a>.  That type must be provided by the developer using this library.  The factory
+is responsible for constructing the WebDriver instance from options and returning it.
+</p>
+<p>
+When using a factory of this kind, the factory class which implements <a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html">ICreatesWebDriverFromOptions</a> must either:
+</p>
+<ul><li>Be available through dependency injection; add it to your service collection</li><li>Have a public parameterless constructor, such that it may be created via <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.activator.createinstance#system-activator-createinstance(system-type)">CreateInstance(Type)</a></li></ul>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType">DriverType</a></div>
+    <div><a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html">ICreatesWebDriverFromOptions</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType_" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.DriverType*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.DriverType">
+  DriverType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating the concrete <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> name of the class which should be used
+as the <span class="xref">OpenQA.Selenium.IWebDriver</span> implementation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DriverType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType_examples">Examples</h4>
+  <p>
+To use the Google Chrome implementation of <span class="xref">OpenQA.Selenium.IWebDriver</span>, shipped with Selenium, this property should be
+set to the value <code>ChromeDriver</code>.
+</p>
+<p>
+To use a (fictitious) WebDriver named ElephantDriver, from an assembly named PachydermWeb.ElephantBrowser, which
+has the same namespace, then this property value should be set to <code>PachydermWeb.ElephantBrowser.ElephantDriver, PachydermWeb.ElephantBrowser</code>.
+</p>
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This property value is mandatory on all instances of web driver configuration.
+The type indicated here must derive from <span class="xref">OpenQA.Selenium.IWebDriver</span>.
+</p>
+<p>
+For WebDriver implementations which are shipped with Selenium, all that is required is the
+simple type name.
+For WebDriver implementations that are not part of the <code>Selenium.WebDriver</code> NuGet package,
+this should be an assembly-qualified type name, such that the type could be located with
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type.gettype#system-type-gettype(system-string)">GetType(string)</a>.
+</p>
+<p>
+When this value is either <code>RemoteWebDriver</code>, or when it is set to a WebDriver which is not part
+of the <code>Selenium.WebDriver</code> NuGet package, then <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsType">OptionsType</a> must also be set.
+For local drivers which are shipped with Selenium, explicitly setting the options type is not neccesary;
+this library will automatically select the appropriate type.
+</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsType">OptionsType</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_GridUrl_" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.GridUrl*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_GridUrl" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.GridUrl">
+  GridUrl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applicable to remote web drivers only, gets or sets the URL at which the Selenium Grid is hosted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GridUrl { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_GridUrl_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+The value of this property is unused and irrelevant if <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType">DriverType</a> is not set to
+<code>RemoteWebDriver</code>.
+</p>
+<p>
+When using a remote web driver, it is usually required to set this property value. The only time a value is not
+required is if your Selenium Grid configuration is occupying the default URL, which is unlikely in a production
+configuration.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsFactory_" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.OptionsFactory*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsFactory" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.OptionsFactory">
+  OptionsFactory
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a factory object which can create instances of WebDriver options, to be provided to the WebDriver implementation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Func&lt;DriverOptions&gt; OptionsFactory { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<span class="xref">DriverOptions</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsFactory_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+The return value of this function must be an object of an appropriate type to match the implementation of <span class="xref">OpenQA.Selenium.IWebDriver</span>
+that is selected, via <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType">DriverType</a>.
+When deserializing this value from configuration (such as an <code>appsettings.json</code> file), the <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsType">OptionsType</a>
+will be used to select the appropriate polymorphic type to which the configuration should be bound.
+For local WebDriver implementations which are shipped with Selenium, the options type need not be specified explicitly;
+it will be inferred from the chosen driver type.
+</p>
+<p>
+This option is provided as a factory, rather than an instance of <span class="xref">OpenQA.Selenium.DriverOptions</span> because it will create options
+instances for - potentially - many usages throughout the application/test lifetime. It is a poor design choice to use a single
+options instance for every one of the WebDriver instances which will be used. In some cases, this would cause functional issues,
+such as where additional per-scenario capabilities need to be injected into each options instance.
+</p>
+<p>
+Please note that when using Microsoft.Extensions.Configuration to bind an instance of this type, this factory function is bound
+from an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a> key named <code>Options</code> and not OptionsFactory as its member name might suggest.
+</p>
+</div>
+
+
+
+
+  <a id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsType_" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.OptionsType*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsType" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.OptionsType">
+  OptionsType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating the concrete <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> of the options object which should be provded
+to the WebDriver when the driver is created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string OptionsType { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsType_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This value only needs to be provided in two scenarios:
+</p>
+<ul><li>When the <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType">DriverType</a> is set to <code>RemoteWebDriver</code></li><li>When the <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType">DriverType</a> is set to a driver implementation which is not
+shipped with Selenium in the <code>Selenium.WebDriver</code> NuGet package</li></ul>
+<p>
+For local WebDriver implementations which are shipped with Selenium, this library will automatically select and use
+the appropriate options type if this property is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+</p>
+<p>
+In a similar manner to <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType">DriverType</a>, if 
+</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType">DriverType</a></div>
+    </dd>
+  </dl>
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L18" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
