@@ -95,6 +95,7 @@ namespace CSF.Extensions.WebDriver.Factories
             }
             catch(Exception e)
             {
+                if (e is TypeLoadException) throw;
                 throw new TypeLoadException($"The specified type '{typeName}' could not be loaded.", e);
             }
 

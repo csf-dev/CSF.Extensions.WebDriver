@@ -28,8 +28,8 @@ namespace CSF.Extensions.WebDriver
         /// </para>
         /// </remarks>
         /// <param name="supplementaryConfiguration">An optional action which further-configures the WebDriver options before the driver is created.</param>
-        /// <returns>A WebDriver</returns>
-        IWebDriver GetDefaultWebDriver(Action<DriverOptions> supplementaryConfiguration = null);
+        /// <returns>An object containing both a WebDriver and the options which were used to create it.</returns>
+        WebDriverAndOptions GetDefaultWebDriver(Action<DriverOptions> supplementaryConfiguration = null);
 
         /// <summary>
         /// Gets an <see cref="IWebDriver"/> using the named driver configuration.
@@ -47,7 +47,7 @@ namespace CSF.Extensions.WebDriver
         /// </remarks>
         /// <param name="configurationName">The driver configuration name.</param>
         /// <param name="supplementaryConfiguration">An optional action which further-configures the WebDriver options before the driver is created.</param>
-        /// <returns>A WebDriver</returns>
-        IWebDriver GetWebDriver(string configurationName, Action<DriverOptions> supplementaryConfiguration = null);
+        /// <returns>An object containing both a WebDriver and the options which were used to create it.</returns>
+        WebDriverAndOptions GetWebDriver(string configurationName, Action<DriverOptions> supplementaryConfiguration = null);
     }
 }

@@ -1,5 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Moq;
+using OpenQA.Selenium;
 
 namespace CSF.Extensions.WebDriver.Factories;
 
@@ -22,6 +24,14 @@ public class WebDriverFactoryIntegrationTests
         Assert.That(() => driverFactory.GetDefaultWebDriver(), Throws.InstanceOf<NotSupportedException>().And.Message.Contains("'nonsense'"));
     }
 
+    [Test]
+    public void GetDefaultWebDriverShouldReturnADriverProxyWithIdentification()
+    {
+        var services = GetServiceProvider(o => o.SelectedConfiguration = "DefaultFake");
+        var driverFactory = services.GetRequiredService<IGetsWebDriver>();
+        Assert.That(() => driverFactory.GetDefaultWebDriver().WebDriver.GetBrowserId(), Is.Not.Null);
+    }
+
     IServiceProvider GetServiceProvider(Action<WebDriverCreationOptionsCollection>? configureOptions = null)
     {
         var services = new ServiceCollection();
@@ -36,5 +46,13 @@ public class WebDriverFactoryIntegrationTests
         return new ConfigurationBuilder()
             .AddJsonFile("appsettings.WebDriverFactoryIntegrationTests.json")
             .Build();
+    }
+
+    public class FakeWebDriverFactory : ICreatesWebDriverFromOptions
+    {
+        public WebDriverAndOptions GetWebDriver(WebDriverCreationOptions options, Action<DriverOptions> supplementaryConfiguration = null)
+        {
+            return new(Mock.Of<IWebDriver>(), Mock.Of<DriverOptions>());
+        }
     }
 }

@@ -140,8 +140,19 @@ namespace CSF.Extensions.WebDriver
             services.AddSingleton<IProxyGenerator, ProxyGenerator>();
 
             services.AddTransient<IGetsWebDriverWithDeterministicOptionsTypes, SeleniumDriverAndOptionsScanner>();
-            services.AddTransient<ICreatesWebDriverFromOptions, WebDriverFromOptionsFactory>();
+            services.AddTransient(s =>
+            {
+                // Chain of responsibility/decorator stack
+                ICreatesWebDriverFromOptions output = s.GetRequiredService<WebDriverFromOptionsFactory>();
+                output = ActivatorUtilities.CreateInstance<RemoteWebDriverFromOptionsFactory>(s, output);
+                output = ActivatorUtilities.CreateInstance<WebDriverFromThirdPartyFactory>(s, output);
+                output = ActivatorUtilities.CreateInstance<ProxyWrappingWebDriverFactoryDecorator>(s, output);
+                return output;
+            });
+            services.AddTransient<WebDriverFromOptionsFactory>();
             services.AddTransient<RemoteWebDriverFromOptionsFactory>();
+            services.AddTransient<WebDriverFromThirdPartyFactory>();
+            services.AddTransient<ProxyWrappingWebDriverFactoryDecorator>();
             services.AddTransient<IGetsBrowserIdFromWebDriver, BrowserIdFactory>();
             services.AddTransient<IGetsBrowserInfoMatch, BrowserInfoMatcher>();
             services.AddTransient<IGetsProxyWebDriver, WebDriverProxyFactory>();

@@ -48,6 +48,7 @@ namespace CSF.Extensions.WebDriver.Proxies
         {
             var augmenters = augmenterTypes
                 .Select(type => services.GetService(type))
+                .Where(x => x != null)
                 .Cast<IAugmentsProxyContext>()
                 .ToList();
 

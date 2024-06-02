@@ -166,5 +166,24 @@ namespace CSF.Extensions.WebDriver.Factories
         /// </para>
         /// </remarks>
         public bool AddBrowserIdentification { get; set; } = true;
+
+        /// <summary>
+        /// Gets a value which indicates whether or not the created WebDriver should be enriched with browser quirks functionality.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// For more information about this functionality, please see the documentation for <see cref="Quirks.IHasQuirks"/>
+        /// </para>
+        /// <para>
+        /// This functionality, if enabled, will mean that the WebDriver returned by the factory will be a proxy object and not the
+        /// original WebDriver implementation.
+        /// For more information on proxies created by this library and their implications, see <see cref="IGetsProxyWebDriver"/>.
+        /// </para>
+        /// <para>
+        /// If this property is <see langword="true" /> then the value of <see cref="AddBrowserIdentification"/> is irrelevant;
+        /// browser identification will always be added to the proxy when quirks are added.
+        /// </para>
+        /// </remarks>
+        public bool AddBrowserQuirks { get; set; }
     }
 }

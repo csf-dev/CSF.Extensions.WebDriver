@@ -27,7 +27,7 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <param name="configuration">An object which contains one or more WebDriver configurations as well as a value indicating which
         /// of those configurations is currently selected.</param>
         /// <param name="supplementaryConfiguration">An optional action which further-configures the WebDriver options before the driver is created.</param>
-        /// <returns>A WebDriver instance</returns>
+        /// <returns>An object containing both a WebDriver and the options which were used to create it.</returns>
         /// <exception cref="ArgumentNullException">If either parameter is <see langword="null" />.</exception>
         /// <exception cref="ArgumentException">
         /// If any of:
@@ -46,7 +46,7 @@ namespace CSF.Extensions.WebDriver.Factories
         /// Either <see cref="WebDriverCreationOptions.DriverType"/> or <see cref="WebDriverCreationOptions.OptionsType"/> of the
         /// selected <see cref="WebDriverCreationOptionsCollection.DriverConfigurations"/> are non-null/non-empty but no type can be found matching the specifed values.
         /// </exception>
-        public static IWebDriver GetWebDriver(this ICreatesWebDriverFromOptions factory,
+        public static WebDriverAndOptions GetWebDriver(this ICreatesWebDriverFromOptions factory,
                                               WebDriverCreationOptionsCollection configuration,
                                               Action<DriverOptions> supplementaryConfiguration = null)
         {
@@ -78,7 +78,7 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <param name="driverConfigName">A string indicating the key of <see cref="WebDriverCreationOptionsCollection.DriverConfigurations"/> will be used to
         /// get a <see cref="WebDriverCreationOptions"/> for creating the driver.</param>
         /// <param name="supplementaryConfiguration">An optional action which further-configures the WebDriver options before the driver is created.</param>
-        /// <returns>A WebDriver instance</returns>
+        /// <returns>An object containing both a WebDriver and the options which were used to create it.</returns>
         /// <exception cref="ArgumentNullException">If either parameter is <see langword="null" />.</exception>
         /// <exception cref="ArgumentException">
         /// If any of:
@@ -96,7 +96,7 @@ namespace CSF.Extensions.WebDriver.Factories
         /// Either <see cref="WebDriverCreationOptions.DriverType"/> or <see cref="WebDriverCreationOptions.OptionsType"/> of the
         /// selected <see cref="WebDriverCreationOptionsCollection.DriverConfigurations"/> are non-null/non-empty but no type can be found matching the specifed values.
         /// </exception>
-        public static IWebDriver GetWebDriver(this ICreatesWebDriverFromOptions factory,
+        public static WebDriverAndOptions GetWebDriver(this ICreatesWebDriverFromOptions factory,
                                               WebDriverCreationOptionsCollection configuration,
                                               string driverConfigName,
                                               Action<DriverOptions> supplementaryConfiguration = null)

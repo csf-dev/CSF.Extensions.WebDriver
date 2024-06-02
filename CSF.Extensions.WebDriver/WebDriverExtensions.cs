@@ -4,9 +4,8 @@ using System.Linq;
 using CSF.Extensions.WebDriver.Identification;
 using CSF.Extensions.WebDriver.Proxies;
 using CSF.Extensions.WebDriver.Quirks;
-using OpenQA.Selenium;
 
-namespace CSF.Extensions.WebDriver
+namespace OpenQA.Selenium
 {
     /// <summary>
     /// Extension methods for <see cref="IWebDriver"/>.
