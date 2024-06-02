@@ -37,7 +37,7 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <para>
         /// When set, this value must correspond to a key of the collection <see cref="DriverConfigurations"/>.
         /// If appropriately set, then the current <see cref="WebDriverCreationOptionsCollection"/> instance may be used as the parameter to
-        /// <see cref="WebDriverFactoryExtensions.GetWebDriver(ICreatesWebDriverFromOptions, WebDriverCreationOptionsCollection)"/> in
+        /// <see cref="WebDriverFactoryExtensions.GetWebDriver(ICreatesWebDriverFromOptions, WebDriverCreationOptionsCollection,Action{OpenQA.Selenium.DriverOptions})"/> in
         /// order to get a WebDriver from the currently selected configuration.
         /// </para>
         /// </remarks>
