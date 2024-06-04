@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace CSF.Extensions.WebDriver.Quirks
+{
+    /// <summary>
+    /// A collection of <see cref="BrowserInfo"/> indicating which browsers/version ranges are affected by a quirk.
+    /// </summary>
+    public class BrowserInfoCollection
+    {
+        ISet<BrowserInfo> affectedBrowsers = new HashSet<BrowserInfo>();
+
+        /// <summary>
+        /// Gets or sets the collection of <see cref="BrowserInfo"/> affected by the current quirk.
+        /// </summary>
+        public ISet<BrowserInfo> AffectedBrowsers
+        {
+            get => affectedBrowsers;
+            set => affectedBrowsers = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        internal BrowserInfoCollection DeepCopy() => new BrowserInfoCollection { AffectedBrowsers = new HashSet<BrowserInfo>(AffectedBrowsers.Select(x => x.DeepCopy())) };
+    }
+}

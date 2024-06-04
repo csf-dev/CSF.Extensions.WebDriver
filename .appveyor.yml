@@ -1,12 +1,11 @@
-﻿version: '{branch}-{build}'
+image: Visual Studio 2022
+version: '{branch}-{build}'
 init:
 - cmd: git config --global core.autocrlf true
 before_build:
-- cmd: Tools\Appveyor.before_build.bat
-build:
-  project: CSF.WebDriverExtras.sln
-  verbosity: normal
-test:
-  assemblies:
-    except:
-    - '**\Ploeh.AutoFixture.NUnit3.dll'
+    - dotnet tool update -g docfx
+build_script:
+    - dotnet build
+    - docfx CSF.Extensions.WebDriver.Docs\docfx.json
+test_script:
+    - dotnet test

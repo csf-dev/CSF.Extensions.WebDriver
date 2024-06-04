@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace CSF.Extensions.WebDriver.Factories | CSF.Extensions.WebDriver </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace CSF.Extensions.WebDriver.Factories | CSF.Extensions.WebDriver ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Extensions.WebDriver">
+            CSF.Extensions.WebDriver
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Extensions.WebDriver.Factories">
+
+  <h1 id="CSF_Extensions_WebDriver_Factories" data-uid="CSF.Extensions.WebDriver.Factories" class="text-break">Namespace CSF.Extensions.WebDriver.Factories</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.html">ProxyWrappingWebDriverFactoryDecorator</a></dt>
+      <dd><p>Decorator for implementations of <a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html">ICreatesWebDriverFromOptions</a> which (if applicable) wraps the
+returned WebDriver in a proxy object, which adds further functionality.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory.html">RemoteWebDriverFromOptionsFactory</a></dt>
+      <dd><p>Chain of responsibility implementation of <a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html">ICreatesWebDriverFromOptions</a> which creates instances of
+<span class="xref">OpenQA.Selenium.Remote.RemoteWebDriver</span>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.SeleniumDriverAndOptionsScanner.html">SeleniumDriverAndOptionsScanner</a></dt>
+      <dd><p>Service which scans the Selenium WebDriver assembly for web driver types.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.html">WebDriverAndOptions</a></dt>
+      <dd><p>A model containing a WebDriver and the <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverAndOptions_DriverOptions">DriverOptions</a> which were used to create it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverAndOptionsTypePair.html">WebDriverAndOptionsTypePair</a></dt>
+      <dd><p>A tuple of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a>, one a concrete implementation of <span class="xref">OpenQA.Selenium.IWebDriver</span>, the other
+the implementation of <span class="xref">OpenQA.Selenium.DriverOptions</span> which that web driver type uses.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions.html">WebDriverCreationConfigureOptions</a></dt>
+      <dd><p>A service which configures an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1">IOptions&lt;TOptions&gt;</a> of <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html">WebDriverCreationOptionsCollection</a> within
+dependency injection.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html">WebDriverCreationOptions</a></dt>
+      <dd><p>Describes the implementation and options for the creation of a web driver.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html">WebDriverCreationOptionsCollection</a></dt>
+      <dd><p>Describes a collection of configurations which may be used with <a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html">ICreatesWebDriverFromOptions</a>
+to get a WebDriver.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverFactoryExtensions.html">WebDriverFactoryExtensions</a></dt>
+      <dd><p>Extension methods for <a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html">ICreatesWebDriverFromOptions</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.html">WebDriverFromOptionsFactory</a></dt>
+      <dd><p>Factory service which creates implementations of <span class="xref">OpenQA.Selenium.IWebDriver</span> from <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html">WebDriverCreationOptions</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.html">WebDriverFromThirdPartyFactory</a></dt>
+      <dd><p>Chain of responsibility implementation of <a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html">ICreatesWebDriverFromOptions</a> which creates WebDriver instances
+using a third-party factory type, specified in <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverFactoryType">DriverFactoryType</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverTypesProvider.html">WebDriverTypesProvider</a></dt>
+      <dd><p>Provide type for <span class="xref">OpenQA.Selenium.IWebDriver</span> and <span class="xref">OpenQA.Selenium.DriverOptions</span> types.</p>
+</dd>
+    </dl>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html">ICreatesWebDriverFromOptions</a></dt>
+      <dd><p>A service that gets an instance of <span class="xref">OpenQA.Selenium.IWebDriver</span> from a configuration object.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes.html">IGetsWebDriverAndOptionsTypes</a></dt>
+      <dd><p>An object which gets the <span class="xref">OpenQA.Selenium.IWebDriver</span> and <span class="xref">OpenQA.Selenium.DriverOptions</span> types.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.IGetsWebDriverWithDeterministicOptionsTypes.html">IGetsWebDriverWithDeterministicOptionsTypes</a></dt>
+      <dd><p>An object which can get the WebDriver implementation types which have deterministic options types.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

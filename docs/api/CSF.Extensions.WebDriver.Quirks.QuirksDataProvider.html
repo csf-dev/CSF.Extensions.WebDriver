@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class QuirksDataProvider | CSF.Extensions.WebDriver </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class QuirksDataProvider | CSF.Extensions.WebDriver ">
+      
+      <meta name="description" content="Implementation of  which can merge together a primary and secondary source of quirks data, providing data-shadowing capabilities.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/WebDriverExtras/new/feature/41-version2/apiSpec/new?filename=CSF_Extensions_WebDriver_Quirks_QuirksDataProvider.md&amp;value=---%0Auid%3A%20CSF.Extensions.WebDriver.Quirks.QuirksDataProvider%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Extensions.WebDriver">
+            CSF.Extensions.WebDriver
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider">
+
+
+
+  <h1 id="CSF_Extensions_WebDriver_Quirks_QuirksDataProvider" data-uid="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider" class="text-break">
+Class QuirksDataProvider  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Quirks/QuirksDataProvider.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Extensions.html">Extensions</a>.<a class="xref" href="CSF.Extensions.WebDriver.html">WebDriver</a>.<a class="xref" href="CSF.Extensions.WebDriver.Quirks.html">Quirks</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Extensions.WebDriver.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Implementation of <a class="xref" href="CSF.Extensions.WebDriver.Quirks.IGetsQuirksData.html">IGetsQuirksData</a> which can merge together a primary and secondary
+source of quirks data, providing data-shadowing capabilities.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class QuirksDataProvider : IGetsQuirksData</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">QuirksDataProvider</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="CSF.Extensions.WebDriver.Quirks.IGetsQuirksData.html">IGetsQuirksData</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="CSF_Extensions_WebDriver_Quirks_QuirksDataProvider_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+This type provides two constructors and its behaviour will differ depending upon which is used.
+If this object is constructed with only one parameter, either a <a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksData.html">QuirksData</a> or
+an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1">IOptions&lt;TOptions&gt;</a> of <a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksData.html">QuirksData</a> - but not both - then the
+<a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.html#CSF_Extensions_WebDriver_Quirks_QuirksDataProvider_GetQuirksData">GetQuirksData()</a> method will return an object which contains the same values as that source data.
+</p>
+<p>
+If the constructor <a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.html#CSF_Extensions_WebDriver_Quirks_QuirksDataProvider__ctor_Microsoft_Extensions_Options_IOptions_CSF_Extensions_WebDriver_Quirks_QuirksData__CSF_Extensions_WebDriver_Quirks_QuirksData_">QuirksDataProvider(IOptions&lt;QuirksData&gt;, QuirksData)</a> is used with both
+parameters specified then the return value from <a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.html#CSF_Extensions_WebDriver_Quirks_QuirksDataProvider_GetQuirksData">GetQuirksData()</a> will be an object that contains
+data resulting a merge of the data from those two sources.
+</p>
+<p>
+The merge algorithm used in the scenario noted above is:
+</p>
+<ul><li>Where the options-based source data and the plain object data specify quirks that the
+other does not have, the result will have both quirks</li><li>Where both the options-based and the plain object source data specify the same quirk,
+the affected browsers from the options-based data will shadow (aka 'replace' or 'override') those from the plain
+object</li><li>Neither input object will be altered by this process; the results from
+<a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.html#CSF_Extensions_WebDriver_Quirks_QuirksDataProvider_GetQuirksData">GetQuirksData()</a> will be based upon a new object</li></ul>
+<p>
+The purpose of this algorithm is to permit an application to ship with a set of hard-coded quirks data.  This
+might be an in-memory object or read from a JSON embedded resource or similar. This in-memory data may then
+be added-to and/or overridden (shadowed) by end-user-specified options, using the Microsoft Options Pattern.
+This allows end consumers to quickly react to changes in browser support via an options/configuration change,
+even if a library which provides a set of quirks data has not yet been updated.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="CSF_Extensions_WebDriver_Quirks_QuirksDataProvider__ctor_" data-uid="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.#ctor*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Quirks_QuirksDataProvider__ctor_CSF_Extensions_WebDriver_Quirks_QuirksData_" data-uid="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.#ctor(CSF.Extensions.WebDriver.Quirks.QuirksData)">
+  QuirksDataProvider(QuirksData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Quirks/QuirksDataProvider.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.html">QuirksDataProvider</a> with only some in-memory source data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QuirksDataProvider(QuirksData quirksData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quirksData</code> <a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksData.html">QuirksData</a></dt>
+    <dd><p>The source quirks data</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Quirks_QuirksDataProvider__ctor_CSF_Extensions_WebDriver_Quirks_QuirksData__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This constructor will initialise the object using a direct copy/clone of the data within <code class="paramref">quirksData</code>.
+See the remarks upon <a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.html">QuirksDataProvider</a> for more information about the available constructors.
+</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If <code class="paramref">quirksData</code> parameter is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.html">QuirksDataProvider</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="CSF_Extensions_WebDriver_Quirks_QuirksDataProvider__ctor_" data-uid="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.#ctor*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Quirks_QuirksDataProvider__ctor_Microsoft_Extensions_Options_IOptions_CSF_Extensions_WebDriver_Quirks_QuirksData__CSF_Extensions_WebDriver_Quirks_QuirksData_" data-uid="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.#ctor(Microsoft.Extensions.Options.IOptions{CSF.Extensions.WebDriver.Quirks.QuirksData},CSF.Extensions.WebDriver.Quirks.QuirksData)">
+  QuirksDataProvider(IOptions&lt;QuirksData&gt;, QuirksData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Quirks/QuirksDataProvider.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.html">QuirksDataProvider</a> with quirks data options provided by the
+Microsoft Options Pattern, and optionally some in-memory source data with which to merge the options data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QuirksDataProvider(IOptions&lt;QuirksData&gt; optionsData, QuirksData quirksData = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>optionsData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1">IOptions</a>&lt;<a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksData.html">QuirksData</a>&gt;</dt>
+    <dd><p>Source quirks data from the Microsoft Options Pattern</p>
+</dd>
+    <dt><code>quirksData</code> <a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksData.html">QuirksData</a></dt>
+    <dd><p>In-memory source quirks data</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Quirks_QuirksDataProvider__ctor_Microsoft_Extensions_Options_IOptions_CSF_Extensions_WebDriver_Quirks_QuirksData__CSF_Extensions_WebDriver_Quirks_QuirksData__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If the <code class="paramref">quirksData</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or empty then this constructor will
+initialise the object using a direct copy/clone of the data within <code class="paramref">optionsData</code>.
+If both parameters are specified then the merge algorithm described in the remarks of
+<a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.html">QuirksDataProvider</a> will be used to merge these two data-sources together.
+</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>If <code class="paramref">optionsData</code> parameter is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.html">QuirksDataProvider</a></div>
+    </dd>
+  </dl>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Extensions_WebDriver_Quirks_QuirksDataProvider_GetQuirksData_" data-uid="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.GetQuirksData*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Quirks_QuirksDataProvider_GetQuirksData" data-uid="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.GetQuirksData">
+  GetQuirksData()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Quirks/QuirksDataProvider.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the source data for browser quirks, using state available in the current instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public QuirksData GetQuirksData()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksData.html">QuirksData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Quirks_QuirksDataProvider_GetQuirksData_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Typically this data would come from dependency injected services/options.  See
+<a class="xref" href="CSF.Extensions.WebDriver.ServiceCollectionExtensions.html#CSF_Extensions_WebDriver_ServiceCollectionExtensions_AddWebDriverQuirks_Microsoft_Extensions_DependencyInjection_IServiceCollection_CSF_Extensions_WebDriver_Quirks_QuirksData_System_Boolean_System_String_">AddWebDriverQuirks(IServiceCollection, QuirksData, bool, string)</a>
+for more information about configuring this in a typical app.
+</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Quirks/QuirksDataProvider.cs/#L42" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

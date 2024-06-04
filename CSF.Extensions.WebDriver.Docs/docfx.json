@@ -1,0 +1,50 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../",
+          "files": [
+            "**/*.csproj"
+          ],
+          "exclude": [
+            "docs/**",
+            "**/bin/**",
+            "**/obj/**",
+            "CSF.Extensions.WebDriver.Tests/**"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": []
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**",
+          ".nojekyll"
+        ]
+      }
+    ],
+    "output": "../docs",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "CSF.Extensions.WebDriver",
+      "_appTitle": "CSF.Extensions.WebDriver",
+      "_enableSearch": true,
+      "pdf": false
+    }
+  }
+}

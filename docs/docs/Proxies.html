@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Proxied WebDrivers | CSF.Extensions.WebDriver </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Proxied WebDrivers | CSF.Extensions.WebDriver ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver.Docs/docs/Proxies.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Extensions.WebDriver">
+            CSF.Extensions.WebDriver
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="proxied-webdrivers">Proxied WebDrivers</h1>
+
+<p>Two of the functions of the universal factory require adding additional interfaces to the WebDriver:</p>
+<ul>
+<li><a href="DriverIdentification.html">Browser identification</a></li>
+<li><a href="Quirks.html">WebDriver quirks</a></li>
+</ul>
+<p>The only sensible way to do this at runtime, without either disrupting other interfaces which were present on the WebDriver or <a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">being forced to violate LSP</a>, is to make use of a proxying library.
+In the case of CSF.Extensions.WebDriver, <a href="https://www.castleproject.org/projects/dynamicproxy/">Castle DynamicProxy</a> is used.</p>
+<p>What this means is that when the <a href="index.html">universal WebDriver factory</a> returns a WebDriver, if either or both of the functionalities above are enabled, then the WebDriver returned will be a proxy object and not the original concrete implementation of <code>IWebDriver</code>.</p>
+<h2 id="consequences">Consequences</h2>
+<p>Take the following code as an example, the first two lines would create a minimal default local Chrome WebDriver.</p>
+<pre><code class="lang-csharp">// Imagine this factory has been dependency-injected
+ICreatesWebDriverFromOptions factory;
+
+var webDriver = factory.GetWebDriver(new () { DriverType = &quot;ChromeDriver&quot; });
+var hasActiveDevTools = ((ChromeDriver) webDriver).HasActiveDevToolsSession;
+</code></pre>
+<p><em>The last line of code above would crash</em> with an <code>InvalidCastException</code>.
+That's because the <code>webDriver</code> object is not an instance of <code>ChromeDriver</code>, it is a proxy object wrapping that <code>ChromeDriver</code> instance.</p>
+<p>When using Selenium, and in software development in general, it is bad practice to depend upon concrete classes when interfaces are available.
+In well-written logic which depends upon only interfaces, the limitation above does not come into play.
+<em>Proxy WebDrivers have all of the same interfaces as the WebDriver with which they were created</em> and provide the same functionality for all of them.
+Those interfaces are detected upon the WebDriver as the proxy is created, so third party WebDrivers with additional/unknown interfaces would also be supported.</p>
+<h2 id="unproxying">Unproxying</h2>
+<p>If you encounter an (unexpected) situation where the proxied WebDriver causes a problem, this library provides a mechanism of getting the original 'unproxied' WebDriver:</p>
+<pre><code class="lang-csharp">var unproxied = maybeProxy.Unproxy();
+</code></pre>
+<p>In the example above, if <code>maybeProxy</code> was a proxied WebDriver, <code>unproxied</code> is now the original WebDriver instance which was wrapped by the proxy.
+The <a class="xref" href="../api/OpenQA.Selenium.WebDriverExtensions.html#OpenQA_Selenium_WebDriverExtensions_Unproxy_OpenQA_Selenium_IWebDriver_"><code>Unproxy()</code></a> extension method is safe to use on both proxy and non-proxy WebDrivers.
+If used upon a WebDriver which is not a proxy then it simply does nothing and returns the same WebDriver instance.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver.Docs/docs/Proxies.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
