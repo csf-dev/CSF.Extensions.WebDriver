@@ -26,7 +26,7 @@
 				"kind": "build"
 			},
 			"command": "docfx",
-			"args": ["build", "CSF.Extensions.WebDriver.Docs/docfx.json"],
+			"args": ["CSF.Extensions.WebDriver.Docs/docfx.json"],
 			"problemMatcher": [],
 			"label": "docfx: build"
 		},
@@ -35,7 +35,7 @@
 				"kind": "build"
 			},
 			"command": "docfx",
-			"args": ["build", "CSF.Extensions.WebDriver.Docs/docfx.json", "--serve"],
+			"args": ["CSF.Extensions.WebDriver.Docs/docfx.json", "--serve"],
 			"problemMatcher": [],
 			"label": "docfx: serve"
 		}

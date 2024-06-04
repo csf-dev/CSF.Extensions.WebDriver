@@ -22,16 +22,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.AutoMoqDataAttribute.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.AutoMoqDataAttribute.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.yml",
       "output": {
         ".html": {
@@ -62,6 +52,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory.yml",
       "output": {
         ".html": {
@@ -82,30 +82,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.SeleniumDriverAndOptionsScannerTests.yml",
+      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Factories.SeleniumDriverAndOptionsScannerTests.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.StandardTypesAttribute.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Factories.StandardTypesAttribute.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.StandardTypesCustomization.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Factories.StandardTypesCustomization.html"
+          "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.html"
         }
       },
       "version": ""
@@ -126,16 +106,6 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptionsTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptionsTests.html"
         }
       },
       "version": ""
@@ -172,16 +142,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverFactoryIntegrationTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverFactoryIntegrationTests.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.yml",
       "output": {
         ".html": {
@@ -192,20 +152,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactoryTests.FakeWebDriverFactory.yml",
+      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.yml",
       "output": {
         ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactoryTests.FakeWebDriverFactory.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactoryTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactoryTests.html"
+          "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.html"
         }
       },
       "version": ""
@@ -216,36 +166,6 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverTypesProvider.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverTypesProviderTests.FakeOptions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverTypesProviderTests.FakeOptions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverTypesProviderTests.FakeWebDriver.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverTypesProviderTests.FakeWebDriver.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverTypesProviderTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverTypesProviderTests.html"
         }
       },
       "version": ""
@@ -292,30 +212,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Identification.BrowserIdFactoryTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Identification.BrowserIdFactoryTests.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Extensions.WebDriver.Identification.BrowserInfoMatcher.yml",
       "output": {
         ".html": {
           "relative_path": "api/CSF.Extensions.WebDriver.Identification.BrowserInfoMatcher.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Identification.BrowserInfoMatcherTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Identification.BrowserInfoMatcherTests.html"
         }
       },
       "version": ""
@@ -336,16 +236,6 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersionTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersionTests.html"
         }
       },
       "version": ""
@@ -396,16 +286,6 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Identification.SemanticBrowserVersionTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Identification.SemanticBrowserVersionTests.html"
         }
       },
       "version": ""
@@ -492,26 +372,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Proxies.ProxyFactoryAttribute.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Proxies.ProxyFactoryAttribute.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Proxies.ProxyFactoryCustomization.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Proxies.ProxyFactoryCustomization.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Extensions.WebDriver.Proxies.QuirksAugmenter.yml",
       "output": {
         ".html": {
@@ -572,26 +432,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Proxies.WebDriverProxyFactoryIntegrationTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Proxies.WebDriverProxyFactoryIntegrationTests.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Proxies.WebDriverProxyFactoryTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Proxies.WebDriverProxyFactoryTests.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Extensions.WebDriver.Proxies.yml",
       "output": {
         ".html": {
@@ -606,16 +446,6 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Extensions.WebDriver.Quirks.ApplicableQuirksProvider.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Quirks.ApplicableQuirksProviderTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Quirks.ApplicableQuirksProviderTests.html"
         }
       },
       "version": ""
@@ -692,16 +522,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.Quirks.QuirksDataProviderTests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.Quirks.QuirksDataProviderTests.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Extensions.WebDriver.Quirks.yml",
       "output": {
         ".html": {
@@ -722,46 +542,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.TestContextLogger-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.TestContextLogger-1.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.TestLoggerAttribute.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.TestLoggerAttribute.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.TestLoggerCustomization.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.TestLoggerCustomization.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/CSF.Extensions.WebDriver.WebDriverExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/CSF.Extensions.WebDriver.WebDriverExtensions.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/CSF.Extensions.WebDriver.WebDriverFactory.yml",
       "output": {
         ".html": {
@@ -776,6 +556,26 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Extensions.WebDriver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenQA.Selenium.WebDriverExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenQA.Selenium.WebDriverExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OpenQA.Selenium.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenQA.Selenium.html"
         }
       },
       "version": ""
@@ -805,10 +605,10 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/QuickStart.md",
+      "source_relative_path": "docs/Proxies.md",
       "output": {
         ".html": {
-          "relative_path": "docs/QuickStart.html"
+          "relative_path": "docs/Proxies.html"
         }
       },
       "version": ""
@@ -825,10 +625,10 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/UniversalFactory.md",
+      "source_relative_path": "docs/index.md",
       "output": {
         ".html": {
-          "relative_path": "docs/UniversalFactory.html"
+          "relative_path": "docs/index.html"
         }
       },
       "version": ""

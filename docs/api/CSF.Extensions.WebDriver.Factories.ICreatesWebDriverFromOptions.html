@@ -155,7 +155,7 @@ instances, they can be input from configuration data.
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IWebDriver GetWebDriver(WebDriverCreationOptions options, Action&lt;DriverOptions&gt; supplementaryConfiguration = null)</code></pre>
+    <pre><code class="lang-csharp hljs">WebDriverAndOptions GetWebDriver(WebDriverCreationOptions options, Action&lt;DriverOptions&gt; supplementaryConfiguration = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -170,8 +170,8 @@ instances, they can be input from configuration data.
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><span class="xref">IWebDriver</span></dt>
-    <dd><p>A WebDriver instance</p>
+    <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.html">WebDriverAndOptions</a></dt>
+    <dd><p>An object containing both a WebDriver instance and the <span class="xref">OpenQA.Selenium.DriverOptions</span> which were used to create it.</p>
 </dd>
   </dl>
 

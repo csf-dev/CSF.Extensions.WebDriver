@@ -1,8 +1,8 @@
-- name: Quick start
-  href: QuickStart.md
 - name: Universal factory
-  href: UniversalFactory.md
+  href: index.md
 - name: Driver identification
   href: DriverIdentification.md
 - name: Quirks
   href: Quirks.md
+- name: Proxies
+  href: Proxies.md

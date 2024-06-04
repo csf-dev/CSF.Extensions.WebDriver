@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | CSF.Extensions.WebDriver </title>
+      <title>WebDriver quirks | CSF.Extensions.WebDriver </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | CSF.Extensions.WebDriver ">
+      <meta name="title" content="WebDriver quirks | CSF.Extensions.WebDriver ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -85,7 +85,50 @@
         </div>
 
         <article data-uid="">
+<h1 id="webdriver-quirks">WebDriver quirks</h1>
 
+<p><em>There are a lot of web browsers and browser versions out there!</em>
+Unfortunately they do not all behave in a perfectly uniform manner; some WebDriver implementations have bugs and some just have oddities which are unique to them.
+A real (albeit now-outdated) example is that <a href="https://github.com/SeleniumHQ/selenium/issues/5475#issuecomment-365082942">WebDriver for Apple Safari v11 could not change the selection of an HTML <code>&lt;select&gt;</code> element</a>.
+When faced with that bug, the only course of action a developer could take was to work around it.</p>
+<h2 id="how-the-quirks-architecture-can-help">How the 'quirks' architecture can help</h2>
+<p>Developers do not want to litter their WebDriver-consuming code with browser detection logic.
+Just like in regular web development, <a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection">browser detection is bad, feature detection is better</a>.
+What the quirks architecture provides is an additional interface, added to WebDrivers created by <a href="index.html">the universal WebDriver factory</a>: <a class="xref" href="../api/CSF.Extensions.WebDriver.Quirks.IHasQuirks.html"><code>IHasQuirks</code></a>.</p>
+<p>WebDrivers which implement <code>IHasQuirks</code> can cross-reference their <a href="DriverIdentification.html">browser identification</a> with source data listing which browsers are affected by which quirks.
+The result is the <a class="xref" href="../api/CSF.Extensions.WebDriver.Quirks.IHasQuirks.html#CSF_Extensions_WebDriver_Quirks_IHasQuirks_AllQuirks"><code>AllQuirks</code></a> property and the following extension methods (for convenience):</p>
+<ul>
+<li><a class="xref" href="../api/OpenQA.Selenium.WebDriverExtensions.html#OpenQA_Selenium_WebDriverExtensions_HasQuirk_OpenQA_Selenium_IWebDriver_System_String_"><code>HasQuirk(string)</code></a></li>
+<li><a class="xref" href="../api/OpenQA.Selenium.WebDriverExtensions.html#OpenQA_Selenium_WebDriverExtensions_GetQuirks_OpenQA_Selenium_IWebDriver_"><code>GetQuirks()</code></a></li>
+<li><a class="xref" href="../api/OpenQA.Selenium.WebDriverExtensions.html#OpenQA_Selenium_WebDriverExtensions_GetFirstApplicableQuirk_OpenQA_Selenium_IWebDriver_System_String___"><code>GetFirstApplicableQuirk(params string［］)</code></a></li>
+</ul>
+<h2 id="the-quirks-source-data">The quirks source data</h2>
+<p>Quirks source data may come from two sources.
+To use quirks <em>at least one source must be activated</em> and it is recommended to enable both.</p>
+<ul>
+<li>Hard-coded into an application/library</li>
+<li>Supplementary configuration data</li>
+</ul>
+<p>The intent is that an application or library may ship with quirks information that is known at the time of writing.
+This information may be supplemented or (in part or wholly) overwritten by quirks information provided by the consumer.
+This allows consuming logic to react to changes in browser quirks (as time moves on) by adding their own quirks configuration and not needing to wait for an upstream app/library to release an updated version with new quirks source data.</p>
+<p>This library uses a simple merging algorithm to combine the hard-coded and options data-sources.
+Where the two sources list quirks that the other source does not, the resultant data will contain both quirks.
+Where the two sources list the same quirk, the Options data will <em>win the disagreement</em>, so to speak, and will shadow the hard-coded data.</p>
+<p>Developers may use this technique to update the affected browsers for a quirk or even to (effectively) remove it, by giving it an empty set of affected browsers.</p>
+<h2 id="setting-up-quirks-functionality">Setting up quirks functionality</h2>
+<p>To configure the source data you must activate it in source control.
+In the following example, <code>quirksData</code> represents data which would be hard-coded into your application/library (design-time).</p>
+<pre><code class="lang-csharp">services.AddWebDriverQuirks(quirksData);
+</code></pre>
+<p>The <a class="xref" href="../api/CSF.Extensions.WebDriver.ServiceCollectionExtensions.html#CSF_Extensions_WebDriver_ServiceCollectionExtensions_AddWebDriverQuirks_Microsoft_Extensions_DependencyInjection_IServiceCollection_CSF_Extensions_WebDriver_Quirks_QuirksData_System_Boolean_System_String_"><code>AddWebDriverQuirks</code></a> method is customisable with a number of parameters, most of which are not shown above.
+By default any quirks data specified in <a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/configuration">the app Configuration</a>, via <a href="https://learn.microsoft.com/en-us/dotnet/core/extensions/options">the Options Pattern</a>, will be used to supplement and/or override that hard-coded data.
+The default configuration path for quirks data is <code>WebDriverQuirks</code>.</p>
+<p>Lastly, to use quirks functionality it must also be activated in the <a class="xref" href="../api/CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html"><code>WebDriverCreationOptions</code></a>, via the <a class="xref" href="../api/CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_AddBrowserQuirks"><code>AddBrowserQuirks</code></a> property.</p>
+<h2 id="a-note-on-proxies">A note on proxies</h2>
+<p>Be aware that when the WebDriver quirks functionality is activated, <a href="Proxies.html">the WebDriver returned by the universal factory will be <em>a proxy object</em></a> and not the original concrete WebDriver implementation.
+In best-practice scenarios where the WebDriver is utilised only by its interfaces this should make no difference.
+More information is available at the linked documentation above.</p>
 
 </article>
 

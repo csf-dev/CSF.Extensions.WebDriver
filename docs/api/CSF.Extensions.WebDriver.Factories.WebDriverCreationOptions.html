@@ -204,6 +204,51 @@ For more information on proxies created by this library and their implications, 
 
 
 
+  <a id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_AddBrowserQuirks_" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.AddBrowserQuirks*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_AddBrowserQuirks" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.AddBrowserQuirks">
+  AddBrowserQuirks
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value which indicates whether or not the created WebDriver should be enriched with browser quirks functionality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AddBrowserQuirks { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_AddBrowserQuirks_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+For more information about this functionality, please see the documentation for <a class="xref" href="CSF.Extensions.WebDriver.Quirks.IHasQuirks.html">IHasQuirks</a></p>
+<p>
+This functionality, if enabled, will mean that the WebDriver returned by the factory will be a proxy object and not the
+original WebDriver implementation.
+For more information on proxies created by this library and their implications, see <a class="xref" href="CSF.Extensions.WebDriver.Proxies.IGetsProxyWebDriver.html">IGetsProxyWebDriver</a>.
+</p>
+<p>
+If this property is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> then the value of <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_AddBrowserIdentification">AddBrowserIdentification</a> is irrelevant;
+browser identification will always be added to the proxy when quirks are added.
+</p>
+</div>
+
+
+
+
   <a id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverFactoryType_" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.DriverFactoryType*"></a>
 
   <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverFactoryType" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.DriverFactoryType">

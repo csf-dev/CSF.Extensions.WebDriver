@@ -11,10 +11,7 @@ This is broadly organised into three features:
 * A mechanism to [reliably identify WebDriver instances] and their version information, after they are created
 * A mechanism to ['mark WebDrivers up' with information about their quirks] which affect that browser/WebDriver/version combination
 
-To get going straight away, read [the **quick start** documentation].
-
 [Selenium WebDriver]: https://www.selenium.dev/documentation/webdriver/
-[universal WebDriver factory]: Docs/UniversalFactory.md
+[universal WebDriver factory]: Docs/index.md
 [reliably identify WebDriver instances]: Docs/DriverIdentification.md
 ['mark WebDrivers up' with information about their quirks]: Docs/Quirks.md
-[the **quick start** documentation]: Docs/QuickStart.md

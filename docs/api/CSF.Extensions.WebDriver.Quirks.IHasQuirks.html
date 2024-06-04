@@ -126,7 +126,7 @@ results which a perfect implementation would be expected to provide.
 This 'quirks' mechanism provides a way in which consumers of WebDrivers may gracefully deal with that, with
 minimal compromise to their design.  A quirk is a named boolean flag, such as (a fictitious quirk) <code>CannotDisplayYellow</code>.
 Consumers of the WebDriver may use this interface to determine whether or not the WebDriver is affected by this quirk
-or not, by using the <a class="xref" href="CSF.Extensions.WebDriver.WebDriverExtensions.html#CSF_Extensions_WebDriver_WebDriverExtensions_HasQuirk_OpenQA_Selenium_IWebDriver_System_String_">HasQuirk(IWebDriver, string)</a> function.
+or not, by using the <a class="xref" href="OpenQA.Selenium.WebDriverExtensions.html#OpenQA_Selenium_WebDriverExtensions_HasQuirk_OpenQA_Selenium_IWebDriver_System_String_">HasQuirk(IWebDriver, string)</a> function.
 If the WebDriver is known to be affected by the quirk then that method will return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, or if it is
 not affected then the method will return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
 The consumer may then take whatever course of action is required in order to work-around that quirk, if the result was
@@ -184,7 +184,7 @@ results as other WebDriver/browser implementations.
 
   <h4 class="section" id="CSF_Extensions_WebDriver_Quirks_IHasQuirks_AllQuirks_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-Prefer using <a class="xref" href="CSF.Extensions.WebDriver.WebDriverExtensions.html#CSF_Extensions_WebDriver_WebDriverExtensions_HasQuirk_OpenQA_Selenium_IWebDriver_System_String_">HasQuirk(IWebDriver, string)</a> instead of this property.
+Prefer using <a class="xref" href="OpenQA.Selenium.WebDriverExtensions.html#OpenQA_Selenium_WebDriverExtensions_HasQuirk_OpenQA_Selenium_IWebDriver_System_String_">HasQuirk(IWebDriver, string)</a> instead of this property.
 </p>
 </div>
 

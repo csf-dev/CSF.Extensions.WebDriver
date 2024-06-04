@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | CSF.Extensions.WebDriver </title>
+      <title>WebDriver identification | CSF.Extensions.WebDriver </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | CSF.Extensions.WebDriver ">
+      <meta name="title" content="WebDriver identification | CSF.Extensions.WebDriver ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -85,7 +85,17 @@
         </div>
 
         <article data-uid="">
+<h1 id="webdriver-identification">WebDriver identification</h1>
 
+<p>Most implementations of <code>IWebDriver</code> also implement <code>IHasCapabilities</code> and have capabilities indicating the browser name, version and platform.
+These values are strings though, which is particularly troublesome for the browser version when we need to answer questions such as <em>is this browser between versions X and Y?</em></p>
+<p>When using <a href="index.html">the universal WebDriver factory</a>, the returned WebDriver is enhanced with an additional interface: <a class="xref" href="../api/CSF.Extensions.WebDriver.Identification.IHasBrowserId.html"><code>IHasBrowserId</code></a>.
+This interface provides a get-only property of type <a class="xref" href="../api/CSF.Extensions.WebDriver.Identification.BrowserId.html"><code>BrowserId</code></a>, which in-turn provides a <a class="xref" href="../api/CSF.Extensions.WebDriver.Identification.BrowserVersion.html"><code>BrowserVersion</code></a>.
+This enhancement may be disabled by setting <a class="xref" href="../api/CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_AddBrowserIdentification"><code>AddBrowserIdentification</code></a> in the WebDriver creation options to <code>false</code>.</p>
+<h2 id="a-note-on-proxies">A note on proxies</h2>
+<p>Be aware that when the WebDriver identification functionality is activated, <a href="Proxies.html">the WebDriver returned by the universal factory will be <em>a proxy object</em></a> and not the original concrete WebDriver implementation.
+In best-practice scenarios where the WebDriver is utilised only by its interfaces this should make no difference.
+More information is available at the linked documentation above.</p>
 
 </article>
 

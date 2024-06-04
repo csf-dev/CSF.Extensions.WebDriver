@@ -82,7 +82,7 @@ public class WebDriverProxyFactoryIntegrationTests
         var serviceCollection = new ServiceCollection();
         serviceCollection
             .AddWebDriverFactoryWithoutOptionsPattern()
-            .AddQuirksServices(new QuirksData { Quirks = new Dictionary<string, BrowserInfoCollection> {
+            .AddWebDriverQuirks(new QuirksData { Quirks = new Dictionary<string, BrowserInfoCollection> {
                 { "SampleQuirk", new() {
                     AffectedBrowsers = new HashSet<BrowserInfo>
                     {

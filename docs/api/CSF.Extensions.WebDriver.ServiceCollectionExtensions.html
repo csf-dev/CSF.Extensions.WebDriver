@@ -153,91 +153,11 @@ Class ServiceCollectionExtensions  <a class="header-action link-secondary" title
 </h2>
 
 
-  <a id="CSF_Extensions_WebDriver_ServiceCollectionExtensions_AddQuirksServices_" data-uid="CSF.Extensions.WebDriver.ServiceCollectionExtensions.AddQuirksServices*"></a>
-
-  <h3 id="CSF_Extensions_WebDriver_ServiceCollectionExtensions_AddQuirksServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_CSF_Extensions_WebDriver_Quirks_QuirksData_System_Boolean_" data-uid="CSF.Extensions.WebDriver.ServiceCollectionExtensions.AddQuirksServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,CSF.Extensions.WebDriver.Quirks.QuirksData,System.Boolean)">
-  AddQuirksServices(IServiceCollection, QuirksData, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/ServiceCollectionExtensions.cs/#L189"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Adds services to depenency injection which support the 'browser quirks' infrastructure.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IServiceCollection AddQuirksServices(this IServiceCollection services, QuirksData quirksData = null, bool useOptions = true)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>services</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
-    <dd><p>The service collection to which the services should be added.</p>
-</dd>
-    <dt><code>quirksData</code> <a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksData.html">QuirksData</a></dt>
-    <dd><p>An optional source of static quirks data.</p>
-</dd>
-    <dt><code>useOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>Whether or not to use quirks information from the Microsoft Options Pattern as a source of data,
-to either provide all of the quirks, or to supplement/shadow the data in <code class="paramref">quirksData</code>.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="CSF_Extensions_WebDriver_ServiceCollectionExtensions_AddQuirksServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_CSF_Extensions_WebDriver_Quirks_QuirksData_System_Boolean__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-Either <code class="paramref">quirksData</code> must not be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or <code class="paramref">useOptions</code> must be
-<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> or else an exception will be raised from this method.
-</p>
-<p>
-If you wish to make use of the browser-quirks functionality provided by this library then this method is used to
-set that functionality up within dependency injection.  This method permits the usage of up to two sources of information
-for the <a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksData.html">QuirksData</a> which shall be used to indicate which browsers/versions are affected by which quirks:
-</p>
-<ul><li>A static source of data, provided via <code class="paramref">quirksData</code></li><li>Data coming from the Microsoft Options Pattern, if <code class="paramref">useOptions</code> is set to
-<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> (this is the default value)</li></ul>
-<p>
-The purpose of using two sources of data for the quirks is described in more depth in the remarks to
-<a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.html">QuirksDataProvider</a> but in short it allows library authors to provide some static quirks data which may be
-supplemented and/or overridden (in part or completely) by user-specified options.
-</p>
-<p>
-If you wish to use <a class="xref" href="CSF.Extensions.WebDriver.Proxies.ProxyCreationOptions.html#CSF_Extensions_WebDriver_Proxies_ProxyCreationOptions_AddQuirks">AddQuirks</a> then this method must be used in order to add the required
-services to DI.
-</p>
-</div>
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
-    <dd><p>If both <code class="paramref">quirksData</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> and <code class="paramref">useOptions</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</dd>
-  </dl>
-
-  <dl class="typelist seealso">
-    <dt>See Also</dt>
-    <dd>
-    <div><a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.html">QuirksDataProvider</a></div>
-    <div><a class="xref" href="CSF.Extensions.WebDriver.Quirks.IHasQuirks.html">IHasQuirks</a></div>
-    </dd>
-  </dl>
-
-
   <a id="CSF_Extensions_WebDriver_ServiceCollectionExtensions_AddWebDriverFactory_" data-uid="CSF.Extensions.WebDriver.ServiceCollectionExtensions.AddWebDriverFactory*"></a>
 
   <h3 id="CSF_Extensions_WebDriver_ServiceCollectionExtensions_AddWebDriverFactory_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfigurationSection_System_Action_CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection__" data-uid="CSF.Extensions.WebDriver.ServiceCollectionExtensions.AddWebDriverFactory(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfigurationSection,System.Action{CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection})">
   AddWebDriverFactory(IServiceCollection, IConfigurationSection, Action&lt;WebDriverCreationOptionsCollection&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/ServiceCollectionExtensions.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/ServiceCollectionExtensions.cs/#L110"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds/registers the web driver factory and related services for applications which make use of the Options &amp; Configuration
@@ -289,8 +209,11 @@ This overload expects the specified configuration section to correspond directly
 <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html">WebDriverCreationOptionsCollection</a> to be bound.
 </p>
 <p>
-It is perfectly normal to omit the <code class="paramref">configureOptions</code> parameter, if the configuration will provide all of the information
-required to create the options collection object.
+A good use-case for the <code class="paramref">configureOptions</code> parameter is to add secrets/credentials for remote WebDrivers
+to the options. It is not best practice to include credentials/passwords in configuration which is checked into source control.
+Instead, configure secrets like this in your environment directly and consume them in your application/tests as environment variables.
+This options-configuration callback may be used to read those secrets from the environment and supplement the configuration, without
+the need to include those secrets in any configuration files.
 </p>
 <p>
 An important technique to remember is that the <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a> may be populated from more than one source.
@@ -309,7 +232,7 @@ use a single command-line parameter or environment variable to choose which of t
 
   <h3 id="CSF_Extensions_WebDriver_ServiceCollectionExtensions_AddWebDriverFactory_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_String_System_Action_CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection__" data-uid="CSF.Extensions.WebDriver.ServiceCollectionExtensions.AddWebDriverFactory(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Action{CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection})">
   AddWebDriverFactory(IServiceCollection, string, Action&lt;WebDriverCreationOptionsCollection&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/ServiceCollectionExtensions.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/ServiceCollectionExtensions.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds/registers the web driver factory and related services for applications which make use of the Options &amp; Configuration
@@ -362,8 +285,11 @@ If the <code class="paramref">configPath</code> is not specified, then the optio
 relative to the root of the application's configuration.
 </p>
 <p>
-It is also perfectly normal to omit the <code class="paramref">configureOptions</code> parameter, if the configuration will provide all of the information
-required to create the options collection object.
+A good use-case for the <code class="paramref">configureOptions</code> parameter is to add secrets/credentials for remote WebDrivers
+to the options. It is not best practice to include credentials/passwords in configuration which is checked into source control.
+Instead, configure secrets like this in your environment directly and consume them in your application/tests as environment variables.
+This options-configuration callback may be used to read those secrets from the environment and supplement the configuration, without
+the need to include those secrets in any configuration files.
 </p>
 <p>
 An important technique to remember is that the <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfiguration">IConfiguration</a> may be populated from more than one source.
@@ -382,7 +308,7 @@ use a single command-line parameter or environment variable to choose which of t
 
   <h3 id="CSF_Extensions_WebDriver_ServiceCollectionExtensions_AddWebDriverFactoryWithoutOptionsPattern_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="CSF.Extensions.WebDriver.ServiceCollectionExtensions.AddWebDriverFactoryWithoutOptionsPattern(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
   AddWebDriverFactoryWithoutOptionsPattern(IServiceCollection)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/ServiceCollectionExtensions.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/ServiceCollectionExtensions.cs/#L142"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds/registers the service types required to make use of a WebDriver factory which does not depend upon the
@@ -418,8 +344,7 @@ Options &amp; Configuration patterns.</p>
   <div class="markdown level1 remarks"><p>
 Use this method if your application does not make use of either <code>Microsoft.Extensions.Options</code> or
 <code>Microsoft.Extensions.Configuration</code>. You will not be able to use <a class="xref" href="CSF.Extensions.WebDriver.IGetsWebDriver.html">IGetsWebDriver</a> or
-<a class="xref" href="CSF.Extensions.WebDriver.WebDriverFactory.html">WebDriverFactory</a> but you will be able to use <a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html">ICreatesWebDriverFromOptions</a> and
-its implementation <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.html">WebDriverFromOptionsFactory</a>.
+<a class="xref" href="CSF.Extensions.WebDriver.WebDriverFactory.html">WebDriverFactory</a> but you will be able to use <a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html">ICreatesWebDriverFromOptions</a>.
 </p>
 <p>
 If you do use the Options &amp; Configuration patterns then use an overload of
@@ -430,6 +355,89 @@ which are included here.
 </div>
 
 
+
+
+  <a id="CSF_Extensions_WebDriver_ServiceCollectionExtensions_AddWebDriverQuirks_" data-uid="CSF.Extensions.WebDriver.ServiceCollectionExtensions.AddWebDriverQuirks*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_ServiceCollectionExtensions_AddWebDriverQuirks_Microsoft_Extensions_DependencyInjection_IServiceCollection_CSF_Extensions_WebDriver_Quirks_QuirksData_System_Boolean_System_String_" data-uid="CSF.Extensions.WebDriver.ServiceCollectionExtensions.AddWebDriverQuirks(Microsoft.Extensions.DependencyInjection.IServiceCollection,CSF.Extensions.WebDriver.Quirks.QuirksData,System.Boolean,System.String)">
+  AddWebDriverQuirks(IServiceCollection, QuirksData, bool, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/ServiceCollectionExtensions.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds services to depenency injection which support the 'browser quirks' infrastructure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IServiceCollection AddWebDriverQuirks(this IServiceCollection services, QuirksData quirksData = null, bool useOptions = true, string configPath = &quot;WebDriverQuirks&quot;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>services</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd><p>The service collection to which the services should be added.</p>
+</dd>
+    <dt><code>quirksData</code> <a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksData.html">QuirksData</a></dt>
+    <dd><p>An optional source of static quirks data.</p>
+</dd>
+    <dt><code>useOptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether or not to use quirks information from the Microsoft Options Pattern as a source of data,
+to either provide all of the quirks, or to supplement/shadow the data in <code class="paramref">quirksData</code>.</p>
+</dd>
+    <dt><code>configPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string indicating the configuration path at which to find quirks data; meaningless and unused if <code class="paramref">useOptions</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_ServiceCollectionExtensions_AddWebDriverQuirks_Microsoft_Extensions_DependencyInjection_IServiceCollection_CSF_Extensions_WebDriver_Quirks_QuirksData_System_Boolean_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Either <code class="paramref">quirksData</code> must not be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or <code class="paramref">useOptions</code> must be
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> or else an exception will be raised from this method.
+</p>
+<p>
+If you wish to make use of the browser-quirks functionality provided by this library then this method is used to
+set that functionality up within dependency injection.  This method permits the usage of up to two sources of information
+for the <a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksData.html">QuirksData</a> which shall be used to indicate which browsers/versions are affected by which quirks:
+</p>
+<ul><li>A static source of data, provided via <code class="paramref">quirksData</code></li><li>Data coming from the Microsoft Options Pattern, if <code class="paramref">useOptions</code> is set to
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> (this is the default value)</li></ul>
+<p>
+The purpose of using two sources of data for the quirks is described in more depth in the remarks to
+<a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.html">QuirksDataProvider</a> but in short it allows library authors to provide some static quirks data which may be
+supplemented and/or overridden (in part or completely) by user-specified options.
+</p>
+<p>
+If you wish to use <a class="xref" href="CSF.Extensions.WebDriver.Proxies.ProxyCreationOptions.html#CSF_Extensions_WebDriver_Proxies_ProxyCreationOptions_AddQuirks">AddQuirks</a> then this method must be used in order to add the required
+services to DI.
+</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>If both <code class="paramref">quirksData</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> and <code class="paramref">useOptions</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.html">QuirksDataProvider</a></div>
+    <div><a class="xref" href="CSF.Extensions.WebDriver.Quirks.IHasQuirks.html">IHasQuirks</a></div>
+    </dd>
+  </dl>
 
 
 

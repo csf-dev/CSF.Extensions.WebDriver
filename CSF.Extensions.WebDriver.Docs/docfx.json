@@ -8,8 +8,10 @@
             "**/*.csproj"
           ],
           "exclude": [
-            "CSF.Extensions.WebDriver.Tests/**",
-            "docs/**"
+            "docs/**",
+            "**/bin/**",
+            "**/obj/**",
+            "CSF.Extensions.WebDriver.Tests/**"
           ]
         }
       ],

@@ -1,2 +1,2 @@
 
-{"items":[{"name":"Quick start","href":"QuickStart.html","topicHref":"QuickStart.html"},{"name":"Universal factory","href":"UniversalFactory.html","topicHref":"UniversalFactory.html"},{"name":"Driver identification","href":"DriverIdentification.html","topicHref":"DriverIdentification.html"},{"name":"Quirks","href":"Quirks.html","topicHref":"Quirks.html"}],"pdf":false}
+{"items":[{"name":"Universal factory","href":"index.html","topicHref":"index.html"},{"name":"Driver identification","href":"DriverIdentification.html","topicHref":"DriverIdentification.html"},{"name":"Quirks","href":"Quirks.html","topicHref":"Quirks.html"},{"name":"Proxies","href":"Proxies.html","topicHref":"Proxies.html"}],"pdf":false}

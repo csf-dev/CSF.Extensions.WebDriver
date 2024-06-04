@@ -11,7 +11,7 @@ namespace CSF.Extensions.WebDriver.Quirks
         /// <remarks>
         /// <para>
         /// Typically this data would come from dependency injected services/options.  See
-        /// <see cref="ServiceCollectionExtensions.AddQuirksServices(Microsoft.Extensions.DependencyInjection.IServiceCollection, QuirksData, bool)"/>
+        /// <see cref="ServiceCollectionExtensions.AddWebDriverQuirks(Microsoft.Extensions.DependencyInjection.IServiceCollection, QuirksData, bool, string)"/>
         /// for more information about configuring this in a typical app.
         /// </para>
         /// </remarks>

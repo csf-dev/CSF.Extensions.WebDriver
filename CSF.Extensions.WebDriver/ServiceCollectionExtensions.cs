@@ -38,8 +38,11 @@ namespace CSF.Extensions.WebDriver
         /// relative to the root of the application's configuration.
         /// </para>
         /// <para>
-        /// It is also perfectly normal to omit the <paramref name="configureOptions"/> parameter, if the configuration will provide all of the information
-        /// required to create the options collection object.
+        /// A good use-case for the <paramref name="configureOptions"/> parameter is to add secrets/credentials for remote WebDrivers
+        /// to the options. It is not best practice to include credentials/passwords in configuration which is checked into source control.
+        /// Instead, configure secrets like this in your environment directly and consume them in your application/tests as environment variables.
+        /// This options-configuration callback may be used to read those secrets from the environment and supplement the configuration, without
+        /// the need to include those secrets in any configuration files.
         /// </para>
         /// <para>
         /// An important technique to remember is that the <see cref="IConfiguration"/> may be populated from more than one source.
@@ -85,8 +88,11 @@ namespace CSF.Extensions.WebDriver
         /// <see cref="WebDriverCreationOptionsCollection"/> to be bound.
         /// </para>
         /// <para>
-        /// It is perfectly normal to omit the <paramref name="configureOptions"/> parameter, if the configuration will provide all of the information
-        /// required to create the options collection object.
+        /// A good use-case for the <paramref name="configureOptions"/> parameter is to add secrets/credentials for remote WebDrivers
+        /// to the options. It is not best practice to include credentials/passwords in configuration which is checked into source control.
+        /// Instead, configure secrets like this in your environment directly and consume them in your application/tests as environment variables.
+        /// This options-configuration callback may be used to read those secrets from the environment and supplement the configuration, without
+        /// the need to include those secrets in any configuration files.
         /// </para>
         /// <para>
         /// An important technique to remember is that the <see cref="IConfiguration"/> may be populated from more than one source.
@@ -122,8 +128,7 @@ namespace CSF.Extensions.WebDriver
         /// <para>
         /// Use this method if your application does not make use of either <c>Microsoft.Extensions.Options</c> or
         /// <c>Microsoft.Extensions.Configuration</c>. You will not be able to use <see cref="IGetsWebDriver"/> or
-        /// <see cref="WebDriverFactory"/> but you will be able to use <see cref="ICreatesWebDriverFromOptions"/> and
-        /// its implementation <see cref="WebDriverFromOptionsFactory"/>.
+        /// <see cref="WebDriverFactory"/> but you will be able to use <see cref="ICreatesWebDriverFromOptions"/>.
         /// </para>
         /// <para>
         /// If you do use the Options &amp; Configuration patterns then use an overload of
@@ -194,10 +199,11 @@ namespace CSF.Extensions.WebDriver
         /// <param name="quirksData">An optional source of static quirks data.</param>
         /// <param name="useOptions">Whether or not to use quirks information from the Microsoft Options Pattern as a source of data,
         /// to either provide all of the quirks, or to supplement/shadow the data in <paramref name="quirksData"/>.</param>
+        /// <param name="configPath">A string indicating the configuration path at which to find quirks data; meaningless and unused if <paramref name="useOptions"/> is <see langword="false" />.</param>
         /// <seealso cref="QuirksDataProvider"/>
         /// <seealso cref="IHasQuirks"/>
         /// <exception cref="ArgumentException">If both <paramref name="quirksData"/> is <see langword="null" /> and <paramref name="useOptions"/> is <see langword="false" />.</exception>
-        public static IServiceCollection AddQuirksServices(this IServiceCollection services, QuirksData quirksData = null, bool useOptions = true)
+        public static IServiceCollection AddWebDriverQuirks(this IServiceCollection services, QuirksData quirksData = null, bool useOptions = true, string configPath = QuirksConfigPath)
         {
             if (quirksData is null && !useOptions)
                 throw new ArgumentException("Either some non-null quirks data must be specified or the options pattern must be activated. If neither are activated then this would lead to always-empty/useless WebDriver quirks data, which is not a supported use of this functionality.");
@@ -206,7 +212,7 @@ namespace CSF.Extensions.WebDriver
             services.AddTransient<QuirksAugmenter>();
             services.AddTransient<QuirksInterceptor>();
             if (useOptions)
-                services.AddOptions<QuirksData>().BindConfiguration(QuirksConfigPath);
+                services.AddOptions<QuirksData>().BindConfiguration(configPath);
             
             services.AddSingleton<IGetsQuirksData>(s =>
             {

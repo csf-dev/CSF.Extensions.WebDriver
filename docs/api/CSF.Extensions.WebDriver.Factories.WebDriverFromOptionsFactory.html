@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Extensions_WebDriver_Factories_WebDriverFromOptionsFactory" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory" class="text-break">
-Class WebDriverFromOptionsFactory  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverFromOptionsFactory.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class WebDriverFromOptionsFactory  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverFromOptionsFactory.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -171,9 +171,9 @@ Class WebDriverFromOptionsFactory  <a class="header-action link-secondary" title
 
   <a id="CSF_Extensions_WebDriver_Factories_WebDriverFromOptionsFactory__ctor_" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.#ctor*"></a>
 
-  <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverFromOptionsFactory__ctor_CSF_Extensions_WebDriver_Factories_IGetsWebDriverAndOptionsTypes_System_IServiceProvider_Microsoft_Extensions_Logging_ILogger_CSF_Extensions_WebDriver_Factories_WebDriverFromOptionsFactory__" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.#ctor(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,System.IServiceProvider,Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory})">
-  WebDriverFromOptionsFactory(IGetsWebDriverAndOptionsTypes, IServiceProvider, ILogger&lt;WebDriverFromOptionsFactory&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverFromOptionsFactory.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverFromOptionsFactory__ctor_CSF_Extensions_WebDriver_Factories_IGetsWebDriverAndOptionsTypes_Microsoft_Extensions_Logging_ILogger_CSF_Extensions_WebDriver_Factories_WebDriverFromOptionsFactory__" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.#ctor(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory})">
+  WebDriverFromOptionsFactory(IGetsWebDriverAndOptionsTypes, ILogger&lt;WebDriverFromOptionsFactory&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverFromOptionsFactory.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.html">WebDriverFromOptionsFactory</a>.</p>
@@ -181,16 +181,13 @@ Class WebDriverFromOptionsFactory  <a class="header-action link-secondary" title
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public WebDriverFromOptionsFactory(IGetsWebDriverAndOptionsTypes typeProvider, IServiceProvider services, ILogger&lt;WebDriverFromOptionsFactory&gt; logger)</code></pre>
+    <pre><code class="lang-csharp hljs">public WebDriverFromOptionsFactory(IGetsWebDriverAndOptionsTypes typeProvider, ILogger&lt;WebDriverFromOptionsFactory&gt; logger)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>typeProvider</code> <a class="xref" href="CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes.html">IGetsWebDriverAndOptionsTypes</a></dt>
     <dd><p>A type provider</p>
-</dd>
-    <dt><code>services</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a></dt>
-    <dd><p>DI services</p>
 </dd>
     <dt><code>logger</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1">ILogger</a>&lt;<a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.html">WebDriverFromOptionsFactory</a>&gt;</dt>
     <dd><p>A logger</p>
@@ -222,7 +219,7 @@ Class WebDriverFromOptionsFactory  <a class="header-action link-secondary" title
 
   <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverFromOptionsFactory_GetWebDriver_CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_System_Action_OpenQA_Selenium_DriverOptions__" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.GetWebDriver(CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions,System.Action{OpenQA.Selenium.DriverOptions})">
   GetWebDriver(WebDriverCreationOptions, Action&lt;DriverOptions&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverFromOptionsFactory.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverFromOptionsFactory.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a WebDriver using the settings from the specified WebDriver configuration object.</p>
@@ -230,7 +227,7 @@ Class WebDriverFromOptionsFactory  <a class="header-action link-secondary" title
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IWebDriver GetWebDriver(WebDriverCreationOptions options, Action&lt;DriverOptions&gt; supplementaryConfiguration = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public WebDriverAndOptions GetWebDriver(WebDriverCreationOptions options, Action&lt;DriverOptions&gt; supplementaryConfiguration = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -245,8 +242,8 @@ Class WebDriverFromOptionsFactory  <a class="header-action link-secondary" title
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><span class="xref">IWebDriver</span></dt>
-    <dd><p>A WebDriver instance</p>
+    <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.html">WebDriverAndOptions</a></dt>
+    <dd><p>An object containing both a WebDriver instance and the <span class="xref">OpenQA.Selenium.DriverOptions</span> which were used to create it.</p>
 </dd>
   </dl>
 
@@ -287,7 +284,7 @@ derived type).  Such WebDriver implementations will require a custom factory, in
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverFromOptionsFactory.cs/#L13" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverFromOptionsFactory.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
 

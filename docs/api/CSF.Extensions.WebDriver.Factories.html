@@ -95,13 +95,25 @@
 Classes
 </h3>
     <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.html">ProxyWrappingWebDriverFactoryDecorator</a></dt>
+      <dd><p>Decorator for implementations of <a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html">ICreatesWebDriverFromOptions</a> which (if applicable) wraps the
+returned WebDriver in a proxy object, which adds further functionality.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory.html">RemoteWebDriverFromOptionsFactory</a></dt>
-      <dd><p>Factory service which creates implementations of <span class="xref">OpenQA.Selenium.Remote.RemoteWebDriver</span> from <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html">WebDriverCreationOptions</a>.</p>
+      <dd><p>Chain of responsibility implementation of <a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html">ICreatesWebDriverFromOptions</a> which creates instances of
+<span class="xref">OpenQA.Selenium.Remote.RemoteWebDriver</span>.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.SeleniumDriverAndOptionsScanner.html">SeleniumDriverAndOptionsScanner</a></dt>
       <dd><p>Service which scans the Selenium WebDriver assembly for web driver types.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.html">WebDriverAndOptions</a></dt>
+      <dd><p>A model containing a WebDriver and the <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverAndOptions_DriverOptions">DriverOptions</a> which were used to create it.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -135,6 +147,12 @@ to get a WebDriver.</p>
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.html">WebDriverFromOptionsFactory</a></dt>
       <dd><p>Factory service which creates implementations of <span class="xref">OpenQA.Selenium.IWebDriver</span> from <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html">WebDriverCreationOptions</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.html">WebDriverFromThirdPartyFactory</a></dt>
+      <dd><p>Chain of responsibility implementation of <a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html">ICreatesWebDriverFromOptions</a> which creates WebDriver instances
+using a third-party factory type, specified in <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverFactoryType">DriverFactoryType</a>.</p>
 </dd>
     </dl>
     <dl class="jumplist">

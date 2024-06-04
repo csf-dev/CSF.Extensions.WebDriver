@@ -5,6 +5,17 @@ namespace CSF.Extensions.WebDriver.Identification
     /// <summary>
     /// Base class for a model which describes a WebDriver browser version.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Browser version instances are comparable and overload the <c>&lt;</c>, <c>&gt;</c>, <c>&lt;=</c> &amp; <c>&gt;=</c>
+    /// operators.  It is easy to quickly compare version instances as if they were numbers.
+    /// </para>
+    /// <para>
+    /// Concrete implementations of <see cref="BrowserVersion"/> implement the correct rules of commonly-used version
+    /// numbering systems, including Semantic Versioning, which will correctly parse the version numbers of most common
+    /// browsers.
+    /// </para>
+    /// </remarks>
     public abstract class BrowserVersion : IEquatable<BrowserVersion>, IComparable<BrowserVersion>
     {
         /// <summary>
