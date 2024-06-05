@@ -1,17 +1,31 @@
-# Web driver extras
-Web driver extras is a set of support and utility types for **Selenium Web Driver**, a suite for browser automation, particularly useful for the testing of web applications.
+# WebDriver extensions
 
-This library is particularly aimed at providing an abstract way of [creating and configuring] `IWebDriver` instances, in such a way that test logic does not need to know anything about which web browser is in use, or how it has been configured.
+This small library provides some utility functionality for **[Selenium WebDriver]**.
+These features may be used individually or together. 
 
-It also provides [an attempted solution] to deal with some of the quirks and differences in behaviour between web browsers.
+* [A universal WebDriver factory]
+* [A mechanism for dealing with browser-specific quirks]
+* [Types for convenient identification of browsers & versions]
 
-Finally it offers an intgeration with a popular cloud-based provider of web drivers (free for open source projects): [Sauce Labs].
+The types in this library integrate with some commonly-used .NET technologies: 
 
-[creating and configuring]: https://github.com/csf-dev/WebDriverExtras/wiki/WebDriverFactories
-[an attempted solution]: https://github.com/csf-dev/WebDriverExtras/wiki/WebBrowserFlags
-[Sauce Labs]: https://github.com/csf-dev/WebDriverExtras/wiki/SauceLabsIntegration
+* [Dependency injection]
+* [The Options Pattern]
+* [.NET Configuration]
 
-## History
-Web driver extras was originally part of another project - for the **[Screenplay testing pattern]** - but it has since been forked away into a project of its own.  Screenplay still makes use of this library as a NuGet package.
+[Selenium WebDriver]: https://www.selenium.dev/documentation/webdriver/
+[A universal WebDriver factory]: https://csf-dev.github.io/CSF.Extensions.WebDriver/docs/index.html
+[A mechanism for dealing with browser-specific quirks]: https://csf-dev.github.io/CSF.Extensions.WebDriver/docs/Quirks.html
+[Types for convenient identification of browsers & versions]: https://csf-dev.github.io/CSF.Extensions.WebDriver/docs/DriverIdentification.html
+[Dependency injection]: https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection
+[The Options Pattern]: https://learn.microsoft.com/en-us/dotnet/core/extensions/options
+[.NET Configuration]: https://learn.microsoft.com/en-us/dotnet/core/extensions/configuration
 
-[Screenplay testing pattern]: https://github.com/csf-dev/CSF.Screenplay
+## Usages
+
+This functionality may be especially useful to those who are interested in using Selenium with a wide range of browsers and/or WebDriver implementations. 
+
+* The universal factory allows you to keep your target WebDriver/browser configurations out of code. 
+* The quirks mechanism allows for fine-grained and tightly-targeted application of workarounds for differences in behaviour or limitations which are specific to a small number of browser/driver/version ranges.
+  * The use of configuration data here allows for quick configuration-based override of which browsers/versions are affected by which quirks. This is useful as browser versions are released at high velocity and _things change_.
+* The browser identification mechanism is primarily a dependency of the quirks mechanism but may be used standalone.
