@@ -57,14 +57,19 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <see cref="DriverConfigurations"/>; that single configuration is considered to be currently selected.</description></item>
         /// </list>
         /// </remarks>
-        /// <returns>A <see cref="WebDriverCreationOptions"/>, or a <see langword="null" /> reference if both <see cref="SelectedConfiguration"/>
-        /// is <see langword="null" /> or an empty string and there is not precisely one configuration within <see cref="DriverConfigurations"/>.</returns>
+        /// <returns>A <see cref="WebDriverCreationOptions"/></returns>
         /// <exception cref="InvalidOperationException">If <see cref="SelectedConfiguration"/> is not <see langword="null" /> or empty, but
-        /// there is no item within <see cref="DriverConfigurations"/> with a key matching the selected configuration.</exception>
+        /// there is no item within <see cref="DriverConfigurations"/> with a key matching the selected configuration
+        /// or if <see cref="SelectedConfiguration"/> is either <see langword="null" /> or empty and there is not precisely one configuration
+        /// within <see cref="DriverConfigurations"/>.</exception>
         public WebDriverCreationOptions GetSelectedConfiguration()
         {
             if (string.IsNullOrEmpty(SelectedConfiguration))
-                return DriverConfigurations.Count == 1 ? DriverConfigurations.Single().Value : null;
+            {
+                return DriverConfigurations.Count == 1
+                    ? DriverConfigurations.Single().Value
+                    : throw new InvalidOperationException($"If the {nameof(SelectedConfiguration)} is not set then there must be precisely one configuration present in {nameof(DriverConfigurations)}.");
+            }
 
             if(driverConfigurations.TryGetValue(SelectedConfiguration, out var options)) return options;
             throw new InvalidOperationException($"The {nameof(SelectedConfiguration)}: '{SelectedConfiguration}' must exist as a key within the {nameof(DriverConfigurations)}.");
