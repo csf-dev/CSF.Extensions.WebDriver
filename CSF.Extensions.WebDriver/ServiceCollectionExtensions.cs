@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Castle.DynamicProxy;
 using CSF.Extensions.WebDriver.Factories;
 using CSF.Extensions.WebDriver.Identification;
@@ -6,6 +7,8 @@ using CSF.Extensions.WebDriver.Proxies;
 using CSF.Extensions.WebDriver.Quirks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 
 namespace CSF.Extensions.WebDriver
@@ -164,6 +167,8 @@ namespace CSF.Extensions.WebDriver
             services.AddTransient<IdentificationAugmenter>();
             services.AddTransient<UnproxyingAugmenter>();
 
+            AddLoggingIfNotAlreadyAdded(services);
+
             return services;
         }
 
@@ -240,6 +245,17 @@ namespace CSF.Extensions.WebDriver
             {
                 return ActivatorUtilities.CreateInstance<WebDriverCreationConfigureOptions>(services, configSection, configureOptions);
             };
+        }
+
+        static IServiceCollection AddLoggingIfNotAlreadyAdded(IServiceCollection services)
+        {
+            if(services.Any(s => s.ServiceType == typeof(ILoggerFactory)))
+                return services;
+
+            services.AddTransient<ILoggerFactory, NullLoggerFactory>();
+            services.AddTransient(typeof(ILogger<>), typeof(NullLogger<>));
+
+            return services;
         }
     }
 }
