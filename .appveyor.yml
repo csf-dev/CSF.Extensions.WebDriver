@@ -4,6 +4,7 @@ init:
 - cmd: git config --global core.autocrlf true
 before_build:
     - dotnet tool update -g docfx
+    - choco install chromedriver
 build_script:
     - dotnet build
     - docfx CSF.Extensions.WebDriver.Docs\docfx.json
