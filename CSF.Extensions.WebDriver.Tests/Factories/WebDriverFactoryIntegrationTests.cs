@@ -28,7 +28,8 @@ public class WebDriverFactoryIntegrationTests
     {
         var services = GetServiceProvider(o => o.SelectedConfiguration = "DefaultFake");
         var driverFactory = services.GetRequiredService<IGetsWebDriver>();
-        Assert.That(() => driverFactory.GetDefaultWebDriver().WebDriver.GetBrowserId(), Is.Not.Null);
+        using var driver = driverFactory.GetDefaultWebDriver();
+        Assert.That(() => driver.WebDriver.GetBrowserId(), Is.Not.Null);
     }
 
     IServiceProvider GetServiceProvider(Action<WebDriverCreationOptionsCollection>? configureOptions = null)
