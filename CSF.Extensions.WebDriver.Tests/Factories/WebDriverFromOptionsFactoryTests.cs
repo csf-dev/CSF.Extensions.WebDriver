@@ -26,9 +26,9 @@ public class WebDriverFromOptionsFactoryTests
         {
             Assert.Pass("Despite the exception raised, this is only because the driver isn't installed on the environment running the test; this is more than enough to prove that the driver was being created.");
         }
-        catch(TargetInvocationException e) when (e is { InnerException: InvalidOperationException } invOpEx)
+        catch(TargetInvocationException e) when (e is { InnerException: InvalidOperationException })
         {
-            if(invOpEx.Message.StartsWith("session not created:"))
+            if(e.InnerException.Message.StartsWith("session not created:"))
                 Assert.Pass("Despite the exception raised, this is only because the wrong version of the driver is installed on the environment running the test; this is more than enough to prove that the driver was being created.");
             else
                 throw;
