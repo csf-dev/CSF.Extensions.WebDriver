@@ -17,35 +17,8 @@ public class WebDriverFromOptionsFactoryTests
             OptionsFactory = () => new ChromeOptions(),
         };
 
-        IWebDriver? driver = null;
-
-        try
-        {
-            driver = sut.GetWebDriver(options).WebDriver;
-            Assert.That(driver, Is.Not.Null);
-        }
-        catch (Exception e) when (e is TargetInvocationException { InnerException: DriverServiceNotFoundException } or DriverServiceNotFoundException)
-        {
-            Assert.Pass("Despite the exception raised, this is only because the driver isn't installed on the environment running the test; this is more than enough to prove that the driver was being created.");
-        }
-        catch(TargetInvocationException e) when (e is { InnerException: InvalidOperationException })
-        {
-            if(e.InnerException.Message.StartsWith("session not created:"))
-                Assert.Pass("Despite the exception raised, this is only because the wrong version of the driver is installed on the environment running the test; this is more than enough to prove that the driver was being created.");
-            else
-                throw;
-        }
-        catch(InvalidOperationException invOpEx)
-        {
-            if(invOpEx.Message.StartsWith("session not created:"))
-                Assert.Pass("Despite the exception raised, this is only because the wrong version of the driver is installed on the environment running the test; this is more than enough to prove that the driver was being created.");
-            else
-                throw;
-        }
-        finally
-        {
-            driver?.Dispose();
-        }
+        using var driver = sut.GetWebDriver(options).WebDriver;
+        Assert.That(driver, Is.Not.Null);
     }
 
     [Test,AutoMoqData]
@@ -59,29 +32,7 @@ public class WebDriverFromOptionsFactoryTests
             OptionsFactory = () => driverOptions,
         };
 
-        IWebDriver? driver = null;
-
-        try
-        {
-            driver = sut.GetWebDriver(options, o => o.AddAdditionalOption("Foo", "Bar")).WebDriver;
-        }
-        catch (Exception e) when (e is TargetInvocationException { InnerException: DriverServiceNotFoundException } or DriverServiceNotFoundException)
-        {
-            // Intentionally ignore this exception; we know it's going to fail but I care only about how the options were manipulated in this test.
-        }
-        catch(TargetInvocationException e) when (e is { InnerException: InvalidOperationException })
-        {
-            // Intentionally ignore this exception; we know it's going to fail but I care only about how the options were manipulated in this test.
-        }
-        catch(InvalidOperationException)
-        {
-            // Intentionally ignore this exception; we know it's going to fail but I care only about how the options were manipulated in this test.
-        }
-        finally
-        {
-            driver?.Dispose();
-        }
-   
+        using var driver = sut.GetWebDriver(options, o => o.AddAdditionalOption("Foo", "Bar")).WebDriver;
         Assert.That(driverOptions.ToCapabilities()["Foo"], Is.EqualTo("Bar"));
     }
 }
