@@ -6,6 +6,8 @@ before_build:
     - dotnet tool update -g docfx
     - choco install chromedriver
     - cmd: PATH=C:\ProgramData\chocolatey\lib\chromedriver\tools;%PATH%
+    - cmd: echo %PATH%
+    - cmd: dir C:\ProgramData\chocolatey\lib\chromedriver\tools
 build_script:
     - dotnet build
     - docfx CSF.Extensions.WebDriver.Docs\docfx.json
