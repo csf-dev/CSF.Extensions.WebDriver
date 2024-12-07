@@ -4,7 +4,7 @@ using OpenQA.Selenium.Chrome;
 
 namespace CSF.Extensions.WebDriver.Factories;
 
-[TestFixture,Parallelizable][Ignore("Temporarily ignored to diagnose #47")]
+[TestFixture,Parallelizable]
 public class WebDriverFromOptionsFactoryTests
 {
     [Test,AutoMoqData]
