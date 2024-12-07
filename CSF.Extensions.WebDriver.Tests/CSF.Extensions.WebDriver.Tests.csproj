@@ -23,6 +23,8 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <!-- Floating version should keep ChromeDriver up to date with the browser on the OS.  See #47 for more info. -->
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="*" />
   </ItemGroup>
 
   <ItemGroup>
