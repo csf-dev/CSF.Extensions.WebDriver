@@ -50,7 +50,7 @@ public class WebDriverFactoryIntegrationTests
 
     public class FakeWebDriverFactory : ICreatesWebDriverFromOptions
     {
-        public WebDriverAndOptions GetWebDriver(WebDriverCreationOptions options, Action<DriverOptions> supplementaryConfiguration = null)
+        public WebDriverAndOptions GetWebDriver(WebDriverCreationOptions options, Action<DriverOptions>? supplementaryConfiguration = null)
         {
             return new(Mock.Of<IWebDriver>(), Mock.Of<DriverOptions>());
         }
