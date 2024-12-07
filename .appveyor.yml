@@ -4,9 +4,11 @@ init:
 - cmd: git config --global core.autocrlf true
 before_build:
     - dotnet tool update -g docfx
+    # I need to install ChromeDriver from Chcolatey because the preinstalled ChromeDriver is
+    # not compatible with the Chrome browser version installed by the Visual Studio 2022 image
+    # This originally caused tests to fail and also to hang, which caused issue #47.
     - choco install chromedriver
     - cmd: PATH=C:\ProgramData\chocolatey\lib\chromedriver\tools\chromedriver-win32;%PATH%
-    - cmd: dir C:\ProgramData\chocolatey\lib\chromedriver\tools\chromedriver-win32
 build_script:
     - dotnet build
     - docfx CSF.Extensions.WebDriver.Docs\docfx.json

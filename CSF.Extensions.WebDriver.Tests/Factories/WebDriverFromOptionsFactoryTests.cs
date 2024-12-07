@@ -1,5 +1,3 @@
-using System.Reflection;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 namespace CSF.Extensions.WebDriver.Factories;
