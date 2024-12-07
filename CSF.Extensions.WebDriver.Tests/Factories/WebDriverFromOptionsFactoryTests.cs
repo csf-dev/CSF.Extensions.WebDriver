@@ -4,7 +4,7 @@ using OpenQA.Selenium.Chrome;
 
 namespace CSF.Extensions.WebDriver.Factories;
 
-[TestFixture,Parallelizable][Ignore("Temporarily ignored to diagnose #47")]
+[TestFixture,Parallelizable]
 public class WebDriverFromOptionsFactoryTests
 {
     [Test,AutoMoqData]
@@ -17,9 +17,11 @@ public class WebDriverFromOptionsFactoryTests
             OptionsFactory = () => new ChromeOptions(),
         };
 
+        IWebDriver? driver = null;
+
         try
         {
-            using var driver = sut.GetWebDriver(options).WebDriver;
+            driver = sut.GetWebDriver(options).WebDriver;
             Assert.That(driver, Is.Not.Null);
         }
         catch (Exception e) when (e is TargetInvocationException { InnerException: DriverServiceNotFoundException } or DriverServiceNotFoundException)
@@ -40,6 +42,10 @@ public class WebDriverFromOptionsFactoryTests
             else
                 throw;
         }
+        finally
+        {
+            driver?.Dispose();
+        }
     }
 
     [Test,AutoMoqData]
@@ -53,9 +59,11 @@ public class WebDriverFromOptionsFactoryTests
             OptionsFactory = () => driverOptions,
         };
 
+        IWebDriver? driver = null;
+
         try
         {
-            using var driver = sut.GetWebDriver(options, o => o.AddAdditionalOption("Foo", "Bar")).WebDriver;
+            driver = sut.GetWebDriver(options, o => o.AddAdditionalOption("Foo", "Bar")).WebDriver;
         }
         catch (Exception e) when (e is TargetInvocationException { InnerException: DriverServiceNotFoundException } or DriverServiceNotFoundException)
         {
@@ -69,7 +77,11 @@ public class WebDriverFromOptionsFactoryTests
         {
             // Intentionally ignore this exception; we know it's going to fail but I care only about how the options were manipulated in this test.
         }
-                
+        finally
+        {
+            driver?.Dispose();
+        }
+   
         Assert.That(driverOptions.ToCapabilities()["Foo"], Is.EqualTo("Bar"));
     }
 }
