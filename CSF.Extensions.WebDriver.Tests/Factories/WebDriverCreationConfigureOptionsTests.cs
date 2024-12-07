@@ -138,7 +138,7 @@ public class WebDriverCreationConfigureOptionsTests
     }
     
     [Test,AutoMoqData]
-    public async Task ConfigureShouldProvideNullSelectedConfigWhenThereAreTwoConfigsAndNoExplicitSelection([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
+    public async Task ConfigureShouldProvideThrowWhenThereAreTwoConfigsAndNoExplicitSelection([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
     {
         var options = await GetOptionsAsync(typeProvider,
 @"{
@@ -148,7 +148,7 @@ public class WebDriverCreationConfigureOptionsTests
     }
 }");
 
-        Assert.That(options.GetSelectedConfiguration(), Is.Null);
+        Assert.That(() => options.GetSelectedConfiguration(), Throws.InvalidOperationException);
     }
 
     [Test,AutoMoqData]

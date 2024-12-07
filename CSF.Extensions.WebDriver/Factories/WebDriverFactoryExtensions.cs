@@ -32,9 +32,6 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <exception cref="ArgumentException">
         /// If any of:
         /// <list type="bullet">
-        /// <item><description>The <paramref name="configuration"/> has a <see langword="null" /> or empty <see cref="WebDriverCreationOptionsCollection.SelectedConfiguration"/></description></item>
-        /// <item><description>The <paramref name="configuration"/> has no entry within <see cref="WebDriverCreationOptionsCollection.DriverConfigurations"/> with a key matching the
-        /// <see cref="WebDriverCreationOptionsCollection.SelectedConfiguration"/></description></item>
         /// <item><description>The selected <see cref="WebDriverCreationOptionsCollection.DriverConfigurations"/> entry is <see langword="null" /></description></item>
         /// <item><description>The <see cref="WebDriverCreationOptions.DriverType"/> of the selected <see cref="WebDriverCreationOptionsCollection.DriverConfigurations"/> is <see langword="null" /> or empty</description></item>
         /// <item><description>The <see cref="WebDriverCreationOptions.OptionsFactory"/> of the selected <see cref="WebDriverCreationOptionsCollection.DriverConfigurations"/> is <see langword="null" /></description></item>
@@ -46,18 +43,21 @@ namespace CSF.Extensions.WebDriver.Factories
         /// Either <see cref="WebDriverCreationOptions.DriverType"/> or <see cref="WebDriverCreationOptions.OptionsType"/> of the
         /// selected <see cref="WebDriverCreationOptionsCollection.DriverConfigurations"/> are non-null/non-empty but no type can be found matching the specifed values.
         /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// If <see cref="WebDriverCreationOptionsCollection.SelectedConfiguration"/> is <see langword="null" /> or empty and there is not precisely one
+        /// configuration within <see cref="WebDriverCreationOptionsCollection.DriverConfigurations"/>.
+        /// Or if the <paramref name="configuration"/> does not contain a configuration item with a key matching the
+        /// <see cref="WebDriverCreationOptionsCollection.SelectedConfiguration"/>.
+        /// </exception>
         public static WebDriverAndOptions GetWebDriver(this ICreatesWebDriverFromOptions factory,
                                               WebDriverCreationOptionsCollection configuration,
                                               Action<DriverOptions> supplementaryConfiguration = null)
         {
             if (factory is null) throw new ArgumentNullException(nameof(factory));
             if (configuration is null) throw new ArgumentNullException(nameof(configuration));
-            if (string.IsNullOrEmpty(configuration.SelectedConfiguration))
-                throw new ArgumentException($"The {nameof(WebDriverCreationOptionsCollection)}.{nameof(WebDriverCreationOptionsCollection.SelectedConfiguration)} must not be null or empty.", nameof(configuration));
-            if (!configuration.DriverConfigurations.TryGetValue(configuration.SelectedConfiguration, out WebDriverCreationOptions value) || value is null)
-                throw new ArgumentException($"The {nameof(WebDriverCreationOptionsCollection)}.{nameof(WebDriverCreationOptionsCollection.DriverConfigurations)} must contain a non-null entry matching the {nameof(WebDriverCreationOptionsCollection.SelectedConfiguration)}: '{configuration.SelectedConfiguration}'. No such entry was found.", nameof(configuration));
 
-            return factory.GetWebDriver(value, supplementaryConfiguration);
+            var configItem = configuration.GetSelectedConfiguration() ?? throw new ArgumentException($"The selected web driver configuration item must not be null.", nameof(configuration));
+            return factory.GetWebDriver(configItem, supplementaryConfiguration);
         }
 
         /// <summary>
