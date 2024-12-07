@@ -4,13 +4,16 @@ using OpenQA.Selenium;
 namespace CSF.Extensions.WebDriver.Factories
 {
     /// <summary>A model containing a WebDriver and the <see cref="DriverOptions"/> which were used to create it.</summary>
-    public class WebDriverAndOptions
+    public sealed class WebDriverAndOptions : IDisposable
     {
         /// <summary>Gets the WebDriver</summary>
         public IWebDriver WebDriver { get; }
 
         /// <summary>Gets the <see cref="DriverOptions"/> which were used to create the <see cref="WebDriver"/></summary>
         public DriverOptions DriverOptions { get; }
+
+        /// <inheritdoc/>
+        public void Dispose() => WebDriver.Dispose();
 
         /// <summary>
         /// Initialises a new instance of <see cref="WebDriverAndOptions"/>.
