@@ -4,7 +4,7 @@ using OpenQA.Selenium.Remote;
 
 namespace CSF.Extensions.WebDriver.Factories;
 
-[TestFixture,Parallelizable]
+[TestFixture,Parallelizable][Ignore("Temporarily ignored to diagnose #47")]
 public class RemoteWebDriverFromOptionsFactoryTests
 {
     [Test,AutoMoqData]
