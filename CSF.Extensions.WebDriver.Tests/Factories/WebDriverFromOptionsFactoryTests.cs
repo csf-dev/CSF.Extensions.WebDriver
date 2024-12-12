@@ -43,6 +43,7 @@ public class WebDriverFromOptionsFactoryTests
             if(string.Equals(Environment.GetEnvironmentVariable("APPVEYOR"), bool.TrueString, StringComparison.InvariantCultureIgnoreCase)
                && Environment.GetEnvironmentVariable("APPVEYOR_BUILD_WORKER_IMAGE")!.Contains("ubuntu", StringComparison.InvariantCultureIgnoreCase))
             {
+                options.BinaryLocation = "/usr/bin/google-chrome";
                 options.AddArgument("--no-sandbox");
             }
         }
