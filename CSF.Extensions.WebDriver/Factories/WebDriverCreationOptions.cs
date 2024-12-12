@@ -94,29 +94,57 @@ namespace CSF.Extensions.WebDriver.Factories
         public string GridUrl { get; set; }
 
         /// <summary>
-        /// Gets or sets a factory object which can create instances of WebDriver options, to be provided to the WebDriver implementation.
+        /// Gets or sets a function which creates the object which derives from <see cref="DriverOptions"/>, used as the creation options for the <see cref="IWebDriver"/>.
         /// </summary>
         /// <remarks>
         /// <para>
+        /// In the most common scenario - providing WebDriver options from a JSON configuration file such as <c>appsettings.json</c> - this property is bound
+        /// from a configuration key named <c>Options</c>, rather than "OptionsFactory".  In a configuration file, the options are specified as a simple
+        /// JSON object. However, after binding to this property this becomes a factory function instead.  That is because of two factors:
+        /// </para>
+        /// <list type="bullet">
+        /// <item><description>Instances of types which derive from <see cref="DriverOptions"/> are not reusable and should not be shared between WebDriver instances</description></item>
+        /// <item><description>This WebDriver factory framework must be capable of creating multiple <see cref="IWebDriver"/> instances from one configuration, thus
+        /// requiring many options instances</description></item>
+        /// When bound from a configuration file, the options object which would be returned from this factory function will have properties set
+        /// as specified in that configuration.
+        /// </list>
+        /// <para>
         /// The return value of this function must be an object of an appropriate type to match the implementation of <see cref="IWebDriver"/>
         /// that is selected, via <see cref="DriverType"/>.
-        /// When deserializing this value from configuration (such as an <c>appsettings.json</c> file), the <see cref="OptionsType"/>
-        /// will be used to select the appropriate polymorphic type to which the configuration should be bound.
-        /// For local WebDriver implementations which are shipped with Selenium, the options type need not be specified explicitly;
-        /// it will be inferred from the chosen driver type.
+        /// If this value was bound from a configuration file then the generated factory function will automatically instantiate an instance of either:
         /// </para>
-        /// <para>
-        /// This option is provided as a factory, rather than an instance of <see cref="DriverOptions"/> because it will create options
-        /// instances for - potentially - many usages throughout the application/test lifetime. It is a poor design choice to use a single
-        /// options instance for every one of the WebDriver instances which will be used. In some cases, this would cause functional issues,
-        /// such as where additional per-scenario capabilities need to be injected into each options instance.
-        /// </para>
-        /// <para>
-        /// Please note that when using Microsoft.Extensions.Configuration to bind an instance of this type, this factory function is bound
-        /// from an <see cref="IConfiguration"/> key named <c>Options</c> and not OptionsFactory as its member name might suggest.
-        /// </para>
+        /// <list type="bullet">
+        /// <item><description>The options type specified in the configuration file, if <see cref="OptionsType"/> is set</description></item>
+        /// <item><description>The options type which is inferred from the <see cref="DriverType"/>, if <see cref="OptionsType"/> is not set.
+        /// See the documentation for <see cref="OptionsType"/> for more information</description></item>
+        /// </list>
         /// </remarks>
         public Func<DriverOptions> OptionsFactory { get; set; }
+
+        /// <summary>
+        /// An optional object which implements <see cref="ICustomizesOptions{TOptions}"/> for the corresponding <see cref="DriverOptions"/>
+        /// type for the <see cref="DriverType"/>/<see cref="OptionsType"/>.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// If this instance is bound from a configuration file - such as <c>appsettings.json</c> - then this property is bound from a configuration key named
+        /// <c>OptionsCustomizerType</c> rather than "OptionsCustomizer".  The value of that configuration key should be the assembly-qualified type name of
+        /// the concrete implementation of <see cref="ICustomizesOptions{TOptions}"/> which should be used to customize the options. In this scenario this type
+        /// must also have a public parameterless constructor.
+        /// </para>
+        /// <para>
+        /// This configuration property is rarely required. This object is used to customize the options for creating a web driver
+        /// after <see cref="OptionsFactory"/> has created the options instance but before it is used to
+        /// create the web driver.
+        /// </para>
+        /// <para>
+        /// This is useful when you need to customize the options for a web driver in a way which is not supported by the binding from
+        /// a configuration file.  For example, some web driver options do not provide property getters/setters but must be configured
+        /// using methods.  In this case you can implement this interface with a class to customize the options as required.
+        /// </para>
+        /// </remarks>
+        public object OptionsCustomizer { get; set; }
 
         /// <summary>
         /// Unneeded except in unusual circumstances, gets or sets the name of a type which is used to construct the WebDriver instance.

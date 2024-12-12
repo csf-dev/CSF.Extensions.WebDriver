@@ -123,6 +123,21 @@ namespace CSF.Extensions.WebDriver.Factories
                 return null;
             }
 
+            var customizerTypeName = configuration.GetValue<string>("OptionsCustomizerType");
+            try
+            {
+                creationOptions.OptionsCustomizer = GetOptionsCustomizer(optionsType, customizerTypeName);
+            }
+            catch(Exception e)
+            {
+                logger.LogError(e,
+                                "An unexpected error occurred binding the {OptionsCustomizer} type {CustomizerType}; the configuration '{ConfigKey}' will be omitted.",
+                                nameof(WebDriverCreationOptions.OptionsCustomizer),
+                                customizerTypeName,
+                                configuration.Key);
+                return null;
+            }
+
             return creationOptions;
         }
 
@@ -134,6 +149,19 @@ namespace CSF.Extensions.WebDriver.Factories
                 config.Bind("Options", options);
                 return options;
             };
+        }
+
+        static object GetOptionsCustomizer(Type optionsType, string customizerTypeName)
+        {
+            if(string.IsNullOrWhiteSpace(customizerTypeName)) return null;
+            var customizerType = Type.GetType(customizerTypeName, true);
+
+            if(!typeof(ICustomizesOptions<>).MakeGenericType(optionsType).IsAssignableFrom(customizerType))
+                throw new ArgumentException($"The specified customizer type must implement {nameof(ICustomizesOptions<DriverOptions>)}<{optionsType.Name}>.", nameof(customizerTypeName));
+            if(customizerType.GetConstructor(Type.EmptyTypes) == null)
+                throw new ArgumentException($"The specified customizer type must have a public parameterless constructor.", nameof(customizerTypeName));
+            
+            return Activator.CreateInstance(customizerType);
         }
 
         /// <summary>

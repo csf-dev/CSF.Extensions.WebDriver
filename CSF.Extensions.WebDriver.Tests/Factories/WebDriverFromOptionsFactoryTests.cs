@@ -13,6 +13,7 @@ public class WebDriverFromOptionsFactoryTests
         {
             DriverType = nameof(ChromeDriver),
             OptionsFactory = () => new ChromeOptions(),
+            OptionsCustomizer = new AppveyorLinuxChromeCustomizer(),
         };
 
         using var driver = sut.GetWebDriver(options).WebDriver;
@@ -28,9 +29,22 @@ public class WebDriverFromOptionsFactoryTests
         {
             DriverType = nameof(ChromeDriver),
             OptionsFactory = () => driverOptions,
+            OptionsCustomizer = new AppveyorLinuxChromeCustomizer(),
         };
 
         using var driver = sut.GetWebDriver(options, o => o.AddAdditionalOption("Foo", "Bar")).WebDriver;
         Assert.That(driverOptions.ToCapabilities()["Foo"], Is.EqualTo("Bar"));
+    }
+
+    public class AppveyorLinuxChromeCustomizer : ICustomizesOptions<ChromeOptions>
+    {
+        public void CustomizeOptions(ChromeOptions options)
+        {
+            if(string.Equals(Environment.GetEnvironmentVariable("APPVEYOR"), bool.TrueString, StringComparison.InvariantCultureIgnoreCase)
+               && Environment.GetEnvironmentVariable("APPVEYOR_BUILD_WORKER_IMAGE")!.Contains("ubuntu", StringComparison.InvariantCultureIgnoreCase))
+            {
+                options.AddArgument("--no-sandbox");
+            }
+        }
     }
 }

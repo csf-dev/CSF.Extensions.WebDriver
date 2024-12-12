@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Reflection;
 using Microsoft.Extensions.Logging;
 using OpenQA.Selenium;
 
@@ -10,6 +11,8 @@ namespace CSF.Extensions.WebDriver.Factories
     /// </summary>
     public class WebDriverFromOptionsFactory : ICreatesWebDriverFromOptions
     {
+        static readonly MethodInfo customizeGenericMethod = typeof(WebDriverFromOptionsFactory).GetMethod(nameof(CuztomizeOptionsGeneric), BindingFlags.NonPublic | BindingFlags.Static);
+
         readonly IGetsWebDriverAndOptionsTypes typeProvider;
         readonly ILogger logger;
 
@@ -28,10 +31,28 @@ namespace CSF.Extensions.WebDriver.Factories
                                             nameof(options));
 
             var driverOptions = options.OptionsFactory();
+            CustomizeOptions(driverOptions, options.OptionsCustomizer);
             supplementaryConfiguration?.Invoke(driverOptions);
             var driver = (IWebDriver) Activator.CreateInstance(driverType, driverOptions);
             logger.LogInformation("Driver created via reflection: {Driver}", driver);
             return new WebDriverAndOptions(driver, driverOptions);
+        }
+
+        static void CustomizeOptions(DriverOptions options, object customizer)
+        {
+            if (customizer is null) return;
+            var method = customizeGenericMethod.MakeGenericMethod(options.GetType());
+            method.Invoke(null, [options, customizer]);
+        }
+
+        static void CuztomizeOptionsGeneric<TOptions>(TOptions options, object customizer)
+            where TOptions : DriverOptions
+        {
+            if (!(customizer is ICustomizesOptions<TOptions> customizerInstance))
+                throw new ArgumentException($"The customizer type {customizer.GetType().FullName} does not implement {customizeGenericMethod.Name}<{typeof(TOptions).Name}>.",
+                                            nameof(customizer));
+
+            customizerInstance.CustomizeOptions(options);
         }
 
         /// <summary>
