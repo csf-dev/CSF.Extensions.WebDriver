@@ -42,7 +42,7 @@ namespace CSF.Extensions.WebDriver.Factories
         {
             if (customizer is null) return;
             var method = customizeGenericMethod.MakeGenericMethod(options.GetType());
-            method.Invoke(null, [options, customizer]);
+            method.Invoke(null, new[] { options, customizer });
         }
 
         static void CuztomizeOptionsGeneric<TOptions>(TOptions options, object customizer)
