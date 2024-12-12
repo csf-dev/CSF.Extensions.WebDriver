@@ -1,11 +1,28 @@
-image: Visual Studio 2022
+environment:
+    matrix:
+        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
+          JAVA_HOME: C:\Program Files\Java\jdk17
+        - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
+          JAVA_HOME: /usr/lib/jvm/jdk15
+
+skip_branch_with_pr: true
+
+# A note/reminder for readers: Script items prefixed "cmd:" are executed on Windows-only environments.
+# Items with no prefix (or "ps:" prefix) are run on all environments (Windows & Linux)
+
 version: '{branch}-{build}'
+
 init:
-- cmd: git config --global core.autocrlf true
+    - cmd: git config --global core.autocrlf true
 before_build:
-    - dotnet tool update -g docfx
+    - dotnet --version
+    - dotnet restore --verbosity m
+    - dotnet clean
+    - cmd: dotnet tool update -g docfx
+
 build_script:
     - dotnet build
-    - docfx CSF.Extensions.WebDriver.Docs\docfx.json
+    - cmd: docfx CSF.Extensions.WebDriver.Docs\docfx.json
+
 test_script:
     - dotnet test
