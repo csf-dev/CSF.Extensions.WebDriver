@@ -121,6 +121,19 @@ public class WebDriverCreationConfigureOptionsTests
 
         Assert.That(options.GetSelectedConfiguration()?.DriverType, Is.EqualTo("ChromeDriver"));
     }
+
+    [Test,AutoMoqData]
+    public async Task ConfigureShouldBeAbleToAddACustomizerToSomeOptions([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
+    {
+        var options = await GetOptionsAsync(typeProvider,
+@"{
+    ""DriverConfigurations"": {
+        ""Test"": { ""DriverType"": ""ChromeDriver"", ""OptionsCustomizerType"": ""CSF.Extensions.WebDriver.Factories.SampleCustomizer, CSF.Extensions.WebDriver.Tests"" }
+    }
+}");
+
+        Assert.That(options.GetSelectedConfiguration()?.OptionsCustomizer, Is.InstanceOf<SampleCustomizer>());
+    }
     
     [Test,AutoMoqData]
     public async Task ConfigureShouldBeAbleToGetSelectedConfigWhenASelectedConfigIsNamed([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
