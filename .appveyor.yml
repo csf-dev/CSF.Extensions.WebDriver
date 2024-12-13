@@ -14,11 +14,23 @@ version: '{branch}-{build}'
 
 init:
     - cmd: git config --global core.autocrlf true
+
+install:
+    # This was taken from https://stackoverflow.com/questions/60304251/unable-to-open-x-display-when-trying-to-run-google-chrome-on-centos-rhel-7-5
+    # It's the minimum dependencies for running Chrome in a headless environment on Linux
+    - sh: |
+        sudo apt-get update
+        sudo apt install -y xorg xvfb gtk2-engines-pixbuf dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable
+
 before_build:
     - dotnet --version
     - dotnet restore --verbosity m
     - dotnet clean
     - cmd: dotnet tool update -g docfx
+    # Activate Xvfb and export a display so that Chrome can run in Linux
+    - sh: |
+        Xvfb -ac :99 -screen 0 1280x1024x16 &
+        export DISPLAY=:99
 
 build_script:
     - dotnet build
