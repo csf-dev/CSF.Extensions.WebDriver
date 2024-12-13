@@ -13,7 +13,6 @@ public class WebDriverFromOptionsFactoryTests
         {
             DriverType = nameof(ChromeDriver),
             OptionsFactory = () => new ChromeOptions(),
-            OptionsCustomizer = new AppveyorLinuxChromeCustomizer(),
         };
 
         using var driver = sut.GetWebDriver(options).WebDriver;
@@ -29,24 +28,36 @@ public class WebDriverFromOptionsFactoryTests
         {
             DriverType = nameof(ChromeDriver),
             OptionsFactory = () => driverOptions,
-            OptionsCustomizer = new AppveyorLinuxChromeCustomizer(),
         };
 
         using var driver = sut.GetWebDriver(options, o => o.AddAdditionalOption("Foo", "Bar")).WebDriver;
         Assert.That(driverOptions.ToCapabilities()["Foo"], Is.EqualTo("Bar"));
     }
 
+    [Test,AutoMoqData]
+    public void GetWebDriverShouldCustomiseDriverFromCustomizerInstanceIfSpecified([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider,
+                                                                                    WebDriverFromOptionsFactory sut)
+    {
+        var driverOptions = new ChromeOptions();
+        var customizer = new AppveyorLinuxChromeCustomizer();
+        var options = new WebDriverCreationOptions
+        {
+            DriverType = nameof(ChromeDriver),
+            OptionsFactory = () => driverOptions,
+            OptionsCustomizer = customizer,
+        };
+
+        using var driver = sut.GetWebDriver(options);
+        Assert.That(customizer.IsCustomized, Is.True);
+    }
+
     public class AppveyorLinuxChromeCustomizer : ICustomizesOptions<ChromeOptions>
     {
+        public bool IsCustomized { get; private set; }
+
         public void CustomizeOptions(ChromeOptions options)
         {
-            if(string.Equals(Environment.GetEnvironmentVariable("APPVEYOR"), bool.TrueString, StringComparison.InvariantCultureIgnoreCase)
-               && Environment.GetEnvironmentVariable("APPVEYOR_BUILD_WORKER_IMAGE")!.Contains("ubuntu", StringComparison.InvariantCultureIgnoreCase))
-            {
-                Console.Error.WriteLine("Running on Appveyor Linux, customising Chrome options.");
-                options.BinaryLocation = "/usr/bin/google-chrome";
-                options.AddArgument("--no-sandbox");
-            }
+            IsCustomized = true;
         }
     }
 }
