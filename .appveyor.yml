@@ -1,11 +1,40 @@
-image: Visual Studio 2022
+environment:
+    matrix:
+        - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
+          JAVA_HOME: C:\Program Files\Java\jdk17
+        - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
+          JAVA_HOME: /usr/lib/jvm/jdk15
+
+skip_branch_with_pr: true
+
+# A note/reminder for readers: Script items prefixed "cmd:" are executed on Windows-only environments.
+# Items with no prefix (or "ps:" prefix) are run on all environments (Windows & Linux)
+
 version: '{branch}-{build}'
+
 init:
-- cmd: git config --global core.autocrlf true
+    - cmd: git config --global core.autocrlf true
+
+install:
+    # This was taken from https://stackoverflow.com/questions/60304251/unable-to-open-x-display-when-trying-to-run-google-chrome-on-centos-rhel-7-5
+    # It's the minimum dependencies for running Chrome in a headless environment on Linux
+    - sh: |
+        sudo apt-get update
+        sudo apt install -y xorg xvfb gtk2-engines-pixbuf dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable
+
 before_build:
-    - dotnet tool update -g docfx
+    - dotnet --version
+    - dotnet restore --verbosity m
+    - dotnet clean
+    - cmd: dotnet tool update -g docfx
+    # Activate Xvfb and export a display so that Chrome can run in Linux
+    - sh: |
+        Xvfb -ac :99 -screen 0 1280x1024x16 &
+        export DISPLAY=:99
+
 build_script:
     - dotnet build
-    - docfx CSF.Extensions.WebDriver.Docs\docfx.json
+    - cmd: docfx CSF.Extensions.WebDriver.Docs\docfx.json
+
 test_script:
     - dotnet test
