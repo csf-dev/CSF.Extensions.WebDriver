@@ -1,5 +1,5 @@
 {
-  "source_base_path": "E:/Craig/Documents/Projects/WebDriverExtras/CSF.Extensions.WebDriver.Docs",
+  "source_base_path": "E:/Craig/Documents/Projects/CSF.Extensions.WebDriver/CSF.Extensions.WebDriver.Docs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -26,6 +26,16 @@
       "output": {
         ".html": {
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.ICustomizesOptions-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Extensions.WebDriver.Factories.ICustomizesOptions-1.html"
         }
       },
       "version": ""

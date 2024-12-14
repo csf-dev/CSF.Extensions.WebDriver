@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/WebDriverExtras/new/feature/41-version2/apiSpec/new?filename=CSF_Extensions_WebDriver_Factories_WebDriverFactoryExtensions.md&amp;value=---%0Auid%3A%20CSF.Extensions.WebDriver.Factories.WebDriverFactoryExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/WebDriverExtras/new/master/apiSpec/new?filename=CSF_Extensions_WebDriver_Factories_WebDriverFactoryExtensions.md&amp;value=---%0Auid%3A%20CSF.Extensions.WebDriver.Factories.WebDriverFactoryExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Extensions_WebDriver_Factories_WebDriverFactoryExtensions" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverFactoryExtensions" class="text-break">
-Class WebDriverFactoryExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverFactoryExtensions.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Class WebDriverFactoryExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverFactoryExtensions.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -157,7 +157,7 @@ Class WebDriverFactoryExtensions  <a class="header-action link-secondary" title=
 
   <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverFactoryExtensions_GetWebDriver_CSF_Extensions_WebDriver_Factories_ICreatesWebDriverFromOptions_CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection_System_Action_OpenQA_Selenium_DriverOptions__" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverFactoryExtensions.GetWebDriver(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions,CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection,System.Action{OpenQA.Selenium.DriverOptions})">
   GetWebDriver(ICreatesWebDriverFromOptions, WebDriverCreationOptionsCollection, Action&lt;DriverOptions&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverFactoryExtensions.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverFactoryExtensions.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a WebDriver using the selected entry of a web drivers configuration.</p>
@@ -215,13 +215,18 @@ type to use as well as any relevant options for that WebDriver.
 </dd>
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
     <dd><p>If any of:</p>
-<ul><li>The <code class="paramref">configuration</code> has a <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or empty <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection_SelectedConfiguration">SelectedConfiguration</a></li><li>The <code class="paramref">configuration</code> has no entry within <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection_DriverConfigurations">DriverConfigurations</a> with a key matching the
-<a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection_SelectedConfiguration">SelectedConfiguration</a></li><li>The selected <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection_DriverConfigurations">DriverConfigurations</a> entry is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a></li><li>The <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType">DriverType</a> of the selected <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection_DriverConfigurations">DriverConfigurations</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or empty</li><li>The <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsFactory">OptionsFactory</a> of the selected <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection_DriverConfigurations">DriverConfigurations</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a></li><li>The <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType">DriverType</a> of the selected <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection_DriverConfigurations">DriverConfigurations</a> is set to <code>RemoteWebDriver</code>
+<ul><li>The selected <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection_DriverConfigurations">DriverConfigurations</a> entry is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a></li><li>The <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType">DriverType</a> of the selected <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection_DriverConfigurations">DriverConfigurations</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or empty</li><li>The <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsFactory">OptionsFactory</a> of the selected <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection_DriverConfigurations">DriverConfigurations</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a></li><li>The <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType">DriverType</a> of the selected <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection_DriverConfigurations">DriverConfigurations</a> is set to <code>RemoteWebDriver</code>
 or to a type that is not shipped with Selenium but the <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsType">OptionsType</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or empty</li></ul>
 </dd>
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.typeloadexception">TypeLoadException</a></dt>
     <dd><p>Either <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType">DriverType</a> or <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsType">OptionsType</a> of the
 selected <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection_DriverConfigurations">DriverConfigurations</a> are non-null/non-empty but no type can be found matching the specifed values.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>If <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection_SelectedConfiguration">SelectedConfiguration</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> or empty and there is not precisely one
+configuration within <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection_DriverConfigurations">DriverConfigurations</a>.
+Or if the <code class="paramref">configuration</code> does not contain a configuration item with a key matching the
+<a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection_SelectedConfiguration">SelectedConfiguration</a>.</p>
 </dd>
   </dl>
 
@@ -231,7 +236,7 @@ selected <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreat
 
   <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverFactoryExtensions_GetWebDriver_CSF_Extensions_WebDriver_Factories_ICreatesWebDriverFromOptions_CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection_System_String_System_Action_OpenQA_Selenium_DriverOptions__" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverFactoryExtensions.GetWebDriver(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions,CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection,System.String,System.Action{OpenQA.Selenium.DriverOptions})">
   GetWebDriver(ICreatesWebDriverFromOptions, WebDriverCreationOptionsCollection, string, Action&lt;DriverOptions&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverFactoryExtensions.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverFactoryExtensions.cs/#L99"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a WebDriver using specified named WebDriver configuration.</p>
@@ -306,7 +311,7 @@ selected <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreat
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/WebDriverExtras/blob/feature/41-version2/CSF.Extensions.WebDriver/Factories/WebDriverFactoryExtensions.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/WebDriverExtras/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverFactoryExtensions.cs/#L9" class="edit-link">Edit this page</a>
         </div>
 
 

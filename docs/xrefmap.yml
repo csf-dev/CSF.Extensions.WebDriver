@@ -35,6 +35,32 @@ references:
   isSpec: "True"
   fullName: CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.GetWebDriver
   nameWithType: ICreatesWebDriverFromOptions.GetWebDriver
+- uid: CSF.Extensions.WebDriver.Factories.ICustomizesOptions`1
+  name: ICustomizesOptions<TOptions>
+  href: api/CSF.Extensions.WebDriver.Factories.ICustomizesOptions-1.html
+  commentId: T:CSF.Extensions.WebDriver.Factories.ICustomizesOptions`1
+  name.vb: ICustomizesOptions(Of TOptions)
+  fullName: CSF.Extensions.WebDriver.Factories.ICustomizesOptions<TOptions>
+  fullName.vb: CSF.Extensions.WebDriver.Factories.ICustomizesOptions(Of TOptions)
+  nameWithType: ICustomizesOptions<TOptions>
+  nameWithType.vb: ICustomizesOptions(Of TOptions)
+- uid: CSF.Extensions.WebDriver.Factories.ICustomizesOptions`1.CustomizeOptions(`0)
+  name: CustomizeOptions(TOptions)
+  href: api/CSF.Extensions.WebDriver.Factories.ICustomizesOptions-1.html#CSF_Extensions_WebDriver_Factories_ICustomizesOptions_1_CustomizeOptions__0_
+  commentId: M:CSF.Extensions.WebDriver.Factories.ICustomizesOptions`1.CustomizeOptions(`0)
+  fullName: CSF.Extensions.WebDriver.Factories.ICustomizesOptions<TOptions>.CustomizeOptions(TOptions)
+  fullName.vb: CSF.Extensions.WebDriver.Factories.ICustomizesOptions(Of TOptions).CustomizeOptions(TOptions)
+  nameWithType: ICustomizesOptions<TOptions>.CustomizeOptions(TOptions)
+  nameWithType.vb: ICustomizesOptions(Of TOptions).CustomizeOptions(TOptions)
+- uid: CSF.Extensions.WebDriver.Factories.ICustomizesOptions`1.CustomizeOptions*
+  name: CustomizeOptions
+  href: api/CSF.Extensions.WebDriver.Factories.ICustomizesOptions-1.html#CSF_Extensions_WebDriver_Factories_ICustomizesOptions_1_CustomizeOptions_
+  commentId: Overload:CSF.Extensions.WebDriver.Factories.ICustomizesOptions`1.CustomizeOptions
+  isSpec: "True"
+  fullName: CSF.Extensions.WebDriver.Factories.ICustomizesOptions<TOptions>.CustomizeOptions
+  fullName.vb: CSF.Extensions.WebDriver.Factories.ICustomizesOptions(Of TOptions).CustomizeOptions
+  nameWithType: ICustomizesOptions<TOptions>.CustomizeOptions
+  nameWithType.vb: ICustomizesOptions(Of TOptions).CustomizeOptions
 - uid: CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes
   name: IGetsWebDriverAndOptionsTypes
   href: api/CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes.html
@@ -234,6 +260,19 @@ references:
   fullName.vb: CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.New
   nameWithType: WebDriverAndOptions.WebDriverAndOptions
   nameWithType.vb: WebDriverAndOptions.New
+- uid: CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.Dispose
+  name: Dispose()
+  href: api/CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverAndOptions_Dispose
+  commentId: M:CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.Dispose
+  fullName: CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.Dispose()
+  nameWithType: WebDriverAndOptions.Dispose()
+- uid: CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.Dispose*
+  name: Dispose
+  href: api/CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverAndOptions_Dispose_
+  commentId: Overload:CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.Dispose
+  isSpec: "True"
+  fullName: CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.Dispose
+  nameWithType: WebDriverAndOptions.Dispose
 - uid: CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.DriverOptions
   name: DriverOptions
   href: api/CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverAndOptions_DriverOptions
@@ -455,6 +494,19 @@ references:
   isSpec: "True"
   fullName: CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.GridUrl
   nameWithType: WebDriverCreationOptions.GridUrl
+- uid: CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.OptionsCustomizer
+  name: OptionsCustomizer
+  href: api/CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsCustomizer
+  commentId: P:CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.OptionsCustomizer
+  fullName: CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.OptionsCustomizer
+  nameWithType: WebDriverCreationOptions.OptionsCustomizer
+- uid: CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.OptionsCustomizer*
+  name: OptionsCustomizer
+  href: api/CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsCustomizer_
+  commentId: Overload:CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.OptionsCustomizer
+  isSpec: "True"
+  fullName: CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.OptionsCustomizer
+  nameWithType: WebDriverCreationOptions.OptionsCustomizer
 - uid: CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.OptionsFactory
   name: OptionsFactory
   href: api/CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsFactory
