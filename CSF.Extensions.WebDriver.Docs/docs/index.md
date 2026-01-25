@@ -89,4 +89,3 @@ This service offers the same functionality except that the consumer is responsib
 
 [`IGetsWebDriver`]: xref:CSF.Extensions.WebDriver.IGetsWebDriver
 [`ICreatesWebDriverFromOptions`]: xref:CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions
-[`WebDriverCreationOptions`]: xref:CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions
