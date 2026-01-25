@@ -240,7 +240,9 @@ public class WebDriverCreationConfigureOptionsTests
     {
         var options = new WebDriverCreationOptionsCollection();
         var config = await GetConfigurationAsync(json);
-        var sut = new WebDriverCreationConfigureOptions(typeProvider, config, logger ?? Mock.Of<ILogger<WebDriverCreationConfigureOptions>>());
+        var sut = new WebDriverCreationConfigureOptions(new WebDriverConfigurationItemParser(typeProvider, Mock.Of<ILogger<WebDriverConfigurationItemParser>>()),
+                                                        config,
+                                                        logger ?? Mock.Of<ILogger<WebDriverCreationConfigureOptions>>());
         sut.Configure(options);
         return options;
     }

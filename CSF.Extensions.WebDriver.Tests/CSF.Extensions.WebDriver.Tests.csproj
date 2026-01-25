@@ -23,11 +23,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
-    <!-- Floating version should keep ChromeDriver up to date with the browser on the OS.  See #47 for more info. -->
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="*" Condition="'$(CI_LINUX)' != 'true'" />
-    <!-- AppVeyor Linux builds use a fixed Chrome version, this driver version must match it; note that
-         this might change over time (an will need to be manually kept in-sync) as they upgrade their CI images -->
-    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="127.0.6533.9900" Condition="'$(CI_LINUX)' == 'true'" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.15.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="appsettings.WebDriverFactoryIntegrationTests.json">
+    <Content Include="appsettings.*.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

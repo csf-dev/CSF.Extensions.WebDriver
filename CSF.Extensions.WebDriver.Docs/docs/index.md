@@ -71,6 +71,13 @@ Do not forget that you may provide configuration from multiple sources; for exam
 
 [`GetDefaultWebDriver()`]: xref:CSF.Extensions.WebDriver.IGetsWebDriver.GetDefaultWebDriver(System.Action{OpenQA.Selenium.DriverOptions})
 
+### Configuration reference
+
+The available configuration options/syntax is documented in the classes [`WebDriverCreationOptionsCollection`] and [`WebDriverCreationOptions`].
+
+[`WebDriverCreationOptionsCollection`]: xref:CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection
+[`WebDriverCreationOptions`]: xref:CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions
+
 ## 3. Inject and use the services
 
 Use dependency injection to inject an [`IGetsWebDriver`].
@@ -82,4 +89,3 @@ This service offers the same functionality except that the consumer is responsib
 
 [`IGetsWebDriver`]: xref:CSF.Extensions.WebDriver.IGetsWebDriver
 [`ICreatesWebDriverFromOptions`]: xref:CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions
-[`WebDriverCreationOptions`]: xref:CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions
