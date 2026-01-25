@@ -1,6 +1,5 @@
 using System;
 using CSF.Extensions.WebDriver.Proxies;
-using Microsoft.Extensions.Configuration;
 using OpenQA.Selenium;
 
 namespace CSF.Extensions.WebDriver.Factories
@@ -23,8 +22,11 @@ namespace CSF.Extensions.WebDriver.Factories
         /// </summary>
         /// <remarks>
         /// <para>
-        /// This property value is mandatory on all instances of web driver configuration.
-        /// The type indicated here must derive from <see cref="IWebDriver"/>.
+        /// This property value is mandatory unless <see cref="DriverFactoryType"/> has been specified, in which case this value is typically unused.
+        /// When a custom factory is used, the creation of the WebDriver instance is handled entirely by the factory class.
+        /// If it is specified, then its value will be available to the custom driver factory but the factory is under
+        /// no obligation to use or respect its value.
+        /// In all other scenarios, this property is mandatory and must indicate a type which derives from <see cref="IWebDriver"/>.
         /// </para>
         /// <para>
         /// For WebDriver implementations which are shipped with Selenium, all that is required is the
@@ -35,7 +37,7 @@ namespace CSF.Extensions.WebDriver.Factories
         /// </para>
         /// <para>
         /// When this value is either <c>RemoteWebDriver</c>, or when it is set to a WebDriver which is not part
-        /// of the <c>Selenium.WebDriver</c> NuGet package, then <see cref="OptionsType"/> must also be set.
+        /// of the <c>Selenium.WebDriver</c> NuGet package, then <see cref="OptionsType"/> must also be specified.
         /// For local drivers which are shipped with Selenium, explicitly setting the options type is not neccesary;
         /// this library will automatically select the appropriate type.
         /// </para>
@@ -59,13 +61,18 @@ namespace CSF.Extensions.WebDriver.Factories
         /// </summary>
         /// <remarks>
         /// <para>
-        /// This value only needs to be provided in two scenarios:
+        /// This value is only mandatory in two scenarios:
         /// </para>
         /// <list type="bullet">
-        /// <item><description>When the <see cref="DriverType"/> is set to <c>RemoteWebDriver</c></description></item>
+        /// <item><description>When the <see cref="DriverType"/> is set to <c>RemoteWebDriver</c>, and <see cref="DriverFactoryType"/> is not specified</description></item>
         /// <item><description>When the <see cref="DriverType"/> is set to a driver implementation which is not
-        /// shipped with Selenium in the <c>Selenium.WebDriver</c> NuGet package</description></item>
+        /// shipped with Selenium in the <c>Selenium.WebDriver</c> NuGet package, and <see cref="DriverFactoryType"/> is not specified</description></item>
         /// </list>
+        /// <para>
+        /// If the <see cref="DriverFactoryType"/> is in-use then this configuration property is generally unused, because the specified factory is expected to
+        /// take full control over the driver options.  If it is specified, then its value will be available to the custom driver factory but the factory is under
+        /// no obligation to use or respect its value.
+        /// </para>
         /// <para>
         /// For local WebDriver implementations which are shipped with Selenium, this library will automatically select and use
         /// the appropriate options type if this property is <see langword="null" />.
@@ -91,6 +98,11 @@ namespace CSF.Extensions.WebDriver.Factories
         /// When using a remote web driver, it is usually required to set this property value. The only time a value is not
         /// required is if your Selenium Grid configuration is occupying the default URL, which is unlikely in a production
         /// configuration.
+        /// </para>
+        /// <para>
+        /// If the <see cref="DriverFactoryType"/> is in-use then this configuration property is generally unused, because the
+        /// specified factory is expected to take full control over the options creation.  If it is specified, then its value
+        /// will be available to the custom driver factory but the factory is under no obligation to use or respect its value.
         /// </para>
         /// </remarks>
         public string GridUrl { get; set; }
@@ -121,6 +133,14 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <item><description>The options type which is inferred from the <see cref="DriverType"/>, if <see cref="OptionsType"/> is not set.
         /// See the documentation for <see cref="OptionsType"/> for more information</description></item>
         /// </list>
+        /// <para>
+        /// If the <see cref="DriverFactoryType"/> is in-use then this configuration property is generally unused, because the
+        /// specified factory is expected to take full control over the options creation.  It is particularly unusual to specify
+        /// this property in that scenario, because doing so would also require specifying either or both of <see cref="OptionsType"/>
+        /// and <see cref="DriverType"/>, which are also typically unused when a custom factory is specified.
+        /// If it is specified, then the value will be provided to the custom factory, but the factory is under no obligation to
+        /// use or respect its value.
+        /// </para>
         /// </remarks>
         public Func<DriverOptions> OptionsFactory { get; set; }
 
@@ -145,15 +165,20 @@ namespace CSF.Extensions.WebDriver.Factories
         /// a configuration file.  For example, some web driver options do not provide property getters/setters but must be configured
         /// using methods.  In this case you can implement this interface with a class to customize the options as required.
         /// </para>
+        /// <para>
+        /// If the <see cref="DriverFactoryType"/> is in-use then this configuration property is generally unused, because the
+        /// specified factory is expected to take full control over the options creation.  If it is specified, then its value
+        /// will be available to the custom driver factory but the factory is under no obligation to use or respect its value.
+        /// </para>
         /// </remarks>
-        public object OptionsCustomizer { get; set; }
+        public ICustomizesOptions<DriverOptions> OptionsCustomizer { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of a type which is used to construct the WebDriver instance; unneeded except in unusual circumstances.
+        /// Gets or sets the name of a type which is used to construct the WebDriver instance.
         /// </summary>
         /// <remarks>
         /// <para>
-        /// This property is unneeded and should be set to <see langword="null" /> in almost all circumstances.
+        /// This property is often unneeded and should be set to <see langword="null" /> in almost all circumstances.
         /// For all WebDriver implementations bundled with Selenium and most expected third party implementations, this library can
         /// automatically instantiate them without additional logic.
         /// This library can correctly instantiate all WebDrivers that are included with the <c>Selenium.WebDriver</c> NuGet package.
@@ -166,8 +191,8 @@ namespace CSF.Extensions.WebDriver.Factories
         /// requires some help in instantiating the WebDriver.
         /// </para>
         /// <para>
-        /// Alternatively, you may need to use a custom factory, identified by this configuration property, if you require additional customisation
-        /// of the WebDriver after creation, which cannot be achieved only with options.
+        /// You might need to use a custom factory, identified by this configuration property, if you require additional customisation
+        /// of the WebDriver after creation which cannot be achieved only with options.
         /// For example, if you are making use a custom third-party integration which adds an additional layer of capabilities to
         /// communicate the name of a currently-running test.  This information can be retrieved only at runtime and not from configuration.
         /// </para>
@@ -182,6 +207,19 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <list type="bullet">
         /// <item><description>Be available through dependency injection; add it to your service collection</description></item>
         /// <item><description>Have a public parameterless constructor, such that it may be created via <see cref="Activator.CreateInstance(Type)"/></description></item>
+        /// </list>
+        /// <para>
+        /// When this property is specified, the behaviour of several other configuration properties changes, because this factory type
+        /// is expected to completely create the WebDriver and configure it.  The following properties may still be set if the developer wishes,
+        /// but they will not be directly used in the creation of the WebDriver unless the custom factory specified by this property makes use of them.
+        /// Thus, in this scenario, they are all optional.
+        /// </para>
+        /// <list type="bullet">
+        /// <item><description><see cref="DriverType"/></description></item>
+        /// <item><description><see cref="OptionsType"/></description></item>
+        /// <item><description><see cref="GridUrl"/></description></item>
+        /// <item><description><see cref="OptionsFactory"/></description></item>
+        /// <item><description><see cref="OptionsCustomizer"/></description></item>
         /// </list>
         /// </remarks>
         /// <seealso cref="DriverType"/>

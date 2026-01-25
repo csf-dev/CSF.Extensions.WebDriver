@@ -160,9 +160,6 @@ public class WebDriverTypesProviderTests
 
     public class FakeOptions : DriverOptions
     {
-        [Obsolete("Obsolete because base class is obsolete")]
-        public override void AddAdditionalCapability(string capabilityName, object capabilityValue) => throw new NotImplementedException();
-
         public override ICapabilities ToCapabilities() => throw new NotImplementedException();
     }
 }

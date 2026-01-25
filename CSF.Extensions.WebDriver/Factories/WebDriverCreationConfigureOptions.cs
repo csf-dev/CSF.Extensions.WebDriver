@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,7 +22,7 @@ namespace CSF.Extensions.WebDriver.Factories
     /// </remarks>
     public sealed class WebDriverCreationConfigureOptions : IConfigureOptions<WebDriverCreationOptionsCollection>
     {
-        readonly IGetsWebDriverAndOptionsTypes typeProvider;
+        readonly IParsesSingleWebDriverConfigurationSection configParser;
         readonly IConfiguration configuration;
         readonly ILogger<WebDriverCreationConfigureOptions> logger;
 
@@ -43,139 +44,26 @@ namespace CSF.Extensions.WebDriver.Factories
             if(driverConfigsSection != null) options.DriverConfigurations = GetDriverConfigurations(driverConfigsSection);
         }
 
-        static Action<object> GetConfigChangeCallback(WebDriverCreationOptionsCollection options)
-        {
-            return conf =>
-            {
-                var config = (IConfiguration) conf;
-                options.SelectedConfiguration = config.GetValue<string>(nameof(WebDriverCreationOptionsCollection.SelectedConfiguration));
-            };
-        }
-
         IDictionary<string, WebDriverCreationOptions> GetDriverConfigurations(IConfigurationSection configuration)
-            => configuration.GetChildren().Select(c => new { c.Key, Value = GetDriverConfiguration(c) }).Where(x => x.Value != null).ToDictionary(k => k.Key, v => v.Value);
+            => configuration.GetChildren()
+                            .Select(c => new { c.Key, Value = configParser.GetDriverConfiguration(c) })
+                            .Where(x => x.Value != null)
+                            .ToDictionary(k => k.Key, v => v.Value);
 
-        WebDriverCreationOptions GetDriverConfiguration(IConfigurationSection configuration)
-        {
-            var creationOptions = new WebDriverCreationOptions
-            {
-                DriverType = configuration.GetValue<string>(nameof(WebDriverCreationOptions.DriverType)),
-                OptionsType = configuration.GetValue<string>(nameof(WebDriverCreationOptions.OptionsType)),
-                GridUrl = configuration.GetValue<string>(nameof(WebDriverCreationOptions.GridUrl)),
-                DriverFactoryType = configuration.GetValue<string>(nameof(WebDriverCreationOptions.DriverFactoryType)),
-            };
-
-            if(creationOptions.DriverType is null)
-            {
-                logger.LogError("{ParamName} is mandatory for all driver configurations; the configuration '{ConfigKey}' will be omitted.",
-                                nameof(WebDriverCreationOptions.DriverType),
-                                configuration.Key);
-                return null;
-            }
-
-            Type driverType;
-            try
-            {
-                driverType = typeProvider.GetWebDriverType(creationOptions.DriverType);
-            }
-            catch(Exception e)
-            {
-                logger.LogError(e,
-                                "No implementation of {WebDriverIface} could be found for the {DriverTypeProp} '{DriverType}'; the driver configuration '{ConfigKey}' will be omitted. " +
-                                "Reminder: If the driver type is not one which is shipped with Selenium then you must specify its assembly-qualified type name.",
-                                nameof(IWebDriver),
-                                nameof(WebDriverCreationOptions.DriverType),
-                                creationOptions.DriverType,
-                                configuration.Key);
-                return null;
-            }
-
-            Type optionsType;
-            try
-            {
-                optionsType = typeProvider.GetWebDriverOptionsType(driverType, creationOptions.OptionsType);                
-            }
-            catch(Exception e)
-            {
-                logger.LogError(e,
-                                "No type deriving from {OptionsBase} could be found for the combination of {WebDriverIface} {DriverType} and {OptionsTypeProp} '{OptionsType}'; the configuration '{ConfigKey}' will be omitted. " +
-                                "See the exception details for more information.",
-                                nameof(DriverOptions),
-                                nameof(IWebDriver),
-                                driverType.Name,
-                                nameof(WebDriverCreationOptions.OptionsType),
-                                creationOptions.OptionsType,
-                                configuration.Key);
-                return null;
-            }
-
-            try
-            {
-                creationOptions.OptionsFactory = GetOptions(optionsType, configuration);
-            }
-            catch(Exception e)
-            {
-                logger.LogError(e,
-                                "An unexpected error occurred creating or binding to the {OptionsClass} type {OptionsType}; the configuration '{ConfigKey}' will be omitted.",
-                                nameof(DriverOptions),
-                                optionsType.FullName,
-                                configuration.Key);
-                return null;
-            }
-
-            var customizerTypeName = configuration.GetValue<string>("OptionsCustomizerType");
-            try
-            {
-                creationOptions.OptionsCustomizer = GetOptionsCustomizer(optionsType, customizerTypeName);
-            }
-            catch(Exception e)
-            {
-                logger.LogError(e,
-                                "An unexpected error occurred binding the {OptionsCustomizer} type {CustomizerType}; the configuration '{ConfigKey}' will be omitted.",
-                                nameof(WebDriverCreationOptions.OptionsCustomizer),
-                                customizerTypeName,
-                                configuration.Key);
-                return null;
-            }
-
-            return creationOptions;
-        }
-
-        static Func<DriverOptions> GetOptions(Type optionsType, IConfigurationSection config)
-        {
-            return () =>
-            {
-                var options = (DriverOptions)Activator.CreateInstance(optionsType);
-                config.Bind("Options", options);
-                return options;
-            };
-        }
-
-        static object GetOptionsCustomizer(Type optionsType, string customizerTypeName)
-        {
-            if(string.IsNullOrWhiteSpace(customizerTypeName)) return null;
-            var customizerType = Type.GetType(customizerTypeName, true);
-
-            if(!typeof(ICustomizesOptions<>).MakeGenericType(optionsType).IsAssignableFrom(customizerType))
-                throw new ArgumentException($"The specified customizer type must implement {nameof(ICustomizesOptions<DriverOptions>)}<{optionsType.Name}>.", nameof(customizerTypeName));
-            if(customizerType.GetConstructor(Type.EmptyTypes) == null)
-                throw new ArgumentException($"The specified customizer type must have a public parameterless constructor.", nameof(customizerTypeName));
-            
-            return Activator.CreateInstance(customizerType);
-        }
+        
 
         /// <summary>
         /// Initialises a new instance of <see cref="WebDriverCreationConfigureOptions"/>.
         /// </summary>
-        /// <param name="typeProvider">A type-loading utility class.</param>
+        /// <param name="configParser">A parser for a single configuration item.</param>
         /// <param name="configuration">The app configuration.</param>
         /// <param name="logger">A logging implementation.</param>
         /// <exception cref="ArgumentNullException">If either parameter is <see langword="null" />.</exception>
-        public WebDriverCreationConfigureOptions(IGetsWebDriverAndOptionsTypes typeProvider,
+        public WebDriverCreationConfigureOptions(IParsesSingleWebDriverConfigurationSection configParser,
                                                  IConfiguration configuration,
                                                  ILogger<WebDriverCreationConfigureOptions> logger)
         {
-            this.typeProvider = typeProvider ?? throw new ArgumentNullException(nameof(typeProvider));
+            this.configParser = configParser ?? throw new ArgumentNullException(nameof(configParser));
             this.configuration = configuration;
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }

@@ -67,6 +67,7 @@ namespace CSF.Extensions.WebDriver
             AddWebDriverFactoryWithoutOptionsPattern(services);
 
             services.AddTransient<IGetsWebDriver, WebDriverFactory>();
+            services.AddTransient<IParsesSingleWebDriverConfigurationSection, WebDriverConfigurationItemParser>();
             services.AddTransient(GetOptionsConfigService(configPath, configureOptions));
             services.AddOptions<WebDriverCreationOptionsCollection>().Configure(configureOptions ?? (o => {}));
 
@@ -117,6 +118,7 @@ namespace CSF.Extensions.WebDriver
             AddWebDriverFactoryWithoutOptionsPattern(services);
 
             services.AddTransient<IGetsWebDriver, WebDriverFactory>();
+            services.AddTransient<IParsesSingleWebDriverConfigurationSection, WebDriverConfigurationItemParser>();
             services.AddTransient(GetOptionsConfigService(configSection, configureOptions));
             services.AddOptions<WebDriverCreationOptionsCollection>().Configure(configureOptions ?? (o => {}));
 

@@ -32,6 +32,15 @@ public class WebDriverFactoryIntegrationTests
         Assert.That(() => driver.WebDriver.GetBrowserId(), Is.Not.Null);
     }
 
+    [Test]
+    public void DriverTypeNorOptionsTypeShouldBeMandatoryIfACustomFactoryTypeIsSpecified()
+    {
+        var services = GetServiceProvider(o => o.SelectedConfiguration = "OmittedDriverAndOptionsType");
+        var driverFactory = services.GetRequiredService<IGetsWebDriver>();
+        using var driver = driverFactory.GetDefaultWebDriver();
+        Assert.That(() => driver.WebDriver.GetBrowserId(), Is.Not.Null);
+    }
+
     IServiceProvider GetServiceProvider(Action<WebDriverCreationOptionsCollection>? configureOptions = null)
     {
         var services = new ServiceCollection();
