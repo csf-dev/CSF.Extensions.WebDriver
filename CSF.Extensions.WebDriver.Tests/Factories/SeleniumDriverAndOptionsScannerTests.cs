@@ -38,5 +38,6 @@ public class SeleniumDriverAndOptionsScannerTests
         Warn.Unless(supportedDriverNames,
                     Is.SupersetOf(expectedDriverNames),
                     "The collection of supported drivers no longer contains all of expected drivers; breaking change in Selenium?");
+        Assert.Pass("This isn't a true test, but if there has been a warning emitted then perhaps Selenium has introduced a change in built-in browser support.");
     }
 }
