@@ -71,7 +71,9 @@ namespace CSF.Extensions.WebDriver.Factories
         /// the appropriate options type if this property is <see langword="null" />.
         /// </para>
         /// <para>
-        /// In a similar manner to <see cref="DriverType"/>, if 
+        /// In a similar manner to <see cref="DriverType"/>, if this property is set to an options type which is shipped with Selenium
+        /// out-of-the-box then it need only be set to the simple type name.  If a custom options type is required, which does not ship
+        /// with Selenium, then this must be an assembly-qualified type name.
         /// </para>
         /// </remarks>
         /// <seealso cref="DriverType"/>
@@ -147,7 +149,7 @@ namespace CSF.Extensions.WebDriver.Factories
         public object OptionsCustomizer { get; set; }
 
         /// <summary>
-        /// Unneeded except in unusual circumstances, gets or sets the name of a type which is used to construct the WebDriver instance.
+        /// Gets or sets the name of a type which is used to construct the WebDriver instance; unneeded except in unusual circumstances.
         /// </summary>
         /// <remarks>
         /// <para>
@@ -162,7 +164,15 @@ namespace CSF.Extensions.WebDriver.Factories
         /// If <see cref="DriverType"/> is set to a third-party WebDriver implementation which does not follow the pattern above,
         /// such as one which has a different constructor parameter signature, this library
         /// requires some help in instantiating the WebDriver.
-        /// In that case (only), this property should be set to the assembly-qualified type name of a type which implements
+        /// </para>
+        /// <para>
+        /// Alternatively, you may need to use a custom factory, identified by this configuration property, if you require additional customisation
+        /// of the WebDriver after creation, which cannot be achieved only with options.
+        /// For example, if you are making use a custom third-party integration which adds an additional layer of capabilities to
+        /// communicate the name of a currently-running test.  This information can be retrieved only at runtime and not from configuration.
+        /// </para>
+        /// <para>
+        /// In cases like the above, this property should be set to the assembly-qualified type name of a type which implements
         /// <see cref="ICreatesWebDriverFromOptions"/>.  That type must be provided by the developer using this library.  The factory
         /// is responsible for constructing the WebDriver instance from options and returning it.
         /// </para>
