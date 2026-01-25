@@ -12,6 +12,6 @@ This is broadly organised into three features:
 * A mechanism to ['mark WebDrivers up' with information about their quirks] which affect that browser/WebDriver/version combination
 
 [Selenium WebDriver]: https://www.selenium.dev/documentation/webdriver/
-[universal WebDriver factory]: Docs/index.md
-[reliably identify WebDriver instances]: Docs/DriverIdentification.md
-['mark WebDrivers up' with information about their quirks]: Docs/Quirks.md
+[universal WebDriver factory]: docs/index.md
+[reliably identify WebDriver instances]: docs/DriverIdentification.md
+['mark WebDrivers up' with information about their quirks]: docs/Quirks.md
