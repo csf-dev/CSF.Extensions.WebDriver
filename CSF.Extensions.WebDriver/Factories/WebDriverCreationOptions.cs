@@ -171,7 +171,7 @@ namespace CSF.Extensions.WebDriver.Factories
         /// will be available to the custom driver factory but the factory is under no obligation to use or respect its value.
         /// </para>
         /// </remarks>
-        public ICustomizesOptions<DriverOptions> OptionsCustomizer { get; set; }
+        public object OptionsCustomizer { get; set; }
 
         /// <summary>
         /// Gets or sets the name of a type which is used to construct the WebDriver instance.

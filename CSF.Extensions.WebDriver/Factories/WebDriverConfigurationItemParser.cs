@@ -170,7 +170,7 @@ namespace CSF.Extensions.WebDriver.Factories
             };
         }
 
-        static ICustomizesOptions<DriverOptions> GetOptionsCustomizer(Type optionsType, string customizerTypeName)
+        static object GetOptionsCustomizer(Type optionsType, string customizerTypeName)
         {
             if(string.IsNullOrWhiteSpace(customizerTypeName)) return null;
             var customizerType = Type.GetType(customizerTypeName, true);
@@ -180,7 +180,7 @@ namespace CSF.Extensions.WebDriver.Factories
             if(customizerType.GetConstructor(Type.EmptyTypes) == null)
                 throw new ArgumentException($"The specified customizer type must have a public parameterless constructor.", nameof(customizerTypeName));
             
-            return (ICustomizesOptions<DriverOptions>) Activator.CreateInstance(customizerType);
+            return Activator.CreateInstance(customizerType);
         }
         
         /// <summary>
