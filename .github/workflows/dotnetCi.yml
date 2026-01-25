@@ -93,7 +93,7 @@ jobs:
           name: Build results (NuGet)
           path: packages/*.nupkg
       - name: Build docs website
-        run: docfx CSF.Extensions.WebDriver.Docs\docfx.json
+        run: docfx CSF.Extensions.WebDriver.Docs/docfx.json
       - name: Upload docs website artifact
         uses: actions/upload-artifact@v4
         with:
