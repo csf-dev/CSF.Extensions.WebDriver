@@ -28,7 +28,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.yml\" sourcestartlinenumber=\"1\">A service that gets an instance of <xref href=\"OpenQA.Selenium.IWebDriver\" data-throw-if-not-resolved=\"false\"></xref> from a configuration object.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -38,7 +42,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.ICustomizesOptions-1.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.ICustomizesOptions<TOptions>",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.ICustomizesOptions-1.yml\" sourcestartlinenumber=\"1\">An object which can customize the options for a web driver before they are used to create the <xref href=\"OpenQA.Selenium.IWebDriver\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -48,7 +56,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes.yml\" sourcestartlinenumber=\"1\">An object which gets the <xref href=\"OpenQA.Selenium.IWebDriver\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"OpenQA.Selenium.DriverOptions\" data-throw-if-not-resolved=\"false\"></xref> types.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -58,7 +70,25 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.IGetsWebDriverWithDeterministicOptionsTypes.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.IGetsWebDriverWithDeterministicOptionsTypes",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.IGetsWebDriverWithDeterministicOptionsTypes.yml\" sourcestartlinenumber=\"1\">An object which can get the WebDriver implementation types which have deterministic options types.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.IParsesSingleWebDriverConfigurationSection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Extensions.WebDriver.Factories.IParsesSingleWebDriverConfigurationSection.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.IParsesSingleWebDriverConfigurationSection",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.IParsesSingleWebDriverConfigurationSection.yml\" sourcestartlinenumber=\"1\">A service which reads an <xref href=\"Microsoft.Extensions.Configuration.IConfigurationSection\" data-throw-if-not-resolved=\"false\"></xref> which describes a creation-strategy for a WebDriver, and gets an\ninstance of <xref href=\"CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -68,7 +98,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.yml\" sourcestartlinenumber=\"1\">Decorator for implementations of <xref href=\"CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions\" data-throw-if-not-resolved=\"false\"></xref> which (if applicable) wraps the\nreturned WebDriver in a proxy object, which adds further functionality.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -78,7 +112,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory.yml\" sourcestartlinenumber=\"1\">Chain of responsibility implementation of <xref href=\"CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions\" data-throw-if-not-resolved=\"false\"></xref> which creates instances of\n<xref href=\"OpenQA.Selenium.Remote.RemoteWebDriver\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -88,7 +126,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.SeleniumDriverAndOptionsScanner.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.SeleniumDriverAndOptionsScanner",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.SeleniumDriverAndOptionsScanner.yml\" sourcestartlinenumber=\"1\">Service which scans the Selenium WebDriver assembly for web driver types.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -98,7 +140,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.WebDriverAndOptions",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.yml\" sourcestartlinenumber=\"1\">A model containing a WebDriver and the <xref href=\"CSF.Extensions.WebDriver.Factories.WebDriverAndOptions.DriverOptions\" data-throw-if-not-resolved=\"false\"></xref> which were used to create it.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -108,7 +154,25 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverAndOptionsTypePair.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.WebDriverAndOptionsTypePair",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.WebDriverAndOptionsTypePair.yml\" sourcestartlinenumber=\"1\">A tuple of <xref href=\"System.Type\" data-throw-if-not-resolved=\"false\"></xref>, one a concrete implementation of <xref href=\"OpenQA.Selenium.IWebDriver\" data-throw-if-not-resolved=\"false\"></xref>, the other\nthe implementation of <xref href=\"OpenQA.Selenium.DriverOptions\" data-throw-if-not-resolved=\"false\"></xref> which that web driver type uses.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser.yml\" sourcestartlinenumber=\"1\">Default implementation of <xref href=\"CSF.Extensions.WebDriver.Factories.IParsesSingleWebDriverConfigurationSection\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -118,7 +182,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions.yml\" sourcestartlinenumber=\"1\">A service which configures an <xref href=\"Microsoft.Extensions.Options.IOptions%601\" data-throw-if-not-resolved=\"false\"></xref> of <xref href=\"CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection\" data-throw-if-not-resolved=\"false\"></xref> within\ndependency injection.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -128,7 +196,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.yml\" sourcestartlinenumber=\"1\">Describes the implementation and options for the creation of a web driver.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -138,7 +210,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.yml\" sourcestartlinenumber=\"1\">Describes a collection of configurations which may be used with <xref href=\"CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions\" data-throw-if-not-resolved=\"false\"></xref>\nto get a WebDriver.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -148,7 +224,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverFactoryExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.WebDriverFactoryExtensions",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.WebDriverFactoryExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -158,7 +238,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.yml\" sourcestartlinenumber=\"1\">Factory service which creates implementations of <xref href=\"OpenQA.Selenium.IWebDriver\" data-throw-if-not-resolved=\"false\"></xref> from <xref href=\"CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -168,7 +252,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.yml\" sourcestartlinenumber=\"1\">Chain of responsibility implementation of <xref href=\"CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions\" data-throw-if-not-resolved=\"false\"></xref> which creates WebDriver instances\nusing a third-party factory type, specified in <xref href=\"CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.DriverFactoryType\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -178,7 +266,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.WebDriverTypesProvider.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.WebDriverTypesProvider",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.WebDriverTypesProvider.yml\" sourcestartlinenumber=\"1\">Provide type for <xref href=\"OpenQA.Selenium.IWebDriver\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"OpenQA.Selenium.DriverOptions\" data-throw-if-not-resolved=\"false\"></xref> types.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -188,7 +280,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Factories.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -198,7 +294,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.IGetsWebDriver.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.IGetsWebDriver",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.IGetsWebDriver.yml\" sourcestartlinenumber=\"1\">An object which can get an <xref href=\"OpenQA.Selenium.IWebDriver\" data-throw-if-not-resolved=\"false\"></xref> from the options available in the application.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -208,7 +308,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Identification.BrowserId.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Identification.BrowserId",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Identification.BrowserId.yml\" sourcestartlinenumber=\"1\">A model which represents a combination of browser, OS platform and the browser version.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -218,7 +322,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Identification.BrowserIdFactory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Identification.BrowserIdFactory",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Identification.BrowserIdFactory.yml\" sourcestartlinenumber=\"1\">Default implementation of <xref href=\"CSF.Extensions.WebDriver.Identification.IGetsBrowserIdFromWebDriver\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -228,7 +336,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Identification.BrowserInfoMatcher.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Identification.BrowserInfoMatcher",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Identification.BrowserInfoMatcher.yml\" sourcestartlinenumber=\"1\">Default implementation of <xref href=\"CSF.Extensions.WebDriver.Identification.IGetsBrowserInfoMatch\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -238,7 +350,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Identification.BrowserVersion.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Identification.BrowserVersion",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Identification.BrowserVersion.yml\" sourcestartlinenumber=\"1\">Base class for a model which describes a WebDriver browser version.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -248,7 +364,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.yml\" sourcestartlinenumber=\"1\">A <xref href=\"CSF.Extensions.WebDriver.Identification.BrowserVersion\" data-throw-if-not-resolved=\"false\"></xref> which is derived from a series of numeric components separated by period characters.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -258,7 +378,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Identification.IGetsBrowserIdFromWebDriver.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Identification.IGetsBrowserIdFromWebDriver",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Identification.IGetsBrowserIdFromWebDriver.yml\" sourcestartlinenumber=\"1\">An object which can get browser identification from a WebDriver.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -268,7 +392,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Identification.IGetsBrowserInfoMatch.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Identification.IGetsBrowserInfoMatch",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Identification.IGetsBrowserInfoMatch.yml\" sourcestartlinenumber=\"1\">An object which determines whether a specified <xref href=\"CSF.Extensions.WebDriver.Identification.BrowserId\" data-throw-if-not-resolved=\"false\"></xref> is a match for\na specified <xref href=\"CSF.Extensions.WebDriver.Quirks.BrowserInfo\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -278,7 +406,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Identification.IHasBrowserId.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Identification.IHasBrowserId",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Identification.IHasBrowserId.yml\" sourcestartlinenumber=\"1\">An object which provides browser identification information.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -288,7 +420,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Identification.MissingBrowserVersion.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Identification.MissingBrowserVersion",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Identification.MissingBrowserVersion.yml\" sourcestartlinenumber=\"1\">Implementation of <xref href=\"CSF.Extensions.WebDriver.Identification.BrowserVersion\" data-throw-if-not-resolved=\"false\"></xref> which represents a null or empty string version.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -298,7 +434,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.yml\" sourcestartlinenumber=\"1\">Implementation of <xref href=\"CSF.Extensions.WebDriver.Identification.BrowserVersion\" data-throw-if-not-resolved=\"false\"></xref> which represents a semantic version.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -308,7 +448,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Identification.UnrecognisedBrowserVersion.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Identification.UnrecognisedBrowserVersion",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Identification.UnrecognisedBrowserVersion.yml\" sourcestartlinenumber=\"1\">Implementation of <xref href=\"CSF.Extensions.WebDriver.Identification.BrowserVersion\" data-throw-if-not-resolved=\"false\"></xref> which works for any non-empty/non-null string representation of a version.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -318,7 +462,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Identification.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Identification",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -328,7 +476,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Proxies.IAugmentsProxyContext.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Proxies.IAugmentsProxyContext",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Proxies.IAugmentsProxyContext.yml\" sourcestartlinenumber=\"1\">An object which can augment a <xref href=\"CSF.Extensions.WebDriver.Proxies.WebDriverProxyCreationContext\" data-throw-if-not-resolved=\"false\"></xref> which will subsequently be used to create a\nproxy <xref href=\"OpenQA.Selenium.IWebDriver\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -338,7 +490,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Proxies.IGetsProxyWebDriver.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Proxies.IGetsProxyWebDriver",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Proxies.IGetsProxyWebDriver.yml\" sourcestartlinenumber=\"1\">An object which serves as a factory for proxy instances of <xref href=\"OpenQA.Selenium.IWebDriver\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -348,7 +504,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Proxies.IHasUnproxiedWebDriver.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Proxies.IHasUnproxiedWebDriver",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Proxies.IHasUnproxiedWebDriver.yml\" sourcestartlinenumber=\"1\">An object which provides access to an 'unproxied' <xref href=\"OpenQA.Selenium.IWebDriver\" data-throw-if-not-resolved=\"false\"></xref> instance.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -358,7 +518,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Proxies.IdentificationAugmenter.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Proxies.IdentificationAugmenter",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Proxies.IdentificationAugmenter.yml\" sourcestartlinenumber=\"1\">Implementation of <xref href=\"CSF.Extensions.WebDriver.Proxies.IAugmentsProxyContext\" data-throw-if-not-resolved=\"false\"></xref> which adds <xref href=\"CSF.Extensions.WebDriver.Identification.IHasBrowserId\" data-throw-if-not-resolved=\"false\"></xref> to the proxy.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -368,7 +532,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Proxies.IdentificationInterceptor.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Proxies.IdentificationInterceptor",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Proxies.IdentificationInterceptor.yml\" sourcestartlinenumber=\"1\">Interceptor which provides functionality for <xref href=\"CSF.Extensions.WebDriver.Identification.IHasBrowserId\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -378,7 +546,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Proxies.ProxyCreationOptions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Proxies.ProxyCreationOptions",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Proxies.ProxyCreationOptions.yml\" sourcestartlinenumber=\"1\">Options related to the creation of a proxy <xref href=\"OpenQA.Selenium.IWebDriver\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -388,7 +560,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Proxies.QuirksAugmenter.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Proxies.QuirksAugmenter",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Proxies.QuirksAugmenter.yml\" sourcestartlinenumber=\"1\">Implementation of <xref href=\"CSF.Extensions.WebDriver.Proxies.IAugmentsProxyContext\" data-throw-if-not-resolved=\"false\"></xref> which adds <xref href=\"CSF.Extensions.WebDriver.Quirks.IHasQuirks\" data-throw-if-not-resolved=\"false\"></xref> to the proxy.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -398,7 +574,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Proxies.QuirksInterceptor.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Proxies.QuirksInterceptor",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Proxies.QuirksInterceptor.yml\" sourcestartlinenumber=\"1\">Interceptor which provides functionality for <xref href=\"CSF.Extensions.WebDriver.Quirks.IHasQuirks\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -408,7 +588,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Proxies.UnproxyingAugmenter.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Proxies.UnproxyingAugmenter",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Proxies.UnproxyingAugmenter.yml\" sourcestartlinenumber=\"1\">Implementation of <xref href=\"CSF.Extensions.WebDriver.Proxies.IAugmentsProxyContext\" data-throw-if-not-resolved=\"false\"></xref> which adds <xref href=\"CSF.Extensions.WebDriver.Proxies.IHasUnproxiedWebDriver\" data-throw-if-not-resolved=\"false\"></xref> to the proxy.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -418,7 +602,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Proxies.UnproxyingInterceptor.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Proxies.UnproxyingInterceptor",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Proxies.UnproxyingInterceptor.yml\" sourcestartlinenumber=\"1\">Interceptor which provides functionality for <xref href=\"CSF.Extensions.WebDriver.Proxies.IHasUnproxiedWebDriver\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -428,7 +616,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Proxies.WebDriverProxyCreationContext.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Proxies.WebDriverProxyCreationContext",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Proxies.WebDriverProxyCreationContext.yml\" sourcestartlinenumber=\"1\">Contextual information related to the creation of a WebDriver proxy.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -438,7 +630,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Proxies.WebDriverProxyFactory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Proxies.WebDriverProxyFactory",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Proxies.WebDriverProxyFactory.yml\" sourcestartlinenumber=\"1\">Factory class which creates a proxy WebDriver using Castle.DynamicProxy.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -448,7 +644,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Proxies.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Proxies",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -458,7 +658,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Quirks.ApplicableQuirksProvider.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Quirks.ApplicableQuirksProvider",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Quirks.ApplicableQuirksProvider.yml\" sourcestartlinenumber=\"1\">Default implementation of <xref href=\"CSF.Extensions.WebDriver.Quirks.IGetsQuirksForBrowserId\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -468,7 +672,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Quirks.BrowserInfo.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Quirks.BrowserInfo",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Quirks.BrowserInfo.yml\" sourcestartlinenumber=\"1\">Information which identifies a web browser and range of versions which are affected by a quirk.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -478,7 +686,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Quirks.BrowserInfoCollection.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Quirks.BrowserInfoCollection",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Quirks.BrowserInfoCollection.yml\" sourcestartlinenumber=\"1\">A collection of <xref href=\"CSF.Extensions.WebDriver.Quirks.BrowserInfo\" data-throw-if-not-resolved=\"false\"></xref> indicating which browsers/version ranges are affected by a quirk.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -488,7 +700,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Quirks.IGetsQuirksData.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Quirks.IGetsQuirksData",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Quirks.IGetsQuirksData.yml\" sourcestartlinenumber=\"1\">An object which can get the source data for browser quirks.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -498,7 +714,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Quirks.IGetsQuirksForBrowserId.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Quirks.IGetsQuirksForBrowserId",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Quirks.IGetsQuirksForBrowserId.yml\" sourcestartlinenumber=\"1\">An object which - given a <xref href=\"CSF.Extensions.WebDriver.Identification.BrowserId\" data-throw-if-not-resolved=\"false\"></xref> - can get\na collection of the quirks which are applicable to that browser.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -508,7 +728,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Quirks.IHasQuirks.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Quirks.IHasQuirks",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Quirks.IHasQuirks.yml\" sourcestartlinenumber=\"1\">An object which can indicate whether or not it is affected by specified browser quirks.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -518,7 +742,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Quirks.QuirksData.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Quirks.QuirksData",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Quirks.QuirksData.yml\" sourcestartlinenumber=\"1\">Gets information related to the WebDriver/browser quirks.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -528,7 +756,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Quirks.QuirksDataProvider",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Quirks.QuirksDataProvider.yml\" sourcestartlinenumber=\"1\">Implementation of <xref href=\"CSF.Extensions.WebDriver.Quirks.IGetsQuirksData\" data-throw-if-not-resolved=\"false\"></xref> which can merge together a primary and secondary\nsource of quirks data, providing data-shadowing capabilities.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -538,7 +770,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.Quirks.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Quirks",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -548,7 +784,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.ServiceCollectionExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.ServiceCollectionExtensions",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.ServiceCollectionExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"Microsoft.Extensions.DependencyInjection.IServiceCollection\" data-throw-if-not-resolved=\"false\"></xref> to add web driver factory options, created from configuration.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -558,7 +798,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.WebDriverFactory.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.WebDriverFactory",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.WebDriverFactory.yml\" sourcestartlinenumber=\"1\">A 'universal web driver factory' which uses the options pattern to inject a <xref href=\"CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection\" data-throw-if-not-resolved=\"false\"></xref>\nand forward that information to a. <xref href=\"CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -568,7 +812,11 @@
           "relative_path": "api/CSF.Extensions.WebDriver.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -578,7 +826,11 @@
           "relative_path": "api/OpenQA.Selenium.WebDriverExtensions.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenQA.Selenium.WebDriverExtensions",
+      "Summary": "<p sourcefile=\"api/OpenQA.Selenium.WebDriverExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"OpenQA.Selenium.IWebDriver\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -588,7 +840,11 @@
           "relative_path": "api/OpenQA.Selenium.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenQA.Selenium",
+      "Summary": null
     },
     {
       "type": "Toc",

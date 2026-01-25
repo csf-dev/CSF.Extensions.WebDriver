@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -54,7 +54,7 @@
             <div id="navbar">
               <form class="search" role="search" id="search">
                 <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
@@ -123,6 +123,11 @@ the implementation of <span class="xref">OpenQA.Selenium.DriverOptions</span> wh
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser.html">WebDriverConfigurationItemParser</a></dt>
+      <dd><p>Default implementation of <a class="xref" href="CSF.Extensions.WebDriver.Factories.IParsesSingleWebDriverConfigurationSection.html">IParsesSingleWebDriverConfigurationSection</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions.html">WebDriverCreationConfigureOptions</a></dt>
       <dd><p>A service which configures an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1">IOptions&lt;TOptions&gt;</a> of <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection.html">WebDriverCreationOptionsCollection</a> within
 dependency injection.</p>
@@ -181,6 +186,12 @@ Interfaces
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.IGetsWebDriverWithDeterministicOptionsTypes.html">IGetsWebDriverWithDeterministicOptionsTypes</a></dt>
       <dd><p>An object which can get the WebDriver implementation types which have deterministic options types.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.IParsesSingleWebDriverConfigurationSection.html">IParsesSingleWebDriverConfigurationSection</a></dt>
+      <dd><p>A service which reads an <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.configuration.iconfigurationsection">IConfigurationSection</a> which describes a creation-strategy for a WebDriver, and gets an
+instance of <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html">WebDriverCreationOptions</a>.</p>
 </dd>
     </dl>
 
