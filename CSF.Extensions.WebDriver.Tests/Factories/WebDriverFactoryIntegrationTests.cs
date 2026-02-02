@@ -41,7 +41,49 @@ public class WebDriverFactoryIntegrationTests
         Assert.That(() => driver.WebDriver.GetBrowserId(), Is.Not.Null);
     }
 
-    IServiceProvider GetServiceProvider(Action<WebDriverCreationOptionsCollection>? configureOptions = null)
+    [Test]
+    public void GetWebDriverShouldReturnADriverWithTheCorrectQuirksForChrome()
+    {
+        var services = GetServiceProvider(extraRegistrations: services => services.AddWebDriverQuirks(GetCommonBrowserQuirks()));
+
+        var driverFactory = services.GetRequiredService<IGetsWebDriver>();
+        using var driver = driverFactory.GetWebDriver("Chrome");
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(driver.WebDriver.HasQuirk("IAmChrome"), Is.True, "Chrome quirk");
+            Assert.That(driver.WebDriver.HasQuirk("IAmFirefox"), Is.False, "Firefox quirk");            
+        });
+    }
+
+    [Test]
+    public void GetWebDriverShouldReturnADriverWithTheCorrectQuirksForFirefox()
+    {
+        var services = GetServiceProvider(extraRegistrations: services => services.AddWebDriverQuirks(GetCommonBrowserQuirks()));
+
+        var driverFactory = services.GetRequiredService<IGetsWebDriver>();
+        using var driver = driverFactory.GetWebDriver("Firefox");
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(driver.WebDriver.HasQuirk("IAmChrome"), Is.False, "Chrome quirk");
+            Assert.That(driver.WebDriver.HasQuirk("IAmFirefox"), Is.True, "Firefox quirk");            
+        });
+    }
+
+    Quirks.QuirksData GetCommonBrowserQuirks()
+    {
+        return new ()
+        {
+            Quirks = new Dictionary<string, Quirks.BrowserInfoCollection>
+            {
+                { "IAmChrome", new () { AffectedBrowsers = new HashSet<Quirks.BrowserInfo>() { new () { Name = "chrome" } } } },
+                { "IAmFirefox", new () { AffectedBrowsers = new HashSet<Quirks.BrowserInfo>() { new () { Name = "firefox" } } } },
+            }
+        };
+    }
+
+    IServiceProvider GetServiceProvider(Action<WebDriverCreationOptionsCollection>? configureOptions = null, Action<IServiceCollection>? extraRegistrations = null)
     {
         var services = new ServiceCollection();
         services.AddSingleton(GetConfiguration());
