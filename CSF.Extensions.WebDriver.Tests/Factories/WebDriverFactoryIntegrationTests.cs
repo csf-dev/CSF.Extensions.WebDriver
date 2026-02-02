@@ -83,11 +83,13 @@ public class WebDriverFactoryIntegrationTests
         };
     }
 
-    IServiceProvider GetServiceProvider(Action<WebDriverCreationOptionsCollection>? configureOptions = null, Action<IServiceCollection>? extraRegistrations = null)
+    IServiceProvider GetServiceProvider(Action<WebDriverCreationOptionsCollection>? configureOptions = null,
+                                        Action<IServiceCollection>? extraRegistrations = null)
     {
         var services = new ServiceCollection();
         services.AddSingleton(GetConfiguration());
         services.AddWebDriverFactory(configureOptions: configureOptions);
+        extraRegistrations?.Invoke(services);
         services.AddLogging();
         return services.BuildServiceProvider();
     }
