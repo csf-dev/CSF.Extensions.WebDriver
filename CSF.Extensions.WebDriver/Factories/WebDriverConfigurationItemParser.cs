@@ -26,6 +26,12 @@ namespace CSF.Extensions.WebDriver.Factories
                 DriverFactoryType = configuration.GetValue<string>(nameof(WebDriverCreationOptions.DriverFactoryType)),
             };
 
+            if(configuration.GetSection(nameof(WebDriverCreationOptions.AddBrowserIdentification)).Exists())
+                creationOptions.AddBrowserIdentification = configuration.GetValue<bool>(nameof(WebDriverCreationOptions.AddBrowserIdentification));
+
+            if(configuration.GetSection(nameof(WebDriverCreationOptions.AddBrowserQuirks)).Exists())
+                creationOptions.AddBrowserQuirks = configuration.GetValue<bool>(nameof(WebDriverCreationOptions.AddBrowserQuirks));
+
             if(!TryGetDriverType(creationOptions, configuration, out var driverType))
                 return null;
 

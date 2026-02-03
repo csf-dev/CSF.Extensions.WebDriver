@@ -14,6 +14,14 @@ public class BrowserInfoMatcherTests
     }
 
     [Test,AutoMoqData]
+    public void MatchesShouldUseACaseInsensitiveMatchForBrowserName(BrowserInfoMatcher sut)
+    {
+        var browserId = new BrowserId("FOOBROWSER", "BarPlatform", MissingBrowserVersion.Instance);
+        var browserInfo = new BrowserInfo { Name = "foobrowser" };
+        Assert.That(() => sut.Matches(browserId, browserInfo), Is.True);
+    }
+
+    [Test,AutoMoqData]
     public void MatchesShouldReturnFalseIfTheBrowserNameDoesNotMatch(BrowserInfoMatcher sut)
     {
         var browserId = new BrowserId("FooBrowser", "BarPlatform", MissingBrowserVersion.Instance);
