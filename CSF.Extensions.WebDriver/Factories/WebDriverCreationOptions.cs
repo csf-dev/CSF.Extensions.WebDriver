@@ -248,7 +248,10 @@ namespace CSF.Extensions.WebDriver.Factories
         /// </summary>
         /// <remarks>
         /// <para>
-        /// For more information about this functionality, please see the documentation for <see cref="Quirks.IHasQuirks"/>
+        /// If this property is set to <see langword="true"/> (which is the default if left unset)  then the implementation of
+        /// <see cref="IWebDriver"/> returned by the factory which uses this object as a parameter will be enriched and will implement
+        /// <see cref="Quirks.IHasQuirks"/>.
+        /// For more information about this functionality, please see the documentation for the <see cref="Quirks.IHasQuirks"/> interface.
         /// </para>
         /// <para>
         /// This functionality, if enabled, will mean that the WebDriver returned by the factory will be a proxy object and not the
@@ -260,6 +263,6 @@ namespace CSF.Extensions.WebDriver.Factories
         /// browser identification will always be added to the proxy when quirks are added.
         /// </para>
         /// </remarks>
-        public bool AddBrowserQuirks { get; set; }
+        public bool AddBrowserQuirks { get; set; } = true;
     }
 }
