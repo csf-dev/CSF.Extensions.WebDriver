@@ -2639,3 +2639,6 @@ references:
   isSpec: "True"
   fullName: OpenQA.Selenium.WebDriverExtensions.Unproxy
   nameWithType: WebDriverExtensions.Unproxy
+- uid: UniversalWebDriverFactoryArticle
+  name: Universal WebDriver factory
+  href: docs/index.html
