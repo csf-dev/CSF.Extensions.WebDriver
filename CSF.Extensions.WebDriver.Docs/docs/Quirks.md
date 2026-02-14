@@ -1,3 +1,7 @@
+---
+uid: WebBrowserQuirksArticle
+---
+
 # WebDriver quirks
 
 _There are a lot of web browsers and browser versions out there!_
