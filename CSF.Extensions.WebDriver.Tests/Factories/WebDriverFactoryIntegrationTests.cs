@@ -33,6 +33,15 @@ public class WebDriverFactoryIntegrationTests
     }
 
     [Test]
+    public void GetWebDriverWithOptionsShouldNotThrow()
+    {
+        var services = GetServiceProvider(o => o.SelectedConfiguration = "FakeWithOptions");
+        var driverFactory = services.GetRequiredService<IGetsWebDriver>();
+        using var driver = driverFactory.GetDefaultWebDriver();
+        Assert.That(() => driver.WebDriver.GetBrowserId(), Is.Not.Null);
+    }
+
+    [Test]
     public void DriverTypeNorOptionsTypeShouldBeMandatoryIfACustomFactoryTypeIsSpecified()
     {
         var services = GetServiceProvider(o => o.SelectedConfiguration = "OmittedDriverAndOptionsType");
@@ -106,6 +115,14 @@ public class WebDriverFactoryIntegrationTests
         public WebDriverAndOptions GetWebDriver(WebDriverCreationOptions options, Action<DriverOptions>? supplementaryConfiguration = null)
         {
             return new(Mock.Of<IWebDriver>(), Mock.Of<DriverOptions>());
+        }
+    }
+
+    public class FakeOptionsUsingWebDriverFactory : ICreatesWebDriverFromOptions
+    {
+        public WebDriverAndOptions GetWebDriver(WebDriverCreationOptions options, Action<DriverOptions>? supplementaryConfiguration = null)
+        {
+            return new(Mock.Of<IWebDriver>(), options.OptionsFactory());
         }
     }
 }

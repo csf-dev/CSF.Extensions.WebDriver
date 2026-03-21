@@ -106,6 +106,24 @@ public class WebDriverFromThirdPartyFactoryTests
         Assert.That(driverOptions.ToCapabilities()["Foo"], Is.EqualTo("Bar"));
     }
 
+    [Test,AutoMoqData]
+    public void GetWebDriverShouldThrowInvalidOperationExceptionIfOptionsFactoryIsUnset(
+        [StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider,
+        [Frozen] IServiceProvider services,
+        WebDriverFromThirdPartyFactory sut)
+    {
+        var options = new WebDriverCreationOptions
+        {
+            DriverType = nameof(RemoteWebDriver),
+            GridUrl = "nonsense://127.0.0.1:1/nonexistent/path",
+            DriverFactoryType = typeof(FakeWebDriverFactory).AssemblyQualifiedName,
+        };
+        Mock.Get(services).Setup(x => x.GetService(typeof(FakeWebDriverFactory))).Returns(() => new FakeWebDriverFactory());
+        Mock.Get(typeProvider).Setup(x => x.GetWebDriverFactoryType(typeof(FakeWebDriverFactory).AssemblyQualifiedName)).Returns(typeof(FakeWebDriverFactory));
+
+        Assert.That(() => sut.GetWebDriver(options, null), Throws.InvalidOperationException);
+    }
+
     public class FakeWebDriverFactory : ICreatesWebDriverFromOptions
     {
         public WebDriverAndOptions GetWebDriver(WebDriverCreationOptions options, Action<DriverOptions>? supplementaryConfiguration = null)
