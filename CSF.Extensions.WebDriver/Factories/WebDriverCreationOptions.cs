@@ -1,6 +1,7 @@
 using System;
 using CSF.Extensions.WebDriver.Proxies;
 using OpenQA.Selenium;
+using OpenQA.Selenium.DevTools;
 
 namespace CSF.Extensions.WebDriver.Factories
 {
@@ -16,6 +17,8 @@ namespace CSF.Extensions.WebDriver.Factories
     /// </remarks>
     public class WebDriverCreationOptions
     {
+        Func<DriverOptions> optionsFactory = GetUnsetOptionsFactory();
+
         /// <summary>
         /// Gets or sets a value indicating the concrete <see cref="Type"/> name of the class which should be used
         /// as the <see cref="IWebDriver"/> implementation.
@@ -134,15 +137,23 @@ namespace CSF.Extensions.WebDriver.Factories
         /// See the documentation for <see cref="OptionsType"/> for more information</description></item>
         /// </list>
         /// <para>
-        /// If the <see cref="DriverFactoryType"/> is in-use then this configuration property is generally unused, because the
-        /// specified factory is expected to take full control over the options creation.  It is particularly unusual to specify
+        /// If the <see cref="DriverFactoryType"/> is in-use then this configuration property is often unused, because the
+        /// specified factory usually takes full control over the options creation.  It is particularly unusual to specify
         /// this property in that scenario, because doing so would also require specifying either or both of <see cref="OptionsType"/>
         /// and <see cref="DriverType"/>, which are also typically unused when a custom factory is specified.
         /// If it is specified, then the value will be provided to the custom factory, but the factory is under no obligation to
         /// use or respect its value.
         /// </para>
+        /// <para>
+        /// Note that if neither <see cref="DriverType"/> or <see cref="OptionsType"/> are specified then this property will default
+        /// to a function which always throws <see cref="InvalidOperationException"/>, with a message indicating that it may be not be used.
+        /// </para>
         /// </remarks>
-        public Func<DriverOptions> OptionsFactory { get; set; }
+        public Func<DriverOptions> OptionsFactory
+        {
+            get => optionsFactory;
+            set => optionsFactory = value ?? GetUnsetOptionsFactory();
+        }
 
         /// <summary>
         /// An optional object which implements <see cref="ICustomizesOptions{TOptions}"/> for the corresponding <see cref="DriverOptions"/>
@@ -264,5 +275,10 @@ namespace CSF.Extensions.WebDriver.Factories
         /// </para>
         /// </remarks>
         public bool AddBrowserQuirks { get; set; } = true;
+
+        static Func<DriverOptions> GetUnsetOptionsFactory()
+        {
+            return () => throw new InvalidOperationException($"Driver options cannot be created via {nameof(OptionsFactory)}; either {nameof(DriverType)} must be set to a type which indicates a deterministic options type or {nameof(OptionsType)} must set set. If you are using a custom {nameof(DriverFactoryType)} then it may not be appropriate to create options in this way.");
+        }
     }
 }

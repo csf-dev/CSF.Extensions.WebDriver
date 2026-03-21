@@ -61,16 +61,15 @@ namespace CSF.Extensions.WebDriver.Factories
         bool TryGetDriverType(WebDriverCreationOptions options, IConfigurationSection configuration, out Type driverType)
         {
             driverType = null;
-            if(options.DriverFactoryType != null)
-                return true;
                         
             if(options.DriverType is null)
             {
-                logger.LogError("{ParamName} is mandatory unless {FactoryTypeKey} is specified; the configuration '{ConfigKey}' will be omitted.",
-                                nameof(WebDriverCreationOptions.DriverType),
-                                nameof(WebDriverCreationOptions.DriverFactoryType),
-                                configuration.Key);
-                return false;
+                if(options.DriverFactoryType == null)
+                    logger.LogError("{ParamName} is mandatory unless {FactoryTypeKey} is specified; the configuration '{ConfigKey}' will be omitted.",
+                                    nameof(WebDriverCreationOptions.DriverType),
+                                    nameof(WebDriverCreationOptions.DriverFactoryType),
+                                    configuration.Key);
+                return options.DriverFactoryType != null ? true : false;
             }
 
             try
@@ -80,14 +79,15 @@ namespace CSF.Extensions.WebDriver.Factories
             }
             catch(Exception e)
             {
-                logger.LogError(e,
-                                "No implementation of {WebDriverIface} could be found for the {DriverTypeProp} '{DriverType}'; the driver configuration '{ConfigKey}' will be omitted. " +
-                                "Reminder: If the driver type is not one which is shipped with Selenium then you must specify its assembly-qualified type name.",
-                                nameof(IWebDriver),
-                                nameof(WebDriverCreationOptions.DriverType),
-                                options.DriverType,
-                                configuration.Key);
-                return false;
+                if(options.DriverFactoryType == null)
+                    logger.LogError(e,
+                                    "No implementation of {WebDriverIface} could be found for the {DriverTypeProp} '{DriverType}'; the driver configuration '{ConfigKey}' will be omitted. " +
+                                    "Reminder: If the driver type is not one which is shipped with Selenium then you must specify its assembly-qualified type name.",
+                                    nameof(IWebDriver),
+                                    nameof(WebDriverCreationOptions.DriverType),
+                                    options.DriverType,
+                                    configuration.Key);
+                return options.DriverFactoryType != null ? true : false;
             }
         }
 
@@ -110,8 +110,6 @@ namespace CSF.Extensions.WebDriver.Factories
         bool TryGetOptionsType(WebDriverCreationOptions options, IConfigurationSection configuration, Type driverType, out Type optionsType)
         {
             optionsType = null;
-            if(options.DriverFactoryType != null)
-                return true;
             
             try
             {
@@ -119,16 +117,18 @@ namespace CSF.Extensions.WebDriver.Factories
             }
             catch(Exception e)
             {
-                logger.LogError(e,
-                                "No type deriving from {OptionsBase} could be found for the combination of {WebDriverIface} {DriverType} and {OptionsTypeProp} '{OptionsType}'; the configuration '{ConfigKey}' will be omitted. " +
-                                "See the exception details for more information.",
-                                nameof(DriverOptions),
-                                nameof(IWebDriver),
-                                driverType.Name,
-                                nameof(WebDriverCreationOptions.OptionsType),
-                                options.OptionsType,
-                                configuration.Key);
-                return false;
+                if(options.DriverFactoryType == null)
+                    logger.LogError(e,
+                                    "No type deriving from {OptionsBase} could be found for the combination of {WebDriverIface} {DriverType} and {OptionsTypeProp} '{OptionsType}'; the configuration '{ConfigKey}' will be omitted. " +
+                                    "See the exception details for more information.",
+                                    nameof(DriverOptions),
+                                    nameof(IWebDriver),
+                                    driverType?.Name,
+                                    nameof(WebDriverCreationOptions.OptionsType),
+                                    options?.OptionsType,
+                                    configuration.Key);
+
+                return options.DriverFactoryType != null ? true : false;
             }
 
             try
@@ -138,12 +138,13 @@ namespace CSF.Extensions.WebDriver.Factories
             }
             catch(Exception e)
             {
-                logger.LogError(e,
-                                "An unexpected error occurred creating or binding to the {OptionsClass} type {OptionsType}; the configuration '{ConfigKey}' will be omitted.",
-                                nameof(DriverOptions),
-                                optionsType.FullName,
-                                configuration.Key);
-                return false;
+                if(options.DriverFactoryType == null)
+                    logger.LogError(e,
+                                    "An unexpected error occurred creating or binding to the {OptionsClass} type {OptionsType}; the configuration '{ConfigKey}' will be omitted.",
+                                    nameof(DriverOptions),
+                                    optionsType.FullName,
+                                    configuration.Key);
+                return options.DriverFactoryType != null ? true : false;
             }
         }
 
