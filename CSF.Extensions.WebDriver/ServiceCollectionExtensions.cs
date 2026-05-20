@@ -270,12 +270,14 @@ namespace CSF.Extensions.WebDriver
         static IServiceCollection AddDriverOptionsFactory(IServiceCollection services)
         {
             services.AddTransient<ActivatorDriverOptionsFactory>();
-services.AddTransient<ConfigBindingDriverOptionsFactoryDecorator>();
+            services.AddTransient<ConfigBindingDriverOptionsFactoryDecorator>();
+            services.AddTransient<LogLevelDriverOptionsFactoryDecorator>();
 
             services.AddTransient(s =>
             {
                 ICreatesDriverOptions service = s.GetRequiredService<ActivatorDriverOptionsFactory>();
                 service = ActivatorUtilities.CreateInstance<ConfigBindingDriverOptionsFactoryDecorator>(s, service);
+                service = ActivatorUtilities.CreateInstance<LogLevelDriverOptionsFactoryDecorator>(s, service);
 
                 return service;
             });
