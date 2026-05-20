@@ -128,6 +128,7 @@ namespace CSF.Extensions.WebDriver
             services.AddTransient<IGetsOptionsType, OptionsTypeProvider>();
             AddDriverOptionsFactory(services);
             services.AddOptions<WebDriverCreationOptionsCollection>().Configure(configureOptions ?? (o => {}));
+            services.AddTransient<WebDriverCreationConfigureOptions>();
 
             return services;
         }
@@ -243,7 +244,10 @@ namespace CSF.Extensions.WebDriver
             return services =>
             {
                 IConfiguration configSection = services.GetRequiredService<IConfiguration>().GetSection(configPath);
-                return ActivatorUtilities.CreateInstance<WebDriverCreationConfigureOptions>(services, configSection, configureOptions);
+                return new WebDriverCreationConfigureOptions(services.GetRequiredService<IParsesSingleWebDriverConfigurationSection>(),
+                                                             configSection,
+                                                             services.GetRequiredService<ILogger<WebDriverCreationConfigureOptions>>(),
+                                                             configureOptions);
             };
         }
 
@@ -252,7 +256,10 @@ namespace CSF.Extensions.WebDriver
         {
             return services =>
             {
-                return ActivatorUtilities.CreateInstance<WebDriverCreationConfigureOptions>(services, configSection, configureOptions);
+                return new WebDriverCreationConfigureOptions(services.GetRequiredService<IParsesSingleWebDriverConfigurationSection>(),
+                                                             configSection,
+                                                             services.GetRequiredService<ILogger<WebDriverCreationConfigureOptions>>(),
+                                                             configureOptions);
             };
         }
 

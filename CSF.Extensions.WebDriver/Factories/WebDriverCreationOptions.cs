@@ -299,7 +299,7 @@ namespace CSF.Extensions.WebDriver.Factories
 
         static Func<DriverOptions> GetUnsetOptionsFactory()
         {
-            return () => throw new InvalidOperationException($"Driver options cannot be created via {nameof(OptionsFactory)}; either {nameof(DriverType)} must be set to a type which indicates a deterministic options type or {nameof(OptionsType)} must set set. If you are using a custom {nameof(DriverFactoryType)} then it may not be appropriate to create options in this way.");
+            return () => throw new InvalidOperationException($"Driver options cannot be created via {nameof(OptionsFactory)}; either {nameof(DriverType)} must be set to a type which indicates a deterministic options type or {nameof(OptionsType)} must be set. If you are using a custom {nameof(DriverFactoryType)} then it may not be appropriate to create options in this way.");
         }
     }
 }

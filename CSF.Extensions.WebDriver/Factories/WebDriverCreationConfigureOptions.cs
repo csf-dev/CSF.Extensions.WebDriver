@@ -25,13 +25,20 @@ namespace CSF.Extensions.WebDriver.Factories
         readonly IParsesSingleWebDriverConfigurationSection configParser;
         readonly IConfiguration configuration;
         readonly ILogger<WebDriverCreationConfigureOptions> logger;
+        readonly Action<WebDriverCreationOptionsCollection> configureOptions;
 
         /// <inheritdoc/>
         public void Configure(WebDriverCreationOptionsCollection options)
         {
+            ConfigureUsingConfig(options);
+            configureOptions?.Invoke(options);
+        }
+
+        void ConfigureUsingConfig(WebDriverCreationOptionsCollection options)
+        {
             if(configuration is null)
             {
-                logger.LogWarning("Configuration for {TypeName} is null; the WebDriver creation options will be left unconfigured. " +
+                logger.LogWarning("Configuration for {TypeName} is null; the WebDriver creation options will not be configured from any configuration source. " +
                                   "Reminder: By default the configuration path is '{Path}'.",
                                   nameof(WebDriverCreationOptionsCollection),
                                   ServiceCollectionExtensions.FactoryConfigPath);
@@ -50,7 +57,7 @@ namespace CSF.Extensions.WebDriver.Factories
                             .Where(x => x.Value != null)
                             .ToDictionary(k => k.Key, v => v.Value);
 
-        
+
 
         /// <summary>
         /// Initialises a new instance of <see cref="WebDriverCreationConfigureOptions"/>.
@@ -58,14 +65,17 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <param name="configParser">A parser for a single configuration item.</param>
         /// <param name="configuration">The app configuration.</param>
         /// <param name="logger">A logging implementation.</param>
+        /// <param name="configureOptions">An optional configuration action/callback to further configure the options</param>
         /// <exception cref="ArgumentNullException">If either parameter is <see langword="null" />.</exception>
         public WebDriverCreationConfigureOptions(IParsesSingleWebDriverConfigurationSection configParser,
                                                  IConfiguration configuration,
-                                                 ILogger<WebDriverCreationConfigureOptions> logger)
+                                                 ILogger<WebDriverCreationConfigureOptions> logger,
+                                                 Action<WebDriverCreationOptionsCollection> configureOptions)
         {
             this.configParser = configParser ?? throw new ArgumentNullException(nameof(configParser));
             this.configuration = configuration;
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            this.configureOptions = configureOptions;
         }
     }
 }
