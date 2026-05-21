@@ -54,7 +54,7 @@ jobs:
       - name: Install SonarScanner
         run: dotnet tool install --global dotnet-sonarscanner
       - name: Install Coverlet console
-        run: dotnet tool install --global coverlet.console
+        run: dotnet tool install --global coverlet.console --version 8.0.1
       - name: Install DocFX
         run: dotnet tool install --global docfx
       # See https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md
