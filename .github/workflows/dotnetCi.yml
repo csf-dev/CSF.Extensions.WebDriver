@@ -70,8 +70,6 @@ jobs:
 
       # Build and test the solution
 
-      - name: Build the solution
-        run: dotnet build -c ${{ env.Configuration }}
       - name: Start SonarScanner
         run: >
           dotnet sonarscanner begin
