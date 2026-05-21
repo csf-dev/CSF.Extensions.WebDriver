@@ -31,6 +31,7 @@ jobs:
       SonarCloudUrl: https://sonarcloud.io
       SonarCloudSecretKey: ${{ secrets.SONARCLOUDKEY }}
       Configuration: Debug
+      Tfm: net8.0
       DotnetVersion: 8.0.x
       DISPLAY: :99
       BranchName: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
