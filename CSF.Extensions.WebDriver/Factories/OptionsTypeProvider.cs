@@ -33,7 +33,7 @@ namespace CSF.Extensions.WebDriver.Factories
                                     nameof(IWebDriver),
                                     driverType?.Name,
                                     nameof(WebDriverCreationOptions.OptionsType),
-                                    options?.OptionsType,
+                                    options.OptionsType,
                                     configuration.Key);
 
                 return options.DriverFactoryType != null;
