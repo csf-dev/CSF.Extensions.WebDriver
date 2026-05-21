@@ -6,7 +6,7 @@
   <Property Name="sonar.exclusions">docs\**\*</Property>
   <Property Name="sonar.cpd.exclusions">CSF.Extensions.WebDriver.Tests\**\*</Property>
   <Property Name="sonar.cs.nunit.reportsPaths">**\TestResults.xml</Property>
-  <Property Name="sonar.cs.opencover.reportsPaths">TestResults\*.opencover.xml</Property>
+  <Property Name="sonar.cs.opencover.reportsPaths">**\TestResults\*.opencover.xml</Property>
   <Property Name="sonar.scanner.scanAll">false</Property>
   <Property Name="sonar.test.inclusions">CSF.Extensions.WebDriver.Tests\**\*</Property>
   <Property Name="sonar.scanner.skipJreProvisioning">true</Property>

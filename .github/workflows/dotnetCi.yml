@@ -81,7 +81,6 @@ jobs:
           /d:sonar.host.url=${{ env.SonarCloudUrl }}
           /d:sonar.token=${{ env.SonarCloudSecretKey }}
           /d:${{ env.BranchParam }}=${{ env.BranchName }} ${{ env.PullRequestParam }}
-          /d:sonar.javascript.lcov.reportPaths=$PWD/CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info
           /s:$PWD/.sonarqube-analysisproperties.xml
       - name: Build the solution
         run: dotnet build -c ${{ env.Configuration }} --no-incremental
@@ -112,7 +111,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: NUnit test results
-          path: Tests/*.Tests/**/TestResults.xml
+          path: '**/TestResults/*.xml'
       - name: Fail the build if any test failures
         if: steps.dotnet_tests.outputs.failures == 'failure'
         run: |
