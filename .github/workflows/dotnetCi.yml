@@ -88,7 +88,7 @@ jobs:
         id: dotnet_tests
         shell: bash {0}
         run: |
-          coverlet CSF.Extensions.WebDriver.Tests/bin/$Configuration/$Tfm/CSF.Extensions.WebDriver.Tests.dll --target "dotnet" --targetargs "test CSF.Extensions.WebDriver.Tests -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="CSF.Extensions.WebDriver.Tests/TestResults/CSF.Extensions.WebDriver.Tests.opencover.xml"
+          coverlet CSF.Extensions.WebDriver.Tests/bin/$Configuration/$Tfm/CSF.Extensions.WebDriver.Tests.dll --target "dotnet" --targetargs "test -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f opencover -o "CSF.Extensions.WebDriver.Tests/TestResults/CSF.Extensions.WebDriver.Tests.opencover.xml"
           exitCode=$?
           if [ $exitCode -ne 0 ]
           then
