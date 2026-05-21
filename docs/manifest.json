@@ -1,5 +1,5 @@
 {
-  "source_base_path": "E:/Craig/Documents/Projects/CSF.Extensions.WebDriver/CSF.Extensions.WebDriver.Docs",
+  "source_base_path": "/home/runner/work/CSF.Extensions.WebDriver/CSF.Extensions.WebDriver/CSF.Extensions.WebDriver.Docs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -19,6 +19,62 @@
         }
       },
       "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.ActivatorDriverOptionsFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Extensions.WebDriver.Factories.ActivatorDriverOptionsFactory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.ActivatorDriverOptionsFactory",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.ActivatorDriverOptionsFactory.yml\" sourcestartlinenumber=\"1\">Implementation of <xref href=\"CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions\" data-throw-if-not-resolved=\"false\"></xref> which uses <xref href=\"System.Activator.CreateInstance(System.Type)\" data-throw-if-not-resolved=\"false\"></xref> to create the options object.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.ConfigBindingDriverOptionsFactoryDecorator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Extensions.WebDriver.Factories.ConfigBindingDriverOptionsFactoryDecorator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.ConfigBindingDriverOptionsFactoryDecorator",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.ConfigBindingDriverOptionsFactoryDecorator.yml\" sourcestartlinenumber=\"1\">Decorator for <xref href=\"CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions\" data-throw-if-not-resolved=\"false\"></xref> which binds the configuration to the created options.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.DriverTypeProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Extensions.WebDriver.Factories.DriverTypeProvider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.DriverTypeProvider",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.DriverTypeProvider.yml\" sourcestartlinenumber=\"1\">Default implementation of <xref href=\"CSF.Extensions.WebDriver.Factories.IGetsDriverType\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions.yml\" sourcestartlinenumber=\"1\">An object which creates and returns a new object which derives from <xref href=\"OpenQA.Selenium.DriverOptions\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -47,6 +103,34 @@
       "IsMRef": true,
       "Title": "CSF.Extensions.WebDriver.Factories.ICustomizesOptions<TOptions>",
       "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.ICustomizesOptions-1.yml\" sourcestartlinenumber=\"1\">An object which can customize the options for a web driver before they are used to create the <xref href=\"OpenQA.Selenium.IWebDriver\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.IGetsDriverType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Extensions.WebDriver.Factories.IGetsDriverType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.IGetsDriverType",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.IGetsDriverType.yml\" sourcestartlinenumber=\"1\">An object which can get the concrete type of a WebDriver, indicated by the configuration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.IGetsOptionsType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Extensions.WebDriver.Factories.IGetsOptionsType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.IGetsOptionsType",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.IGetsOptionsType.yml\" sourcestartlinenumber=\"1\">An object which can get the concrete type of some WebDriver Options, indicated by the configuration.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -89,6 +173,34 @@
       "IsMRef": true,
       "Title": "CSF.Extensions.WebDriver.Factories.IParsesSingleWebDriverConfigurationSection",
       "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.IParsesSingleWebDriverConfigurationSection.yml\" sourcestartlinenumber=\"1\">A service which reads an <xref href=\"Microsoft.Extensions.Configuration.IConfigurationSection\" data-throw-if-not-resolved=\"false\"></xref> which describes a creation-strategy for a WebDriver, and gets an\ninstance of <xref href=\"CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.LogLevelDriverOptionsFactoryDecorator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Extensions.WebDriver.Factories.LogLevelDriverOptionsFactoryDecorator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.LogLevelDriverOptionsFactoryDecorator",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.LogLevelDriverOptionsFactoryDecorator.yml\" sourcestartlinenumber=\"1\">Decorator for <xref href=\"CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions\" data-throw-if-not-resolved=\"false\"></xref> which conditionally sets the logging preference for the\noptions, based upon <xref href=\"CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.BrowserLogLevel\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Extensions.WebDriver.Factories.OptionsTypeProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Extensions.WebDriver.Factories.OptionsTypeProvider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.Factories.OptionsTypeProvider",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.Factories.OptionsTypeProvider.yml\" sourcestartlinenumber=\"1\">Default implementation of <xref href=\"CSF.Extensions.WebDriver.Factories.IGetsOptionsType\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -850,11 +962,11 @@
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "api/toc.html"
-        },
         ".json": {
           "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
         }
       },
       "version": ""
@@ -903,11 +1015,11 @@
       "type": "Toc",
       "source_relative_path": "docs/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/toc.html"
-        },
         ".json": {
           "relative_path": "docs/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/toc.html"
         }
       },
       "version": ""
@@ -926,11 +1038,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "toc.html"
-        },
         ".json": {
           "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
         }
       },
       "version": ""

@@ -95,6 +95,32 @@
 Classes
 </h3>
     <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.ActivatorDriverOptionsFactory.html">ActivatorDriverOptionsFactory</a></dt>
+      <dd><p>Implementation of <a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions.html">ICreatesDriverOptions</a> which uses <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.activator.createinstance#system-activator-createinstance(system-type)">CreateInstance(Type)</a> to create the options object.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.ConfigBindingDriverOptionsFactoryDecorator.html">ConfigBindingDriverOptionsFactoryDecorator</a></dt>
+      <dd><p>Decorator for <a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions.html">ICreatesDriverOptions</a> which binds the configuration to the created options.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.DriverTypeProvider.html">DriverTypeProvider</a></dt>
+      <dd><p>Default implementation of <a class="xref" href="CSF.Extensions.WebDriver.Factories.IGetsDriverType.html">IGetsDriverType</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.LogLevelDriverOptionsFactoryDecorator.html">LogLevelDriverOptionsFactoryDecorator</a></dt>
+      <dd><p>Decorator for <a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions.html">ICreatesDriverOptions</a> which conditionally sets the logging preference for the
+options, based upon <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_BrowserLogLevel">BrowserLogLevel</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.OptionsTypeProvider.html">OptionsTypeProvider</a></dt>
+      <dd><p>Default implementation of <a class="xref" href="CSF.Extensions.WebDriver.Factories.IGetsOptionsType.html">IGetsOptionsType</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.html">ProxyWrappingWebDriverFactoryDecorator</a></dt>
       <dd><p>Decorator for implementations of <a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html">ICreatesWebDriverFromOptions</a> which (if applicable) wraps the
 returned WebDriver in a proxy object, which adds further functionality.</p>
@@ -169,6 +195,11 @@ using a third-party factory type, specified in <a class="xref" href="CSF.Extensi
 Interfaces
 </h3>
     <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions.html">ICreatesDriverOptions</a></dt>
+      <dd><p>An object which creates and returns a new object which derives from <span class="xref">OpenQA.Selenium.DriverOptions</span>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions.html">ICreatesWebDriverFromOptions</a></dt>
       <dd><p>A service that gets an instance of <span class="xref">OpenQA.Selenium.IWebDriver</span> from a configuration object.</p>
 </dd>
@@ -176,6 +207,16 @@ Interfaces
     <dl class="jumplist">
       <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.ICustomizesOptions-1.html">ICustomizesOptions&lt;TOptions&gt;</a></dt>
       <dd><p>An object which can customize the options for a web driver before they are used to create the <span class="xref">OpenQA.Selenium.IWebDriver</span>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.IGetsDriverType.html">IGetsDriverType</a></dt>
+      <dd><p>An object which can get the concrete type of a WebDriver, indicated by the configuration.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="CSF.Extensions.WebDriver.Factories.IGetsOptionsType.html">IGetsOptionsType</a></dt>
+      <dd><p>An object which can get the concrete type of some WebDriver Options, indicated by the configuration.</p>
 </dd>
     </dl>
     <dl class="jumplist">

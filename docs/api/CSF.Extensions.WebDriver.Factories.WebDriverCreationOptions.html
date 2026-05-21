@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/csf-dev/WebDriverExtras/new/master/apiSpec/new?filename=CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions.md&amp;value=---%0Auid%3A%20CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Extensions.WebDriver/new/master/apiSpec/new?filename=CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions.md&amp;value=---%0Auid%3A%20CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions" class="text-break">
-Class WebDriverCreationOptions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L17"><i class="bi bi-code-slash"></i></a>
+Class WebDriverCreationOptions  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -164,7 +164,7 @@ For remote WebDrivers, the <a class="xref" href="CSF.Extensions.WebDriver.Factor
 
   <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_AddBrowserIdentification" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.AddBrowserIdentification">
   AddBrowserIdentification
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L244"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L255"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a value which indicates whether or not the created WebDriver should be enriched with browser identification functionality.</p>
@@ -208,7 +208,7 @@ For more information on proxies created by this library and their implications, 
 
   <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_AddBrowserQuirks" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.AddBrowserQuirks">
   AddBrowserQuirks
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L266"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L277"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a value which indicates whether or not the created WebDriver should be enriched with browser quirks functionality.</p>
@@ -253,11 +253,59 @@ browser identification will always be added to the proxy when quirks are added.
 
 
 
+  <a id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_BrowserLogLevel_" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.BrowserLogLevel*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_BrowserLogLevel" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.BrowserLogLevel">
+  BrowserLogLevel
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L298"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets a value which indicates the logging level that the web browser should retain within its console.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string BrowserLogLevel { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_BrowserLogLevel_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This setting is effective only for browsers which provide direct access to logs.  At the time of writing this is only
+Chromium-based browsers such as Chrome or Edge.
+</p>
+<p>
+The value of this property must correspond to the string representation of a Selenium <span class="xref">OpenQA.Selenium.LogLevel</span>.
+If this value is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> then the log level will be left at the browser's default.
+</p>
+<p>
+The setting from this option (if set) will be used via a call to <code>options.SetLoggingPreference(LogType.Browser, LOG_LEVEL);</code>
+where: <code>options</code> is the <span class="xref">OpenQA.Selenium.DriverOptions</span> object used to create the web driver, and <code>LOG_LEVEL</code> is an enum value
+derived from the value of this property. The actual supported values for <code>LOG_LEVEL</code> are browser-specific, for the target web
+browser.
+</p>
+</div>
+
+
+
+
   <a id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverFactoryType_" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.DriverFactoryType*"></a>
 
   <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverFactoryType" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.DriverFactoryType">
   DriverFactoryType
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L238"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the name of a type which is used to construct the WebDriver instance.</p>
@@ -333,7 +381,7 @@ Thus, in this scenario, they are all optional.
 
   <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.DriverType">
   DriverType
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L59"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets a value indicating the concrete <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> name of the class which should be used
@@ -404,7 +452,7 @@ this library will automatically select the appropriate type.
 
   <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_GridUrl" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.GridUrl">
   GridUrl
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L111"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Applicable to remote web drivers only, gets or sets the URL at which the Selenium Grid is hosted.</p>
@@ -452,7 +500,7 @@ will be available to the custom driver factory but the factory is under no oblig
 
   <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsCustomizer" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.OptionsCustomizer">
   OptionsCustomizer
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L185"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>An optional object which implements <a class="xref" href="CSF.Extensions.WebDriver.Factories.ICustomizesOptions-1.html">ICustomizesOptions&lt;TOptions&gt;</a> for the corresponding <span class="xref">OpenQA.Selenium.DriverOptions</span>
@@ -508,7 +556,7 @@ will be available to the custom driver factory but the factory is under no oblig
 
   <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsFactory" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.OptionsFactory">
   OptionsFactory
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L152"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets a function which creates the object which derives from <span class="xref">OpenQA.Selenium.DriverOptions</span>, used as the creation options for the <span class="xref">OpenQA.Selenium.IWebDriver</span>.</p>
@@ -548,12 +596,16 @@ If this value was bound from a configuration file then the generated factory fun
 <ul><li>The options type specified in the configuration file, if <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsType">OptionsType</a> is set</li><li>The options type which is inferred from the <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType">DriverType</a>, if <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsType">OptionsType</a> is not set.
 See the documentation for <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsType">OptionsType</a> for more information</li></ul>
 <p>
-If the <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverFactoryType">DriverFactoryType</a> is in-use then this configuration property is generally unused, because the
-specified factory is expected to take full control over the options creation.  It is particularly unusual to specify
+If the <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverFactoryType">DriverFactoryType</a> is in-use then this configuration property is often unused, because the
+specified factory usually takes full control over the options creation.  It is particularly unusual to specify
 this property in that scenario, because doing so would also require specifying either or both of <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsType">OptionsType</a>
 and <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType">DriverType</a>, which are also typically unused when a custom factory is specified.
 If it is specified, then the value will be provided to the custom factory, but the factory is under no obligation to
 use or respect its value.
+</p>
+<p>
+Note that if neither <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_DriverType">DriverType</a> or <a class="xref" href="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsType">OptionsType</a> are specified then this property will default
+to a function which always throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a>, with a message indicating that it may be not be used.
 </p>
 </div>
 
@@ -564,7 +616,7 @@ use or respect its value.
 
   <h3 id="CSF_Extensions_WebDriver_Factories_WebDriverCreationOptions_OptionsType" data-uid="CSF.Extensions.WebDriver.Factories.WebDriverCreationOptions.OptionsType">
   OptionsType
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/WebDriverExtras/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets a value indicating the concrete <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a> of the options object which should be provded
@@ -624,7 +676,7 @@ with Selenium, then this must be an assembly-qualified type name.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/WebDriverExtras/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L17" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Factories/WebDriverCreationOptions.cs/#L18" class="edit-link">Edit this page</a>
         </div>
 
 
