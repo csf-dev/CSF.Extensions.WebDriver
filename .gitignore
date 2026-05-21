@@ -2,7 +2,7 @@ bin/
 obj/
 *.userprefs
 *.csproj.user
-TestResult.xml
+**/TestResults/**
 *.log
 *.orig
 *.nupkg

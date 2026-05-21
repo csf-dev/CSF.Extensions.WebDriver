@@ -58,6 +58,6 @@ public class TestContextLogger<T> : ILogger<T>
 
     public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
     {
-        TestContext.WriteLine($"{logLevel}: {formatter(state, exception)}{((exception is not null) ? ("\n" + exception.ToString()) : string.Empty)}");
+        TestContext.Out.WriteLine($"{logLevel}: {formatter(state, exception)}{((exception is not null) ? ("\n" + exception.ToString()) : string.Empty)}");
     }
 }

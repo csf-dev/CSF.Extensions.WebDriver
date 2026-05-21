@@ -9,7 +9,7 @@ namespace CSF.Extensions.WebDriver.Proxies;
 [TestFixture, Parallelizable, Description("Integration tests for IGetsProxyWebDriver and all of its dependencies. These tests use DI.")]
 public class WebDriverProxyFactoryIntegrationTests
 {
-    readonly IServiceProvider services;
+    IServiceProvider services;
 
     [Test,AutoMoqData]
     public void GetProxyWebDriverShouldGetAWebDriverWhichCanBeUnproxied(IWebDriver webDriver)
@@ -76,8 +76,8 @@ public class WebDriverProxyFactoryIntegrationTests
         });
     }
 
-    
-    public WebDriverProxyFactoryIntegrationTests()
+    [OneTimeSetUp]
+    public void Setup()
     {
         var serviceCollection = new ServiceCollection();
         serviceCollection
@@ -97,5 +97,12 @@ public class WebDriverProxyFactoryIntegrationTests
                 }},
             }});
         services = serviceCollection.BuildServiceProvider();
+    }
+
+    [OneTimeTearDown]
+    public void Teardown()
+    {
+        if(services is IDisposable disp)
+            disp.Dispose();
     }
 }
