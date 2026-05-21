@@ -64,12 +64,8 @@ namespace CSF.Extensions.WebDriver
                                                              string configPath = FactoryConfigPath,
                                                              Action<WebDriverCreationOptionsCollection> configureOptions = null)
         {
-            AddWebDriverFactoryWithoutOptionsPattern(services);
-
-            services.AddTransient<IGetsWebDriver, WebDriverFactory>();
-            services.AddTransient<IParsesSingleWebDriverConfigurationSection, WebDriverConfigurationItemParser>();
+            AddWebDriverFactory(services, configureOptions);
             services.AddTransient(GetOptionsConfigService(configPath, configureOptions));
-            services.AddOptions<WebDriverCreationOptionsCollection>().Configure(configureOptions ?? (o => {}));
 
             return services;
         }
@@ -115,14 +111,24 @@ namespace CSF.Extensions.WebDriver
                                                              IConfigurationSection configSection,
                                                              Action<WebDriverCreationOptionsCollection> configureOptions = null)
         {
+            AddWebDriverFactory(services, configureOptions);
+            services.AddTransient(GetOptionsConfigService(configSection, configureOptions));
+
+            return services;
+        }
+
+        static void AddWebDriverFactory(this IServiceCollection services,
+                                        Action<WebDriverCreationOptionsCollection> configureOptions = null)
+        {
             AddWebDriverFactoryWithoutOptionsPattern(services);
 
             services.AddTransient<IGetsWebDriver, WebDriverFactory>();
             services.AddTransient<IParsesSingleWebDriverConfigurationSection, WebDriverConfigurationItemParser>();
-            services.AddTransient(GetOptionsConfigService(configSection, configureOptions));
+            services.AddTransient<IGetsDriverType, DriverTypeProvider>();
+            services.AddTransient<IGetsOptionsType, OptionsTypeProvider>();
+            AddDriverOptionsFactory(services);
             services.AddOptions<WebDriverCreationOptionsCollection>().Configure(configureOptions ?? (o => {}));
-
-            return services;
+            services.AddTransient<WebDriverCreationConfigureOptions>();
         }
 
         /// <summary>
@@ -236,7 +242,10 @@ namespace CSF.Extensions.WebDriver
             return services =>
             {
                 IConfiguration configSection = services.GetRequiredService<IConfiguration>().GetSection(configPath);
-                return ActivatorUtilities.CreateInstance<WebDriverCreationConfigureOptions>(services, configSection);
+                return new WebDriverCreationConfigureOptions(services.GetRequiredService<IParsesSingleWebDriverConfigurationSection>(),
+                                                             configSection,
+                                                             services.GetRequiredService<ILogger<WebDriverCreationConfigureOptions>>(),
+                                                             configureOptions);
             };
         }
 
@@ -245,19 +254,36 @@ namespace CSF.Extensions.WebDriver
         {
             return services =>
             {
-                return ActivatorUtilities.CreateInstance<WebDriverCreationConfigureOptions>(services, configSection, configureOptions);
+                return new WebDriverCreationConfigureOptions(services.GetRequiredService<IParsesSingleWebDriverConfigurationSection>(),
+                                                             configSection,
+                                                             services.GetRequiredService<ILogger<WebDriverCreationConfigureOptions>>(),
+                                                             configureOptions);
             };
         }
 
-        static IServiceCollection AddLoggingIfNotAlreadyAdded(IServiceCollection services)
+        static void AddLoggingIfNotAlreadyAdded(IServiceCollection services)
         {
             if(services.Any(s => s.ServiceType == typeof(ILoggerFactory)))
-                return services;
+                return;
 
             services.AddTransient<ILoggerFactory, NullLoggerFactory>();
             services.AddTransient(typeof(ILogger<>), typeof(NullLogger<>));
+        }
 
-            return services;
+        static void AddDriverOptionsFactory(IServiceCollection services)
+        {
+            services.AddTransient<ActivatorDriverOptionsFactory>();
+            services.AddTransient<ConfigBindingDriverOptionsFactoryDecorator>();
+            services.AddTransient<LogLevelDriverOptionsFactoryDecorator>();
+
+            services.AddTransient(s =>
+            {
+                ICreatesDriverOptions service = s.GetRequiredService<ActivatorDriverOptionsFactory>();
+                service = ActivatorUtilities.CreateInstance<ConfigBindingDriverOptionsFactoryDecorator>(s, service);
+                service = ActivatorUtilities.CreateInstance<LogLevelDriverOptionsFactoryDecorator>(s, service);
+
+                return service;
+            });
         }
     }
 }

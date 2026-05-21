@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Remote;
@@ -11,9 +12,10 @@ namespace CSF.Extensions.WebDriver.Factories;
 public class WebDriverCreationConfigureOptionsTests
 {
     [Test,AutoMoqData]
-    public async Task ConfigureShouldBeAbleToSetupLocalChromeDriverWithSimpleOptionsFromJsonConfiguration([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
+    public async Task ConfigureShouldBeAbleToSetupLocalChromeDriverWithSimpleOptionsFromJsonConfiguration([StandardTypes] IGetsDriverType driverTypeProvider,
+                                                                                                          [StandardTypes] IGetsOptionsType optionsTypeProvider)
     {
-        var options = await GetOptionsAsync(typeProvider,
+        var options = await GetOptionsAsync(driverTypeProvider, optionsTypeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": {
@@ -47,9 +49,10 @@ public class WebDriverCreationConfigureOptionsTests
 
 
     [Test,AutoMoqData]
-    public async Task ConfigureShouldBeAbleToSetupTwoLocalDriversWithSimpleOptionsFromJsonConfiguration([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
+    public async Task ConfigureShouldBeAbleToSetupTwoLocalDriversWithSimpleOptionsFromJsonConfiguration([StandardTypes] IGetsDriverType driverTypeProvider,
+                                                                                                        [StandardTypes] IGetsOptionsType optionsTypeProvider)
     {
-        var options = await GetOptionsAsync(typeProvider,
+        var options = await GetOptionsAsync(driverTypeProvider, optionsTypeProvider,
 @"{
     ""DriverConfigurations"": {
         ""SampleChrome"": {
@@ -87,9 +90,10 @@ public class WebDriverCreationConfigureOptionsTests
     }
 
     [Test,AutoMoqData]
-    public async Task ConfigureShouldBeAbleToSetupLocalChromeDriverWithNoOptionsFromJsonConfiguration([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
+    public async Task ConfigureShouldBeAbleToSetupLocalChromeDriverWithNoOptionsFromJsonConfiguration([StandardTypes] IGetsDriverType driverTypeProvider,
+                                                                                                      [StandardTypes] IGetsOptionsType optionsTypeProvider)
     {
-        var options = await GetOptionsAsync(typeProvider,
+        var options = await GetOptionsAsync(driverTypeProvider, optionsTypeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": { ""DriverType"": ""ChromeDriver"" }
@@ -110,9 +114,10 @@ public class WebDriverCreationConfigureOptionsTests
     }
 
     [Test,AutoMoqData]
-    public async Task ConfigureShouldBeAbleToGetSelectedConfigWhenThereIsOnlyOnePresent([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
+    public async Task ConfigureShouldBeAbleToGetSelectedConfigWhenThereIsOnlyOnePresent([StandardTypes] IGetsDriverType driverTypeProvider,
+                                                                                        [StandardTypes] IGetsOptionsType optionsTypeProvider)
     {
-        var options = await GetOptionsAsync(typeProvider,
+        var options = await GetOptionsAsync(driverTypeProvider, optionsTypeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": { ""DriverType"": ""ChromeDriver"" }
@@ -123,9 +128,10 @@ public class WebDriverCreationConfigureOptionsTests
     }
 
     [Test,AutoMoqData]
-    public async Task ConfigureShouldBeAbleToAddACustomizerToSomeOptions([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
+    public async Task ConfigureShouldBeAbleToAddACustomizerToSomeOptions([StandardTypes] IGetsDriverType driverTypeProvider,
+                                                                         [StandardTypes] IGetsOptionsType optionsTypeProvider)
     {
-        var options = await GetOptionsAsync(typeProvider,
+        var options = await GetOptionsAsync(driverTypeProvider, optionsTypeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": { ""DriverType"": ""ChromeDriver"", ""OptionsCustomizerType"": ""CSF.Extensions.WebDriver.Factories.SampleCustomizer, CSF.Extensions.WebDriver.Tests"" }
@@ -136,9 +142,10 @@ public class WebDriverCreationConfigureOptionsTests
     }
     
     [Test,AutoMoqData]
-    public async Task ConfigureShouldBeAbleToGetSelectedConfigWhenASelectedConfigIsNamed([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
+    public async Task ConfigureShouldBeAbleToGetSelectedConfigWhenASelectedConfigIsNamed([StandardTypes] IGetsDriverType driverTypeProvider,
+                                                                                         [StandardTypes] IGetsOptionsType optionsTypeProvider)
     {
-        var options = await GetOptionsAsync(typeProvider,
+        var options = await GetOptionsAsync(driverTypeProvider, optionsTypeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": { ""DriverType"": ""ChromeDriver"" },
@@ -151,9 +158,10 @@ public class WebDriverCreationConfigureOptionsTests
     }
     
     [Test,AutoMoqData]
-    public async Task ConfigureShouldProvideThrowWhenThereAreTwoConfigsAndNoExplicitSelection([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
+    public async Task ConfigureShouldProvideThrowWhenThereAreTwoConfigsAndNoExplicitSelection([StandardTypes] IGetsDriverType driverTypeProvider,
+                                                                                              [StandardTypes] IGetsOptionsType optionsTypeProvider)
     {
-        var options = await GetOptionsAsync(typeProvider,
+        var options = await GetOptionsAsync(driverTypeProvider, optionsTypeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": { ""DriverType"": ""ChromeDriver"" },
@@ -165,9 +173,10 @@ public class WebDriverCreationConfigureOptionsTests
     }
 
     [Test,AutoMoqData]
-    public async Task ConfigureShouldNotThrowForANonsenseDriverType([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
+    public async Task ConfigureShouldNotThrowForANonsenseDriverType([StandardTypes] IGetsDriverType driverTypeProvider,
+                                                                    [StandardTypes] IGetsOptionsType optionsTypeProvider)
     {
-        var options = await GetOptionsAsync(typeProvider,
+        var options = await GetOptionsAsync(driverTypeProvider, optionsTypeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": { ""DriverType"": ""NonexistentDriver"" }
@@ -178,9 +187,10 @@ public class WebDriverCreationConfigureOptionsTests
     }
 
     [Test,AutoMoqData]
-    public async Task ConfigureShouldNotThrowForARemoteDriverWithoutOptionsType([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider)
+    public async Task ConfigureShouldNotThrowForARemoteDriverWithoutOptionsType([StandardTypes] IGetsDriverType driverTypeProvider,
+                                                                                [StandardTypes] IGetsOptionsType optionsTypeProvider)
     {
-        var options = await GetOptionsAsync(typeProvider,
+        var options = await GetOptionsAsync(driverTypeProvider, optionsTypeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": { ""DriverType"": ""RemoteWebDriver"" }
@@ -191,14 +201,15 @@ public class WebDriverCreationConfigureOptionsTests
     }
 
     [Test,AutoMoqData]
-    public async Task ConfigureShouldBeAbleToSetupRemoteDriverWithSimpleOptionsFromJsonConfiguration([StandardTypes] IGetsWebDriverAndOptionsTypes typeProvider,
+    public async Task ConfigureShouldBeAbleToSetupRemoteDriverWithSimpleOptionsFromJsonConfiguration([StandardTypes] IGetsDriverType driverTypeProvider,
+                                                                                                     [StandardTypes] IGetsOptionsType optionsTypeProvider,
                                                                                                      [TestLogger] ILogger<WebDriverCreationConfigureOptions> logger)
     {
-        Mock.Get(typeProvider)
-            .Setup(x => x.GetWebDriverOptionsType(typeof(RemoteWebDriver), "SafariOptions"))
-            .Returns(typeof(SafariOptions));
-
-        var options = await GetOptionsAsync(typeProvider,
+        var type = typeof(SafariOptions);
+        Mock.Get(optionsTypeProvider)
+            .Setup(x => x.TryGetOptionsType(It.Is<WebDriverCreationOptions>(o => o.OptionsType == nameof(SafariOptions)), It.IsAny<IConfigurationSection>(), typeof(RemoteWebDriver), out type))
+            .Returns(true);
+        var options = await GetOptionsAsync(driverTypeProvider, optionsTypeProvider,
 @"{
     ""DriverConfigurations"": {
         ""Test"": { ""DriverType"": ""RemoteWebDriver"", ""OptionsType"": ""SafariOptions"" }
@@ -208,24 +219,6 @@ public class WebDriverCreationConfigureOptionsTests
         Assert.That(options.DriverConfigurations, Is.Not.Empty);
     }
 
-    /// <summary>
-    /// Helper method to create an <see cref="IConfiguration"/> from a specified JSON string.
-    /// </summary>
-    /// <param name="jsonConfig">A JSON string which will be used as the basis for the returned config.</param>
-    /// <returns>A task exposing a configuration object, created from the JSON string.</returns>
-    static async Task<IConfiguration> GetConfigurationAsync(string jsonConfig)
-    {
-        var builder = new ConfigurationBuilder();
-
-        var stream = new MemoryStream ();
-        using var writer = new StreamWriter(stream, leaveOpen: true);
-        await writer.WriteAsync(jsonConfig);
-        await writer.FlushAsync();
-        stream.Position = 0;
-
-        builder.AddJsonStream(stream);
-        return builder.Build();
-    }
 
     /// <summary>
     /// Creates and exercises <see cref="WebDriverCreationConfigureOptions"/> in order to create a new
@@ -234,15 +227,20 @@ public class WebDriverCreationConfigureOptionsTests
     /// <param name="typeProvider">The type provider for web driver and options types</param>
     /// <param name="json">The JSON config from which to create the options</param>
     /// <returns>A task exposing the webdriver creation options collection, configured by the SUT</returns>
-    static async Task<WebDriverCreationOptionsCollection> GetOptionsAsync(IGetsWebDriverAndOptionsTypes typeProvider,
+    static async Task<WebDriverCreationOptionsCollection> GetOptionsAsync(IGetsDriverType driverTypeProvider,
+                                                                          IGetsOptionsType optionsTypeProvider,
                                                                           string json,
                                                                           ILogger<WebDriverCreationConfigureOptions>? logger = null)
     {
         var options = new WebDriverCreationOptionsCollection();
-        var config = await GetConfigurationAsync(json);
-        var sut = new WebDriverCreationConfigureOptions(new WebDriverConfigurationItemParser(typeProvider, Mock.Of<ILogger<WebDriverConfigurationItemParser>>()),
+        var config = await ConfigurationFactory.GetConfigurationAsync(json);
+        ICreatesDriverOptions optionsFactory = new ActivatorDriverOptionsFactory();
+        optionsFactory = new ConfigBindingDriverOptionsFactoryDecorator(optionsFactory);
+        var parser = new WebDriverConfigurationItemParser(driverTypeProvider, optionsTypeProvider, optionsFactory, Mock.Of<ILogger<WebDriverConfigurationItemParser>>());
+        var sut = new WebDriverCreationConfigureOptions(parser,
                                                         config,
-                                                        logger ?? Mock.Of<ILogger<WebDriverCreationConfigureOptions>>());
+                                                        logger ?? Mock.Of<ILogger<WebDriverCreationConfigureOptions>>(),
+                                                        c => {});
         sut.Configure(options);
         return options;
     }

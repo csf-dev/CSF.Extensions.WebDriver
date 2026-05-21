@@ -276,9 +276,30 @@ namespace CSF.Extensions.WebDriver.Factories
         /// </remarks>
         public bool AddBrowserQuirks { get; set; } = true;
 
+        /// <summary>
+        /// Gets or sets a value which indicates the logging level that the web browser should retain within its console.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This setting is effective only for browsers which provide direct access to logs.  At the time of writing this is only
+        /// Chromium-based browsers such as Chrome or Edge.
+        /// </para>
+        /// <para>
+        /// The value of this property must correspond to the string representation of a Selenium <see cref="OpenQA.Selenium.LogLevel"/>.
+        /// If this value is <see langword="null"/> then the log level will be left at the browser's default.
+        /// </para>
+        /// <para>
+        /// The setting from this option (if set) will be used via a call to <c>options.SetLoggingPreference(LogType.Browser, LOG_LEVEL);</c>
+        /// where: <c>options</c> is the <see cref="DriverOptions"/> object used to create the web driver, and <c>LOG_LEVEL</c> is an enum value
+        /// derived from the value of this property. The actual supported values for <c>LOG_LEVEL</c> are browser-specific, for the target web
+        /// browser.
+        /// </para>
+        /// </remarks>
+        public string BrowserLogLevel { get; set; }
+
         static Func<DriverOptions> GetUnsetOptionsFactory()
         {
-            return () => throw new InvalidOperationException($"Driver options cannot be created via {nameof(OptionsFactory)}; either {nameof(DriverType)} must be set to a type which indicates a deterministic options type or {nameof(OptionsType)} must set set. If you are using a custom {nameof(DriverFactoryType)} then it may not be appropriate to create options in this way.");
+            return () => throw new InvalidOperationException($"Driver options cannot be created via {nameof(OptionsFactory)}; either {nameof(DriverType)} must be set to a type which indicates a deterministic options type or {nameof(OptionsType)} must be set. If you are using a custom {nameof(DriverFactoryType)} then it may not be appropriate to create options in this way.");
         }
     }
 }
