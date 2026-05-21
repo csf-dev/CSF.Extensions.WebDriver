@@ -111,7 +111,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: NUnit test results
-          path: '**/TestResults/*.xml'
+          path: |
+            '**/TestResults/*.xml'
+            '**/*.TestResults.xml'
       - name: Fail the build if any test failures
         if: steps.dotnet_tests.outputs.failures == 'failure'
         run: |

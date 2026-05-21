@@ -117,8 +117,8 @@ namespace CSF.Extensions.WebDriver
             return services;
         }
 
-        static IServiceCollection AddWebDriverFactory(this IServiceCollection services,
-                                                      Action<WebDriverCreationOptionsCollection> configureOptions = null)
+        static void AddWebDriverFactory(this IServiceCollection services,
+                                        Action<WebDriverCreationOptionsCollection> configureOptions = null)
         {
             AddWebDriverFactoryWithoutOptionsPattern(services);
 
@@ -129,8 +129,6 @@ namespace CSF.Extensions.WebDriver
             AddDriverOptionsFactory(services);
             services.AddOptions<WebDriverCreationOptionsCollection>().Configure(configureOptions ?? (o => {}));
             services.AddTransient<WebDriverCreationConfigureOptions>();
-
-            return services;
         }
 
         /// <summary>
