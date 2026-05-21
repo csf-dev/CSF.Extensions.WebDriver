@@ -21,7 +21,7 @@ public class LogLevelDriverOptionsFactoryDecoratorTests
 
         sut.CreateOptions(optionsType, config);
 
-        Assert.That(() => options.GetLoggingPrefs()[LogType.Browser], Is.EqualTo("SEVERE"));
+        Assert.That(options.GetLoggingPrefs()[LogType.Browser], Is.EqualTo("SEVERE"));
     }
 
     [Test, AutoMoqData]
@@ -38,7 +38,7 @@ public class LogLevelDriverOptionsFactoryDecoratorTests
             
         sut.CreateOptions(optionsType, config);
 
-        Assert.That(() => options.GetLoggingPrefs(), Is.Null);
+        Assert.That(options.GetLoggingPrefs(), Is.Null);
     }
 
     [Test, AutoMoqData]
@@ -55,7 +55,7 @@ public class LogLevelDriverOptionsFactoryDecoratorTests
             
         sut.CreateOptions(optionsType, config);
 
-        Assert.That(() => options.GetLoggingPrefs(), Is.Null);
+        Assert.That(options.GetLoggingPrefs(), Is.Null);
     }
 
     class InspectableDriverOptions : DriverOptions
