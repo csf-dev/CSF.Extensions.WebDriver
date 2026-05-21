@@ -263,18 +263,16 @@ namespace CSF.Extensions.WebDriver
             };
         }
 
-        static IServiceCollection AddLoggingIfNotAlreadyAdded(IServiceCollection services)
+        static void AddLoggingIfNotAlreadyAdded(IServiceCollection services)
         {
             if(services.Any(s => s.ServiceType == typeof(ILoggerFactory)))
-                return services;
+                return;
 
             services.AddTransient<ILoggerFactory, NullLoggerFactory>();
             services.AddTransient(typeof(ILogger<>), typeof(NullLogger<>));
-
-            return services;
         }
 
-        static IServiceCollection AddDriverOptionsFactory(IServiceCollection services)
+        static void AddDriverOptionsFactory(IServiceCollection services)
         {
             services.AddTransient<ActivatorDriverOptionsFactory>();
             services.AddTransient<ConfigBindingDriverOptionsFactoryDecorator>();
@@ -288,8 +286,6 @@ namespace CSF.Extensions.WebDriver
 
                 return service;
             });
-
-            return services;
         }
     }
 }
