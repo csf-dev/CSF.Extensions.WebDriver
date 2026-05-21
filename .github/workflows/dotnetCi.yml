@@ -95,9 +95,6 @@ jobs:
             echo "One or more tests have failed; this build should eventually fail"
             echo "failures=true" >> "$GITHUB_OUTPUT"
           fi
-      - name: Run .NET tests
-        run: dotnet test
-        continue-on-error: true
 
       # Post-test tasks (artifacts, overall status)
 
