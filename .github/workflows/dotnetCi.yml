@@ -24,10 +24,18 @@ jobs:
     timeout-minutes: 30
 
     env:
+      RunNumber: ${{ github.run_number }}.${{ github.run_attempt }}
       VersionSuffix: ci.${{ github.run_number }}
+      SonarCloudProject: csf-dev_CSF.Extensions.WebDriver
+      SonarCloudUsername: craigfowler-github
+      SonarCloudUrl: https://sonarcloud.io
+      SonarCloudSecretKey: ${{ secrets.SONARCLOUDKEY }}
       Configuration: Debug
       DotnetVersion: 8.0.x
       DISPLAY: :99
+      BranchName: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
+      BranchParam: ${{ github.event_name == 'pull_request' && 'sonar.pullrequest.branch' || 'sonar.branch.name' }}
+      PullRequestParam: ${{ github.event_name == 'pull_request' && format('/d:sonar.pullrequest.key={0}', github.event.number) || '' }}
     
     steps:
       - name: Checkout
@@ -43,6 +51,10 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DotnetVersion }}
+      - name: Install SonarScanner
+        run: dotnet tool install --global dotnet-sonarscanner
+      - name: Install Coverlet console
+        run: dotnet tool install --global coverlet.console
       - name: Install DocFX
         run: dotnet tool install --global docfx
       # See https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md
@@ -60,13 +72,39 @@ jobs:
 
       - name: Build the solution
         run: dotnet build -c ${{ env.Configuration }}
-      - name: Run .NET tests
+      - name: Start SonarScanner
+        run: >
+          dotnet sonarscanner begin
+          /k:${{ env.SonarCloudProject }}
+          /v:GitHub_build_${{ env.RunNumber }}
+          /o:${{ env.SonarCloudUsername }}
+          /d:sonar.host.url=${{ env.SonarCloudUrl }}
+          /d:sonar.token=${{ env.SonarCloudSecretKey }}
+          /d:${{ env.BranchParam }}=${{ env.BranchName }} ${{ env.PullRequestParam }}
+          /d:sonar.javascript.lcov.reportPaths=$PWD/CSF.Screenplay.JsonToHtmlReport.Template/src/TestResults/lcov.info
+          /s:$PWD/.sonarqube-analysisproperties.xml
+      - name: Build the solution
+        run: dotnet build -c ${{ env.Configuration }} --no-incremental
+      - name: Run .NET tests with coverage
         id: dotnet_tests
+        shell: bash {0}
+        run: |
+          coverlet CSF.Extensions.WebDriver.Tests/bin/$Configuration/$Tfm/CSF.Extensions.WebDriver.Tests.dll --target "dotnet" --targetargs "test CSF.Extensions.WebDriver.Tests -c $Configuration --no-build --logger:nunit --test-adapter-path:." -f=opencover -o="TestResults/CSF.Extensions.WebDriver.Tests.opencover.xml"
+          exitCode=$?
+          if [ $exitCode -ne 0 ]
+          then
+            echo "One or more tests have failed; this build should eventually fail"
+            echo "failures=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Run .NET tests
         run: dotnet test
         continue-on-error: true
 
       # Post-test tasks (artifacts, overall status)
 
+      - name: Stop SonarScanner
+        run:
+          dotnet sonarscanner end /d:sonar.token=${{ env.SonarCloudSecretKey }}
       - name: Gracefully stop Xvfb
         run: killall Xvfb
         continue-on-error: true
@@ -76,7 +114,7 @@ jobs:
           name: NUnit test results
           path: Tests/*.Tests/**/TestResults.xml
       - name: Fail the build if any test failures
-        if: steps.dotnet_tests.outcome == 'failure'
+        if: steps.dotnet_tests.outputs.failures == 'failure'
         run: |
           echo "Failing the build due to test failures"
           exit 1
