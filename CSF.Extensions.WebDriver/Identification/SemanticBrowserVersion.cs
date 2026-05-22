@@ -17,6 +17,13 @@ namespace CSF.Extensions.WebDriver.Identification
     /// to permit some common improper representations of a semantic version.  The <c>TryParse</c> function in this class
     /// uses <see cref="SemVersionStyles.Any"/> to enable very generous parsing.
     /// </para>
+    /// <para>
+    /// The implementations of <see cref="CompareTo(BrowserVersion)"/> and <see cref="Equals(BrowserVersion)"/> include special-case logic for comparing/equating
+    /// semantic versions with <see cref="DottedNumericBrowserVersion"/> instances.  If these methods (from this type) are used with a dotted numeric version
+    /// then the current instance is converted into a dotted numeric version first, using <see cref="ToDottedNumericBrowserVersion"/>.
+    /// The equality/comparison methods then make use of <see cref="DottedNumericBrowserVersion.CompareTo(BrowserVersion)"/> and
+    /// <see cref="DottedNumericBrowserVersion.Equals(BrowserVersion)"/> accordingly, performing using the comparison functions from the converted version instead.
+    /// </para>
     /// </remarks>
     public sealed class SemanticBrowserVersion : BrowserVersion
     {
@@ -28,16 +35,31 @@ namespace CSF.Extensions.WebDriver.Identification
         /// <inheritdoc/>
         public override int CompareTo(BrowserVersion other)
         {
-            if (other is null || !(other is SemanticBrowserVersion semVersion)) return 1;
-            return Version.CompareSortOrderTo(semVersion.Version);
+            if(other is SemanticBrowserVersion semVersion) return Version.CompareSortOrderTo(semVersion.Version);
+            if(other is DottedNumericBrowserVersion dotVersion) return ToDottedNumericBrowserVersion().CompareTo(dotVersion);
+            return 1;
         }
 
         /// <inheritdoc/>
         public override bool Equals(BrowserVersion other)
-        {
-            if (other is null || !(other is SemanticBrowserVersion semVersion)) return false;
-            return Version.Equals(semVersion.Version);
-        }
+            => other is SemanticBrowserVersion semVersion && Version.Equals(semVersion.Version);
+        
+        /// <inheritdoc/>
+        public override bool Equals(object obj) => obj is BrowserVersion ver && Equals(ver);
+
+        /// <summary>
+        /// Converts the current <see cref="SemanticBrowserVersion"/> into an instance of <see cref="DottedNumericBrowserVersion"/>.
+        /// </summary>
+        /// <remarks>
+        /// <para>
+        /// This is useful in situations where the current version must be compared with a dotted numeric version.
+        /// Note that only the Major, Minor and Patch version components are converted.  Any prerelease information or build
+        /// metadata are omitted from this conversion process.
+        /// </para>
+        /// </remarks>
+        /// <returns>A dotted numeric browser version, created from the major, minor and patch components of this semantic version.</returns>
+        public DottedNumericBrowserVersion ToDottedNumericBrowserVersion()
+            => new DottedNumericBrowserVersion(new [] {Version.Major, Version.Minor, Version.Patch}, IsPresumedVersion);
 
         /// <inheritdoc/>
         public override int GetHashCode() => Version.GetHashCode();
