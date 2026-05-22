@@ -1312,25 +1312,6 @@ references:
   commentId: T:CSF.Extensions.WebDriver.Identification.BrowserVersion
   fullName: CSF.Extensions.WebDriver.Identification.BrowserVersion
   nameWithType: BrowserVersion
-- uid: CSF.Extensions.WebDriver.Identification.BrowserVersion.#ctor(System.Boolean)
-  name: BrowserVersion(bool)
-  href: api/CSF.Extensions.WebDriver.Identification.BrowserVersion.html#CSF_Extensions_WebDriver_Identification_BrowserVersion__ctor_System_Boolean_
-  commentId: M:CSF.Extensions.WebDriver.Identification.BrowserVersion.#ctor(System.Boolean)
-  name.vb: New(Boolean)
-  fullName: CSF.Extensions.WebDriver.Identification.BrowserVersion.BrowserVersion(bool)
-  fullName.vb: CSF.Extensions.WebDriver.Identification.BrowserVersion.New(Boolean)
-  nameWithType: BrowserVersion.BrowserVersion(bool)
-  nameWithType.vb: BrowserVersion.New(Boolean)
-- uid: CSF.Extensions.WebDriver.Identification.BrowserVersion.#ctor*
-  name: BrowserVersion
-  href: api/CSF.Extensions.WebDriver.Identification.BrowserVersion.html#CSF_Extensions_WebDriver_Identification_BrowserVersion__ctor_
-  commentId: Overload:CSF.Extensions.WebDriver.Identification.BrowserVersion.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: CSF.Extensions.WebDriver.Identification.BrowserVersion.BrowserVersion
-  fullName.vb: CSF.Extensions.WebDriver.Identification.BrowserVersion.New
-  nameWithType: BrowserVersion.BrowserVersion
-  nameWithType.vb: BrowserVersion.New
 - uid: CSF.Extensions.WebDriver.Identification.BrowserVersion.CompareTo(CSF.Extensions.WebDriver.Identification.BrowserVersion)
   name: CompareTo(BrowserVersion)
   href: api/CSF.Extensions.WebDriver.Identification.BrowserVersion.html#CSF_Extensions_WebDriver_Identification_BrowserVersion_CompareTo_CSF_Extensions_WebDriver_Identification_BrowserVersion_
@@ -1732,6 +1713,15 @@ references:
   commentId: M:CSF.Extensions.WebDriver.Identification.MissingBrowserVersion.Equals(CSF.Extensions.WebDriver.Identification.BrowserVersion)
   fullName: CSF.Extensions.WebDriver.Identification.MissingBrowserVersion.Equals(CSF.Extensions.WebDriver.Identification.BrowserVersion)
   nameWithType: MissingBrowserVersion.Equals(BrowserVersion)
+- uid: CSF.Extensions.WebDriver.Identification.MissingBrowserVersion.Equals(System.Object)
+  name: Equals(object)
+  href: api/CSF.Extensions.WebDriver.Identification.MissingBrowserVersion.html#CSF_Extensions_WebDriver_Identification_MissingBrowserVersion_Equals_System_Object_
+  commentId: M:CSF.Extensions.WebDriver.Identification.MissingBrowserVersion.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: CSF.Extensions.WebDriver.Identification.MissingBrowserVersion.Equals(object)
+  fullName.vb: CSF.Extensions.WebDriver.Identification.MissingBrowserVersion.Equals(Object)
+  nameWithType: MissingBrowserVersion.Equals(object)
+  nameWithType.vb: MissingBrowserVersion.Equals(Object)
 - uid: CSF.Extensions.WebDriver.Identification.MissingBrowserVersion.Equals*
   name: Equals
   href: api/CSF.Extensions.WebDriver.Identification.MissingBrowserVersion.html#CSF_Extensions_WebDriver_Identification_MissingBrowserVersion_Equals_
@@ -1959,6 +1949,15 @@ references:
   commentId: M:CSF.Extensions.WebDriver.Identification.UnrecognisedBrowserVersion.Equals(CSF.Extensions.WebDriver.Identification.BrowserVersion)
   fullName: CSF.Extensions.WebDriver.Identification.UnrecognisedBrowserVersion.Equals(CSF.Extensions.WebDriver.Identification.BrowserVersion)
   nameWithType: UnrecognisedBrowserVersion.Equals(BrowserVersion)
+- uid: CSF.Extensions.WebDriver.Identification.UnrecognisedBrowserVersion.Equals(System.Object)
+  name: Equals(object)
+  href: api/CSF.Extensions.WebDriver.Identification.UnrecognisedBrowserVersion.html#CSF_Extensions_WebDriver_Identification_UnrecognisedBrowserVersion_Equals_System_Object_
+  commentId: M:CSF.Extensions.WebDriver.Identification.UnrecognisedBrowserVersion.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: CSF.Extensions.WebDriver.Identification.UnrecognisedBrowserVersion.Equals(object)
+  fullName.vb: CSF.Extensions.WebDriver.Identification.UnrecognisedBrowserVersion.Equals(Object)
+  nameWithType: UnrecognisedBrowserVersion.Equals(object)
+  nameWithType.vb: UnrecognisedBrowserVersion.Equals(Object)
 - uid: CSF.Extensions.WebDriver.Identification.UnrecognisedBrowserVersion.Equals*
   name: Equals
   href: api/CSF.Extensions.WebDriver.Identification.UnrecognisedBrowserVersion.html#CSF_Extensions_WebDriver_Identification_UnrecognisedBrowserVersion_Equals_
