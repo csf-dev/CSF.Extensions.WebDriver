@@ -22,7 +22,7 @@ namespace CSF.Extensions.WebDriver.Proxies
             if (!context.CreationOptions.AddQuirks) return;
 
             context.Interfaces.Add(typeof(IHasQuirks));
-            context.Interceptors.Add(ActivatorUtilities.CreateInstance<QuirksInterceptor>(services, new [] {context.BrowserId}));
+            context.Interceptors.Add(ActivatorUtilities.CreateInstance<QuirksInterceptor>(services, context.BrowserId));
         }
 
         /// <summary>

@@ -57,7 +57,7 @@ namespace CSF.Extensions.WebDriver.Identification
         /// Initialises a new instance of <see cref="BrowserVersion"/>.
         /// </summary>
         /// <param name="isPresumed">Whether or not this is a presumed version; see <see cref="IsPresumedVersion"/>.</param>
-        protected internal BrowserVersion(bool isPresumed = false)
+        private protected BrowserVersion(bool isPresumed = false)
         {
             IsPresumedVersion = isPresumed;
         }

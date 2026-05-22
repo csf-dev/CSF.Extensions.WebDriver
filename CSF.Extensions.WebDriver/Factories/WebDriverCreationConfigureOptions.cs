@@ -51,7 +51,7 @@ namespace CSF.Extensions.WebDriver.Factories
             if(driverConfigsSection != null) options.DriverConfigurations = GetDriverConfigurations(driverConfigsSection);
         }
 
-        IDictionary<string, WebDriverCreationOptions> GetDriverConfigurations(IConfigurationSection configuration)
+        Dictionary<string, WebDriverCreationOptions> GetDriverConfigurations(IConfigurationSection configuration)
             => configuration.GetChildren()
                             .Select(c => new { c.Key, Value = configParser.GetDriverConfiguration(c) })
                             .Where(x => x.Value != null)
