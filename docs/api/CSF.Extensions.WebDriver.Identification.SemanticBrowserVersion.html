@@ -89,7 +89,7 @@
 
 
   <h1 id="CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion" data-uid="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion" class="text-break">
-Class SemanticBrowserVersion  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L21"><i class="bi bi-code-slash"></i></a>
+Class SemanticBrowserVersion  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -133,9 +133,6 @@ Class SemanticBrowserVersion  <a class="header-action link-secondary" title="Vie
       <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html#CSF_Extensions_WebDriver_Identification_BrowserVersion_IsPresumedVersion">BrowserVersion.IsPresumedVersion</a>
     </div>
     <div>
-      <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html#CSF_Extensions_WebDriver_Identification_BrowserVersion_Equals_System_Object_">BrowserVersion.Equals(object)</a>
-    </div>
-    <div>
       <a class="xref" href="CSF.Extensions.WebDriver.Identification.BrowserVersion.html#CSF_Extensions_WebDriver_Identification_BrowserVersion_Create_System_String_System_String_">BrowserVersion.Create(string, string)</a>
     </div>
     <div>
@@ -163,6 +160,13 @@ use of the parsing functionality within <a class="xref" href="https://learn.micr
 to permit some common improper representations of a semantic version.  The <code>TryParse</code> function in this class
 uses <span class="xref">Semver.SemVersionStyles.Any</span> to enable very generous parsing.
 </p>
+<p>
+The implementations of <a class="xref" href="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.html#CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_CompareTo_CSF_Extensions_WebDriver_Identification_BrowserVersion_">CompareTo(BrowserVersion)</a> and <a class="xref" href="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.html#CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_Equals_CSF_Extensions_WebDriver_Identification_BrowserVersion_">Equals(BrowserVersion)</a> include special-case logic for comparing/equating
+semantic versions with <a class="xref" href="CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.html">DottedNumericBrowserVersion</a> instances.  If these methods (from this type) are used with a dotted numeric version
+then the current instance is converted into a dotted numeric version first, using <a class="xref" href="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.html#CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_ToDottedNumericBrowserVersion">ToDottedNumericBrowserVersion()</a>.
+The equality/comparison methods then make use of <a class="xref" href="CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.html#CSF_Extensions_WebDriver_Identification_DottedNumericBrowserVersion_CompareTo_CSF_Extensions_WebDriver_Identification_BrowserVersion_">CompareTo(BrowserVersion)</a> and
+<a class="xref" href="CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.html#CSF_Extensions_WebDriver_Identification_DottedNumericBrowserVersion_Equals_CSF_Extensions_WebDriver_Identification_BrowserVersion_">Equals(BrowserVersion)</a> accordingly, performing using the comparison functions from the converted version instead.
+</p>
 </div>
 
 
@@ -174,7 +178,7 @@ uses <span class="xref">Semver.SemVersionStyles.Any</span> to enable very genero
 
   <h3 id="CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion__ctor_Semver_SemVersion_System_Boolean_" data-uid="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.#ctor(Semver.SemVersion,System.Boolean)">
   SemanticBrowserVersion(SemVersion, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L76"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initialises a new instance of <a class="xref" href="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.html">SemanticBrowserVersion</a></p>
@@ -220,7 +224,7 @@ uses <span class="xref">Semver.SemVersionStyles.Any</span> to enable very genero
 
   <h3 id="CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_Version" data-uid="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.Version">
   Version
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the semantic version represented by the current instance.</p>
@@ -256,7 +260,7 @@ uses <span class="xref">Semver.SemVersionStyles.Any</span> to enable very genero
 
   <h3 id="CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_CompareTo_CSF_Extensions_WebDriver_Identification_BrowserVersion_" data-uid="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.CompareTo(CSF.Extensions.WebDriver.Identification.BrowserVersion)">
   CompareTo(BrowserVersion)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -292,7 +296,7 @@ uses <span class="xref">Semver.SemVersionStyles.Any</span> to enable very genero
 
   <h3 id="CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_Equals_CSF_Extensions_WebDriver_Identification_BrowserVersion_" data-uid="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.Equals(CSF.Extensions.WebDriver.Identification.BrowserVersion)">
   Equals(BrowserVersion)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -324,11 +328,47 @@ uses <span class="xref">Semver.SemVersionStyles.Any</span> to enable very genero
 
 
 
+  <a id="CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_Equals_" data-uid="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.Equals*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_Equals_System_Object_" data-uid="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.Equals(System.Object)">
+  Equals(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_GetHashCode_" data-uid="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.GetHashCode*"></a>
 
   <h3 id="CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_GetHashCode" data-uid="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.GetHashCode">
   GetHashCode()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L65"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -359,7 +399,7 @@ uses <span class="xref">Semver.SemVersionStyles.Any</span> to enable very genero
 
   <h3 id="CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_Parse_System_String_System_Boolean_" data-uid="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.Parse(System.String,System.Boolean)">
   Parse(string, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L112"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates a <a class="xref" href="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.html">SemanticBrowserVersion</a> from a string, raising an exception if the string is not a valid version.</p>
@@ -408,11 +448,51 @@ Consider using <a class="xref" href="CSF.Extensions.WebDriver.Identification.Sem
 
 
 
+  <a id="CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_ToDottedNumericBrowserVersion_" data-uid="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.ToDottedNumericBrowserVersion*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_ToDottedNumericBrowserVersion" data-uid="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.ToDottedNumericBrowserVersion">
+  ToDottedNumericBrowserVersion()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the current <a class="xref" href="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.html">SemanticBrowserVersion</a> into an instance of <a class="xref" href="CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.html">DottedNumericBrowserVersion</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DottedNumericBrowserVersion ToDottedNumericBrowserVersion()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.html">DottedNumericBrowserVersion</a></dt>
+    <dd><p>A dotted numeric browser version, created from the major, minor and patch components of this semantic version.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_ToDottedNumericBrowserVersion_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This is useful in situations where the current version must be compared with a dotted numeric version.
+Note that only the Major, Minor and Patch version components are converted.  Any prerelease information or build
+metadata are omitted from this conversion process.
+</p>
+</div>
+
+
+
+
   <a id="CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_ToString_" data-uid="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.ToString*"></a>
 
   <h3 id="CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_ToString" data-uid="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.ToString">
   ToString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L68"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -443,7 +523,7 @@ Consider using <a class="xref" href="CSF.Extensions.WebDriver.Identification.Sem
 
   <h3 id="CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_TryParse_System_String_CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion__System_Boolean_" data-uid="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.TryParse(System.String,CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion@,System.Boolean)">
   TryParse(string, out SemanticBrowserVersion, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L88"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Attempts to parse the specified version string as a <a class="xref" href="CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.html">SemanticBrowserVersion</a>.</p>
@@ -488,7 +568,7 @@ Consider using <a class="xref" href="CSF.Extensions.WebDriver.Identification.Sem
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L21" class="edit-link">Edit this page</a>
+          <a href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Identification/SemanticBrowserVersion.cs/#L28" class="edit-link">Edit this page</a>
         </div>
 
 

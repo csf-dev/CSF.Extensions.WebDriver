@@ -1579,6 +1579,15 @@ references:
   commentId: M:CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.Equals(CSF.Extensions.WebDriver.Identification.BrowserVersion)
   fullName: CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.Equals(CSF.Extensions.WebDriver.Identification.BrowserVersion)
   nameWithType: DottedNumericBrowserVersion.Equals(BrowserVersion)
+- uid: CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.Equals(System.Object)
+  name: Equals(object)
+  href: api/CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.html#CSF_Extensions_WebDriver_Identification_DottedNumericBrowserVersion_Equals_System_Object_
+  commentId: M:CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.Equals(object)
+  fullName.vb: CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.Equals(Object)
+  nameWithType: DottedNumericBrowserVersion.Equals(object)
+  nameWithType.vb: DottedNumericBrowserVersion.Equals(Object)
 - uid: CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.Equals*
   name: Equals
   href: api/CSF.Extensions.WebDriver.Identification.DottedNumericBrowserVersion.html#CSF_Extensions_WebDriver_Identification_DottedNumericBrowserVersion_Equals_
@@ -1806,6 +1815,15 @@ references:
   commentId: M:CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.Equals(CSF.Extensions.WebDriver.Identification.BrowserVersion)
   fullName: CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.Equals(CSF.Extensions.WebDriver.Identification.BrowserVersion)
   nameWithType: SemanticBrowserVersion.Equals(BrowserVersion)
+- uid: CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.Equals(System.Object)
+  name: Equals(object)
+  href: api/CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.html#CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_Equals_System_Object_
+  commentId: M:CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.Equals(object)
+  fullName.vb: CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.Equals(Object)
+  nameWithType: SemanticBrowserVersion.Equals(object)
+  nameWithType.vb: SemanticBrowserVersion.Equals(Object)
 - uid: CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.Equals*
   name: Equals
   href: api/CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.html#CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_Equals_
@@ -1842,6 +1860,19 @@ references:
   isSpec: "True"
   fullName: CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.Parse
   nameWithType: SemanticBrowserVersion.Parse
+- uid: CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.ToDottedNumericBrowserVersion
+  name: ToDottedNumericBrowserVersion()
+  href: api/CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.html#CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_ToDottedNumericBrowserVersion
+  commentId: M:CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.ToDottedNumericBrowserVersion
+  fullName: CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.ToDottedNumericBrowserVersion()
+  nameWithType: SemanticBrowserVersion.ToDottedNumericBrowserVersion()
+- uid: CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.ToDottedNumericBrowserVersion*
+  name: ToDottedNumericBrowserVersion
+  href: api/CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.html#CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_ToDottedNumericBrowserVersion_
+  commentId: Overload:CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.ToDottedNumericBrowserVersion
+  isSpec: "True"
+  fullName: CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.ToDottedNumericBrowserVersion
+  nameWithType: SemanticBrowserVersion.ToDottedNumericBrowserVersion
 - uid: CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.ToString
   name: ToString()
   href: api/CSF.Extensions.WebDriver.Identification.SemanticBrowserVersion.html#CSF_Extensions_WebDriver_Identification_SemanticBrowserVersion_ToString
