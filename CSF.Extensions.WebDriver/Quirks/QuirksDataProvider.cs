@@ -46,7 +46,7 @@ namespace CSF.Extensions.WebDriver.Quirks
         /// <inheritdoc/>
         public QuirksData GetQuirksData() => data;
 
-        QuirksData MergeQuirksData(QuirksData primary, QuirksData secondary = null)
+        static QuirksData MergeQuirksData(QuirksData primary, QuirksData secondary = null)
         {
             if (primary is null) throw new ArgumentNullException(nameof(primary));
             if (secondary is null) return primary.DeepCopy();

@@ -23,14 +23,14 @@ namespace CSF.Extensions.WebDriver.Factories
         public override bool Equals(object obj) => Equals(obj as WebDriverAndOptionsTypePair);
 
         /// <inheritdoc/>
-        public override int GetHashCode() => WebDriverType.GetHashCode() ^ OptionsType.GetHashCode();
-
-        /// <inheritdoc/>
         public bool Equals(WebDriverAndOptionsTypePair other)
         {
             if (ReferenceEquals(other, null)) return false;
             return other.WebDriverType == WebDriverType && other.OptionsType == OptionsType;
         }
+
+        /// <inheritdoc/>
+        public override int GetHashCode() => WebDriverType.GetHashCode() ^ OptionsType.GetHashCode();
 
         /// <summary>
         /// Initialises a new instance of <see cref="WebDriverAndOptionsTypePair"/>.

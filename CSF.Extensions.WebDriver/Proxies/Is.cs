@@ -1,4 +1,3 @@
-using System;
 using System.Reflection;
 
 namespace CSF.Extensions.WebDriver.Proxies
@@ -6,7 +5,7 @@ namespace CSF.Extensions.WebDriver.Proxies
     /// <summary>
     /// Utility/helper class to identify members.
     /// </summary>
-    internal class Is
+    internal static class Is
     {
         const string getterPrefix = "get_";
 
@@ -20,6 +19,6 @@ namespace CSF.Extensions.WebDriver.Proxies
         /// <returns><see langword="true" /> if the <paramref name="method"/> is a getter for a property named
         /// <paramref name="name"/>, upon the type <typeparamref name="T"/>; <see langword="false" /> if not.</returns>
         internal static bool Getter<T>(string name, MethodInfo method) where T : class
-            => method.DeclaringType == typeof(T) && method.Name == String.Concat(getterPrefix, name);
+            => method.DeclaringType == typeof(T) && method.Name == string.Concat(getterPrefix, name);
     }
 }

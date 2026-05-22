@@ -230,7 +230,7 @@ namespace CSF.Extensions.WebDriver
             services.AddSingleton<IGetsQuirksData>(s =>
             {
                 if (!useOptions) return new QuirksDataProvider(quirksData);
-                return ActivatorUtilities.CreateInstance<QuirksDataProvider>(s, new[] { quirksData ?? QuirksData.Empty });
+                return ActivatorUtilities.CreateInstance<QuirksDataProvider>(s, quirksData ?? QuirksData.Empty);
             });
 
             return services;

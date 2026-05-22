@@ -27,16 +27,19 @@ namespace CSF.Extensions.WebDriver.Identification
         /// <inheritdoc/>
         public override int CompareTo(BrowserVersion other)
         {
-            if (other is null || !(other is UnrecognisedBrowserVersion version)) return 1;
+            if (!(other is UnrecognisedBrowserVersion version)) return 1;
             return string.Compare(Version, version.Version, StringComparison.InvariantCulture);
         }
 
         /// <inheritdoc/>
         public override bool Equals(BrowserVersion other)
         {
-            if (other is null || !(other is UnrecognisedBrowserVersion version)) return false;
+            if (!(other is UnrecognisedBrowserVersion version)) return false;
             return Version.Equals(version.Version, StringComparison.InvariantCulture);
         }
+
+        /// <inheritdoc/>
+        public override bool Equals(object obj) => obj is BrowserVersion ver && Equals(ver);
 
         /// <inheritdoc/>
         public override int GetHashCode() => Version.GetHashCode();

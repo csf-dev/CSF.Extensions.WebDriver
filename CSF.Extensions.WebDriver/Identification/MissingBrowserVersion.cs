@@ -19,6 +19,9 @@ namespace CSF.Extensions.WebDriver.Identification
         public override bool Equals(BrowserVersion other) => other is MissingBrowserVersion;
 
         /// <inheritdoc/>
+        public override bool Equals(object obj) => obj is BrowserVersion ver && Equals(ver);
+
+        /// <inheritdoc/>
         public override int GetHashCode() => 17;
 
         /// <inheritdoc/>
