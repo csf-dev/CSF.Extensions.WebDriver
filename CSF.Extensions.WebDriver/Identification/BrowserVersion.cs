@@ -166,7 +166,7 @@ namespace CSF.Extensions.WebDriver.Identification
             if (SemanticBrowserVersion.TryParse(version, out var semVersion)) return semVersion;
             if (DottedNumericBrowserVersion.TryParse(version, out var numericVersion)) return numericVersion;
             if (SemanticBrowserVersion.TryParse(requestedVersion, out var requestedSemVersion, true)) return requestedSemVersion;
-            if (DottedNumericBrowserVersion.TryParse(requestedVersion, out var requestedNumericVersion)) return requestedNumericVersion;
+            if (DottedNumericBrowserVersion.TryParse(requestedVersion, out var requestedNumericVersion, true)) return requestedNumericVersion;
             if (UnrecognisedBrowserVersion.TryParse(version, out var unrecognisedVersion)) return unrecognisedVersion;
             if (UnrecognisedBrowserVersion.TryParse(requestedVersion, out var requestedUnrecognisedVersion)) return requestedUnrecognisedVersion;
 

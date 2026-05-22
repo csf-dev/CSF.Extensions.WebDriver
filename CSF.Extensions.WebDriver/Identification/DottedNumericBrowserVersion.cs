@@ -16,6 +16,12 @@ namespace CSF.Extensions.WebDriver.Identification
     /// <item><description>It permits any amount of leading and trailing non-numeric characters</description></item>
     /// <item><description>It permits any number of 'version' components, not just a maximum of 3 as is the case with SemVer</description></item>
     /// </list>
+    /// <para>
+    /// The implementations of <see cref="CompareTo(BrowserVersion)"/> and <see cref="Equals(BrowserVersion)"/> include special-case logic for comparing/equating
+    /// dotted numeric versions with <see cref="SemanticBrowserVersion"/> instances.  If these methods (from this type) are used with a semantic version
+    /// then that semantic version is converted into a dotted numeric version first, using <see cref="SemanticBrowserVersion.ToDottedNumericBrowserVersion"/>.
+    /// The methods then proceed according to their usual logic, with the resulting converted version.
+    /// </para>
     /// </remarks>
     public sealed class DottedNumericBrowserVersion : BrowserVersion
     {
@@ -33,8 +39,13 @@ namespace CSF.Extensions.WebDriver.Identification
         /// <inheritdoc/>
         public override int CompareTo(BrowserVersion other)
         {
-            if (other is null || !(other is DottedNumericBrowserVersion version)) return 1;
+            if(other is DottedNumericBrowserVersion dotVersion) return CompareTo(dotVersion);
+            if(other is SemanticBrowserVersion semVersion) return CompareTo(semVersion.ToDottedNumericBrowserVersion());
+            return 1;
+        }
 
+        int CompareTo(DottedNumericBrowserVersion version)
+        {
             var theirCount = version.VersionComponents.Count;
             for (var i = 0; i < VersionComponents.Count; i++)
             {
@@ -55,8 +66,9 @@ namespace CSF.Extensions.WebDriver.Identification
         /// <inheritdoc/>
         public override bool Equals(BrowserVersion other)
         {
-            if (other is null || !(other is DottedNumericBrowserVersion version)) return false;
-            return VersionComponents.SequenceEqual(version.VersionComponents);
+            if(other is DottedNumericBrowserVersion dotVersion) return VersionComponents.SequenceEqual(dotVersion.VersionComponents);
+            if(other is SemanticBrowserVersion semVersion) return VersionComponents.SequenceEqual(semVersion.ToDottedNumericBrowserVersion().VersionComponents);
+            return false;
         }
 
         /// <inheritdoc/>
