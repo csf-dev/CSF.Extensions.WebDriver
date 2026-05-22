@@ -73,6 +73,9 @@ namespace CSF.Extensions.WebDriver.Identification
         static int HashFunction(int acc, int next) { unchecked { return acc * 23 + next; } }
 
         /// <inheritdoc/>
+        public override bool Equals(object obj) => obj is BrowserVersion ver && Equals(ver);
+
+        /// <inheritdoc/>
         public override string ToString() => string.Join(".", VersionComponents.Select(x => x.ToString())) + PresumedSuffix;
 
         /// <summary>

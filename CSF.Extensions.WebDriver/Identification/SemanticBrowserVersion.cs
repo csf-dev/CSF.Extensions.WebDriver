@@ -60,6 +60,9 @@ namespace CSF.Extensions.WebDriver.Identification
 
         /// <inheritdoc/>
         public override int GetHashCode() => Version.GetHashCode();
+        
+        /// <inheritdoc/>
+        public override bool Equals(object obj) => obj is BrowserVersion ver && Equals(ver);
 
         /// <inheritdoc/>
         public override string ToString() => Version.ToString() + PresumedSuffix;
