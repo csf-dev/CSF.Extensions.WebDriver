@@ -26,7 +26,7 @@ namespace CSF.Extensions.WebDriver.Identification
     public sealed class DottedNumericBrowserVersion : BrowserVersion
     {
         const string parserPattern = @"(\d+)(?:\.(\d+))*";
-        static readonly Regex parser = new Regex(parserPattern, RegexOptions.Compiled | RegexOptions.CultureInvariant);
+        static readonly Regex parser = new Regex(parserPattern, RegexOptions.Compiled | RegexOptions.CultureInvariant, TimeSpan.FromMilliseconds(50));
 
         readonly IReadOnlyList<int> components;
 
