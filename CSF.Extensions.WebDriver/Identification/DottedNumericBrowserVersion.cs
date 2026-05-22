@@ -65,11 +65,7 @@ namespace CSF.Extensions.WebDriver.Identification
 
         /// <inheritdoc/>
         public override bool Equals(BrowserVersion other)
-        {
-            if(other is DottedNumericBrowserVersion dotVersion) return VersionComponents.SequenceEqual(dotVersion.VersionComponents);
-            if(other is SemanticBrowserVersion semVersion) return VersionComponents.SequenceEqual(semVersion.ToDottedNumericBrowserVersion().VersionComponents);
-            return false;
-        }
+            => other is DottedNumericBrowserVersion dotVersion && VersionComponents.SequenceEqual(dotVersion.VersionComponents);
 
         /// <inheritdoc/>
         public override int GetHashCode() => VersionComponents.Aggregate(17, HashFunction);

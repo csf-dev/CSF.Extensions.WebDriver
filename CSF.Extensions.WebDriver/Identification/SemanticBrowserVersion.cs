@@ -42,11 +42,7 @@ namespace CSF.Extensions.WebDriver.Identification
 
         /// <inheritdoc/>
         public override bool Equals(BrowserVersion other)
-        {
-            if(other is SemanticBrowserVersion semVersion) return Version.Equals(semVersion.Version);
-            if(other is DottedNumericBrowserVersion dotVersion) return ToDottedNumericBrowserVersion().Equals(dotVersion);
-            return false;
-        }
+            => other is SemanticBrowserVersion semVersion && Version.Equals(semVersion.Version);
 
         /// <summary>
         /// Converts the current <see cref="SemanticBrowserVersion"/> into an instance of <see cref="DottedNumericBrowserVersion"/>.
