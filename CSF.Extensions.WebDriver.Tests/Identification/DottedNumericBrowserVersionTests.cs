@@ -61,4 +61,36 @@ public class DottedNumericBrowserVersionTests
     {
         Assert.That(DottedNumericBrowserVersion.TryParse("Elephants", out _), Is.False);
     }
+
+    [Test, AutoMoqData]
+    public void GetHashCodeShouldReturnTheSameResultForTwoEqualInstances()
+    {
+        var one = new DottedNumericBrowserVersion([1, 2, 3]);
+        var two = new DottedNumericBrowserVersion([1, 2, 3]);
+
+        Assert.That(one.GetHashCode(), Is.EqualTo(two.GetHashCode()));
+    }
+
+    [Test, AutoMoqData]
+    public void EqualsObjectShouldReturnTrueForTwoEqualInstances()
+    {
+        object one = new DottedNumericBrowserVersion([1, 2, 3]);
+        object two = new DottedNumericBrowserVersion([1, 2, 3]);
+
+#pragma warning disable NUnit2010 // Use EqualConstraint - not doing this to explicitly show what I'm testing
+        Assert.That(one.Equals(two), Is.True);
+#pragma warning restore NUnit2010
+    }
+
+    [Test, AutoMoqData]
+    public void ConstructorShouldThrowForAnEmptyListOfComponents()
+    {
+        Assert.That(() => new DottedNumericBrowserVersion([]), Throws.ArgumentException);
+    }
+
+    [Test, AutoMoqData]
+    public void ConstructorShouldThrowForANullListOfComponents()
+    {
+        Assert.That(() => new DottedNumericBrowserVersion(null), Throws.ArgumentNullException);
+    }
 }

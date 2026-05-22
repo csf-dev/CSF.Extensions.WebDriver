@@ -68,12 +68,12 @@ namespace CSF.Extensions.WebDriver.Identification
             => other is DottedNumericBrowserVersion dotVersion && VersionComponents.SequenceEqual(dotVersion.VersionComponents);
 
         /// <inheritdoc/>
+        public override bool Equals(object obj) => obj is BrowserVersion ver && Equals(ver);
+
+        /// <inheritdoc/>
         public override int GetHashCode() => VersionComponents.Aggregate(17, HashFunction);
 
         static int HashFunction(int acc, int next) { unchecked { return acc * 23 + next; } }
-
-        /// <inheritdoc/>
-        public override bool Equals(object obj) => obj is BrowserVersion ver && Equals(ver);
 
         /// <inheritdoc/>
         public override string ToString() => string.Join(".", VersionComponents.Select(x => x.ToString())) + PresumedSuffix;

@@ -43,6 +43,9 @@ namespace CSF.Extensions.WebDriver.Identification
         /// <inheritdoc/>
         public override bool Equals(BrowserVersion other)
             => other is SemanticBrowserVersion semVersion && Version.Equals(semVersion.Version);
+        
+        /// <inheritdoc/>
+        public override bool Equals(object obj) => obj is BrowserVersion ver && Equals(ver);
 
         /// <summary>
         /// Converts the current <see cref="SemanticBrowserVersion"/> into an instance of <see cref="DottedNumericBrowserVersion"/>.
@@ -60,9 +63,6 @@ namespace CSF.Extensions.WebDriver.Identification
 
         /// <inheritdoc/>
         public override int GetHashCode() => Version.GetHashCode();
-        
-        /// <inheritdoc/>
-        public override bool Equals(object obj) => obj is BrowserVersion ver && Equals(ver);
 
         /// <inheritdoc/>
         public override string ToString() => Version.ToString() + PresumedSuffix;
