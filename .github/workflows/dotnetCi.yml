@@ -56,6 +56,11 @@ jobs:
         run: dotnet tool install --global dotnet-sonarscanner
       - name: Install Coverlet console
         run: dotnet tool install --global coverlet.console --version 8.0.1
+      - name: Install Java JDK for SonarScanner
+        uses: actions/setup-java@v5.1.0
+        with:
+          java-version: 21
+          distribution: zulu
       - name: Install DocFX
         run: dotnet tool install --global docfx
       # See https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md
