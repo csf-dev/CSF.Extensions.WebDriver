@@ -1,4 +1,5 @@
 {
+  "docfx_version": "2.81.0+ba844df625370a6bd7c1ecab0d0ec4d1d9128ac4",
   "source_base_path": "/home/runner/work/CSF.Extensions.WebDriver/CSF.Extensions.WebDriver/CSF.Extensions.WebDriver.Docs",
   "xrefmap": "xrefmap.yml",
   "files": [
@@ -397,6 +398,20 @@
       "IsMRef": true,
       "Title": "CSF.Extensions.WebDriver.Factories",
       "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CSF.Extensions.WebDriver.IGetsLogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CSF.Extensions.WebDriver.IGetsLogger.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "CSF.Extensions.WebDriver.IGetsLogger",
+      "Summary": "<p sourcefile=\"api/CSF.Extensions.WebDriver.IGetsLogger.yml\" sourcestartlinenumber=\"1\">Small service which provides a method for obtaining loggers.</p>\n"
     },
     {
       "type": "ManagedReference",

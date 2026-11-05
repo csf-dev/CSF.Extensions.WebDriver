@@ -76,15 +76,15 @@ references:
   commentId: T:CSF.Extensions.WebDriver.Factories.DriverTypeProvider
   fullName: CSF.Extensions.WebDriver.Factories.DriverTypeProvider
   nameWithType: DriverTypeProvider
-- uid: CSF.Extensions.WebDriver.Factories.DriverTypeProvider.#ctor(Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.DriverTypeProvider},CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes)
-  name: DriverTypeProvider(ILogger<DriverTypeProvider>, IGetsWebDriverAndOptionsTypes)
-  href: api/CSF.Extensions.WebDriver.Factories.DriverTypeProvider.html#CSF_Extensions_WebDriver_Factories_DriverTypeProvider__ctor_Microsoft_Extensions_Logging_ILogger_CSF_Extensions_WebDriver_Factories_DriverTypeProvider__CSF_Extensions_WebDriver_Factories_IGetsWebDriverAndOptionsTypes_
-  commentId: M:CSF.Extensions.WebDriver.Factories.DriverTypeProvider.#ctor(Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.DriverTypeProvider},CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes)
-  name.vb: New(ILogger(Of DriverTypeProvider), IGetsWebDriverAndOptionsTypes)
-  fullName: CSF.Extensions.WebDriver.Factories.DriverTypeProvider.DriverTypeProvider(Microsoft.Extensions.Logging.ILogger<CSF.Extensions.WebDriver.Factories.DriverTypeProvider>, CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes)
-  fullName.vb: CSF.Extensions.WebDriver.Factories.DriverTypeProvider.New(Microsoft.Extensions.Logging.ILogger(Of CSF.Extensions.WebDriver.Factories.DriverTypeProvider), CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes)
-  nameWithType: DriverTypeProvider.DriverTypeProvider(ILogger<DriverTypeProvider>, IGetsWebDriverAndOptionsTypes)
-  nameWithType.vb: DriverTypeProvider.New(ILogger(Of DriverTypeProvider), IGetsWebDriverAndOptionsTypes)
+- uid: CSF.Extensions.WebDriver.Factories.DriverTypeProvider.#ctor(CSF.Extensions.WebDriver.IGetsLogger,CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes)
+  name: DriverTypeProvider(IGetsLogger, IGetsWebDriverAndOptionsTypes)
+  href: api/CSF.Extensions.WebDriver.Factories.DriverTypeProvider.html#CSF_Extensions_WebDriver_Factories_DriverTypeProvider__ctor_CSF_Extensions_WebDriver_IGetsLogger_CSF_Extensions_WebDriver_Factories_IGetsWebDriverAndOptionsTypes_
+  commentId: M:CSF.Extensions.WebDriver.Factories.DriverTypeProvider.#ctor(CSF.Extensions.WebDriver.IGetsLogger,CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes)
+  name.vb: New(IGetsLogger, IGetsWebDriverAndOptionsTypes)
+  fullName: CSF.Extensions.WebDriver.Factories.DriverTypeProvider.DriverTypeProvider(CSF.Extensions.WebDriver.IGetsLogger, CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes)
+  fullName.vb: CSF.Extensions.WebDriver.Factories.DriverTypeProvider.New(CSF.Extensions.WebDriver.IGetsLogger, CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes)
+  nameWithType: DriverTypeProvider.DriverTypeProvider(IGetsLogger, IGetsWebDriverAndOptionsTypes)
+  nameWithType.vb: DriverTypeProvider.New(IGetsLogger, IGetsWebDriverAndOptionsTypes)
 - uid: CSF.Extensions.WebDriver.Factories.DriverTypeProvider.#ctor*
   name: DriverTypeProvider
   href: api/CSF.Extensions.WebDriver.Factories.DriverTypeProvider.html#CSF_Extensions_WebDriver_Factories_DriverTypeProvider__ctor_
@@ -358,15 +358,15 @@ references:
   commentId: T:CSF.Extensions.WebDriver.Factories.OptionsTypeProvider
   fullName: CSF.Extensions.WebDriver.Factories.OptionsTypeProvider
   nameWithType: OptionsTypeProvider
-- uid: CSF.Extensions.WebDriver.Factories.OptionsTypeProvider.#ctor(Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.OptionsTypeProvider},CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions)
-  name: OptionsTypeProvider(ILogger<OptionsTypeProvider>, IGetsWebDriverAndOptionsTypes, ICreatesDriverOptions)
-  href: api/CSF.Extensions.WebDriver.Factories.OptionsTypeProvider.html#CSF_Extensions_WebDriver_Factories_OptionsTypeProvider__ctor_Microsoft_Extensions_Logging_ILogger_CSF_Extensions_WebDriver_Factories_OptionsTypeProvider__CSF_Extensions_WebDriver_Factories_IGetsWebDriverAndOptionsTypes_CSF_Extensions_WebDriver_Factories_ICreatesDriverOptions_
-  commentId: M:CSF.Extensions.WebDriver.Factories.OptionsTypeProvider.#ctor(Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.OptionsTypeProvider},CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions)
-  name.vb: New(ILogger(Of OptionsTypeProvider), IGetsWebDriverAndOptionsTypes, ICreatesDriverOptions)
-  fullName: CSF.Extensions.WebDriver.Factories.OptionsTypeProvider.OptionsTypeProvider(Microsoft.Extensions.Logging.ILogger<CSF.Extensions.WebDriver.Factories.OptionsTypeProvider>, CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes, CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions)
-  fullName.vb: CSF.Extensions.WebDriver.Factories.OptionsTypeProvider.New(Microsoft.Extensions.Logging.ILogger(Of CSF.Extensions.WebDriver.Factories.OptionsTypeProvider), CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes, CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions)
-  nameWithType: OptionsTypeProvider.OptionsTypeProvider(ILogger<OptionsTypeProvider>, IGetsWebDriverAndOptionsTypes, ICreatesDriverOptions)
-  nameWithType.vb: OptionsTypeProvider.New(ILogger(Of OptionsTypeProvider), IGetsWebDriverAndOptionsTypes, ICreatesDriverOptions)
+- uid: CSF.Extensions.WebDriver.Factories.OptionsTypeProvider.#ctor(CSF.Extensions.WebDriver.IGetsLogger,CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions)
+  name: OptionsTypeProvider(IGetsLogger, IGetsWebDriverAndOptionsTypes, ICreatesDriverOptions)
+  href: api/CSF.Extensions.WebDriver.Factories.OptionsTypeProvider.html#CSF_Extensions_WebDriver_Factories_OptionsTypeProvider__ctor_CSF_Extensions_WebDriver_IGetsLogger_CSF_Extensions_WebDriver_Factories_IGetsWebDriverAndOptionsTypes_CSF_Extensions_WebDriver_Factories_ICreatesDriverOptions_
+  commentId: M:CSF.Extensions.WebDriver.Factories.OptionsTypeProvider.#ctor(CSF.Extensions.WebDriver.IGetsLogger,CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions)
+  name.vb: New(IGetsLogger, IGetsWebDriverAndOptionsTypes, ICreatesDriverOptions)
+  fullName: CSF.Extensions.WebDriver.Factories.OptionsTypeProvider.OptionsTypeProvider(CSF.Extensions.WebDriver.IGetsLogger, CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes, CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions)
+  fullName.vb: CSF.Extensions.WebDriver.Factories.OptionsTypeProvider.New(CSF.Extensions.WebDriver.IGetsLogger, CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes, CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions)
+  nameWithType: OptionsTypeProvider.OptionsTypeProvider(IGetsLogger, IGetsWebDriverAndOptionsTypes, ICreatesDriverOptions)
+  nameWithType.vb: OptionsTypeProvider.New(IGetsLogger, IGetsWebDriverAndOptionsTypes, ICreatesDriverOptions)
 - uid: CSF.Extensions.WebDriver.Factories.OptionsTypeProvider.#ctor*
   name: OptionsTypeProvider
   href: api/CSF.Extensions.WebDriver.Factories.OptionsTypeProvider.html#CSF_Extensions_WebDriver_Factories_OptionsTypeProvider__ctor_
@@ -399,15 +399,15 @@ references:
   commentId: T:CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator
   fullName: CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator
   nameWithType: ProxyWrappingWebDriverFactoryDecorator
-- uid: CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.#ctor(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions,CSF.Extensions.WebDriver.Proxies.IGetsProxyWebDriver,Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator})
-  name: ProxyWrappingWebDriverFactoryDecorator(ICreatesWebDriverFromOptions, IGetsProxyWebDriver, ILogger<ProxyWrappingWebDriverFactoryDecorator>)
-  href: api/CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.html#CSF_Extensions_WebDriver_Factories_ProxyWrappingWebDriverFactoryDecorator__ctor_CSF_Extensions_WebDriver_Factories_ICreatesWebDriverFromOptions_CSF_Extensions_WebDriver_Proxies_IGetsProxyWebDriver_Microsoft_Extensions_Logging_ILogger_CSF_Extensions_WebDriver_Factories_ProxyWrappingWebDriverFactoryDecorator__
-  commentId: M:CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.#ctor(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions,CSF.Extensions.WebDriver.Proxies.IGetsProxyWebDriver,Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator})
-  name.vb: New(ICreatesWebDriverFromOptions, IGetsProxyWebDriver, ILogger(Of ProxyWrappingWebDriverFactoryDecorator))
-  fullName: CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.ProxyWrappingWebDriverFactoryDecorator(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions, CSF.Extensions.WebDriver.Proxies.IGetsProxyWebDriver, Microsoft.Extensions.Logging.ILogger<CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator>)
-  fullName.vb: CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.New(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions, CSF.Extensions.WebDriver.Proxies.IGetsProxyWebDriver, Microsoft.Extensions.Logging.ILogger(Of CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator))
-  nameWithType: ProxyWrappingWebDriverFactoryDecorator.ProxyWrappingWebDriverFactoryDecorator(ICreatesWebDriverFromOptions, IGetsProxyWebDriver, ILogger<ProxyWrappingWebDriverFactoryDecorator>)
-  nameWithType.vb: ProxyWrappingWebDriverFactoryDecorator.New(ICreatesWebDriverFromOptions, IGetsProxyWebDriver, ILogger(Of ProxyWrappingWebDriverFactoryDecorator))
+- uid: CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.#ctor(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions,CSF.Extensions.WebDriver.Proxies.IGetsProxyWebDriver,CSF.Extensions.WebDriver.IGetsLogger)
+  name: ProxyWrappingWebDriverFactoryDecorator(ICreatesWebDriverFromOptions, IGetsProxyWebDriver, IGetsLogger)
+  href: api/CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.html#CSF_Extensions_WebDriver_Factories_ProxyWrappingWebDriverFactoryDecorator__ctor_CSF_Extensions_WebDriver_Factories_ICreatesWebDriverFromOptions_CSF_Extensions_WebDriver_Proxies_IGetsProxyWebDriver_CSF_Extensions_WebDriver_IGetsLogger_
+  commentId: M:CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.#ctor(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions,CSF.Extensions.WebDriver.Proxies.IGetsProxyWebDriver,CSF.Extensions.WebDriver.IGetsLogger)
+  name.vb: New(ICreatesWebDriverFromOptions, IGetsProxyWebDriver, IGetsLogger)
+  fullName: CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.ProxyWrappingWebDriverFactoryDecorator(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions, CSF.Extensions.WebDriver.Proxies.IGetsProxyWebDriver, CSF.Extensions.WebDriver.IGetsLogger)
+  fullName.vb: CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.New(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions, CSF.Extensions.WebDriver.Proxies.IGetsProxyWebDriver, CSF.Extensions.WebDriver.IGetsLogger)
+  nameWithType: ProxyWrappingWebDriverFactoryDecorator.ProxyWrappingWebDriverFactoryDecorator(ICreatesWebDriverFromOptions, IGetsProxyWebDriver, IGetsLogger)
+  nameWithType.vb: ProxyWrappingWebDriverFactoryDecorator.New(ICreatesWebDriverFromOptions, IGetsProxyWebDriver, IGetsLogger)
 - uid: CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.#ctor*
   name: ProxyWrappingWebDriverFactoryDecorator
   href: api/CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.html#CSF_Extensions_WebDriver_Factories_ProxyWrappingWebDriverFactoryDecorator__ctor_
@@ -440,15 +440,15 @@ references:
   commentId: T:CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory
   fullName: CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory
   nameWithType: RemoteWebDriverFromOptionsFactory
-- uid: CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory.#ctor(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory},CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions)
-  name: RemoteWebDriverFromOptionsFactory(IGetsWebDriverAndOptionsTypes, ILogger<RemoteWebDriverFromOptionsFactory>, ICreatesWebDriverFromOptions)
-  href: api/CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory.html#CSF_Extensions_WebDriver_Factories_RemoteWebDriverFromOptionsFactory__ctor_CSF_Extensions_WebDriver_Factories_IGetsWebDriverAndOptionsTypes_Microsoft_Extensions_Logging_ILogger_CSF_Extensions_WebDriver_Factories_RemoteWebDriverFromOptionsFactory__CSF_Extensions_WebDriver_Factories_ICreatesWebDriverFromOptions_
-  commentId: M:CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory.#ctor(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory},CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions)
-  name.vb: New(IGetsWebDriverAndOptionsTypes, ILogger(Of RemoteWebDriverFromOptionsFactory), ICreatesWebDriverFromOptions)
-  fullName: CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory.RemoteWebDriverFromOptionsFactory(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes, Microsoft.Extensions.Logging.ILogger<CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory>, CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions)
-  fullName.vb: CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory.New(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes, Microsoft.Extensions.Logging.ILogger(Of CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory), CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions)
-  nameWithType: RemoteWebDriverFromOptionsFactory.RemoteWebDriverFromOptionsFactory(IGetsWebDriverAndOptionsTypes, ILogger<RemoteWebDriverFromOptionsFactory>, ICreatesWebDriverFromOptions)
-  nameWithType.vb: RemoteWebDriverFromOptionsFactory.New(IGetsWebDriverAndOptionsTypes, ILogger(Of RemoteWebDriverFromOptionsFactory), ICreatesWebDriverFromOptions)
+- uid: CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory.#ctor(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,CSF.Extensions.WebDriver.IGetsLogger,CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions)
+  name: RemoteWebDriverFromOptionsFactory(IGetsWebDriverAndOptionsTypes, IGetsLogger, ICreatesWebDriverFromOptions)
+  href: api/CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory.html#CSF_Extensions_WebDriver_Factories_RemoteWebDriverFromOptionsFactory__ctor_CSF_Extensions_WebDriver_Factories_IGetsWebDriverAndOptionsTypes_CSF_Extensions_WebDriver_IGetsLogger_CSF_Extensions_WebDriver_Factories_ICreatesWebDriverFromOptions_
+  commentId: M:CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory.#ctor(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,CSF.Extensions.WebDriver.IGetsLogger,CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions)
+  name.vb: New(IGetsWebDriverAndOptionsTypes, IGetsLogger, ICreatesWebDriverFromOptions)
+  fullName: CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory.RemoteWebDriverFromOptionsFactory(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes, CSF.Extensions.WebDriver.IGetsLogger, CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions)
+  fullName.vb: CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory.New(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes, CSF.Extensions.WebDriver.IGetsLogger, CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions)
+  nameWithType: RemoteWebDriverFromOptionsFactory.RemoteWebDriverFromOptionsFactory(IGetsWebDriverAndOptionsTypes, IGetsLogger, ICreatesWebDriverFromOptions)
+  nameWithType.vb: RemoteWebDriverFromOptionsFactory.New(IGetsWebDriverAndOptionsTypes, IGetsLogger, ICreatesWebDriverFromOptions)
 - uid: CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory.#ctor*
   name: RemoteWebDriverFromOptionsFactory
   href: api/CSF.Extensions.WebDriver.Factories.RemoteWebDriverFromOptionsFactory.html#CSF_Extensions_WebDriver_Factories_RemoteWebDriverFromOptionsFactory__ctor_
@@ -650,15 +650,15 @@ references:
   commentId: T:CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser
   fullName: CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser
   nameWithType: WebDriverConfigurationItemParser
-- uid: CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser.#ctor(CSF.Extensions.WebDriver.Factories.IGetsDriverType,CSF.Extensions.WebDriver.Factories.IGetsOptionsType,CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions,Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser})
-  name: WebDriverConfigurationItemParser(IGetsDriverType, IGetsOptionsType, ICreatesDriverOptions, ILogger<WebDriverConfigurationItemParser>)
-  href: api/CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser.html#CSF_Extensions_WebDriver_Factories_WebDriverConfigurationItemParser__ctor_CSF_Extensions_WebDriver_Factories_IGetsDriverType_CSF_Extensions_WebDriver_Factories_IGetsOptionsType_CSF_Extensions_WebDriver_Factories_ICreatesDriverOptions_Microsoft_Extensions_Logging_ILogger_CSF_Extensions_WebDriver_Factories_WebDriverConfigurationItemParser__
-  commentId: M:CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser.#ctor(CSF.Extensions.WebDriver.Factories.IGetsDriverType,CSF.Extensions.WebDriver.Factories.IGetsOptionsType,CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions,Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser})
-  name.vb: New(IGetsDriverType, IGetsOptionsType, ICreatesDriverOptions, ILogger(Of WebDriverConfigurationItemParser))
-  fullName: CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser.WebDriverConfigurationItemParser(CSF.Extensions.WebDriver.Factories.IGetsDriverType, CSF.Extensions.WebDriver.Factories.IGetsOptionsType, CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions, Microsoft.Extensions.Logging.ILogger<CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser>)
-  fullName.vb: CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser.New(CSF.Extensions.WebDriver.Factories.IGetsDriverType, CSF.Extensions.WebDriver.Factories.IGetsOptionsType, CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions, Microsoft.Extensions.Logging.ILogger(Of CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser))
-  nameWithType: WebDriverConfigurationItemParser.WebDriverConfigurationItemParser(IGetsDriverType, IGetsOptionsType, ICreatesDriverOptions, ILogger<WebDriverConfigurationItemParser>)
-  nameWithType.vb: WebDriverConfigurationItemParser.New(IGetsDriverType, IGetsOptionsType, ICreatesDriverOptions, ILogger(Of WebDriverConfigurationItemParser))
+- uid: CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser.#ctor(CSF.Extensions.WebDriver.Factories.IGetsDriverType,CSF.Extensions.WebDriver.Factories.IGetsOptionsType,CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions,CSF.Extensions.WebDriver.IGetsLogger)
+  name: WebDriverConfigurationItemParser(IGetsDriverType, IGetsOptionsType, ICreatesDriverOptions, IGetsLogger)
+  href: api/CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser.html#CSF_Extensions_WebDriver_Factories_WebDriverConfigurationItemParser__ctor_CSF_Extensions_WebDriver_Factories_IGetsDriverType_CSF_Extensions_WebDriver_Factories_IGetsOptionsType_CSF_Extensions_WebDriver_Factories_ICreatesDriverOptions_CSF_Extensions_WebDriver_IGetsLogger_
+  commentId: M:CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser.#ctor(CSF.Extensions.WebDriver.Factories.IGetsDriverType,CSF.Extensions.WebDriver.Factories.IGetsOptionsType,CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions,CSF.Extensions.WebDriver.IGetsLogger)
+  name.vb: New(IGetsDriverType, IGetsOptionsType, ICreatesDriverOptions, IGetsLogger)
+  fullName: CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser.WebDriverConfigurationItemParser(CSF.Extensions.WebDriver.Factories.IGetsDriverType, CSF.Extensions.WebDriver.Factories.IGetsOptionsType, CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions, CSF.Extensions.WebDriver.IGetsLogger)
+  fullName.vb: CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser.New(CSF.Extensions.WebDriver.Factories.IGetsDriverType, CSF.Extensions.WebDriver.Factories.IGetsOptionsType, CSF.Extensions.WebDriver.Factories.ICreatesDriverOptions, CSF.Extensions.WebDriver.IGetsLogger)
+  nameWithType: WebDriverConfigurationItemParser.WebDriverConfigurationItemParser(IGetsDriverType, IGetsOptionsType, ICreatesDriverOptions, IGetsLogger)
+  nameWithType.vb: WebDriverConfigurationItemParser.New(IGetsDriverType, IGetsOptionsType, ICreatesDriverOptions, IGetsLogger)
 - uid: CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser.#ctor*
   name: WebDriverConfigurationItemParser
   href: api/CSF.Extensions.WebDriver.Factories.WebDriverConfigurationItemParser.html#CSF_Extensions_WebDriver_Factories_WebDriverConfigurationItemParser__ctor_
@@ -688,15 +688,15 @@ references:
   commentId: T:CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions
   fullName: CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions
   nameWithType: WebDriverCreationConfigureOptions
-- uid: CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions.#ctor(CSF.Extensions.WebDriver.Factories.IParsesSingleWebDriverConfigurationSection,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions},System.Action{CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection})
-  name: WebDriverCreationConfigureOptions(IParsesSingleWebDriverConfigurationSection, IConfiguration, ILogger<WebDriverCreationConfigureOptions>, Action<WebDriverCreationOptionsCollection>)
-  href: api/CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationConfigureOptions__ctor_CSF_Extensions_WebDriver_Factories_IParsesSingleWebDriverConfigurationSection_Microsoft_Extensions_Configuration_IConfiguration_Microsoft_Extensions_Logging_ILogger_CSF_Extensions_WebDriver_Factories_WebDriverCreationConfigureOptions__System_Action_CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection__
-  commentId: M:CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions.#ctor(CSF.Extensions.WebDriver.Factories.IParsesSingleWebDriverConfigurationSection,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions},System.Action{CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection})
-  name.vb: New(IParsesSingleWebDriverConfigurationSection, IConfiguration, ILogger(Of WebDriverCreationConfigureOptions), Action(Of WebDriverCreationOptionsCollection))
-  fullName: CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions.WebDriverCreationConfigureOptions(CSF.Extensions.WebDriver.Factories.IParsesSingleWebDriverConfigurationSection, Microsoft.Extensions.Configuration.IConfiguration, Microsoft.Extensions.Logging.ILogger<CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions>, System.Action<CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection>)
-  fullName.vb: CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions.New(CSF.Extensions.WebDriver.Factories.IParsesSingleWebDriverConfigurationSection, Microsoft.Extensions.Configuration.IConfiguration, Microsoft.Extensions.Logging.ILogger(Of CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions), System.Action(Of CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection))
-  nameWithType: WebDriverCreationConfigureOptions.WebDriverCreationConfigureOptions(IParsesSingleWebDriverConfigurationSection, IConfiguration, ILogger<WebDriverCreationConfigureOptions>, Action<WebDriverCreationOptionsCollection>)
-  nameWithType.vb: WebDriverCreationConfigureOptions.New(IParsesSingleWebDriverConfigurationSection, IConfiguration, ILogger(Of WebDriverCreationConfigureOptions), Action(Of WebDriverCreationOptionsCollection))
+- uid: CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions.#ctor(CSF.Extensions.WebDriver.Factories.IParsesSingleWebDriverConfigurationSection,Microsoft.Extensions.Configuration.IConfiguration,CSF.Extensions.WebDriver.IGetsLogger,System.Action{CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection})
+  name: WebDriverCreationConfigureOptions(IParsesSingleWebDriverConfigurationSection, IConfiguration, IGetsLogger, Action<WebDriverCreationOptionsCollection>)
+  href: api/CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationConfigureOptions__ctor_CSF_Extensions_WebDriver_Factories_IParsesSingleWebDriverConfigurationSection_Microsoft_Extensions_Configuration_IConfiguration_CSF_Extensions_WebDriver_IGetsLogger_System_Action_CSF_Extensions_WebDriver_Factories_WebDriverCreationOptionsCollection__
+  commentId: M:CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions.#ctor(CSF.Extensions.WebDriver.Factories.IParsesSingleWebDriverConfigurationSection,Microsoft.Extensions.Configuration.IConfiguration,CSF.Extensions.WebDriver.IGetsLogger,System.Action{CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection})
+  name.vb: New(IParsesSingleWebDriverConfigurationSection, IConfiguration, IGetsLogger, Action(Of WebDriverCreationOptionsCollection))
+  fullName: CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions.WebDriverCreationConfigureOptions(CSF.Extensions.WebDriver.Factories.IParsesSingleWebDriverConfigurationSection, Microsoft.Extensions.Configuration.IConfiguration, CSF.Extensions.WebDriver.IGetsLogger, System.Action<CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection>)
+  fullName.vb: CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions.New(CSF.Extensions.WebDriver.Factories.IParsesSingleWebDriverConfigurationSection, Microsoft.Extensions.Configuration.IConfiguration, CSF.Extensions.WebDriver.IGetsLogger, System.Action(Of CSF.Extensions.WebDriver.Factories.WebDriverCreationOptionsCollection))
+  nameWithType: WebDriverCreationConfigureOptions.WebDriverCreationConfigureOptions(IParsesSingleWebDriverConfigurationSection, IConfiguration, IGetsLogger, Action<WebDriverCreationOptionsCollection>)
+  nameWithType.vb: WebDriverCreationConfigureOptions.New(IParsesSingleWebDriverConfigurationSection, IConfiguration, IGetsLogger, Action(Of WebDriverCreationOptionsCollection))
 - uid: CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions.#ctor*
   name: WebDriverCreationConfigureOptions
   href: api/CSF.Extensions.WebDriver.Factories.WebDriverCreationConfigureOptions.html#CSF_Extensions_WebDriver_Factories_WebDriverCreationConfigureOptions__ctor_
@@ -925,15 +925,15 @@ references:
   commentId: T:CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory
   fullName: CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory
   nameWithType: WebDriverFromOptionsFactory
-- uid: CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.#ctor(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory})
-  name: WebDriverFromOptionsFactory(IGetsWebDriverAndOptionsTypes, ILogger<WebDriverFromOptionsFactory>)
-  href: api/CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.html#CSF_Extensions_WebDriver_Factories_WebDriverFromOptionsFactory__ctor_CSF_Extensions_WebDriver_Factories_IGetsWebDriverAndOptionsTypes_Microsoft_Extensions_Logging_ILogger_CSF_Extensions_WebDriver_Factories_WebDriverFromOptionsFactory__
-  commentId: M:CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.#ctor(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory})
-  name.vb: New(IGetsWebDriverAndOptionsTypes, ILogger(Of WebDriverFromOptionsFactory))
-  fullName: CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.WebDriverFromOptionsFactory(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes, Microsoft.Extensions.Logging.ILogger<CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory>)
-  fullName.vb: CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.New(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes, Microsoft.Extensions.Logging.ILogger(Of CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory))
-  nameWithType: WebDriverFromOptionsFactory.WebDriverFromOptionsFactory(IGetsWebDriverAndOptionsTypes, ILogger<WebDriverFromOptionsFactory>)
-  nameWithType.vb: WebDriverFromOptionsFactory.New(IGetsWebDriverAndOptionsTypes, ILogger(Of WebDriverFromOptionsFactory))
+- uid: CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.#ctor(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,CSF.Extensions.WebDriver.IGetsLogger)
+  name: WebDriverFromOptionsFactory(IGetsWebDriverAndOptionsTypes, IGetsLogger)
+  href: api/CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.html#CSF_Extensions_WebDriver_Factories_WebDriverFromOptionsFactory__ctor_CSF_Extensions_WebDriver_Factories_IGetsWebDriverAndOptionsTypes_CSF_Extensions_WebDriver_IGetsLogger_
+  commentId: M:CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.#ctor(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,CSF.Extensions.WebDriver.IGetsLogger)
+  name.vb: New(IGetsWebDriverAndOptionsTypes, IGetsLogger)
+  fullName: CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.WebDriverFromOptionsFactory(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes, CSF.Extensions.WebDriver.IGetsLogger)
+  fullName.vb: CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.New(CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes, CSF.Extensions.WebDriver.IGetsLogger)
+  nameWithType: WebDriverFromOptionsFactory.WebDriverFromOptionsFactory(IGetsWebDriverAndOptionsTypes, IGetsLogger)
+  nameWithType.vb: WebDriverFromOptionsFactory.New(IGetsWebDriverAndOptionsTypes, IGetsLogger)
 - uid: CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.#ctor*
   name: WebDriverFromOptionsFactory
   href: api/CSF.Extensions.WebDriver.Factories.WebDriverFromOptionsFactory.html#CSF_Extensions_WebDriver_Factories_WebDriverFromOptionsFactory__ctor_
@@ -966,15 +966,15 @@ references:
   commentId: T:CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory
   fullName: CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory
   nameWithType: WebDriverFromThirdPartyFactory
-- uid: CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.#ctor(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions,CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,System.IServiceProvider,Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory})
-  name: WebDriverFromThirdPartyFactory(ICreatesWebDriverFromOptions, IGetsWebDriverAndOptionsTypes, IServiceProvider, ILogger<WebDriverFromThirdPartyFactory>)
-  href: api/CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.html#CSF_Extensions_WebDriver_Factories_WebDriverFromThirdPartyFactory__ctor_CSF_Extensions_WebDriver_Factories_ICreatesWebDriverFromOptions_CSF_Extensions_WebDriver_Factories_IGetsWebDriverAndOptionsTypes_System_IServiceProvider_Microsoft_Extensions_Logging_ILogger_CSF_Extensions_WebDriver_Factories_WebDriverFromThirdPartyFactory__
-  commentId: M:CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.#ctor(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions,CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,System.IServiceProvider,Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory})
-  name.vb: New(ICreatesWebDriverFromOptions, IGetsWebDriverAndOptionsTypes, IServiceProvider, ILogger(Of WebDriverFromThirdPartyFactory))
-  fullName: CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.WebDriverFromThirdPartyFactory(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions, CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes, System.IServiceProvider, Microsoft.Extensions.Logging.ILogger<CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory>)
-  fullName.vb: CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.New(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions, CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes, System.IServiceProvider, Microsoft.Extensions.Logging.ILogger(Of CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory))
-  nameWithType: WebDriverFromThirdPartyFactory.WebDriverFromThirdPartyFactory(ICreatesWebDriverFromOptions, IGetsWebDriverAndOptionsTypes, IServiceProvider, ILogger<WebDriverFromThirdPartyFactory>)
-  nameWithType.vb: WebDriverFromThirdPartyFactory.New(ICreatesWebDriverFromOptions, IGetsWebDriverAndOptionsTypes, IServiceProvider, ILogger(Of WebDriverFromThirdPartyFactory))
+- uid: CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.#ctor(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions,CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,System.IServiceProvider,CSF.Extensions.WebDriver.IGetsLogger)
+  name: WebDriverFromThirdPartyFactory(ICreatesWebDriverFromOptions, IGetsWebDriverAndOptionsTypes, IServiceProvider, IGetsLogger)
+  href: api/CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.html#CSF_Extensions_WebDriver_Factories_WebDriverFromThirdPartyFactory__ctor_CSF_Extensions_WebDriver_Factories_ICreatesWebDriverFromOptions_CSF_Extensions_WebDriver_Factories_IGetsWebDriverAndOptionsTypes_System_IServiceProvider_CSF_Extensions_WebDriver_IGetsLogger_
+  commentId: M:CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.#ctor(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions,CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes,System.IServiceProvider,CSF.Extensions.WebDriver.IGetsLogger)
+  name.vb: New(ICreatesWebDriverFromOptions, IGetsWebDriverAndOptionsTypes, IServiceProvider, IGetsLogger)
+  fullName: CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.WebDriverFromThirdPartyFactory(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions, CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes, System.IServiceProvider, CSF.Extensions.WebDriver.IGetsLogger)
+  fullName.vb: CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.New(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions, CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes, System.IServiceProvider, CSF.Extensions.WebDriver.IGetsLogger)
+  nameWithType: WebDriverFromThirdPartyFactory.WebDriverFromThirdPartyFactory(ICreatesWebDriverFromOptions, IGetsWebDriverAndOptionsTypes, IServiceProvider, IGetsLogger)
+  nameWithType.vb: WebDriverFromThirdPartyFactory.New(ICreatesWebDriverFromOptions, IGetsWebDriverAndOptionsTypes, IServiceProvider, IGetsLogger)
 - uid: CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.#ctor*
   name: WebDriverFromThirdPartyFactory
   href: api/CSF.Extensions.WebDriver.Factories.WebDriverFromThirdPartyFactory.html#CSF_Extensions_WebDriver_Factories_WebDriverFromThirdPartyFactory__ctor_
@@ -1074,6 +1074,28 @@ references:
   isSpec: "True"
   fullName: CSF.Extensions.WebDriver.Factories.WebDriverTypesProvider.GetWebDriverType
   nameWithType: WebDriverTypesProvider.GetWebDriverType
+- uid: CSF.Extensions.WebDriver.IGetsLogger
+  name: IGetsLogger
+  href: api/CSF.Extensions.WebDriver.IGetsLogger.html
+  commentId: T:CSF.Extensions.WebDriver.IGetsLogger
+  fullName: CSF.Extensions.WebDriver.IGetsLogger
+  nameWithType: IGetsLogger
+- uid: CSF.Extensions.WebDriver.IGetsLogger.GetLogger*
+  name: GetLogger
+  href: api/CSF.Extensions.WebDriver.IGetsLogger.html#CSF_Extensions_WebDriver_IGetsLogger_GetLogger_
+  commentId: Overload:CSF.Extensions.WebDriver.IGetsLogger.GetLogger
+  isSpec: "True"
+  fullName: CSF.Extensions.WebDriver.IGetsLogger.GetLogger
+  nameWithType: IGetsLogger.GetLogger
+- uid: CSF.Extensions.WebDriver.IGetsLogger.GetLogger``1
+  name: GetLogger<T>()
+  href: api/CSF.Extensions.WebDriver.IGetsLogger.html#CSF_Extensions_WebDriver_IGetsLogger_GetLogger__1
+  commentId: M:CSF.Extensions.WebDriver.IGetsLogger.GetLogger``1
+  name.vb: GetLogger(Of T)()
+  fullName: CSF.Extensions.WebDriver.IGetsLogger.GetLogger<T>()
+  fullName.vb: CSF.Extensions.WebDriver.IGetsLogger.GetLogger(Of T)()
+  nameWithType: IGetsLogger.GetLogger<T>()
+  nameWithType.vb: IGetsLogger.GetLogger(Of T)()
 - uid: CSF.Extensions.WebDriver.IGetsWebDriver
   name: IGetsWebDriver
   href: api/CSF.Extensions.WebDriver.IGetsWebDriver.html

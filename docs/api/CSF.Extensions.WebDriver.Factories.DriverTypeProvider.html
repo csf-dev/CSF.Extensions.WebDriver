@@ -93,7 +93,7 @@ Class DriverTypeProvider  <a class="header-action link-secondary" title="View so
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Extensions.html">Extensions</a>.<a class="xref" href="CSF.Extensions.WebDriver.html">WebDriver</a>.<a class="xref" href="CSF.Extensions.WebDriver.Factories.html">Factories</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><span class="xref">CSF</span>.<span class="xref">Extensions</span>.<a class="xref" href="CSF.Extensions.WebDriver.html">WebDriver</a>.<a class="xref" href="CSF.Extensions.WebDriver.Factories.html">Factories</a></dd></dl>
   <dl><dt>Assembly</dt><dd>CSF.Extensions.WebDriver.dll</dd></dl>
   </div>
 
@@ -161,8 +161,8 @@ Class DriverTypeProvider  <a class="header-action link-secondary" title="View so
 
   <a id="CSF_Extensions_WebDriver_Factories_DriverTypeProvider__ctor_" data-uid="CSF.Extensions.WebDriver.Factories.DriverTypeProvider.#ctor*"></a>
 
-  <h3 id="CSF_Extensions_WebDriver_Factories_DriverTypeProvider__ctor_Microsoft_Extensions_Logging_ILogger_CSF_Extensions_WebDriver_Factories_DriverTypeProvider__CSF_Extensions_WebDriver_Factories_IGetsWebDriverAndOptionsTypes_" data-uid="CSF.Extensions.WebDriver.Factories.DriverTypeProvider.#ctor(Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.DriverTypeProvider},CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes)">
-  DriverTypeProvider(ILogger&lt;DriverTypeProvider&gt;, IGetsWebDriverAndOptionsTypes)
+  <h3 id="CSF_Extensions_WebDriver_Factories_DriverTypeProvider__ctor_CSF_Extensions_WebDriver_IGetsLogger_CSF_Extensions_WebDriver_Factories_IGetsWebDriverAndOptionsTypes_" data-uid="CSF.Extensions.WebDriver.Factories.DriverTypeProvider.#ctor(CSF.Extensions.WebDriver.IGetsLogger,CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes)">
+  DriverTypeProvider(IGetsLogger, IGetsWebDriverAndOptionsTypes)
   <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Factories/DriverTypeProvider.cs/#L56"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -171,13 +171,13 @@ Class DriverTypeProvider  <a class="header-action link-secondary" title="View so
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DriverTypeProvider(ILogger&lt;DriverTypeProvider&gt; logger, IGetsWebDriverAndOptionsTypes typeProvider)</code></pre>
+    <pre><code class="lang-csharp hljs">public DriverTypeProvider(IGetsLogger loggerProvider, IGetsWebDriverAndOptionsTypes typeProvider)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>logger</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1">ILogger</a>&lt;<a class="xref" href="CSF.Extensions.WebDriver.Factories.DriverTypeProvider.html">DriverTypeProvider</a>&gt;</dt>
-    <dd><p>A logger</p>
+    <dt><code>loggerProvider</code> <a class="xref" href="CSF.Extensions.WebDriver.IGetsLogger.html">IGetsLogger</a></dt>
+    <dd><p>A logger provider</p>
 </dd>
     <dt><code>typeProvider</code> <a class="xref" href="CSF.Extensions.WebDriver.Factories.IGetsWebDriverAndOptionsTypes.html">IGetsWebDriverAndOptionsTypes</a></dt>
     <dd><p>A provider for the concrete types of web driver and options</p>

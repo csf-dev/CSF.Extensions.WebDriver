@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IGetsLogger | CSF.Extensions.WebDriver </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IGetsLogger | CSF.Extensions.WebDriver ">
+      
+      <meta name="description" content="Small service which provides a method for obtaining loggers.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/csf-dev/CSF.Extensions.WebDriver/new/master/apiSpec/new?filename=CSF_Extensions_WebDriver_IGetsLogger.md&amp;value=---%0Auid%3A%20CSF.Extensions.WebDriver.IGetsLogger%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="CSF.Extensions.WebDriver">
+            CSF.Extensions.WebDriver
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CSF.Extensions.WebDriver.IGetsLogger">
+
+
+
+  <h1 id="CSF_Extensions_WebDriver_IGetsLogger" data-uid="CSF.Extensions.WebDriver.IGetsLogger" class="text-break">
+Interface IGetsLogger  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/IGetsLogger.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">CSF</span>.<span class="xref">Extensions</span>.<a class="xref" href="CSF.Extensions.WebDriver.html">WebDriver</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>CSF.Extensions.WebDriver.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Small service which provides a method for obtaining loggers.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IGetsLogger</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="CSF_Extensions_WebDriver_IGetsLogger_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+This service is required in this library because we cannot use DI registration techniques to interrogate whether logging is
+already registered into DI.  This library is intended to be used alongside the BoDi DI container, which is part of the Reqnroll
+BDD framework. In this scenario, BoDi is consumed via an adpater, to make it behave a little like <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>.
+</p>
+<p>
+Unfortunately, because of limitations in BoDi's design, this is far from perfect (an LSP violation) and the resulting service
+collection throws from much of its functionality.  One of these is the indexer and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator">GetEnumerator()</a>
+implementation upon the service collection.  Those functions are the only viable way to determine whether logging has already
+been registered into DI (to avoid clobbering an existing DI registration), and they aren't available to us.
+</p>
+<p>
+This interface and its <code>internal</code> visibility impl provide a workaround to that, which decides at resolution time whether a
+logging implementation was formally registered into DI.  If it was then it is resolved from the container as usual.
+If it was not then a noop implementation of a logger is returned, to avoid throwing or returning <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CSF_Extensions_WebDriver_IGetsLogger_GetLogger_" data-uid="CSF.Extensions.WebDriver.IGetsLogger.GetLogger*"></a>
+
+  <h3 id="CSF_Extensions_WebDriver_IGetsLogger_GetLogger__1" data-uid="CSF.Extensions.WebDriver.IGetsLogger.GetLogger``1">
+  GetLogger&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/IGetsLogger.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a logger for the specified type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ILogger&lt;T&gt; GetLogger&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1">ILogger</a>&lt;T&gt;</dt>
+    <dd><p>A logger implementation</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type which intends to record log messages.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/IGetsLogger.cs/#L31" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

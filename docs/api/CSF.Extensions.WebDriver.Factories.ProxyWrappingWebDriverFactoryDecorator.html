@@ -93,7 +93,7 @@ Class ProxyWrappingWebDriverFactoryDecorator  <a class="header-action link-secon
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="CSF.html">CSF</a>.<a class="xref" href="CSF.Extensions.html">Extensions</a>.<a class="xref" href="CSF.Extensions.WebDriver.html">WebDriver</a>.<a class="xref" href="CSF.Extensions.WebDriver.Factories.html">Factories</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><span class="xref">CSF</span>.<span class="xref">Extensions</span>.<a class="xref" href="CSF.Extensions.WebDriver.html">WebDriver</a>.<a class="xref" href="CSF.Extensions.WebDriver.Factories.html">Factories</a></dd></dl>
   <dl><dt>Assembly</dt><dd>CSF.Extensions.WebDriver.dll</dd></dl>
   </div>
 
@@ -172,8 +172,8 @@ returned WebDriver in a proxy object, which adds further functionality.</p>
 
   <a id="CSF_Extensions_WebDriver_Factories_ProxyWrappingWebDriverFactoryDecorator__ctor_" data-uid="CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.#ctor*"></a>
 
-  <h3 id="CSF_Extensions_WebDriver_Factories_ProxyWrappingWebDriverFactoryDecorator__ctor_CSF_Extensions_WebDriver_Factories_ICreatesWebDriverFromOptions_CSF_Extensions_WebDriver_Proxies_IGetsProxyWebDriver_Microsoft_Extensions_Logging_ILogger_CSF_Extensions_WebDriver_Factories_ProxyWrappingWebDriverFactoryDecorator__" data-uid="CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.#ctor(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions,CSF.Extensions.WebDriver.Proxies.IGetsProxyWebDriver,Microsoft.Extensions.Logging.ILogger{CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator})">
-  ProxyWrappingWebDriverFactoryDecorator(ICreatesWebDriverFromOptions, IGetsProxyWebDriver, ILogger&lt;ProxyWrappingWebDriverFactoryDecorator&gt;)
+  <h3 id="CSF_Extensions_WebDriver_Factories_ProxyWrappingWebDriverFactoryDecorator__ctor_CSF_Extensions_WebDriver_Factories_ICreatesWebDriverFromOptions_CSF_Extensions_WebDriver_Proxies_IGetsProxyWebDriver_CSF_Extensions_WebDriver_IGetsLogger_" data-uid="CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.#ctor(CSF.Extensions.WebDriver.Factories.ICreatesWebDriverFromOptions,CSF.Extensions.WebDriver.Proxies.IGetsProxyWebDriver,CSF.Extensions.WebDriver.IGetsLogger)">
+  ProxyWrappingWebDriverFactoryDecorator(ICreatesWebDriverFromOptions, IGetsProxyWebDriver, IGetsLogger)
   <a class="header-action link-secondary" title="View source" href="https://github.com/csf-dev/CSF.Extensions.WebDriver/blob/master/CSF.Extensions.WebDriver/Factories/ProxyWrappingWebDriverFactoryDecorator.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -182,7 +182,7 @@ returned WebDriver in a proxy object, which adds further functionality.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ProxyWrappingWebDriverFactoryDecorator(ICreatesWebDriverFromOptions wrapped, IGetsProxyWebDriver proxyFactory, ILogger&lt;ProxyWrappingWebDriverFactoryDecorator&gt; logger)</code></pre>
+    <pre><code class="lang-csharp hljs">public ProxyWrappingWebDriverFactoryDecorator(ICreatesWebDriverFromOptions wrapped, IGetsProxyWebDriver proxyFactory, IGetsLogger loggerProvider)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -193,8 +193,8 @@ returned WebDriver in a proxy object, which adds further functionality.</p>
     <dt><code>proxyFactory</code> <a class="xref" href="CSF.Extensions.WebDriver.Proxies.IGetsProxyWebDriver.html">IGetsProxyWebDriver</a></dt>
     <dd><p>A proxy factory implementation</p>
 </dd>
-    <dt><code>logger</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1">ILogger</a>&lt;<a class="xref" href="CSF.Extensions.WebDriver.Factories.ProxyWrappingWebDriverFactoryDecorator.html">ProxyWrappingWebDriverFactoryDecorator</a>&gt;</dt>
-    <dd><p>A logger</p>
+    <dt><code>loggerProvider</code> <a class="xref" href="CSF.Extensions.WebDriver.IGetsLogger.html">IGetsLogger</a></dt>
+    <dd><p>A logger provider</p>
 </dd>
   </dl>
 
