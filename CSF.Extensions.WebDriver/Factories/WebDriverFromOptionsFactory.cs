@@ -59,13 +59,15 @@ namespace CSF.Extensions.WebDriver.Factories
         /// Initialises a new instance of <see cref="WebDriverFromOptionsFactory"/>.
         /// </summary>
         /// <param name="typeProvider">A type provider</param>
-        /// <param name="logger">A logger</param>
+        /// <param name="loggerProvider">A logger provider</param>
         /// <exception cref="ArgumentNullException">If any parameter is <see langword="null" />.</exception>
         public WebDriverFromOptionsFactory(IGetsWebDriverAndOptionsTypes typeProvider,
-                                           ILogger<WebDriverFromOptionsFactory> logger)
+                                           IGetsLogger loggerProvider)
         {
+            if (loggerProvider is null) throw new ArgumentNullException(nameof(loggerProvider));
+
+            logger = loggerProvider.GetLogger<WebDriverFromOptionsFactory>();
             this.typeProvider = typeProvider ?? throw new ArgumentNullException(nameof(typeProvider));
-            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
     }
 }

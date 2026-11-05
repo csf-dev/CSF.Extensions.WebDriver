@@ -47,15 +47,17 @@ namespace CSF.Extensions.WebDriver.Factories
         /// Initialises a new instance of <see cref="RemoteWebDriverFromOptionsFactory"/>.
         /// </summary>
         /// <param name="typeProvider">A type-providing service</param>
-        /// <param name="logger">A logger</param>
+        /// <param name="loggerProvider">A logger provider</param>
         /// <param name="next">The next service in the chain of responsibility.</param>
         /// <exception cref="ArgumentNullException">If any parameters is <see langword="null" />.</exception>
         public RemoteWebDriverFromOptionsFactory(IGetsWebDriverAndOptionsTypes typeProvider,
-                                                 ILogger<RemoteWebDriverFromOptionsFactory> logger,
+                                                 IGetsLogger loggerProvider,
                                                  ICreatesWebDriverFromOptions next)
         {
+            if (loggerProvider is null) throw new ArgumentNullException(nameof(loggerProvider));
+
+            logger = loggerProvider.GetLogger<RemoteWebDriverFromOptionsFactory>();
             this.typeProvider = typeProvider ?? throw new ArgumentNullException(nameof(typeProvider));
-            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
             this.next = next ?? throw new ArgumentNullException(nameof(next));
         }
     }

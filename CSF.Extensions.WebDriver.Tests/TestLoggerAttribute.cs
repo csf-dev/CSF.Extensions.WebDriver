@@ -18,13 +18,23 @@ namespace CSF.Extensions.WebDriver;
 /// </remarks>
 public sealed class TestLoggerAttribute : CustomizeAttribute
 {
+    public Type? LoggerType { get; set; }
+
     public override ICustomization GetCustomization(ParameterInfo parameter)
     {
-        if (!parameter.ParameterType.IsGenericType
-            || parameter.ParameterType.GetGenericTypeDefinition() != typeof(ILogger<>))
-            throw new ArgumentException($"The parameter type must be an {nameof(ILogger)}<T>", nameof(parameter));
-        
-        return new TestLoggerCustomization(parameter.ParameterType.GenericTypeArguments.Single());
+        var loggerType = GetLoggerType(parameter);
+        return new TestLoggerCustomization(loggerType);
+    }
+
+    Type GetLoggerType(ParameterInfo parameter)
+    {
+        if(LoggerType is not null) return LoggerType;
+
+        if (parameter.ParameterType.IsGenericType
+            && parameter.ParameterType.GetGenericTypeDefinition() == typeof(ILogger<>))
+            return parameter.ParameterType.GenericTypeArguments.Single();
+
+        throw new ArgumentException($"Either {nameof(LoggerType)} must be set or the parameter type must be an {nameof(ILogger)}<T>", nameof(parameter));
     }
 }
 

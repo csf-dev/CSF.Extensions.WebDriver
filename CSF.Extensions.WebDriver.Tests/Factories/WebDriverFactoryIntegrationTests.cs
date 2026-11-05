@@ -80,6 +80,18 @@ public class WebDriverFactoryIntegrationTests
         });
     }
 
+    [Test]
+    public void AddWebDriverFactoryWithoutOptionsPatternShouldNotEnumerateServiceCollection()
+    {
+        var serviceCollectionMock = new Mock<IServiceCollection>();
+        serviceCollectionMock.Setup(x => x.GetEnumerator()).Returns(Enumerable.Empty<ServiceDescriptor>().GetEnumerator());
+        var serviceCollection = serviceCollectionMock.Object;
+
+        serviceCollection.AddWebDriverFactoryWithoutOptionsPattern();
+
+        Mock.Get(serviceCollection).Verify(x => x.GetEnumerator(), Times.Never);
+    }
+
     Quirks.QuirksData GetCommonBrowserQuirks()
     {
         return new ()

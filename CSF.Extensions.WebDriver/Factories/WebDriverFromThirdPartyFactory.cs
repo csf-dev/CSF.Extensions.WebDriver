@@ -54,17 +54,19 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <param name="next">The next implementation in the chain of responsibility.</param>
         /// <param name="typeProvider">A type-providing service.</param>
         /// <param name="services">The DI service provider.</param>
-        /// <param name="logger">A logger</param>
+        /// <param name="loggerProvider">A logger provider</param>
         /// <exception cref="ArgumentNullException">If any parameter is <see langword="null" />.</exception>
         public WebDriverFromThirdPartyFactory(ICreatesWebDriverFromOptions next,
                                               IGetsWebDriverAndOptionsTypes typeProvider,
                                               IServiceProvider services,
-                                              ILogger<WebDriverFromThirdPartyFactory> logger)
+                                              IGetsLogger loggerProvider)
         {
+            if (loggerProvider is null) throw new ArgumentNullException(nameof(loggerProvider));
+
+            logger = loggerProvider.GetLogger<WebDriverFromThirdPartyFactory>();
             this.next = next ?? throw new ArgumentNullException(nameof(next));
             this.typeProvider = typeProvider ?? throw new ArgumentNullException(nameof(typeProvider));
             this.services = services ?? throw new ArgumentNullException(nameof(services));
-            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
     }
 }

@@ -10,7 +10,7 @@ namespace CSF.Extensions.WebDriver.Factories
     /// </summary>
     public class DriverTypeProvider : IGetsDriverType
     {
-        readonly ILogger<DriverTypeProvider> logger;
+        readonly ILogger logger;
         readonly IGetsWebDriverAndOptionsTypes typeProvider;
 
         /// <inheritdoc/>
@@ -50,12 +50,14 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <summary>
         /// Initialises a new instance of <see cref="DriverTypeProvider"/>.
         /// </summary>
-        /// <param name="logger">A logger</param>
+        /// <param name="loggerProvider">A logger provider</param>
         /// <param name="typeProvider">A provider for the concrete types of web driver and options</param>
         /// <exception cref="ArgumentNullException">If any parameter is <see langword="null"/></exception>
-        public DriverTypeProvider(ILogger<DriverTypeProvider> logger, IGetsWebDriverAndOptionsTypes typeProvider)
+        public DriverTypeProvider(IGetsLogger loggerProvider, IGetsWebDriverAndOptionsTypes typeProvider)
         {
-            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            if (loggerProvider is null) throw new ArgumentNullException(nameof(loggerProvider));
+
+            logger = loggerProvider.GetLogger<DriverTypeProvider>();
             this.typeProvider = typeProvider ?? throw new ArgumentNullException(nameof(typeProvider));
         }
     }
