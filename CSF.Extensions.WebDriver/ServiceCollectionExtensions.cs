@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using Castle.DynamicProxy;
 using CSF.Extensions.WebDriver.Factories;
 using CSF.Extensions.WebDriver.Identification;
@@ -7,8 +6,6 @@ using CSF.Extensions.WebDriver.Proxies;
 using CSF.Extensions.WebDriver.Quirks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 
 namespace CSF.Extensions.WebDriver
@@ -174,8 +171,7 @@ namespace CSF.Extensions.WebDriver
             services.AddTransient<IGetsProxyWebDriver, WebDriverProxyFactory>();
             services.AddTransient<IdentificationAugmenter>();
             services.AddTransient<UnproxyingAugmenter>();
-
-            AddLoggingIfNotAlreadyAdded(services);
+            services.AddTransient<IGetsLogger, LogProvider>();
 
             return services;
         }
@@ -244,7 +240,7 @@ namespace CSF.Extensions.WebDriver
                 IConfiguration configSection = services.GetRequiredService<IConfiguration>().GetSection(configPath);
                 return new WebDriverCreationConfigureOptions(services.GetRequiredService<IParsesSingleWebDriverConfigurationSection>(),
                                                              configSection,
-                                                             services.GetRequiredService<ILogger<WebDriverCreationConfigureOptions>>(),
+                                                             services.GetRequiredService<IGetsLogger>(),
                                                              configureOptions);
             };
         }
@@ -256,18 +252,9 @@ namespace CSF.Extensions.WebDriver
             {
                 return new WebDriverCreationConfigureOptions(services.GetRequiredService<IParsesSingleWebDriverConfigurationSection>(),
                                                              configSection,
-                                                             services.GetRequiredService<ILogger<WebDriverCreationConfigureOptions>>(),
+                                                             services.GetRequiredService<IGetsLogger>(),
                                                              configureOptions);
             };
-        }
-
-        static void AddLoggingIfNotAlreadyAdded(IServiceCollection services)
-        {
-            if(services.Any(s => s.ServiceType == typeof(ILoggerFactory)))
-                return;
-
-            services.AddTransient<ILoggerFactory, NullLoggerFactory>();
-            services.AddTransient(typeof(ILogger<>), typeof(NullLogger<>));
         }
 
         static void AddDriverOptionsFactory(IServiceCollection services)

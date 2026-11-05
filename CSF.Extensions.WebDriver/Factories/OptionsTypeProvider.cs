@@ -10,7 +10,7 @@ namespace CSF.Extensions.WebDriver.Factories
     /// </summary>
     public class OptionsTypeProvider : IGetsOptionsType
     {
-        readonly ILogger<OptionsTypeProvider> logger;
+        readonly ILogger logger;
         readonly IGetsWebDriverAndOptionsTypes typeProvider;
         readonly ICreatesDriverOptions optionsFactory;
 
@@ -62,13 +62,15 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <summary>
         /// Initialises a new instance of <see cref="DriverTypeProvider"/>.
         /// </summary>
-        /// <param name="logger">A logger</param>
+        /// <param name="loggerProvider">A logger provider</param>
         /// <param name="typeProvider">A provider for the concrete types of web driver and options</param>
         /// <param name="optionsFactory">A factory for instances of <see cref="DriverOptions"/></param>
         /// <exception cref="ArgumentNullException">If any parameter is <see langword="null"/></exception>
-        public OptionsTypeProvider(ILogger<OptionsTypeProvider> logger, IGetsWebDriverAndOptionsTypes typeProvider, ICreatesDriverOptions optionsFactory)
+        public OptionsTypeProvider(IGetsLogger loggerProvider, IGetsWebDriverAndOptionsTypes typeProvider, ICreatesDriverOptions optionsFactory)
         {
-            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            if (loggerProvider is null) throw new ArgumentNullException(nameof(loggerProvider));
+
+            logger = loggerProvider.GetLogger<OptionsTypeProvider>();
             this.typeProvider = typeProvider ?? throw new ArgumentNullException(nameof(typeProvider));
             this.optionsFactory = optionsFactory ?? throw new ArgumentNullException(nameof(optionsFactory));
         }

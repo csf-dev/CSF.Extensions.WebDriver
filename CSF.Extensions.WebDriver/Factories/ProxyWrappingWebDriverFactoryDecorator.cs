@@ -42,15 +42,17 @@ namespace CSF.Extensions.WebDriver.Factories
         /// </summary>
         /// <param name="wrapped">The wrapped factory</param>
         /// <param name="proxyFactory">A proxy factory implementation</param>
-        /// <param name="logger">A logger</param>
+        /// <param name="loggerProvider">A logger provider</param>
         /// <exception cref="ArgumentNullException">If any parameter is <see langword="null" />.</exception>
         public ProxyWrappingWebDriverFactoryDecorator(ICreatesWebDriverFromOptions wrapped,
                                                       IGetsProxyWebDriver proxyFactory,
-                                                      ILogger<ProxyWrappingWebDriverFactoryDecorator> logger)
+                                                      IGetsLogger loggerProvider)
         {
+            if (loggerProvider is null) throw new ArgumentNullException(nameof(loggerProvider));
+
+            logger = loggerProvider.GetLogger<ProxyWrappingWebDriverFactoryDecorator>();
             this.wrapped = wrapped ?? throw new ArgumentNullException(nameof(wrapped));
             this.proxyFactory = proxyFactory ?? throw new ArgumentNullException(nameof(proxyFactory));
-            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
     }
 }

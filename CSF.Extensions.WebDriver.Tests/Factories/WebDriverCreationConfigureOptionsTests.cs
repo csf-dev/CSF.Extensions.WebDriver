@@ -203,7 +203,7 @@ public class WebDriverCreationConfigureOptionsTests
     [Test,AutoMoqData]
     public async Task ConfigureShouldBeAbleToSetupRemoteDriverWithSimpleOptionsFromJsonConfiguration([StandardTypes] IGetsDriverType driverTypeProvider,
                                                                                                      [StandardTypes] IGetsOptionsType optionsTypeProvider,
-                                                                                                     [TestLogger] ILogger<WebDriverCreationConfigureOptions> logger)
+                                                                                                     [TestLogger(LoggerType = typeof(WebDriverCreationConfigureOptions))] IGetsLogger loggerProvider)
     {
         var type = typeof(SafariOptions);
         Mock.Get(optionsTypeProvider)
@@ -214,7 +214,7 @@ public class WebDriverCreationConfigureOptionsTests
     ""DriverConfigurations"": {
         ""Test"": { ""DriverType"": ""RemoteWebDriver"", ""OptionsType"": ""SafariOptions"" }
     }
-}", logger: logger);
+}", loggerProvider: loggerProvider);
 
         Assert.That(options.DriverConfigurations, Is.Not.Empty);
     }
@@ -230,16 +230,16 @@ public class WebDriverCreationConfigureOptionsTests
     static async Task<WebDriverCreationOptionsCollection> GetOptionsAsync(IGetsDriverType driverTypeProvider,
                                                                           IGetsOptionsType optionsTypeProvider,
                                                                           string json,
-                                                                          ILogger<WebDriverCreationConfigureOptions>? logger = null)
+                                                                          IGetsLogger? loggerProvider = null)
     {
         var options = new WebDriverCreationOptionsCollection();
         var config = await ConfigurationFactory.GetConfigurationAsync(json);
         ICreatesDriverOptions optionsFactory = new ActivatorDriverOptionsFactory();
         optionsFactory = new ConfigBindingDriverOptionsFactoryDecorator(optionsFactory);
-        var parser = new WebDriverConfigurationItemParser(driverTypeProvider, optionsTypeProvider, optionsFactory, Mock.Of<ILogger<WebDriverConfigurationItemParser>>());
+        var parser = new WebDriverConfigurationItemParser(driverTypeProvider, optionsTypeProvider, optionsFactory, Mock.Of<IGetsLogger>());
         var sut = new WebDriverCreationConfigureOptions(parser,
                                                         config,
-                                                        logger ?? Mock.Of<ILogger<WebDriverCreationConfigureOptions>>(),
+                                                        loggerProvider ?? Mock.Of<IGetsLogger>(),
                                                         c => {});
         sut.Configure(options);
         return options;

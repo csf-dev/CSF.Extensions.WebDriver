@@ -13,7 +13,7 @@ namespace CSF.Extensions.WebDriver.Factories
         readonly IGetsDriverType driverTypeProvider;
         readonly IGetsOptionsType optionsTypeProvider;
         readonly ICreatesDriverOptions optionsFactory;
-        readonly ILogger<WebDriverConfigurationItemParser> logger;
+        readonly ILogger logger;
 
         /// <inheritdoc/>
         public WebDriverCreationOptions GetDriverConfiguration(IConfigurationSection configuration)
@@ -86,16 +86,18 @@ namespace CSF.Extensions.WebDriver.Factories
         /// <param name="driverTypeProvider">A service to get the driver type</param>
         /// <param name="optionsTypeProvider">A service to get the options type</param>
         /// <param name="optionsFactory">A service to get the driver options</param>
-        /// <param name="logger">The logger for this parser.</param>
+        /// <param name="loggerProvider">A logger provider</param>
         public WebDriverConfigurationItemParser(IGetsDriverType driverTypeProvider,
                                                 IGetsOptionsType optionsTypeProvider,
                                                 ICreatesDriverOptions optionsFactory,
-                                                ILogger<WebDriverConfigurationItemParser> logger)
+                                                IGetsLogger loggerProvider)
         {
+            if (loggerProvider is null) throw new ArgumentNullException(nameof(loggerProvider));
+
+            logger = loggerProvider.GetLogger<WebDriverConfigurationItemParser>();
             this.driverTypeProvider = driverTypeProvider ?? throw new ArgumentNullException(nameof(driverTypeProvider));
             this.optionsTypeProvider = optionsTypeProvider ?? throw new ArgumentNullException(nameof(optionsTypeProvider));
             this.optionsFactory = optionsFactory ?? throw new ArgumentNullException(nameof(optionsFactory));
-            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
     }
 }

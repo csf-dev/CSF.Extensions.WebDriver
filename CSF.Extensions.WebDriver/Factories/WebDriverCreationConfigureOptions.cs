@@ -24,7 +24,7 @@ namespace CSF.Extensions.WebDriver.Factories
     {
         readonly IParsesSingleWebDriverConfigurationSection configParser;
         readonly IConfiguration configuration;
-        readonly ILogger<WebDriverCreationConfigureOptions> logger;
+        readonly ILogger logger;
         readonly Action<WebDriverCreationOptionsCollection> configureOptions;
 
         /// <inheritdoc/>
@@ -64,17 +64,19 @@ namespace CSF.Extensions.WebDriver.Factories
         /// </summary>
         /// <param name="configParser">A parser for a single configuration item.</param>
         /// <param name="configuration">The app configuration.</param>
-        /// <param name="logger">A logging implementation.</param>
+        /// <param name="loggerProvider">A logger provider</param>
         /// <param name="configureOptions">An optional configuration action/callback to further configure the options</param>
         /// <exception cref="ArgumentNullException">If either parameter is <see langword="null" />.</exception>
         public WebDriverCreationConfigureOptions(IParsesSingleWebDriverConfigurationSection configParser,
                                                  IConfiguration configuration,
-                                                 ILogger<WebDriverCreationConfigureOptions> logger,
+                                                 IGetsLogger loggerProvider,
                                                  Action<WebDriverCreationOptionsCollection> configureOptions)
         {
+            if (loggerProvider is null) throw new ArgumentNullException(nameof(loggerProvider));
+
+            logger = loggerProvider.GetLogger<WebDriverCreationConfigureOptions>();
             this.configParser = configParser ?? throw new ArgumentNullException(nameof(configParser));
             this.configuration = configuration;
-            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
             this.configureOptions = configureOptions;
         }
     }
