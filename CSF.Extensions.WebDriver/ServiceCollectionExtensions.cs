@@ -150,7 +150,7 @@ namespace CSF.Extensions.WebDriver
         public static IServiceCollection AddWebDriverFactoryWithoutOptionsPattern(this IServiceCollection services)
         {
             services.AddSingleton<IGetsWebDriverAndOptionsTypes, WebDriverTypesProvider>();
-            services.AddSingleton<IProxyGenerator, ProxyGenerator>();
+            services.AddSingleton<IProxyGenerator>(new ProxyGenerator());
 
             services.AddTransient<IGetsWebDriverWithDeterministicOptionsTypes, SeleniumDriverAndOptionsScanner>();
             services.AddTransient(s =>
